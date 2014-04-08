@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include <cutil.h>
-// #include <cutil_inline.h>
-#define cutilSafeCall // nop
+#include <cutil.h>
+#include <cutil_inline.h>
 #include "direct.h"
 
 __global__ void gravity_kernel(float *m, float (*x)[3], float eps, float (*a)[3], float *p, int n);

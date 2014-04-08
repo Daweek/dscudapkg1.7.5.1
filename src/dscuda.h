@@ -1,6 +1,7 @@
 #ifndef _DSCUDA_H
 #define _DSCUDA_H
 
+#include <stdint.h>
 #include <limits.h>
 #include <cuda_runtime_api.h>
 #include <builtin_types.h>

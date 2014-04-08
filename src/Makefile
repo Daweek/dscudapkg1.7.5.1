@@ -1,11 +1,6 @@
-# ARCH = $(shell uname -m)
-# ifeq ($(ARCH), x86_64)
+# General Makefile to manage DSCUDA libraries and binaries
+# By Dr. Kawai and Edgar J.
 
-ifeq ($(shell uname -m), x86_64)
-	LP64 = 1
-else
-	LP64 = 0
-endif
 
 CC            = gcc -O0 -g -ffast-math -funroll-loops
 CXX           = g++ -O0 -g -ffast-math -funroll-loops

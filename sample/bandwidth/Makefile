@@ -1,38 +1,75 @@
-NVCC            ?= nvcc
-DSCUDACPP        = ../../bin/dscudacpp
-CUDAPATH        ?= /usr/local/cuda/
+#DS-CUDA SDK Template makefile #
+#By Edgar J.                   #
+################################
+
+#General Paths........................
+#CUDA..............................
+CUDAPATH        ?= /usr/local/cuda
 CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
-CUDAINCLUDES     = -I. -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc
+NVCC						:= $(CUDAPATH)/bin/nvcc
+#DSCUDA............................
+DSCUDAPATH			?= /usr/local/DSCUDA/dscudapkg1.4.2
+DSCUDASDKPATH		?= $(DSCUDAPATH)/sample
+DSCUDACPP				:= $(DSCUDAPATH)/bin/dscudacpp
+#Others............................
+#Libraries...........................
+#CUDA........................
+CUDALIB_DIR			:= -L$(CUDAPATH)/lib -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/CUDALibraries/common/lib \
+									 -L$(CUDASDKPATH)/shared/lib
+CUDALIB					:= -lcudart -lcutil_i386 
+#DSCUDA......................
+DSCUDALIB_DIR		:= -L$(DSCUDAPATH)/lib
+DSCUDALIB				:= -ldscuda_rpc
+#Others......................
+GL_LIB					:= -lglut -lGL -lGLU
 
-TARGET = bandwidth bandwidthlocal bandwidth_omp bandwidth_tcp
+#Includes............................
+#CUDA
+CUDAINC					:= -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
+#DSCUDA......................
+DSCUDAINC				:= -I.
+#Others......................
+GL_INC					:= -I$(CUDASDKPATH)/shared/inc 
 
-all:	$(TARGET)
+#Specific Flags......................
+#CUDA........................
+CUDA_FLAGS			:= -use_fast_math
 
-bandwidth:	bandwidth.cu ../../lib/libdscuda.a
-	$(DSCUDACPP) $(CUDAINCLUDES) -g -o $@ -I. -i $< -ldscuda -lrdmacm -libverbs -lpthread
+#DSCUDA......................
+CONNECT_FLAG		:= -DRPC_ONLY=1
+CONNECT_LIB			:= $(DSCUDAPATH)/lib/libdscuda_rpc.a
+PERF						:= 
 
-bandwidth_omp:	bandwidth.cu ../../lib/libdscuda.a
-	$(DSCUDACPP) $(CUDAINCLUDES) -o $@ -I. -i $< -ldscuda -lrdmacm -libverbs -lpthread -Xcompiler -fopenmp
+#Others......................
+OPENMP					:= -Xcompiler -fopenmp
 
-bandwidth_tcp:	bandwidth.cu ../../lib/libdscuda_tcp.a
-	$(DSCUDACPP) $(CUDAINCLUDES) -o $@ -I. -i $< -ldscuda_tcp
+#Makefiles Includes..................
+include $(DSCUDASDKPATH)/aux.mk
 
-bandwidth_tcponly:	bandwidth.cu ../../lib/libdscuda_tcp.a
-	$(DSCUDACPP) $(CUDAINCLUDES) -DTCP_ONLY=1 -o $@ -I. -i $< -ldscuda_tcp
+#,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#--------------------------------------
+#.........GLOBAL VARIABLES.............
+LIB							:= $(DSCUDALIB)  
+LIBDIR					:= $(CUDALIB_DIR) $(DSCUDALIB_DIR) 
+INC							:= $(CUDAINC) $(DSCUDAINC)
+FLAGS						:= $(CONNECT_FLAG) $(PERF)  
 
+###########...Main Body...#############
+TARGET = bandwidth
 
-bandwidthlocal:	bandwidth.cu
-	$(NVCC) -o $@ $(CUDAINCLUDES) $<
+all: $(TARGET)_rpc $(TARGET)_rpcOMP $(TARGET)_nativCUDA
 
-bandwidthlocal_omp:	bandwidth.cu
-	$(NVCC) -o $@ $(CUDAINCLUDES) $< -Xcompiler -fopenmp
+$(TARGET)_rpc : $(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
 
-broadcast:	broadcast.cu ../../lib/libdscuda.a
-	$(DSCUDACPP) -o $@ -I. -i $< -ldscuda -lrdmacm -libverbs -lpthread
-
-broadcast_omp:	broadcast.cu ../../lib/libdscuda.a
-	$(DSCUDACPP) -o $@ -I. -i $< -ldscuda -lrdmacm -libverbs -lpthread -Xcompiler -fopenmp
-
+$(TARGET)_rpcOMP: $(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(OPENMP)
+	
+$(TARGET)_nativCUDA:	$(TARGET).cu 
+	$(NVCC) $(FLAGS) $(INC) $(CUDALIB_DIR) $< -o $@
 
 clean:
-	rm -rf *.o *.ptx $(TARGET) *.linkinfo ./dscudatmp
+	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp
+
+########################################
+

@@ -1,55 +1,88 @@
-CPP            = g++
-DSCUDAPATH = ../..
-DSCUDACPP     ?= ../../bin/dscudacpp
-CUDAPATH      ?= /usr/local/cuda
-CUDASDKPATH   ?= /usr/local/cuda/NVIDIA_GPU_Computing_SDK
-CUDAINCLUDES   = -I. -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc
-NVCC          ?= $(CUDAPATH)/bin/nvcc -use_fast_math -O 
-TARGET         = direct rdirect mkdist
+#DS-CUDA SDK Template makefile #
+#By Edgar J.                   #
+################################
 
-CFLAGS         = -DVTGRAPE -O -ffast-math -funroll-loops 
-NVCCFLAGS      = -DVTGRAPE -O
+#General Paths........................
+#CUDA..............................
+CUDAPATH        ?= /usr/local/cuda
+CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
+NVCC						:= $(CUDAPATH)/bin/nvcc
+#DSCUDA............................
+DSCUDAPATH			?= /usr/local/DSCUDA/dscudapkg1.4.2
+DSCUDASDKPATH		?= $(DSCUDAPATH)/sample
+DSCUDACPP				:= $(DSCUDAPATH)/bin/dscudacpp
+#Others............................
+#Libraries...........................
+#CUDA........................
+CUDALIB_DIR			:= -L$(CUDAPATH)/lib64 -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/CUDALibraries/common/lib \
+									 -L$(CUDASDKPATH)/shared/lib
+#CUDALIB					:= -lcudart -lcutil_i386 
+CUDALIB					:= -lcudart -lcutil_x86_64 
+#DSCUDA......................
+DSCUDALIB_DIR		:= -L$(DSCUDAPATH)/lib
+DSCUDALIB				:= -ldscuda_rpc
+#Others......................
+GL_LIB					:= -lglut -lGL -lGLU
 
-MDGRAPE_LIB         = $(CUDASDKPATH)/C/lib/libcutil_x86_64.a -L$(DSCUDAPATH)/lib -lcudart mr3.o
-MDGRAPE_LIB_TCPONLY = $(CUDASDKPATH)/C/lib/libcutil_x86_64.a -L$(DSCUDAPATH)/lib -lcudart mr3_tcponly.o
+#Includes............................
+#CUDA
+CUDAINC					:= -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
+#DSCUDA......................
+DSCUDAINC				:= -I.
+#Others......................
+GL_INC					:= -I$(CUDASDKPATH)/shared/inc 
 
-# MDGRAPE_LIB += $(CUDASDKPATH)/C/lib/libcutil_x86_64.a -L$(CUDAPATH)/lib -lcudart
+#Specific Flags......................
+#CUDA........................
+CUDA_FLAGS			:= -DVTGRAPE -use_fast_math -O
 
+#DSCUDA......................
+CONNECT_FLAG		:= -DRPC_ONLY=1
+CONNECT_LIB			:= $(DSCUDAPATH)/lib/libdscuda_rpc.a
+PERF_FLAG				:= -DVTGRAPE -O -ffast-math -funroll-loops
 
-GL_INCDIR = $(CUDASDKPATH)/shared/inc
-GL_LIBDIR = /usr/local/lib
-GL_LIBS = -L$(GL_LIBDIR) -lglut -lGL -lGLU
-SOCKET_LIB = sockhelp.o
-LIB         = $(SOCKET_LIB) $(MDGRAPE_LIB) $(GL_LIBS) -lm -lstdc++
-LIB_TCPONLY = $(SOCKET_LIB) $(MDGRAPE_LIB_TCPONLY) $(GL_LIBS) -lm -lstdc++
+#Others......................
+OPENMP					:= -Xcompiler -fopenmp
 
-TARGET     = cras_gpu_ibv cras_gpu_tcp
+#Makefiles Includes..................
+include $(DSCUDASDKPATH)/aux.mk
 
-all:	$(TARGET)
+#,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#--------------------------------------
+#.........GLOBAL VARIABLES.............
+LIB							:= $(CUDALIB) $(DSCUDALIB) $(GL_LIB) -lm -lstdc++
+LIBDIR					:= $(CUDALIB_DIR) $(DSCUDALIB_DIR) 
+INC							:= $(CUDAINC) $(DSCUDAINC) $(GL_INC)
+FLAGS						:= $(CUDA_FLAGS)   
 
-mr3.o:	mr3.cu
-	$(DSCUDACPP) -o $@ $(CUDAINCLUDES) -c -use_fast_math -O -i $< 
+###########...Main Body...#############
+TARGET = cras_gpu
 
-mr3_tcponly.o:	mr3.cu
-	$(DSCUDACPP) -DTCP_ONLY=1 -o $@ $(CUDAINCLUDES) -c -use_fast_math -O -i $< 
+all: $(TARGET)_rpc $(TARGET)_nativCUDA
 
-cras_gpu_ibv : cras36.c sockhelp.o mr3.o $(DSCUDAPATH)/lib/libdscuda_ibv.a
-	$(NVCC) $(NVCCFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB) -ldscuda_ibv -lrdmacm -libverbs -lpthread
+$(TARGET)_rpc : cras36.c sockhelp.o mr3_rpc.o $(CONNECT_LIB)
+	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_rpc.o 
 
-cras_gpu_tcp : cras36.c sockhelp.o mr3.o $(DSCUDAPATH)/lib/libdscuda_tcp.a
-	$(NVCC) $(NVCCFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB) -ldscuda_tcp
-
-cras_gpu_tcponly : cras36.c sockhelp.o mr3_tcponly.o $(DSCUDAPATH)/lib/libdscuda_tcp.a
-	$(NVCC) $(NVCCFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB_TCPONLY) -ldscuda_tcp
+$(TARGET)_nativCUDA : cras36.c sockhelp.o mr3_nativ.o $(CONNECT_LIB)
+	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_nativ.o 
+#---------------------------------------
+mr3_rpc.o:  mr3.cu
+	$(DSCUDACPP) $(CUDA_FLAGS) $(CONNECT_FLAG) $(INC) -o $@ -c -i $< 
+ 
+mr3_nativ.o:  mr3.cu
+	$(NVCC) $(CUDA_FLAGS) $(CONNECT_FLAG) $(INC) -o $@ -c $< 
 
 cras_host : cras36.c sockhelp.o mr3_host.o
-	$(CC) $(CFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB) 
+	$(CC) $(PERF_FLAG) $(INC) $< -o $@ sockhelp.o $(LIB) 
 
 mr3_host.o : mr3_host.c
-	$(CC) $(CFLAGS) -c $<
-
+	$(CC) $(PERF_FLAG) -c $<
+ 
 sockhelp.o : sockhelp.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(PERF_FLAG) -o $@ -c $<
+
 
 clean:
-	rm -rf *.o *.ptx $(TARGET) *.linkinfo ./dscudatmp
+	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp
+
+########################################

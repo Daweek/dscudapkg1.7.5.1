@@ -1,6 +1,6 @@
 export CUDAPATH=/usr/local/cuda
 export CUDASDKPATH=/usr/local/cuda/NVIDIA_GPU_Computing_SDK
-export DSCUDA_PATH=/usr/local/DSCUDA/dscudapkg1.7.5
+export DSCUDA_PATH=/usr/local/DSCUDA/dscudapkg1.7.5.1
 export DSCUDA_WARNLEVEL=2
 export PATH=$DSCUDA_PATH/bin:$CUDAPATH/bin:$PATH
 export DSCUDA_USEDAEMON=1

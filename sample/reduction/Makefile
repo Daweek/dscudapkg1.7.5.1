@@ -1,30 +1,77 @@
-DSCUDACPP     ?= ../../bin/dscudacpp -g
-CUDAPATH      ?= /usr/local/cuda
-CUDASDKPATH   ?= /usr/local/cuda/NVIDIA_GPU_Computing_SDK
-CUDAINCLUDES   = -I. -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
-CUDALIBS       = -L. -I$(CUDAPATH)/lib64 -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/shared/lib
+#DS-CUDA SDK Template makefile #
+#By Edgar J.                   #
+################################
 
-NVCC          ?= $(CUDAPATH)/bin/nvcc -use_fast_math -O0 -g
+#General Paths........................
+#CUDA..............................
+CUDAPATH        ?= /usr/local/cuda
+CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
+NVCC						:= $(CUDAPATH)/bin/nvcc
+#DSCUDA............................
+DSCUDAPATH			?= /usr/local/DSCUDA/dscudapkg1.4.2
+DSCUDASDKPATH		?= $(DSCUDAPATH)/sample
+DSCUDACPP				:= $(DSCUDAPATH)/bin/dscudacpp
+#Others............................
+CPP							:= g++
 
+#Libraries...........................
+#CUDA........................
+CUDALIB_DIR			:= -L$(CUDAPATH)/lib -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/CUDALibraries/common/lib \
+									 -L$(CUDASDKPATH)/shared/lib
+CUDALIB					:= -lcudart -lcutil_i386 
+#DSCUDA......................
+DSCUDALIB_DIR		:= -L$(DSCUDAPATH)/lib
+DSCUDALIB				:= -ldscuda_rpc
+#Others......................
+GL_LIB					:= -lglut -lGL -lGLU
 
-TARGET = reduceMultiGPU
+#Includes............................
+#CUDA
+CUDAINC					:= -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
+#DSCUDA......................
+DSCUDAINC				:= -I.
+#Others......................
+GL_INC					:= -I$(CUDASDKPATH)/shared/inc 
 
+#Specific Flags......................
+#CUDA........................
+CUDA_FLAGS			:= -use_fast_math
 
-$(TARGET):	$(TARGET).cu $(TARGET).cuh ../../lib/libdscuda.a
-	$(DSCUDACPP) -o $@ -I. -i $< -ldscuda -libverbs -lrdmacm -lpthread
+#DSCUDA......................
+CONNECT_FLAG		:= -DRPC_ONLY=1
+CONNECT_LIB			:= $(DSCUDAPATH)/lib/libdscuda_rpc.a
+PERF_FLAG				:= 
 
-$(TARGET)_rpc:	$(TARGET).cu $(TARGET).cuh ../../lib/libdscuda_rpc.a
-	$(DSCUDACPP) -o $@ -I. -i $< -ldscuda_rpc
+#Others......................
+OPENMP					:= -Xcompiler -fopenmp
 
-$(TARGET)_rpconly:	$(TARGET).cu $(TARGET).cuh ../../lib/libdscuda_rpc.a
-	$(DSCUDACPP) -DRPC_ONLY=1 -o $@ -I. -i $< -ldscuda_rpc
+#Makefiles Includes..................
+include $(DSCUDASDKPATH)/aux.mk
 
-$(TARGET).o:	$(TARGET).cu $(TARGET).cuh ../../lib/libdscuda.a
-	$(DSCUDACPP) -c -o $@ -I. -i $< -ldscuda -libverbs -lrdmacm -lpthread
+#,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#--------------------------------------
+#.........GLOBAL VARIABLES.............
+LIB							:= $(DSCUDALIB)  
+LIBDIR					:= $(CUDALIB_DIR) $(DSCUDALIB_DIR) 
+INC							:= $(CUDAINC) $(DSCUDAINC)
+FLAGS						:= $(CONNECT_FLAG) $(PERF)  
 
+###########...Main Body...#############
+TARGET = reduce
 
-$(TARGET)_local:	$(TARGET).cu $(TARGET).cuh
-	$(NVCC) $(CUDAINCLUDES) $(CUDALIBS) -o $@ reduceMultiGPU.cu -lshrutil_x86_64 -lcutil_x86_64
+all: $(TARGET)_rpc $(TARGET)_nativCUDA
+
+$(TARGET)_rpc : $(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
+
+$(TARGET)_MultiGPU_rpc:	$(TARGET)MultiGPU.cu $(CONNECT_LIB)
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
+	
+$(TARGET)_nativCUDA:	$(TARGET).cu 
+	$(NVCC) $(FLAGS) $(INC) $(CUDALIB_DIR) $< -o $@
 
 clean:
-	rm -rf *.o *.ptx $(TARGET) $(TARGET)_local *.linkinfo *.snapshot ./dscudatmp
+	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp
+
+########################################
+

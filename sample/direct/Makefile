@@ -1,61 +1,108 @@
-CPP            = g++
-DSCUDACPP     ?= ../../bin/dscudacpp
-CUDAPATH      ?= /usr/local/cuda
-CUDASDKPATH   ?= /usr/local/cuda/NVIDIA_GPU_Computing_SDK
-CUDAINCLUDES   = -I. -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc
+#DS-CUDA SDK Template makefile #
+#By Edgar J.                   #
+################################
 
-NVCC          ?= $(CUDAPATH)/bin/nvcc -use_fast_math -O 
-TARGET         = dsdirectMultiGPU dsdirectMultiGPU_omp dsdirectMultiGPU_tcp
+#General Paths........................
+#CUDA..............................
+CUDAPATH        ?= /usr/local/cuda
+CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
+NVCC						:= $(CUDAPATH)/bin/nvcc
+#DSCUDA............................
+DSCUDAPATH			?= /usr/local/DSCUDA/dscudapkg1.4.2
+DSCUDASDKPATH		?= $(DSCUDAPATH)/sample
+DSCUDACPP				:= $(DSCUDAPATH)/bin/dscudacpp
+#Others............................
+CPP							:= g++
 
-all:	$(TARGET)
+#Libraries...........................
+#CUDA........................
+CUDALIB_DIR			:= -L$(CUDAPATH)/lib -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/CUDALibraries/common/lib \
+									 -L$(CUDASDKPATH)/shared/lib
+CUDALIB					:= -lcudart -lcutil_i386 
+#DSCUDA......................
+DSCUDALIB_DIR		:= -L$(DSCUDAPATH)/lib
+DSCUDALIB				:= -ldscuda_rpc
+#Others......................
+GL_LIB					:= -lglut -lGL -lGLU
 
-run:	dsdirect pl2k pl8k pl64k
-	./dsdirect pl2k pl2k.snapshot
-	./dsdirect pl8k pl8k.snapshot
+#Includes............................
+#CUDA
+CUDAINC					:= -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
+#DSCUDA......................
+DSCUDAINC				:= -I.
+#Others......................
+GL_INC					:= -I$(CUDASDKPATH)/shared/inc 
 
-bigrun:	dsdirect pl64k
-	./dsdirect pl64k pl64k.snapshot
+#Specific Flags......................
+#CUDA........................
+CUDA_FLAGS			:= -use_fast_math
 
-dsdirectMultiGPU:	directMultiGPU.cu util.o ../../lib/libdscuda_ibv.a
-	$(DSCUDACPP) -c -o $@.o $(CUDAINCLUDES) -i directMultiGPU.cu
-	$(CPP) -L$(DSCUDA_PATH)/lib -o $@ $@.o util.o -ldscuda_ibv -lrdmacm -libverbs -lpthread -lcudart
+#DSCUDA......................
+CONNECT_FLAG		:= -DRPC_ONLY=1
+CONNECT_LIB			:= $(DSCUDAPATH)/lib/libdscuda_rpc.a
+PERF_FLAG				:= 
 
-dsdirectMultiGPU_tcp:	directMultiGPU.cu util.o ../../lib/libdscuda_tcp.a
-	$(DSCUDACPP) -c -DTCP_ONLY=1 -o $@.o $(CUDAINCLUDES) -i directMultiGPU.cu
-	$(CPP) -L$(DSCUDA_PATH)/lib -o $@ $@.o util.o -ldscuda_tcp -lcudart
+#Others......................
+OPENMP					:= -Xcompiler -fopenmp
 
-dsdirectMultiGPU_omp:	directMultiGPU.cu util.o ../../lib/libdscuda_ibv.a
-	$(DSCUDACPP) -c -o $@.o $(CUDAINCLUDES) -i directMultiGPU.cu -Xcompiler -fopenmp 
-	$(CPP) -L$(DSCUDA_PATH)/lib -o $@ $@.o util.o -ldscuda_ibv -lrdmacm -libverbs -lpthread -lcudart -fopenmp 
+#Makefiles Includes..................
+include $(DSCUDASDKPATH)/aux.mk
 
-dsdirect:	direct.cu util.o ../../lib/libdscuda_ibv.a
-	$(DSCUDACPP) -c -o $@.o $(CUDAINCLUDES) -i direct.cu
-	$(CPP) -L$(DSCUDA_PATH)/lib -o $@ $@.o util.o -ldscuda_ibv -lrdmacm -libverbs -lpthread -lcudart
+#,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#--------------------------------------
+#.........GLOBAL VARIABLES.............
+LIB							:= $(DSCUDALIB)  
+LIBDIR					:= $(CUDALIB_DIR) $(DSCUDALIB_DIR) 
+INC							:= $(CUDAINC) $(DSCUDAINC)
+FLAGS						:= $(CONNECT_FLAG) $(PERF)  
 
-dsdirect_tcp:	direct.cu util.o ../../lib/libdscuda_tcp.a
-	$(DSCUDACPP) -c -DTCP_ONLY=1 -o $@.o $(CUDAINCLUDES) -i direct.cu
-	$(CPP) -L$(DSCUDA_PATH)/lib -o $@ $@.o util.o -ldscuda_tcp -lcudart
+###########...Main Body...#############
+TARGET = direct
 
-directMultiGPU_omp:	directMultiGPU.cu util.o
-	$(NVCC) -o $@ $(CUDAINCLUDES) directMultiGPU.cu util.o -lpthread -Xcompiler -fopenmp 
+all: $(TARGET)_rpc $(TARGET)_MultiGPU_rpc $(TARGET)_nativCUDA
 
-direct:		direct.cu util.o
-	$(NVCC)  -o $@ $(CUDAINCLUDES) direct.cu util.o
+run: $(TARGET)_rpc pl2k pl8k pl64k
+	./$(TARGET)_rpc pl2k pl2k.snapshot
+	./$(TARGET)_rpc pl8k pl8k.snapshot
+	./$(TARGET)_rpc pl8k pl64k.snapshot
 
-util.o:		util.c
+run_native: $(TARGET)_nativCUDA pl2k pl8k pl64k
+	./$(TARGET)_nativCUDA pl2k pl2knativ.snapshot
+	./$(TARGET)_nativCUDA pl8k pl8knativ.snapshot
+	./$(TARGET)_nativCUDA pl8k pl64knativ.snapshot
+		
+
+$(TARGET)_rpc : $(TARGET).cu $(CONNECT_LIB) util.o
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< util.o $(LIB)
+
+$(TARGET)_rpcOMP: $(TARGET).cu $(CONNECT_LIB) util.o
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< util.o $(LIB) $(OPENMP)
+	
+$(TARGET)_MultiGPU_rpc:	$(TARGET)MultiGPU.cu $(CONNECT_LIB) util.o
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< util.o $(LIB)
+	
+$(TARGET)_MultiGPU_rpcOMP: $(TARGET)MultiGPU.cu $(CONNECT_LIB) util.o
+	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB) util.o $(OPENMP)
+
+$(TARGET)_nativCUDA:	$(TARGET).cu util.o
+	$(NVCC) $(FLAGS) $(INC) $(CUDALIB_DIR) $< -o $@ util.o
+
+util.o:   util.c
 	$(CPP) -c -o $@ util.c
 
-mkdist:		mkdist.c util.o
+mkdist:   mkdist.c util.o
 	$(CPP) -o $@ mkdist.c util.o -lm
 
-pl2k:	mkdist
+pl2k: mkdist
 	./mkdist 2048 1 pl2k
-
-pl8k:	mkdist
+pl8k: mkdist
 	./mkdist 8192 1 pl8k
-
-pl64k:	mkdist
+pl64k:  mkdist
 	./mkdist 65536 1 pl64k
 
+
 clean:
-	rm -rf *.o *.ptx $(TARGET) *.linkinfo pl2k pl8k pl64k *.snapshot ./dscudatmp
+	rm -rf *.o *.ptx *.txt *.snapshot $(TARGET)_* pl2k pl8k pl64k mkdist *.linkinfo ./dscudatmp
+
+########################################
+

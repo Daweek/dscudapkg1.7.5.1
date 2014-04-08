@@ -21,7 +21,7 @@ static inline void
 __unsafeCall(cudaError err, const char *file, const int line)
 {
     if (cudaSuccess != err) {
-        fprintf(stderr, "%s(%i) : __unsafeCall() Runtime API error %d: %s.\n",
+        fprintf(stderr, "%s(%i) : cudaSafeCall() Runtime API error %d: %s.\n",
                 file, line, (int)err, cudaGetErrorString(err));
     }
 }
@@ -135,7 +135,6 @@ main(int argc, char **argv)
             else {
                 cudaMemcpyPeer(dbufB, dstdev, dbufA, srcdev, size);
             }
-            //            fprintf(stderr, "j:%d\n", j);
         }
         cudaDeviceSynchronize();
 	get_cputime(&now, &dt);

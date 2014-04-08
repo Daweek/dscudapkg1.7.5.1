@@ -251,7 +251,6 @@ reduceWithMultiGPU(int ndev_req, int nelem, int *h_idata)
     long long int sum;
     static int *h_odata = NULL;
     static int nblock0 = 0;
-    static int firstcall = 1;
 
     nblock = (nelem - 1) / NTHREAD + 1;
 
@@ -281,24 +280,15 @@ reduceWithMultiGPU(int ndev_req, int nelem, int *h_idata)
         for (i = 0; i < ndev; i += stride * 2) {
             j = i + stride;
             if (j < ndev) {
-                if (firstcall) {
-                    fprintf(stderr, "%d + %d  ", i, j); // !!!
-                }
+                // fprintf(stderr, "%d + %d  ", i, j); // !!!
                 reduceDevicePair(Device + i, Device + j);
             }
             else {
-                if (firstcall) {
-                    fprintf(stderr, "%d  ", i); // !!!
-                }
+                // fprintf(stderr, "%d  ", i); // !!!
             }
         }
-        if (firstcall) {
-            fprintf(stderr, "\n"); // !!!
-        }
+        // fprintf(stderr, "\n"); // !!!
     }
-    firstcall = 0;
-
-
     retrieveResultFromDevice(Device + 0, h_odata); // retrieve from the 1st device.
     cudaDeviceSynchronize();
     nres = (Device + 0)->nblock;

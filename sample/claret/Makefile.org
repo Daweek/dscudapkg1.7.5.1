@@ -1,0 +1,59 @@
+#DS-CUDA SDK makefile
+#By Edgar J.
+
+include ../aux.mk
+
+#General PATHS.......................
+DSCUDACPP       ?= ../../bin/dscudacpp
+CUDAPATH        ?= /usr/local/cuda/
+CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
+NVCC						:= $(CUDAPATH)/bin/nvcc
+#Libraries...........................
+MDGRAPE_LIB         := $(CUDASDKPATH)/C/lib/libcutil_i386.a -L$(DSCUDAPATH)/lib -lcudart mr3.o
+MDGRAPE_LIB_RPCONLY := $(CUDASDKPATH)/C/lib/libcutil_i386.a -L$(DSCUDAPATH)/lib -lcudart mr3_rpconly.o
+DSCUDA_RPC			:= ../../lib/libdscuda_rpc.a
+CLIB						:= -ldscuda_rpc
+GL_LIBDIR 			:= /usr/local/lib
+GL_LIBS 				:= -L$(GL_LIBDIR) -lglut -lGL -lGLU
+SOCKET_LIB 			:= sockhelp.o
+LIB         		:= $(SOCKET_LIB) $(MDGRAPE_LIB) $(GL_LIBS) -lm -lstdc++
+LIB_RPCONLY 		:= $(SOCKET_LIB) $(MDGRAPE_LIB_RPCONLY) $(GL_LIBS) -lm -lstdc++
+#Includes.............................
+CUDAINCLUDES  	?= -I. -I$(CUDADIR)/include -I$(SDKDIR)/common/inc -I$(SDKDIR)/../shared/inc
+GL_INCDIR 			:= $(CUDASDKPATH)/shared/inc
+#Define Enviroment Variables..........
+ENVDEF					:= -DRPC_ONLY=1
+# OS-specific build flag
+CFLAGS        	:= -DVTGRAPE -O -ffast-math -funroll-loops 
+NVCCFLAGS      	:= -use_fast_math -O -DVTGRAPE
+
+#Main Body............................
+TARGET = cras_gpu
+
+all: $(TARGET)_rpconly
+
+$(TARGET)_rpconly : cras36.c sockhelp.o mr3_rpconly.o $(DSCUDA_RPC)
+	$(NVCC) $(NVCCFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB_RPCONLY) -ldscuda_rpc
+
+mr3_rpconly.o:	mr3.cu
+	$(DSCUDACPP) $(ENVDEF) -o $@ $(CUDAINCLUDES) -c -use_fast_math -O -i $< 
+
+cras_host : cras36.c sockhelp.o mr3_host.o
+	$(CC) $(CFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB) 
+
+mr3_host.o : mr3_host.c
+	$(CC) $(CFLAGS) -c $<
+
+sockhelp.o : sockhelp.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	rm -rf *.o *.ptx $(TARGET)  $(TARGET)_rpconly *.linkinfo ./dscudatmp
+
+###################For using ibverb###########
+#mr3.o:	mr3.cu
+#	$(DSCUDACPP) -o $@ $(CUDAINCLUDES) -c -use_fast_math -O -i $< 
+
+#cras_gpu_ibv : cras36.c sockhelp.o mr3.o $(DSCUDAPATH)/lib/libdscuda_ibv.a
+#	$(NVCC) $(NVCCFLAGS) -I$(GL_INCDIR) $< -o $@ $(LIB) -ldscuda_ibv -lrdmacm -libverbs -lpthread
+

@@ -1,4 +1,4 @@
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/reduce.cu"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/local/cuda/include/cuda_runtime.h" 1
@@ -14384,7 +14384,7 @@ __inline__ __attribute__((host)) cudaError_t cudaBindSurfaceToArray(
   return err == cudaSuccess ? cudaBindSurfaceToArray(surf, array, desc) : err;
 }
 # 1 "<command-line>" 2
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/reduce.cu"
 static char *Ptxdata =
     "	.version 1.4\n"
     "	.target sm_10, map_f64_to_f32\n"
@@ -14392,7 +14392,7 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
-    "	// Compiling /tmp/tmpxft_00004b71_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.10icp7)\n"
+    "	// Compiling /tmp/tmpxft_00004ace_00000000-9_reduce.cpp3.i (/tmp/ccBI#.bpvKnF)\n"
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -14405,7 +14405,7 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
-    "	.file	2	\"/tmp/tmpxft_00004b71_00000000-8_vecadd.cudafe2.gpu\"\n"
+    "	.file	2	\"/tmp/tmpxft_00004ace_00000000-8_reduce.cudafe2.gpu\"\n"
     "	.file	3	\"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -14417,7 +14417,7 @@ static char *Ptxdata =
     "	.file	11	\"/usr/local/cuda/include/vector_types.h\"\n"
     "	.file	12	\"/usr/local/cuda/include/device_launch_parameters.h\"\n"
     "	.file	13	\"/usr/local/cuda/include/crt/storage_class.h\"\n"
-    "	.file	14	\"vecadd.cuh\"\n"
+    "	.file	14	\"reduce.cuh\"\n"
     "	.file	15	\"/usr/local/cuda/include/common_functions.h\"\n"
     "	.file	16	\"/usr/local/cuda/include/math_functions.h\"\n"
     "	.file	17	\"/usr/local/cuda/include/math_constants.h\"\n"
@@ -14431,81 +14431,85 @@ static char *Ptxdata =
     "	.file	25	\"/usr/local/cuda/include/texture_fetch_functions.h\"\n"
     "	.file	26	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
     "\n"
+    "	.extern	.shared .align 4 .b8 __smem[];\n"
     "\n"
-    "	.entry _Z6vecAddPfS_S_ (\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__a,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__b,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__c)\n"
+    "	.entry _Z6reduceiPiS_ (\n"
+    "		.param .s32 __cudaparm__Z6reduceiPiS__n,\n"
+    "		.param .u64 __cudaparm__Z6reduceiPiS__g_idata,\n"
+    "		.param .u64 __cudaparm__Z6reduceiPiS__g_odata)\n"
     "	{\n"
-    "	.reg .u16 %rh<4>;\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<10>;\n"
-    "	.reg .f32 %f<5>;\n"
+    "	.reg .u32 %r<20>;\n"
+    "	.reg .u64 %rd<17>;\n"
+    "	.reg .pred %p<7>;\n"
     "	.loc	14	2	0\n"
-    "$LDWbegin__Z6vecAddPfS_S_:\n"
-    "	.loc	14	5	0\n"
-    "	cvt.u32.u16 	%r1, %tid.x;\n"
-    "	mov.u16 	%rh1, %ctaid.x;\n"
-    "	mov.u16 	%rh2, %ntid.x;\n"
-    "	mul.wide.u16 	%r2, %rh1, %rh2;\n"
-    "	add.u32 	%r3, %r1, %r2;\n"
-    "	cvt.s64.s32 	%rd1, %r3;\n"
-    "	mul.wide.s32 	%rd2, %r3, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecAddPfS_S__a];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.f32 	%f1, [%rd4+0];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecAddPfS_S__b];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f2, [%rd6+0];\n"
-    "	add.f32 	%f3, %f1, %f2;\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecAddPfS_S__c];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	st.global.f32 	[%rd8+0], %f3;\n"
-    "	.loc	14	6	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecAddPfS_S_:\n"
-    "	} // _Z6vecAddPfS_S_\n"
-    "\n"
-    "	.entry _Z6vecMulPfS_fS_iPi (\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_a,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_b,\n"
-    "		.param .f32 __cudaparm__Z6vecMulPfS_fS_iPi_c,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_d,\n"
-    "		.param .s32 __cudaparm__Z6vecMulPfS_fS_iPi_e,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_f)\n"
-    "	{\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<12>;\n"
-    "	.reg .f32 %f<10>;\n"
-    "	.loc	14	9	0\n"
-    "$LDWbegin__Z6vecMulPfS_fS_iPi:\n"
-    "	.loc	14	12	0\n"
-    "	cvt.s32.u16 	%r1, %tid.x;\n"
-    "	cvt.s64.s32 	%rd1, %r1;\n"
-    "	mul.wide.s32 	%rd2, %r1, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecMulPfS_fS_iPi_f];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.s32 	%r2, [%rd4+0];\n"
-    "	cvt.rn.f32.s32 	%f1, %r2;\n"
-    "	ld.param.s32 	%r3, [__cudaparm__Z6vecMulPfS_fS_iPi_e];\n"
-    "	cvt.rn.f32.s32 	%f2, %r3;\n"
-    "	ld.param.f32 	%f3, [__cudaparm__Z6vecMulPfS_fS_iPi_c];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecMulPfS_fS_iPi_a];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f4, [%rd6+0];\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecMulPfS_fS_iPi_b];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	ld.global.f32 	%f5, [%rd8+0];\n"
-    "	mad.f32 	%f6, %f4, %f5, %f3;\n"
-    "	add.f32 	%f7, %f2, %f6;\n"
-    "	add.f32 	%f8, %f1, %f7;\n"
-    "	ld.param.u64 	%rd9, [__cudaparm__Z6vecMulPfS_fS_iPi_d];\n"
-    "	add.u64 	%rd10, %rd9, %rd2;\n"
-    "	st.global.f32 	[%rd10+0], %f8;\n"
+    "$LDWbegin__Z6reduceiPiS_:\n"
+    "	cvt.u32.u16 	%r1, %ntid.x;\n"
+    "	cvt.u32.u16 	%r2, %ctaid.x;\n"
+    "	mul.lo.u32 	%r3, %r1, %r2;\n"
+    "	cvt.u32.u16 	%r4, %tid.x;\n"
+    "	add.u32 	%r5, %r3, %r4;\n"
+    "	ld.param.s32 	%r6, [__cudaparm__Z6reduceiPiS__n];\n"
+    "	setp.le.u32 	%p1, %r6, %r5;\n"
+    "	@%p1 bra 	$Lt_0_3842;\n"
+    "	.loc	14	11	0\n"
+    "	ld.param.u64 	%rd1, [__cudaparm__Z6reduceiPiS__g_idata];\n"
+    "	cvt.u64.u32 	%rd2, %r5;\n"
+    "	mul.wide.u32 	%rd3, %r5, 4;\n"
+    "	add.u64 	%rd4, %rd1, %rd3;\n"
+    "	ld.global.s32 	%r7, [%rd4+0];\n"
+    "	bra.uni 	$Lt_0_3586;\n"
+    "$Lt_0_3842:\n"
+    "	mov.s32 	%r7, 0;\n"
+    "$Lt_0_3586:\n"
+    "	mov.u64 	%rd5, __smem;\n"
+    "	cvt.u64.u32 	%rd6, %r4;\n"
+    "	mul.wide.u32 	%rd7, %r4, 4;\n"
+    "	add.u64 	%rd8, %rd5, %rd7;\n"
+    "	st.shared.s32 	[%rd8+0], %r7;\n"
     "	.loc	14	13	0\n"
+    "	bar.sync 	0;\n"
+    "	mov.u32 	%r8, 1;\n"
+    "	setp.le.u32 	%p2, %r1, %r8;\n"
+    "	@%p2 bra 	$Lt_0_4098;\n"
+    "	mov.u32 	%r9, 1;\n"
+    "$Lt_0_4610:\n"
+    "	mul.lo.u32 	%r10, %r9, 2;\n"
+    "	rem.u32 	%r11, %r4, %r10;\n"
+    "	mov.u32 	%r12, 0;\n"
+    "	setp.ne.u32 	%p3, %r11, %r12;\n"
+    "	@%p3 bra 	$Lt_0_4866;\n"
+    "	.loc	14	20	0\n"
+    "	ld.shared.s32 	%r13, [%rd8+0];\n"
+    "	add.u32 	%r14, %r9, %r4;\n"
+    "	cvt.u64.u32 	%rd9, %r14;\n"
+    "	mul.wide.u32 	%rd10, %r14, 4;\n"
+    "	add.u64 	%rd11, %rd5, %rd10;\n"
+    "	ld.shared.s32 	%r15, [%rd11+0];\n"
+    "	add.s32 	%r16, %r13, %r15;\n"
+    "	st.shared.s32 	[%rd8+0], %r16;\n"
+    "$Lt_0_4866:\n"
+    "	.loc	14	22	0\n"
+    "	bar.sync 	0;\n"
+    "	.loc	14	17	0\n"
+    "	mov.s32 	%r9, %r10;\n"
+    "	setp.lt.u32 	%p4, %r10, %r1;\n"
+    "	@%p4 bra 	$Lt_0_4610;\n"
+    "$Lt_0_4098:\n"
+    "	mov.u32 	%r17, 0;\n"
+    "	setp.ne.u32 	%p5, %r4, %r17;\n"
+    "	@%p5 bra 	$Lt_0_5634;\n"
+    "	.loc	14	27	0\n"
+    "	ld.shared.s32 	%r18, [__smem+0];\n"
+    "	ld.param.u64 	%rd12, [__cudaparm__Z6reduceiPiS__g_odata];\n"
+    "	cvt.u64.u32 	%rd13, %r2;\n"
+    "	mul.wide.u32 	%rd14, %r2, 4;\n"
+    "	add.u64 	%rd15, %rd12, %rd14;\n"
+    "	st.global.s32 	[%rd15+0], %r18;\n"
+    "$Lt_0_5634:\n"
+    "	.loc	14	29	0\n"
     "	exit;\n"
-    "$LDWend__Z6vecMulPfS_fS_iPi:\n"
-    "	} // _Z6vecMulPfS_fS_iPi\n"
+    "$LDWend__Z6reduceiPiS_:\n"
+    "	} // _Z6reduceiPiS_\n"
     "\n";
 #pragma dscuda endofptx
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 1
@@ -15383,7 +15387,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
 }
 # 866 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h"
 cudaError_t dscudaSortByKey(const int nitems, uint64_t *key, int *value);
-# 125 "./dscudatmp/vecadd.cu" 2
+# 129 "./dscudatmp/reduce.cu" 2
 
 # 1 "/usr/include/stdio.h" 1 3 4
 # 30 "/usr/include/stdio.h" 3 4
@@ -16193,7 +16197,7 @@ extern int ftrylockfile (FILE *__stream) throw () ;
 extern void funlockfile (FILE *__stream) throw ();
 # 940 "/usr/include/stdio.h" 3 4
 }
-# 127 "./dscudatmp/vecadd.cu" 2
+# 131 "./dscudatmp/reduce.cu" 2
 
 
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h" 1
@@ -16480,7 +16484,7 @@ extern "C" {
     cutGetAverageTimerValue( const unsigned int name);
 # 926 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
 }
-# 130 "./dscudatmp/vecadd.cu" 2
+# 134 "./dscudatmp/reduce.cu" 2
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h" 1
 # 15 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
 # 1 "/usr/local/cuda/include/cuda.h" 1
@@ -38316,58 +38320,93 @@ inline void print_NVCC_min_spec(const char *sSDKsample, const char *sNVCCReq, co
     printf(" -> CUDA %s Toolkit\n" , sNVCCReq);
     printf(" -> %s NVIDIA Display Driver.\n", sDriverReq);
 }
-# 131 "./dscudatmp/vecadd.cu" 2
+# 135 "./dscudatmp/reduce.cu" 2
 
-# 1 "./vecadd.cuh" 1
+# 1 "./reduce.cuh" 1
 __attribute__((global)) void
-vecAdd(float *a, float *b, float *c)
+reduce(int n, int *g_idata, int *g_odata)
 {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    c[i] = a[i] + b[i];
-}
+    extern __attribute__((shared)) int __smem[];
+    int *sdata = __smem;
 
-__attribute__((global)) void
-vecMul(float *a, float *b, float c, float *d, int e, int * f)
-{
-    int i = threadIdx.x;
-    d[i] = a[i] * b[i] + c + e + f[i];
+
+    unsigned int tid = threadIdx.x;
+    unsigned int i = blockIdx.x*blockDim.x + threadIdx.x;
+
+    sdata[tid] = (i < n) ? g_idata[i] : 0;
+
+    __syncthreads();
+
+
+
+    for (unsigned int s = 1; s < blockDim.x; s *= 2) {
+
+        if ((tid % (2 * s)) == 0) {
+            sdata[tid] += sdata[tid + s];
+        }
+        __syncthreads();
+    }
+
+
+    if (tid == 0) {
+        g_odata[blockIdx.x] = sdata[0];
+    }
 }
-# 133 "./dscudatmp/vecadd.cu" 2
+# 137 "./dscudatmp/reduce.cu" 2
+
 
 
 
 int
-main(void)
+main(int argc, char **argv)
 {
-    int i, t;
-    float a[(8)], b[(8)], c[(8)];
+    int i, nelem, nblock;
+    int sum, h_sum;
+    int *h_idata, *h_odata;
+    int *d_idata, *d_odata;
 
-    float *d_a, *d_b, *d_c;
-    __cudaSafeCall (cudaMalloc((void**) &d_a, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 143);
-    __cudaSafeCall (cudaMalloc((void**) &d_b, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 144);
-    __cudaSafeCall (cudaMalloc((void**) &d_c, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 145);
-
-    for (t = 0; t < 3; t++) {
-        printf("try %d\n", t);
-        for (i = 0; i < (8); i++) {
-            a[i] = rand()%64;
-            b[i] = rand()%64;
-        }
-        __cudaSafeCall (cudaMemcpy(d_a, a, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 153);
-        __cudaSafeCall (cudaMemcpy(d_b, b, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 154);
-        int nth = 4;
-        dim3 threads(nth, 1, 1);
-        dim3 grids(((8)+nth-1)/nth, 1, 1);
-        vecAdd<<<grids, threads>>>(d_a, d_b, d_c);
-        __cudaSafeCall (cudaMemcpy(c, d_c, sizeof(float) * (8), cudaMemcpyDeviceToHost), "./dscudatmp/vecadd.cu", 159);
-        for (i = 0; i < (8); i++) {
-            printf("% 6.2f + % 6.2f = % 7.2f",
-                   a[i], b[i], c[i]);
-            if (a[i] + b[i] != c[i]) printf("   NG");
-            printf("\n");
-        }
-        printf("\n");
+    if (argc < 2) {
+        fprintf(stderr, "usage: %s <# of elements>\n", argv[0]);
+        exit(1);
     }
+    nelem = atoi(argv[1]);
+    nblock = (nelem - 1) / (64) + 1;
+    if ((65536) < nblock) {
+        fprintf(stderr, "# of elements exceeds the limit (=%d).\n", (64) * (65536));
+        exit(1);
+    }
+    fprintf(stderr, "nelem:%d  nthread:%d  nblock:%d\n", nelem, (64), nblock);
 
-    exit(0);
+    h_idata = (int *)malloc(sizeof(int) * nelem);
+    h_odata = (int *)malloc(sizeof(int) * nblock);
+    __cudaSafeCall (cudaMalloc((void**) &d_idata, sizeof(int) * nelem), "./dscudatmp/reduce.cu", 163);
+    __cudaSafeCall (cudaMalloc((void**) &d_odata, sizeof(int) * nblock), "./dscudatmp/reduce.cu", 164);
+
+    h_sum = 0;
+    for (i = 0; i < nelem; i++) {
+        h_idata[i] = lrand48() % (1 << 8);
+        h_sum += h_idata[i];
+    }
+    __cudaSafeCall (cudaMemcpy(d_idata, h_idata, sizeof(int) * nelem, cudaMemcpyHostToDevice), "./dscudatmp/reduce.cu", 171);
+
+    for (i = 0; i < nblock; i++) {
+        h_odata[i] = 0;
+    }
+    __cudaSafeCall (cudaMemcpy(d_odata, h_odata, sizeof(int) * nblock, cudaMemcpyHostToDevice), "./dscudatmp/reduce.cu", 176);
+
+    dim3 threads((64), 1, 1);
+    dim3 grids(nblock, 1, 1);
+    int smemsize = sizeof(int) * (64);
+
+    reduce<<<grids, threads, smemsize>>>(nelem, d_idata, d_odata);
+
+    __cudaSafeCall (cudaMemcpy(h_odata, d_odata, sizeof(int) * nblock, cudaMemcpyDeviceToHost), "./dscudatmp/reduce.cu", 184);
+
+    sum = 0;
+    for (i = 0; i < nblock; i++) {
+        fprintf(stderr, "block[%d]:%d\n", i, h_odata[i]);
+        sum += h_odata[i];
+    }
+    printf("  sum: %d\n", sum);
+    printf("h_sum: %d\n", h_sum);
 }

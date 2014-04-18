@@ -4,4 +4,4 @@ export DSCUDA_PATH=/usr/local/DSCUDA/dscudapkg1.7.5.1
 export DSCUDA_WARNLEVEL=2
 export PATH=$DSCUDA_PATH/bin:$CUDAPATH/bin:$PATH
 export DSCUDA_USEDAEMON=1
-export DSCUDA_REMOTECALL="tcp"
+#export DSCUDA_REMOTECALL="tcp"

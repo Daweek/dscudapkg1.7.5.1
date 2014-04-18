@@ -56,15 +56,15 @@ endif
 ifeq ("$(OSUPPER)","LINUX")
     # Each Linux Distribuion has a set of different paths.  This applies especially when using the Linux RPM/debian packages
     ifeq ("$(DISTRO)","ubuntu")
-        CUDA_PATH  	?= /usr/local/cuda
-				CUDA_SDKPATH ?= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
-				DSCUDA_PATH	?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
+        CUDA_PATH  	:= /usr/local/cuda
+				CUDA_SDKPATH := $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
+				DSCUDA_PATH	:= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
     endif
 		#For Knoppix..............
     ifeq ("$(DISTRO)","debian")
-        CUDA_PATH  	?= /usr/local/cuda
-				CUDA_SDKPATH ?= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
-				DSCUDA_PATH	?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
+        CUDA_PATH  	:= /usr/local/cuda
+				CUDA_SDKPATH := $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
+				DSCUDA_PATH	:= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
     endif
   # Search for Linux distribution path for libcuda.so
   CUDALIB ?= $(shell find $(CUDAPATH) $(DFLT_PATH) -name libcuda.so -print 2>/dev/null)

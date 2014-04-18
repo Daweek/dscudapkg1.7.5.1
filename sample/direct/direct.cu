@@ -181,7 +181,7 @@ main(int argc, char **argv)
     static int step;
 
 #ifdef __DSCUDA__
-    dscudaSetErrorHandler(errhandler, (void *)&step);
+    //dscudaSetErrorHandler(errhandler, (void *)&step);
 #endif
 
     eps = 0.02;

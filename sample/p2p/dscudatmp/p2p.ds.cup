@@ -1,4 +1,4 @@
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/p2p.cu"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/local/cuda/include/cuda_runtime.h" 1
@@ -14384,7 +14384,7 @@ __inline__ __attribute__((host)) cudaError_t cudaBindSurfaceToArray(
   return err == cudaSuccess ? cudaBindSurfaceToArray(surf, array, desc) : err;
 }
 # 1 "<command-line>" 2
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/p2p.cu"
 static char *Ptxdata =
     "	.version 1.4\n"
     "	.target sm_10, map_f64_to_f32\n"
@@ -14392,7 +14392,7 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
-    "	// Compiling /tmp/tmpxft_00004b71_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.10icp7)\n"
+    "	// Compiling /tmp/tmpxft_00004a31_00000000-9_p2p.cpp3.i (/tmp/ccBI#.XlqqZ1)\n"
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -14405,7 +14405,7 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
-    "	.file	2	\"/tmp/tmpxft_00004b71_00000000-8_vecadd.cudafe2.gpu\"\n"
+    "	.file	2	\"/tmp/tmpxft_00004a31_00000000-8_p2p.cudafe2.gpu\"\n"
     "	.file	3	\"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -14417,95 +14417,19 @@ static char *Ptxdata =
     "	.file	11	\"/usr/local/cuda/include/vector_types.h\"\n"
     "	.file	12	\"/usr/local/cuda/include/device_launch_parameters.h\"\n"
     "	.file	13	\"/usr/local/cuda/include/crt/storage_class.h\"\n"
-    "	.file	14	\"vecadd.cuh\"\n"
-    "	.file	15	\"/usr/local/cuda/include/common_functions.h\"\n"
-    "	.file	16	\"/usr/local/cuda/include/math_functions.h\"\n"
-    "	.file	17	\"/usr/local/cuda/include/math_constants.h\"\n"
-    "	.file	18	\"/usr/local/cuda/include/device_functions.h\"\n"
-    "	.file	19	\"/usr/local/cuda/include/sm_11_atomic_functions.h\"\n"
-    "	.file	20	\"/usr/local/cuda/include/sm_12_atomic_functions.h\"\n"
-    "	.file	21	\"/usr/local/cuda/include/sm_13_double_functions.h\"\n"
-    "	.file	22	\"/usr/local/cuda/include/sm_20_atomic_functions.h\"\n"
-    "	.file	23	\"/usr/local/cuda/include/sm_20_intrinsics.h\"\n"
-    "	.file	24	\"/usr/local/cuda/include/surface_functions.h\"\n"
-    "	.file	25	\"/usr/local/cuda/include/texture_fetch_functions.h\"\n"
-    "	.file	26	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
+    "	.file	14	\"/usr/local/cuda/include/common_functions.h\"\n"
+    "	.file	15	\"/usr/local/cuda/include/math_functions.h\"\n"
+    "	.file	16	\"/usr/local/cuda/include/math_constants.h\"\n"
+    "	.file	17	\"/usr/local/cuda/include/device_functions.h\"\n"
+    "	.file	18	\"/usr/local/cuda/include/sm_11_atomic_functions.h\"\n"
+    "	.file	19	\"/usr/local/cuda/include/sm_12_atomic_functions.h\"\n"
+    "	.file	20	\"/usr/local/cuda/include/sm_13_double_functions.h\"\n"
+    "	.file	21	\"/usr/local/cuda/include/sm_20_atomic_functions.h\"\n"
+    "	.file	22	\"/usr/local/cuda/include/sm_20_intrinsics.h\"\n"
+    "	.file	23	\"/usr/local/cuda/include/surface_functions.h\"\n"
+    "	.file	24	\"/usr/local/cuda/include/texture_fetch_functions.h\"\n"
+    "	.file	25	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
     "\n"
-    "\n"
-    "	.entry _Z6vecAddPfS_S_ (\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__a,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__b,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__c)\n"
-    "	{\n"
-    "	.reg .u16 %rh<4>;\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<10>;\n"
-    "	.reg .f32 %f<5>;\n"
-    "	.loc	14	2	0\n"
-    "$LDWbegin__Z6vecAddPfS_S_:\n"
-    "	.loc	14	5	0\n"
-    "	cvt.u32.u16 	%r1, %tid.x;\n"
-    "	mov.u16 	%rh1, %ctaid.x;\n"
-    "	mov.u16 	%rh2, %ntid.x;\n"
-    "	mul.wide.u16 	%r2, %rh1, %rh2;\n"
-    "	add.u32 	%r3, %r1, %r2;\n"
-    "	cvt.s64.s32 	%rd1, %r3;\n"
-    "	mul.wide.s32 	%rd2, %r3, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecAddPfS_S__a];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.f32 	%f1, [%rd4+0];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecAddPfS_S__b];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f2, [%rd6+0];\n"
-    "	add.f32 	%f3, %f1, %f2;\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecAddPfS_S__c];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	st.global.f32 	[%rd8+0], %f3;\n"
-    "	.loc	14	6	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecAddPfS_S_:\n"
-    "	} // _Z6vecAddPfS_S_\n"
-    "\n"
-    "	.entry _Z6vecMulPfS_fS_iPi (\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_a,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_b,\n"
-    "		.param .f32 __cudaparm__Z6vecMulPfS_fS_iPi_c,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_d,\n"
-    "		.param .s32 __cudaparm__Z6vecMulPfS_fS_iPi_e,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_f)\n"
-    "	{\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<12>;\n"
-    "	.reg .f32 %f<10>;\n"
-    "	.loc	14	9	0\n"
-    "$LDWbegin__Z6vecMulPfS_fS_iPi:\n"
-    "	.loc	14	12	0\n"
-    "	cvt.s32.u16 	%r1, %tid.x;\n"
-    "	cvt.s64.s32 	%rd1, %r1;\n"
-    "	mul.wide.s32 	%rd2, %r1, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecMulPfS_fS_iPi_f];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.s32 	%r2, [%rd4+0];\n"
-    "	cvt.rn.f32.s32 	%f1, %r2;\n"
-    "	ld.param.s32 	%r3, [__cudaparm__Z6vecMulPfS_fS_iPi_e];\n"
-    "	cvt.rn.f32.s32 	%f2, %r3;\n"
-    "	ld.param.f32 	%f3, [__cudaparm__Z6vecMulPfS_fS_iPi_c];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecMulPfS_fS_iPi_a];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f4, [%rd6+0];\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecMulPfS_fS_iPi_b];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	ld.global.f32 	%f5, [%rd8+0];\n"
-    "	mad.f32 	%f6, %f4, %f5, %f3;\n"
-    "	add.f32 	%f7, %f2, %f6;\n"
-    "	add.f32 	%f8, %f1, %f7;\n"
-    "	ld.param.u64 	%rd9, [__cudaparm__Z6vecMulPfS_fS_iPi_d];\n"
-    "	add.u64 	%rd10, %rd9, %rd2;\n"
-    "	st.global.f32 	[%rd10+0], %f8;\n"
-    "	.loc	14	13	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecMulPfS_fS_iPi:\n"
-    "	} // _Z6vecMulPfS_fS_iPi\n"
     "\n";
 #pragma dscuda endofptx
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 1
@@ -15383,7 +15307,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
 }
 # 866 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h"
 cudaError_t dscudaSortByKey(const int nitems, uint64_t *key, int *value);
-# 125 "./dscudatmp/vecadd.cu" 2
+# 49 "./dscudatmp/p2p.cu" 2
 
 # 1 "/usr/include/stdio.h" 1 3 4
 # 30 "/usr/include/stdio.h" 3 4
@@ -16193,8 +16117,112 @@ extern int ftrylockfile (FILE *__stream) throw () ;
 extern void funlockfile (FILE *__stream) throw ();
 # 940 "/usr/include/stdio.h" 3 4
 }
-# 127 "./dscudatmp/vecadd.cu" 2
+# 51 "./dscudatmp/p2p.cu" 2
 
+
+# 1 "/usr/include/x86_64-linux-gnu/sys/time.h" 1 3 4
+# 29 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
+# 30 "/usr/include/x86_64-linux-gnu/sys/time.h" 2 3 4
+# 39 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+extern "C" {
+# 57 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
+
+typedef struct timezone *__restrict __timezone_ptr_t;
+# 73 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern int settimeofday (__const struct timeval *__tv,
+    __const struct timezone *__tz)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern int adjtime (__const struct timeval *__delta,
+      struct timeval *__olddelta) throw ();
+
+
+
+
+enum __itimer_which
+  {
+
+    ITIMER_REAL = 0,
+
+
+    ITIMER_VIRTUAL = 1,
+
+
+
+    ITIMER_PROF = 2
+
+  };
+
+
+
+struct itimerval
+  {
+
+    struct timeval it_interval;
+
+    struct timeval it_value;
+  };
+
+
+
+
+
+
+typedef int __itimer_which_t;
+
+
+
+
+extern int getitimer (__itimer_which_t __which,
+        struct itimerval *__value) throw ();
+
+
+
+
+extern int setitimer (__itimer_which_t __which,
+        __const struct itimerval *__restrict __new,
+        struct itimerval *__restrict __old) throw ();
+
+
+
+
+extern int utimes (__const char *__file, __const struct timeval __tvp[2])
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int lutimes (__const char *__file, __const struct timeval __tvp[2])
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int futimes (int __fd, __const struct timeval __tvp[2]) throw ();
+
+
+
+
+
+
+extern int futimesat (int __fd, __const char *__file,
+        __const struct timeval __tvp[2]) throw ();
+# 191 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+}
+# 54 "./dscudatmp/p2p.cu" 2
 
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h" 1
 # 37 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
@@ -16480,7 +16508,7 @@ extern "C" {
     cutGetAverageTimerValue( const unsigned int name);
 # 926 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
 }
-# 130 "./dscudatmp/vecadd.cu" 2
+# 56 "./dscudatmp/p2p.cu" 2
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h" 1
 # 15 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
 # 1 "/usr/local/cuda/include/cuda.h" 1
@@ -38316,57 +38344,142 @@ inline void print_NVCC_min_spec(const char *sSDKsample, const char *sNVCCReq, co
     printf(" -> CUDA %s Toolkit\n" , sNVCCReq);
     printf(" -> %s NVIDIA Display Driver.\n", sDriverReq);
 }
-# 131 "./dscudatmp/vecadd.cu" 2
+# 57 "./dscudatmp/p2p.cu" 2
 
-# 1 "./vecadd.cuh" 1
-__attribute__((global)) void
-vecAdd(float *a, float *b, float *c)
+static const double MEGA = 1e6;
+
+enum {
+    COPY_BY_MEMCPY,
+    COPY_BY_MEMCPYPEER,
+};
+
+
+
+
+static inline void
+__unsafeCall(cudaError err, const char *file, const int line)
 {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    c[i] = a[i] + b[i];
+    if (cudaSuccess != err) {
+        fprintf(stderr, "%s(%i) : cudaSafeCall() Runtime API error %d: %s.\n",
+                file, line, (int)err, cudaGetErrorString(err));
+    }
 }
 
-__attribute__((global)) void
-vecMul(float *a, float *b, float c, float *d, int e, int * f)
+static void
+get_cputime(double *nowp, double *deltap)
 {
-    int i = threadIdx.x;
-    d[i] = a[i] * b[i] + c + e + f[i];
+    struct timeval t;
+    double now0;
+
+    gettimeofday(&t, __null);
+    now0 = t.tv_sec + t.tv_usec/1000000.0;
+    *deltap = now0 - *nowp;
+    *nowp = now0;
 }
-# 133 "./dscudatmp/vecadd.cu" 2
-
-
 
 int
-main(void)
+main(int argc, char **argv)
 {
-    int i, t;
-    float a[(8)], b[(8)], c[(8)];
+    double ratio = 2.5;
+    double nloop = 2e8;
+    double sized;
+    double now, dt;
+    int maxsize = 1024 * 1024 * 10.0;
+    int i, j, size;
+    int *bufA, *bufB;
+    int *dbufA, *dbufB;
+    int srcdev, dstdev;
+    int copyapi;
+    char copyapistr[128];
 
-    float *d_a, *d_b, *d_c;
-    __cudaSafeCall (cudaMalloc((void**) &d_a, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 143);
-    __cudaSafeCall (cudaMalloc((void**) &d_b, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 144);
-    __cudaSafeCall (cudaMalloc((void**) &d_c, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 145);
+    if (argc < 4) {
+        fprintf(stderr,
+                "copies an array of int from one device to another.\n"
+                "usage: %s <c|p> <src_dev> <dst_dev>\n"
+                "           'c' for cudaMemcpy()\n"
+                "           'p' for cudaMemcpyPeer()\n",
+                argv[0]);
+        exit(1);
+    }
+    switch (argv[1][0]) {
+      case 'c':
+        copyapi = COPY_BY_MEMCPY;
+        sprintf(copyapistr, "cudaMemcpy() ");
+        break;
+      case 'p':
+        copyapi = COPY_BY_MEMCPYPEER;
+        sprintf(copyapistr, "cudaMemcpyPeer() ");
+        break;
+      default:
+        fprintf(stderr, "arg1 should be 'c' or 'p'.\n");
+        exit(1);
+    }
 
-    for (t = 0; t < 3; t++) {
-        printf("try %d\n", t);
-        for (i = 0; i < (8); i++) {
-            a[i] = rand()%64;
-            b[i] = rand()%64;
+    srcdev = atoi(argv[2]);
+    dstdev = atoi(argv[3]);
+    fprintf(stderr, "%s from device %d to device %d.\n",
+            copyapistr, srcdev, dstdev);
+
+    bufA = (int *)malloc(maxsize);
+    bufB = (int *)malloc(maxsize);
+
+    __cudaSafeCall (cudaSetDevice(srcdev), "./dscudatmp/p2p.cu", 135);
+    cudaMalloc((void**) &dbufA, maxsize);
+    __cudaSafeCall (cudaSetDevice(dstdev), "./dscudatmp/p2p.cu", 137);
+    cudaMalloc((void**) &dbufB, maxsize);
+
+
+    for (i = 0; i < maxsize / sizeof(int); i++) {
+        bufA[i] = rand() % 64;
+        bufB[i] = rand() % 64;
+    }
+    __cudaSafeCall (cudaSetDevice(srcdev), "./dscudatmp/p2p.cu", 145);
+    __cudaSafeCall (cudaMemcpy(dbufA, bufA, maxsize, cudaMemcpyHostToDevice), "./dscudatmp/p2p.cu", 146);
+    __cudaSafeCall (cudaSetDevice(dstdev), "./dscudatmp/p2p.cu", 147);
+
+
+    if (copyapi == COPY_BY_MEMCPY) {
+        __cudaSafeCall (cudaMemcpy(dbufB, dbufA, maxsize, cudaMemcpyDefault), "./dscudatmp/p2p.cu", 151);
+    }
+    else {
+        __unsafeCall (cudaMemcpyPeer(dbufB, dstdev, dbufA, srcdev, maxsize), "./dscudatmp/p2p.cu", 154);
+    }
+
+
+    __cudaSafeCall (cudaMemcpy(bufB, dbufB, maxsize, cudaMemcpyDeviceToHost), "./dscudatmp/p2p.cu", 158);
+
+
+
+    for (i = 0; i < maxsize / sizeof(int); i++) {
+        if (bufA[i] != bufB[i]) {
+            fprintf(stderr, "NG\n");
+            fprintf(stderr, "bufA[%d]:0x%08x\n", i, bufA[i]);
+            fprintf(stderr, "bufB[%d]:0x%08x\n", i, bufB[i]);
+            exit(1);
         }
-        __cudaSafeCall (cudaMemcpy(d_a, a, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 153);
-        __cudaSafeCall (cudaMemcpy(d_b, b, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 154);
-        int nth = 4;
-        dim3 threads(nth, 1, 1);
-        dim3 grids(((8)+nth-1)/nth, 1, 1);
-        vecAdd<<<grids, threads>>>(d_a, d_b, d_c);
-        __cudaSafeCall (cudaMemcpy(c, d_c, sizeof(float) * (8), cudaMemcpyDeviceToHost), "./dscudatmp/vecadd.cu", 159);
-        for (i = 0; i < (8); i++) {
-            printf("% 6.2f + % 6.2f = % 7.2f",
-                   a[i], b[i], c[i]);
-            if (a[i] + b[i] != c[i]) printf("   NG");
-            printf("\n");
+    }
+    fprintf(stderr, "OK\n");
+
+
+    for (sized = 4096; sized < maxsize; sized *= ratio) {
+
+        size = (size_t)sized;
+
+ get_cputime(&now, &dt);
+ for (j = 0; j < nloop/size; j++) {
+
+            if (copyapi == COPY_BY_MEMCPY) {
+                cudaMemcpy(dbufB, dbufA, size, cudaMemcpyDefault);
+            }
+            else {
+                cudaMemcpyPeer(dbufB, dstdev, dbufA, srcdev, size);
+            }
         }
-        printf("\n");
+        cudaDeviceSynchronize();
+ get_cputime(&now, &dt);
+ printf("%d byte    %f sec    %f MB/s\n",
+               size, dt, nloop/MEGA/dt);
+ fflush(stdout);
     }
 
     exit(0);

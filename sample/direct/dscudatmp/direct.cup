@@ -1,4 +1,4 @@
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/direct.cu"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/local/cuda/include/cuda_runtime.h" 1
@@ -14384,7 +14384,7 @@ __inline__ __attribute__((host)) cudaError_t cudaBindSurfaceToArray(
   return err == cudaSuccess ? cudaBindSurfaceToArray(surf, array, desc) : err;
 }
 # 1 "<command-line>" 2
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/direct.cu"
 static char *Ptxdata =
     "	.version 1.4\n"
     "	.target sm_10, map_f64_to_f32\n"
@@ -14392,7 +14392,7 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
-    "	// Compiling /tmp/tmpxft_00004b71_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.10icp7)\n"
+    "	// Compiling /tmp/tmpxft_00004979_00000000-9_direct.cpp3.i (/tmp/ccBI#.8O732E)\n"
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -14405,7 +14405,7 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
-    "	.file	2	\"/tmp/tmpxft_00004b71_00000000-8_vecadd.cudafe2.gpu\"\n"
+    "	.file	2	\"/tmp/tmpxft_00004979_00000000-8_direct.cudafe2.gpu\"\n"
     "	.file	3	\"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -14417,7 +14417,7 @@ static char *Ptxdata =
     "	.file	11	\"/usr/local/cuda/include/vector_types.h\"\n"
     "	.file	12	\"/usr/local/cuda/include/device_launch_parameters.h\"\n"
     "	.file	13	\"/usr/local/cuda/include/crt/storage_class.h\"\n"
-    "	.file	14	\"vecadd.cuh\"\n"
+    "	.file	14	\"direct.cu\"\n"
     "	.file	15	\"/usr/local/cuda/include/common_functions.h\"\n"
     "	.file	16	\"/usr/local/cuda/include/math_functions.h\"\n"
     "	.file	17	\"/usr/local/cuda/include/math_constants.h\"\n"
@@ -14432,80 +14432,117 @@ static char *Ptxdata =
     "	.file	26	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
     "\n"
     "\n"
-    "	.entry _Z6vecAddPfS_S_ (\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__a,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__b,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__c)\n"
+    "	.entry _Z14gravity_kernelPfPA3_ffS1_S_i (\n"
+    "		.param .u64 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_m,\n"
+    "		.param .u64 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_x,\n"
+    "		.param .f32 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_eps,\n"
+    "		.param .u64 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_a,\n"
+    "		.param .u64 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_p,\n"
+    "		.param .s32 __cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_n)\n"
     "	{\n"
     "	.reg .u16 %rh<4>;\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<10>;\n"
-    "	.reg .f32 %f<5>;\n"
-    "	.loc	14	2	0\n"
-    "$LDWbegin__Z6vecAddPfS_S_:\n"
-    "	.loc	14	5	0\n"
-    "	cvt.u32.u16 	%r1, %tid.x;\n"
-    "	mov.u16 	%rh1, %ctaid.x;\n"
-    "	mov.u16 	%rh2, %ntid.x;\n"
-    "	mul.wide.u16 	%r2, %rh1, %rh2;\n"
-    "	add.u32 	%r3, %r1, %r2;\n"
-    "	cvt.s64.s32 	%rd1, %r3;\n"
-    "	mul.wide.s32 	%rd2, %r3, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecAddPfS_S__a];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.f32 	%f1, [%rd4+0];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecAddPfS_S__b];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f2, [%rd6+0];\n"
-    "	add.f32 	%f3, %f1, %f2;\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecAddPfS_S__c];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	st.global.f32 	[%rd8+0], %f3;\n"
-    "	.loc	14	6	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecAddPfS_S_:\n"
-    "	} // _Z6vecAddPfS_S_\n"
-    "\n"
-    "	.entry _Z6vecMulPfS_fS_iPi (\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_a,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_b,\n"
-    "		.param .f32 __cudaparm__Z6vecMulPfS_fS_iPi_c,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_d,\n"
-    "		.param .s32 __cudaparm__Z6vecMulPfS_fS_iPi_e,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_f)\n"
-    "	{\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<12>;\n"
-    "	.reg .f32 %f<10>;\n"
-    "	.loc	14	9	0\n"
-    "$LDWbegin__Z6vecMulPfS_fS_iPi:\n"
+    "	.reg .u32 %r<12>;\n"
+    "	.reg .u64 %rd<13>;\n"
+    "	.reg .f32 %f<37>;\n"
+    "	.reg .pred %p<4>;\n"
     "	.loc	14	12	0\n"
-    "	cvt.s32.u16 	%r1, %tid.x;\n"
-    "	cvt.s64.s32 	%rd1, %r1;\n"
-    "	mul.wide.s32 	%rd2, %r1, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecMulPfS_fS_iPi_f];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.s32 	%r2, [%rd4+0];\n"
-    "	cvt.rn.f32.s32 	%f1, %r2;\n"
-    "	ld.param.s32 	%r3, [__cudaparm__Z6vecMulPfS_fS_iPi_e];\n"
-    "	cvt.rn.f32.s32 	%f2, %r3;\n"
-    "	ld.param.f32 	%f3, [__cudaparm__Z6vecMulPfS_fS_iPi_c];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecMulPfS_fS_iPi_a];\n"
+    "$LDWbegin__Z14gravity_kernelPfPA3_ffS1_S_i:\n"
+    "	.loc	14	51	0\n"
+    "	mov.f32 	%f1, 0f00000000;     	// 0\n"
+    "	mov.f32 	%f2, %f1;\n"
+    "	mov.f32 	%f3, 0f00000000;     	// 0\n"
+    "	mov.f32 	%f4, %f3;\n"
+    "	mov.f32 	%f5, 0f00000000;     	// 0\n"
+    "	mov.f32 	%f6, %f5;\n"
+    "	cvt.u32.u16 	%r1, %tid.x;\n"
+    "	mov.u16 	%rh1, %ntid.x;\n"
+    "	mov.u16 	%rh2, %ctaid.x;\n"
+    "	ld.param.s32 	%r2, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_n];\n"
+    "	mov.u32 	%r3, 0;\n"
+    "	setp.le.s32 	%p1, %r2, %r3;\n"
+    "	@%p1 bra 	$Lt_0_7426;\n"
+    "	ld.param.s32 	%r2, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_n];\n"
+    "	mov.s32 	%r4, %r2;\n"
+    "	mul.wide.u16 	%r5, %rh1, %rh2;\n"
+    "	ld.param.f32 	%f7, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_eps];\n"
+    "	mul.f32 	%f8, %f7, %f7;\n"
+    "	add.u32 	%r6, %r5, %r1;\n"
+    "	cvt.s64.s32 	%rd1, %r6;\n"
+    "	ld.param.u64 	%rd2, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_x];\n"
+    "	mov.s64 	%rd3, %rd2;\n"
+    "	ld.param.u64 	%rd4, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_m];\n"
+    "	mul.wide.s32 	%rd5, %r6, 12;\n"
     "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f4, [%rd6+0];\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecMulPfS_fS_iPi_b];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	ld.global.f32 	%f5, [%rd8+0];\n"
-    "	mad.f32 	%f6, %f4, %f5, %f3;\n"
-    "	add.f32 	%f7, %f2, %f6;\n"
-    "	add.f32 	%f8, %f1, %f7;\n"
-    "	ld.param.u64 	%rd9, [__cudaparm__Z6vecMulPfS_fS_iPi_d];\n"
-    "	add.u64 	%rd10, %rd9, %rd2;\n"
-    "	st.global.f32 	[%rd10+0], %f8;\n"
-    "	.loc	14	13	0\n"
+    "	ld.global.f32 	%f9, [%rd6+0];\n"
+    "	ld.global.f32 	%f10, [%rd6+4];\n"
+    "	ld.global.f32 	%f11, [%rd6+8];\n"
+    "	mov.s32 	%r7, 0;\n"
+    "	mov.f32 	%f12, 0f00000000;    	// 0\n"
+    "	mov.s32 	%r8, %r4;\n"
+    "$Lt_0_6914:\n"
+    " //<loop> Loop body line 51, nesting depth: 1, estimated iterations: unknown\n"
+    "	.loc	14	62	0\n"
+    "	ld.global.f32 	%f13, [%rd3+0];\n"
+    "	ld.global.f32 	%f14, [%rd3+4];\n"
+    "	ld.global.f32 	%f15, [%rd3+8];\n"
+    "	sub.f32 	%f16, %f13, %f9;\n"
+    "	sub.f32 	%f17, %f14, %f10;\n"
+    "	sub.f32 	%f18, %f15, %f11;\n"
+    "	mad.f32 	%f19, %f16, %f16, %f8;\n"
+    "	mad.f32 	%f20, %f17, %f17, %f19;\n"
+    "	mad.f32 	%f21, %f18, %f18, %f20;\n"
+    "	.loc	14	65	0\n"
+    "	ld.global.f32 	%f22, [%rd4+0];\n"
+    "	.loc	14	67	0\n"
+    "	sqrt.approx.f32 	%f23, %f21;\n"
+    "	mul.f32 	%f24, %f23, %f21;\n"
+    "	div.full.f32 	%f25, %f22, %f24;\n"
+    "	mov.f32 	%f26, %f2;\n"
+    "	mad.f32 	%f27, %f16, %f25, %f26;\n"
+    "	mov.f32 	%f2, %f27;\n"
+    "	mov.f32 	%f28, %f4;\n"
+    "	mad.f32 	%f29, %f17, %f25, %f28;\n"
+    "	mov.f32 	%f4, %f29;\n"
+    "	mov.f32 	%f30, %f6;\n"
+    "	mad.f32 	%f31, %f18, %f25, %f30;\n"
+    "	mov.f32 	%f6, %f31;\n"
+    "	.loc	14	69	0\n"
+    "	div.full.f32 	%f32, %f22, %f23;\n"
+    "	sub.f32 	%f12, %f12, %f32;\n"
+    "	add.s32 	%r7, %r7, 1;\n"
+    "	add.u64 	%rd4, %rd4, 4;\n"
+    "	add.u64 	%rd3, %rd3, 12;\n"
+    "	.loc	14	51	0\n"
+    "	ld.param.s32 	%r2, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_n];\n"
+    "	.loc	14	69	0\n"
+    "	setp.ne.s32 	%p2, %r2, %r7;\n"
+    "	@%p2 bra 	$Lt_0_6914;\n"
+    "	bra.uni 	$Lt_0_6402;\n"
+    "$Lt_0_7426:\n"
+    "	mul.wide.u16 	%r9, %rh1, %rh2;\n"
+    "	add.u32 	%r10, %r1, %r9;\n"
+    "	cvt.s64.s32 	%rd1, %r10;\n"
+    "	mul.wide.s32 	%rd5, %r10, 12;\n"
+    "	mov.f32 	%f12, 0f00000000;    	// 0\n"
+    "$Lt_0_6402:\n"
+    "	.loc	14	72	0\n"
+    "	ld.param.u64 	%rd7, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_a];\n"
+    "	add.u64 	%rd8, %rd7, %rd5;\n"
+    "	mov.f32 	%f33, %f2;\n"
+    "	st.global.f32 	[%rd8+0], %f33;\n"
+    "	mov.f32 	%f34, %f4;\n"
+    "	st.global.f32 	[%rd8+4], %f34;\n"
+    "	mov.f32 	%f35, %f6;\n"
+    "	st.global.f32 	[%rd8+8], %f35;\n"
+    "	.loc	14	74	0\n"
+    "	ld.param.u64 	%rd9, [__cudaparm__Z14gravity_kernelPfPA3_ffS1_S_i_p];\n"
+    "	mul.lo.u64 	%rd10, %rd1, 4;\n"
+    "	add.u64 	%rd11, %rd9, %rd10;\n"
+    "	st.global.f32 	[%rd11+0], %f12;\n"
+    "	.loc	14	77	0\n"
     "	exit;\n"
-    "$LDWend__Z6vecMulPfS_fS_iPi:\n"
-    "	} // _Z6vecMulPfS_fS_iPi\n"
+    "$LDWend__Z14gravity_kernelPfPA3_ffS1_S_i:\n"
+    "	} // _Z14gravity_kernelPfPA3_ffS1_S_i\n"
     "\n";
 #pragma dscuda endofptx
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 1
@@ -15383,8 +15420,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
 }
 # 866 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h"
 cudaError_t dscudaSortByKey(const int nitems, uint64_t *key, int *value);
-# 125 "./dscudatmp/vecadd.cu" 2
-
+# 162 "./dscudatmp/direct.cu" 2
 # 1 "/usr/include/stdio.h" 1 3 4
 # 30 "/usr/include/stdio.h" 3 4
 extern "C" {
@@ -16193,8 +16229,7 @@ extern int ftrylockfile (FILE *__stream) throw () ;
 extern void funlockfile (FILE *__stream) throw ();
 # 940 "/usr/include/stdio.h" 3 4
 }
-# 127 "./dscudatmp/vecadd.cu" 2
-
+# 163 "./dscudatmp/direct.cu" 2
 
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h" 1
 # 37 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
@@ -16480,7 +16515,7 @@ extern "C" {
     cutGetAverageTimerValue( const unsigned int name);
 # 926 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
 }
-# 130 "./dscudatmp/vecadd.cu" 2
+# 165 "./dscudatmp/direct.cu" 2
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h" 1
 # 15 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
 # 1 "/usr/local/cuda/include/cuda.h" 1
@@ -38316,58 +38351,228 @@ inline void print_NVCC_min_spec(const char *sSDKsample, const char *sNVCCReq, co
     printf(" -> CUDA %s Toolkit\n" , sNVCCReq);
     printf(" -> %s NVIDIA Display Driver.\n", sDriverReq);
 }
-# 131 "./dscudatmp/vecadd.cu" 2
+# 166 "./dscudatmp/direct.cu" 2
+# 1 "./direct.h" 1
 
-# 1 "./vecadd.cuh" 1
+
+
+
+
+
+void readnbody(int *nj, double *mj, double (*xj)[3], double (*vj)[3], char *fname);
+void writenbody(int nj, double *mj, double (*xj)[3], double (*vj)[3], char *fname);
+void push_velocity(double (*vj)[3], double (*a)[3], double dt, int nj);
+void push_position(double (*xj)[3], double (*vj)[3], double (*a)[3], double dt, int nj);
+void energy(double *mj, double (*vj)[3], double *p, int nj, double *ke, double *pe);
+void get_cputime(double *lap, double *split);
+void plot_star(double x[(1024*1024*8)][3], int n, double time, double ratio, double m[(1024*1024*8)], double initm);
+void create_cold_homosphere(int n, double *mj, double (*xj)[3], double (*vj)[3]);
+void create_plummer(int n, double *mj, double (*xj)[3], double (*vj)[3]);
+# 167 "./dscudatmp/direct.cu" 2
+
+__attribute__((global)) void gravity_kernel(float *m, float (*x)[3], float eps, float (*a)[3], float *p, int n);
+static void calc_gravity_gpu(double *m, double (*x)[3], double eps, double (*a)[3], double *p, int n);
+static void calc_gravity(double *m, double (*x)[3], double eps, double (*a)[3], double *p, int n);
+
 __attribute__((global)) void
-vecAdd(float *a, float *b, float *c)
+gravity_kernel(float *m, float (*x)[3], float eps, float (*a)[3], float *p, int n)
 {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    c[i] = a[i] + b[i];
+# 206 "./dscudatmp/direct.cu"
+    float r, r2, mf, dx[3], atmp[3], ptmp;
+    int i, j, k;
+
+    i = blockIdx.x * blockDim.x + threadIdx.x;
+
+    for (k = 0; k < 3; k++) {
+        atmp[k] = 0.0;
+    }
+    ptmp = 0.0;
+
+    for (j = 0; j < n; j++) {
+
+        for (k = 0; k < 3; k++) {
+            dx[k] = x[j][k] - x[i][k];
+        }
+        r2 = eps * eps;
+        for (k = 0; k < 3; k++) {
+            r2 += dx[k] * dx[k];
+        }
+        r = sqrtf(r2);
+        mf = m[j] / (r * r2);
+        for (k = 0; k < 3; k++) {
+            atmp[k] += mf * dx[k];
+        }
+        ptmp -= m[j] / r;
+    }
+    for (k = 0; k < 3; k++) {
+        a[i][k] = atmp[k];
+    }
+    p[i] = ptmp;
+
+
 }
 
-__attribute__((global)) void
-vecMul(float *a, float *b, float c, float *d, int e, int * f)
+static void
+calc_gravity_gpu(double *m, double (*x)[3], double eps, double (*a)[3], double *p, int n)
 {
-    int i = threadIdx.x;
-    d[i] = a[i] * b[i] + c + e + f[i];
-}
-# 133 "./dscudatmp/vecadd.cu" 2
+    static int firstcall = 1;
+    static float *d_m, (*d_x)[3], (*d_a)[3], *d_p;
+    static float floatbuf[(1024*1024*8)*3];
+    int i, k;
+    int nth = 64;
+    dim3 threads(nth, 1, 1);
+    dim3 grids((n+nth-1)/nth, 1, 1);
 
+    if (firstcall) {
+        firstcall = 0;
+        __cudaSafeCall (cudaMalloc((void**)&d_m, sizeof(float) * n), "./dscudatmp/direct.cu", 253);
+        __cudaSafeCall (cudaMalloc((void**)&d_x, sizeof(float) * 3 * n), "./dscudatmp/direct.cu", 254);
+        __cudaSafeCall (cudaMalloc((void**)&d_a, sizeof(float) * 3 * n), "./dscudatmp/direct.cu", 255);
+        __cudaSafeCall (cudaMalloc((void**)&d_p, sizeof(float) * n), "./dscudatmp/direct.cu", 256);
+    }
+    for (i = 0 ; i < n; i++) {
+        floatbuf[i] = (float)m[i];
+    }
+    __cudaSafeCall (cudaMemcpy(d_m, floatbuf, sizeof(float) * n, cudaMemcpyHostToDevice), "./dscudatmp/direct.cu", 261);
+
+    for (i = 0 ; i < n; i++) {
+        for (k = 0; k < 3; k++) {
+            floatbuf[3 * i + k] = (float)x[i][k];
+        }
+    }
+    __cudaSafeCall (cudaMemcpy(d_x, floatbuf, sizeof(float) * 3 * n, cudaMemcpyHostToDevice), "./dscudatmp/direct.cu", 268);
+
+    gravity_kernel<<<grids, threads>>>(d_m, d_x, (float)eps, d_a, d_p, n);
+
+    __cudaSafeCall (cudaMemcpy(floatbuf, d_a, sizeof(float) * 3 * n, cudaMemcpyDeviceToHost), "./dscudatmp/direct.cu", 272);
+    for (i = 0 ; i < n; i++) {
+        for (k = 0; k < 3; k++) {
+            a[i][k] = (double)floatbuf[3 * i + k];
+        }
+    }
+
+    __cudaSafeCall (cudaMemcpy(floatbuf, d_p, sizeof(float) * n, cudaMemcpyDeviceToHost), "./dscudatmp/direct.cu", 279);
+    for (i = 0 ; i < n; i++) {
+        p[i]= (double)floatbuf[i];
+    }
+}
+
+static void
+calc_gravity(double *m, double (*x)[3], double eps, double (*a)[3], double *p, int n)
+{
+    double r, r2, mf, dx[3];
+    int i, j, k;
+
+    for (i = 0; i < n; i++) {
+        for (k = 0; k < 3; k++) {
+            a[i][k] = 0.0;
+        }
+        p[i] = 0.0;
+        for (j = 0; j < n; j++) {
+            for (k = 0; k < 3; k++) {
+                dx[k] = x[j][k] - x[i][k];
+            }
+            r2 = eps * eps;
+            for (k = 0; k < 3; k++) {
+                r2 += dx[k] * dx[k];
+            }
+            r = sqrt(r2);
+            mf = m[j] / (r * r2);
+            for (k = 0; k < 3; k++) {
+                a[i][k] += mf * dx[k];
+            }
+            p[i] -= m[j] / r;
+        }
+    }
+
+    if (eps != 0.0) {
+        double epsinv;
+        epsinv = 1.0 / eps;
+        for (i = 0; i < n; i++) {
+            p[i] += m[i] * epsinv;
+        }
+    }
+}
+
+
+static void
+errhandler(void *arg)
+{
+    fprintf(stderr, "calculation error on some GPU at timestep: %d\n",
+            *(int *)arg);
+    exit(1);
+}
 
 
 int
-main(void)
+main(int argc, char **argv)
 {
-    int i, t;
-    float a[(8)], b[(8)], c[(8)];
+    static double mj[(1024*1024*8)], xj[(1024*1024*8)][3], vj[(1024*1024*8)][3];
+    static double a[(1024*1024*8)][3], p[(1024*1024*8)];
+    double time, dt, endt;;
+    double eps;
+    double e, e0, ke, pe;
+    double lt=0.0, st=0.0, sustained;
+    int n, nstep, interval;
+    static int step;
 
-    float *d_a, *d_b, *d_c;
-    __cudaSafeCall (cudaMalloc((void**) &d_a, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 143);
-    __cudaSafeCall (cudaMalloc((void**) &d_b, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 144);
-    __cudaSafeCall (cudaMalloc((void**) &d_c, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 145);
 
-    for (t = 0; t < 3; t++) {
-        printf("try %d\n", t);
-        for (i = 0; i < (8); i++) {
-            a[i] = rand()%64;
-            b[i] = rand()%64;
-        }
-        __cudaSafeCall (cudaMemcpy(d_a, a, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 153);
-        __cudaSafeCall (cudaMemcpy(d_b, b, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 154);
-        int nth = 4;
-        dim3 threads(nth, 1, 1);
-        dim3 grids(((8)+nth-1)/nth, 1, 1);
-        vecAdd<<<grids, threads>>>(d_a, d_b, d_c);
-        __cudaSafeCall (cudaMemcpy(c, d_c, sizeof(float) * (8), cudaMemcpyDeviceToHost), "./dscudatmp/vecadd.cu", 159);
-        for (i = 0; i < (8); i++) {
-            printf("% 6.2f + % 6.2f = % 7.2f",
-                   a[i], b[i], c[i]);
-            if (a[i] + b[i] != c[i]) printf("   NG");
-            printf("\n");
-        }
-        printf("\n");
+
+
+
+    eps = 0.02;
+    dt = 0.01;
+    endt = 1.1;
+
+    time = 0.0;
+    nstep = endt/dt;
+
+    if (argc < 3) {
+        fprintf(stderr, "performs gravitational N-body simulation with naive direct summation algorithm.\n"
+                "usage: %s <infile> <outfile>\n", argv[0]);
+        exit(1);
     }
 
-    exit(0);
+    readnbody(&n, mj, xj, vj, argv[1]);
+    interval = 500 * (10000.0/n) * (10000.0/n);
+    if (interval * 10 > nstep) {
+ interval = nstep / 10;
+    }
+    interval = 1;
+    fprintf(stderr, "interval: %d\n", interval);
+
+    get_cputime(&lt,&st);
+
+    calc_gravity_gpu(mj, xj, eps, a, p, n);
+
+
+
+    energy(mj, vj, p, n, &ke, &pe);
+    e0 = ke+pe;
+    printf("ke: %f  pe: %f  e0: %f\n", ke, pe, e0);
+    for (step = 1; step < nstep; step++) {
+        push_velocity(vj, a, 0.5*dt, n);
+        push_position(xj, vj, a, dt, n);
+        time = time + dt;
+
+        calc_gravity_gpu(mj, xj, eps, a, p, n);
+
+
+
+
+        push_velocity(vj, a, 0.5*dt, n);
+
+        if (step % interval == 0) {
+            energy(mj, vj, p, n, &ke, &pe);
+            e = ke+pe;
+            sustained = 38.0*((double)n)*((double)n)*interval/lt/1e9;
+            printf("speed: %g Gflops\n", sustained);
+            printf("step: %d time: %e\n", step, time);
+            printf("e: %e de: %e\n", e, e-e0);
+            printf("ke: %e pe: %e\n", ke, pe);
+            printf("ke/pe: %e\n\n", ke/pe);
+            get_cputime(&lt,&st);
+        }
+    }
+    writenbody(n, mj, xj, vj, argv[2]);
 }

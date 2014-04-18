@@ -1,4 +1,4 @@
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/broadcast.cu"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/local/cuda/include/cuda_runtime.h" 1
@@ -14384,7 +14384,7 @@ __inline__ __attribute__((host)) cudaError_t cudaBindSurfaceToArray(
   return err == cudaSuccess ? cudaBindSurfaceToArray(surf, array, desc) : err;
 }
 # 1 "<command-line>" 2
-# 1 "./dscudatmp/vecadd.cu"
+# 1 "./dscudatmp/broadcast.cu"
 static char *Ptxdata =
     "	.version 1.4\n"
     "	.target sm_10, map_f64_to_f32\n"
@@ -14392,7 +14392,7 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
-    "	// Compiling /tmp/tmpxft_00004b71_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.10icp7)\n"
+    "	// Compiling /tmp/tmpxft_000047f4_00000000-9_broadcast.cpp3.i (/tmp/ccBI#.5iSCgp)\n"
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -14405,7 +14405,7 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
-    "	.file	2	\"/tmp/tmpxft_00004b71_00000000-8_vecadd.cudafe2.gpu\"\n"
+    "	.file	2	\"/tmp/tmpxft_000047f4_00000000-8_broadcast.cudafe2.gpu\"\n"
     "	.file	3	\"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -14417,95 +14417,19 @@ static char *Ptxdata =
     "	.file	11	\"/usr/local/cuda/include/vector_types.h\"\n"
     "	.file	12	\"/usr/local/cuda/include/device_launch_parameters.h\"\n"
     "	.file	13	\"/usr/local/cuda/include/crt/storage_class.h\"\n"
-    "	.file	14	\"vecadd.cuh\"\n"
-    "	.file	15	\"/usr/local/cuda/include/common_functions.h\"\n"
-    "	.file	16	\"/usr/local/cuda/include/math_functions.h\"\n"
-    "	.file	17	\"/usr/local/cuda/include/math_constants.h\"\n"
-    "	.file	18	\"/usr/local/cuda/include/device_functions.h\"\n"
-    "	.file	19	\"/usr/local/cuda/include/sm_11_atomic_functions.h\"\n"
-    "	.file	20	\"/usr/local/cuda/include/sm_12_atomic_functions.h\"\n"
-    "	.file	21	\"/usr/local/cuda/include/sm_13_double_functions.h\"\n"
-    "	.file	22	\"/usr/local/cuda/include/sm_20_atomic_functions.h\"\n"
-    "	.file	23	\"/usr/local/cuda/include/sm_20_intrinsics.h\"\n"
-    "	.file	24	\"/usr/local/cuda/include/surface_functions.h\"\n"
-    "	.file	25	\"/usr/local/cuda/include/texture_fetch_functions.h\"\n"
-    "	.file	26	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
+    "	.file	14	\"/usr/local/cuda/include/common_functions.h\"\n"
+    "	.file	15	\"/usr/local/cuda/include/math_functions.h\"\n"
+    "	.file	16	\"/usr/local/cuda/include/math_constants.h\"\n"
+    "	.file	17	\"/usr/local/cuda/include/device_functions.h\"\n"
+    "	.file	18	\"/usr/local/cuda/include/sm_11_atomic_functions.h\"\n"
+    "	.file	19	\"/usr/local/cuda/include/sm_12_atomic_functions.h\"\n"
+    "	.file	20	\"/usr/local/cuda/include/sm_13_double_functions.h\"\n"
+    "	.file	21	\"/usr/local/cuda/include/sm_20_atomic_functions.h\"\n"
+    "	.file	22	\"/usr/local/cuda/include/sm_20_intrinsics.h\"\n"
+    "	.file	23	\"/usr/local/cuda/include/surface_functions.h\"\n"
+    "	.file	24	\"/usr/local/cuda/include/texture_fetch_functions.h\"\n"
+    "	.file	25	\"/usr/local/cuda/include/math_functions_dbl_ptx1.h\"\n"
     "\n"
-    "\n"
-    "	.entry _Z6vecAddPfS_S_ (\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__a,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__b,\n"
-    "		.param .u64 __cudaparm__Z6vecAddPfS_S__c)\n"
-    "	{\n"
-    "	.reg .u16 %rh<4>;\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<10>;\n"
-    "	.reg .f32 %f<5>;\n"
-    "	.loc	14	2	0\n"
-    "$LDWbegin__Z6vecAddPfS_S_:\n"
-    "	.loc	14	5	0\n"
-    "	cvt.u32.u16 	%r1, %tid.x;\n"
-    "	mov.u16 	%rh1, %ctaid.x;\n"
-    "	mov.u16 	%rh2, %ntid.x;\n"
-    "	mul.wide.u16 	%r2, %rh1, %rh2;\n"
-    "	add.u32 	%r3, %r1, %r2;\n"
-    "	cvt.s64.s32 	%rd1, %r3;\n"
-    "	mul.wide.s32 	%rd2, %r3, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecAddPfS_S__a];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.f32 	%f1, [%rd4+0];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecAddPfS_S__b];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f2, [%rd6+0];\n"
-    "	add.f32 	%f3, %f1, %f2;\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecAddPfS_S__c];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	st.global.f32 	[%rd8+0], %f3;\n"
-    "	.loc	14	6	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecAddPfS_S_:\n"
-    "	} // _Z6vecAddPfS_S_\n"
-    "\n"
-    "	.entry _Z6vecMulPfS_fS_iPi (\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_a,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_b,\n"
-    "		.param .f32 __cudaparm__Z6vecMulPfS_fS_iPi_c,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_d,\n"
-    "		.param .s32 __cudaparm__Z6vecMulPfS_fS_iPi_e,\n"
-    "		.param .u64 __cudaparm__Z6vecMulPfS_fS_iPi_f)\n"
-    "	{\n"
-    "	.reg .u32 %r<5>;\n"
-    "	.reg .u64 %rd<12>;\n"
-    "	.reg .f32 %f<10>;\n"
-    "	.loc	14	9	0\n"
-    "$LDWbegin__Z6vecMulPfS_fS_iPi:\n"
-    "	.loc	14	12	0\n"
-    "	cvt.s32.u16 	%r1, %tid.x;\n"
-    "	cvt.s64.s32 	%rd1, %r1;\n"
-    "	mul.wide.s32 	%rd2, %r1, 4;\n"
-    "	ld.param.u64 	%rd3, [__cudaparm__Z6vecMulPfS_fS_iPi_f];\n"
-    "	add.u64 	%rd4, %rd3, %rd2;\n"
-    "	ld.global.s32 	%r2, [%rd4+0];\n"
-    "	cvt.rn.f32.s32 	%f1, %r2;\n"
-    "	ld.param.s32 	%r3, [__cudaparm__Z6vecMulPfS_fS_iPi_e];\n"
-    "	cvt.rn.f32.s32 	%f2, %r3;\n"
-    "	ld.param.f32 	%f3, [__cudaparm__Z6vecMulPfS_fS_iPi_c];\n"
-    "	ld.param.u64 	%rd5, [__cudaparm__Z6vecMulPfS_fS_iPi_a];\n"
-    "	add.u64 	%rd6, %rd5, %rd2;\n"
-    "	ld.global.f32 	%f4, [%rd6+0];\n"
-    "	ld.param.u64 	%rd7, [__cudaparm__Z6vecMulPfS_fS_iPi_b];\n"
-    "	add.u64 	%rd8, %rd7, %rd2;\n"
-    "	ld.global.f32 	%f5, [%rd8+0];\n"
-    "	mad.f32 	%f6, %f4, %f5, %f3;\n"
-    "	add.f32 	%f7, %f2, %f6;\n"
-    "	add.f32 	%f8, %f1, %f7;\n"
-    "	ld.param.u64 	%rd9, [__cudaparm__Z6vecMulPfS_fS_iPi_d];\n"
-    "	add.u64 	%rd10, %rd9, %rd2;\n"
-    "	st.global.f32 	[%rd10+0], %f8;\n"
-    "	.loc	14	13	0\n"
-    "	exit;\n"
-    "$LDWend__Z6vecMulPfS_fS_iPi:\n"
-    "	} // _Z6vecMulPfS_fS_iPi\n"
     "\n";
 #pragma dscuda endofptx
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 1
@@ -15383,7 +15307,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
 }
 # 866 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h"
 cudaError_t dscudaSortByKey(const int nitems, uint64_t *key, int *value);
-# 125 "./dscudatmp/vecadd.cu" 2
+# 49 "./dscudatmp/broadcast.cu" 2
 
 # 1 "/usr/include/stdio.h" 1 3 4
 # 30 "/usr/include/stdio.h" 3 4
@@ -16193,9 +16117,1337 @@ extern int ftrylockfile (FILE *__stream) throw () ;
 extern void funlockfile (FILE *__stream) throw ();
 # 940 "/usr/include/stdio.h" 3 4
 }
-# 127 "./dscudatmp/vecadd.cu" 2
+# 51 "./dscudatmp/broadcast.cu" 2
 
 
+# 1 "/usr/include/unistd.h" 1 3 4
+# 28 "/usr/include/unistd.h" 3 4
+extern "C" {
+# 203 "/usr/include/unistd.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/posix_opt.h" 1 3 4
+# 204 "/usr/include/unistd.h" 2 3 4
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/environments.h" 1 3 4
+# 23 "/usr/include/x86_64-linux-gnu/bits/environments.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
+# 24 "/usr/include/x86_64-linux-gnu/bits/environments.h" 2 3 4
+# 208 "/usr/include/unistd.h" 2 3 4
+# 227 "/usr/include/unistd.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h" 1 3 4
+# 228 "/usr/include/unistd.h" 2 3 4
+# 275 "/usr/include/unistd.h" 3 4
+typedef __socklen_t socklen_t;
+# 288 "/usr/include/unistd.h" 3 4
+extern int access (__const char *__name, int __type) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern int euidaccess (__const char *__name, int __type)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int eaccess (__const char *__name, int __type)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern int faccessat (int __fd, __const char *__file, int __type, int __flag)
+     throw () __attribute__ ((__nonnull__ (2))) ;
+# 335 "/usr/include/unistd.h" 3 4
+extern __off_t lseek (int __fd, __off_t __offset, int __whence) throw ();
+# 346 "/usr/include/unistd.h" 3 4
+extern __off64_t lseek64 (int __fd, __off64_t __offset, int __whence)
+     throw ();
+
+
+
+
+
+
+extern int close (int __fd);
+
+
+
+
+
+
+extern ssize_t read (int __fd, void *__buf, size_t __nbytes) ;
+
+
+
+
+
+extern ssize_t write (int __fd, __const void *__buf, size_t __n) ;
+# 377 "/usr/include/unistd.h" 3 4
+extern ssize_t pread (int __fd, void *__buf, size_t __nbytes,
+        __off_t __offset) ;
+
+
+
+
+
+
+extern ssize_t pwrite (int __fd, __const void *__buf, size_t __n,
+         __off_t __offset) ;
+# 405 "/usr/include/unistd.h" 3 4
+extern ssize_t pread64 (int __fd, void *__buf, size_t __nbytes,
+   __off64_t __offset) ;
+
+
+extern ssize_t pwrite64 (int __fd, __const void *__buf, size_t __n,
+    __off64_t __offset) ;
+
+
+
+
+
+
+
+extern int pipe (int __pipedes[2]) throw () ;
+
+
+
+
+extern int pipe2 (int __pipedes[2], int __flags) throw () ;
+# 433 "/usr/include/unistd.h" 3 4
+extern unsigned int alarm (unsigned int __seconds) throw ();
+# 445 "/usr/include/unistd.h" 3 4
+extern unsigned int sleep (unsigned int __seconds);
+
+
+
+
+
+
+
+extern __useconds_t ualarm (__useconds_t __value, __useconds_t __interval)
+     throw ();
+
+
+
+
+
+
+extern int usleep (__useconds_t __useconds);
+# 470 "/usr/include/unistd.h" 3 4
+extern int pause (void);
+
+
+
+extern int chown (__const char *__file, __uid_t __owner, __gid_t __group)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+extern int fchown (int __fd, __uid_t __owner, __gid_t __group) throw () ;
+
+
+
+
+extern int lchown (__const char *__file, __uid_t __owner, __gid_t __group)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+
+
+
+extern int fchownat (int __fd, __const char *__file, __uid_t __owner,
+       __gid_t __group, int __flag)
+     throw () __attribute__ ((__nonnull__ (2))) ;
+
+
+
+extern int chdir (__const char *__path) throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+extern int fchdir (int __fd) throw () ;
+# 512 "/usr/include/unistd.h" 3 4
+extern char *getcwd (char *__buf, size_t __size) throw () ;
+
+
+
+
+
+extern char *get_current_dir_name (void) throw ();
+
+
+
+
+
+
+
+extern char *getwd (char *__buf)
+     throw () __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__)) ;
+
+
+
+
+extern int dup (int __fd) throw () ;
+
+
+extern int dup2 (int __fd, int __fd2) throw ();
+
+
+
+
+extern int dup3 (int __fd, int __fd2, int __flags) throw ();
+
+
+
+extern char **__environ;
+
+extern char **environ;
+
+
+
+
+
+extern int execve (__const char *__path, char *__const __argv[],
+     char *__const __envp[]) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int fexecve (int __fd, char *__const __argv[], char *__const __envp[])
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+extern int execv (__const char *__path, char *__const __argv[])
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int execle (__const char *__path, __const char *__arg, ...)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int execl (__const char *__path, __const char *__arg, ...)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int execvp (__const char *__file, char *__const __argv[])
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int execlp (__const char *__file, __const char *__arg, ...)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int execvpe (__const char *__file, char *__const __argv[],
+      char *__const __envp[])
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+extern int nice (int __inc) throw () ;
+
+
+
+
+extern void _exit (int __status) __attribute__ ((__noreturn__));
+
+
+
+
+
+# 1 "/usr/include/x86_64-linux-gnu/bits/confname.h" 1 3 4
+# 26 "/usr/include/x86_64-linux-gnu/bits/confname.h" 3 4
+enum
+  {
+    _PC_LINK_MAX,
+
+    _PC_MAX_CANON,
+
+    _PC_MAX_INPUT,
+
+    _PC_NAME_MAX,
+
+    _PC_PATH_MAX,
+
+    _PC_PIPE_BUF,
+
+    _PC_CHOWN_RESTRICTED,
+
+    _PC_NO_TRUNC,
+
+    _PC_VDISABLE,
+
+    _PC_SYNC_IO,
+
+    _PC_ASYNC_IO,
+
+    _PC_PRIO_IO,
+
+    _PC_SOCK_MAXBUF,
+
+    _PC_FILESIZEBITS,
+
+    _PC_REC_INCR_XFER_SIZE,
+
+    _PC_REC_MAX_XFER_SIZE,
+
+    _PC_REC_MIN_XFER_SIZE,
+
+    _PC_REC_XFER_ALIGN,
+
+    _PC_ALLOC_SIZE_MIN,
+
+    _PC_SYMLINK_MAX,
+
+    _PC_2_SYMLINKS
+
+  };
+
+
+enum
+  {
+    _SC_ARG_MAX,
+
+    _SC_CHILD_MAX,
+
+    _SC_CLK_TCK,
+
+    _SC_NGROUPS_MAX,
+
+    _SC_OPEN_MAX,
+
+    _SC_STREAM_MAX,
+
+    _SC_TZNAME_MAX,
+
+    _SC_JOB_CONTROL,
+
+    _SC_SAVED_IDS,
+
+    _SC_REALTIME_SIGNALS,
+
+    _SC_PRIORITY_SCHEDULING,
+
+    _SC_TIMERS,
+
+    _SC_ASYNCHRONOUS_IO,
+
+    _SC_PRIORITIZED_IO,
+
+    _SC_SYNCHRONIZED_IO,
+
+    _SC_FSYNC,
+
+    _SC_MAPPED_FILES,
+
+    _SC_MEMLOCK,
+
+    _SC_MEMLOCK_RANGE,
+
+    _SC_MEMORY_PROTECTION,
+
+    _SC_MESSAGE_PASSING,
+
+    _SC_SEMAPHORES,
+
+    _SC_SHARED_MEMORY_OBJECTS,
+
+    _SC_AIO_LISTIO_MAX,
+
+    _SC_AIO_MAX,
+
+    _SC_AIO_PRIO_DELTA_MAX,
+
+    _SC_DELAYTIMER_MAX,
+
+    _SC_MQ_OPEN_MAX,
+
+    _SC_MQ_PRIO_MAX,
+
+    _SC_VERSION,
+
+    _SC_PAGESIZE,
+
+
+    _SC_RTSIG_MAX,
+
+    _SC_SEM_NSEMS_MAX,
+
+    _SC_SEM_VALUE_MAX,
+
+    _SC_SIGQUEUE_MAX,
+
+    _SC_TIMER_MAX,
+
+
+
+
+    _SC_BC_BASE_MAX,
+
+    _SC_BC_DIM_MAX,
+
+    _SC_BC_SCALE_MAX,
+
+    _SC_BC_STRING_MAX,
+
+    _SC_COLL_WEIGHTS_MAX,
+
+    _SC_EQUIV_CLASS_MAX,
+
+    _SC_EXPR_NEST_MAX,
+
+    _SC_LINE_MAX,
+
+    _SC_RE_DUP_MAX,
+
+    _SC_CHARCLASS_NAME_MAX,
+
+
+    _SC_2_VERSION,
+
+    _SC_2_C_BIND,
+
+    _SC_2_C_DEV,
+
+    _SC_2_FORT_DEV,
+
+    _SC_2_FORT_RUN,
+
+    _SC_2_SW_DEV,
+
+    _SC_2_LOCALEDEF,
+
+
+    _SC_PII,
+
+    _SC_PII_XTI,
+
+    _SC_PII_SOCKET,
+
+    _SC_PII_INTERNET,
+
+    _SC_PII_OSI,
+
+    _SC_POLL,
+
+    _SC_SELECT,
+
+    _SC_UIO_MAXIOV,
+
+    _SC_IOV_MAX = _SC_UIO_MAXIOV,
+
+    _SC_PII_INTERNET_STREAM,
+
+    _SC_PII_INTERNET_DGRAM,
+
+    _SC_PII_OSI_COTS,
+
+    _SC_PII_OSI_CLTS,
+
+    _SC_PII_OSI_M,
+
+    _SC_T_IOV_MAX,
+
+
+
+    _SC_THREADS,
+
+    _SC_THREAD_SAFE_FUNCTIONS,
+
+    _SC_GETGR_R_SIZE_MAX,
+
+    _SC_GETPW_R_SIZE_MAX,
+
+    _SC_LOGIN_NAME_MAX,
+
+    _SC_TTY_NAME_MAX,
+
+    _SC_THREAD_DESTRUCTOR_ITERATIONS,
+
+    _SC_THREAD_KEYS_MAX,
+
+    _SC_THREAD_STACK_MIN,
+
+    _SC_THREAD_THREADS_MAX,
+
+    _SC_THREAD_ATTR_STACKADDR,
+
+    _SC_THREAD_ATTR_STACKSIZE,
+
+    _SC_THREAD_PRIORITY_SCHEDULING,
+
+    _SC_THREAD_PRIO_INHERIT,
+
+    _SC_THREAD_PRIO_PROTECT,
+
+    _SC_THREAD_PROCESS_SHARED,
+
+
+    _SC_NPROCESSORS_CONF,
+
+    _SC_NPROCESSORS_ONLN,
+
+    _SC_PHYS_PAGES,
+
+    _SC_AVPHYS_PAGES,
+
+    _SC_ATEXIT_MAX,
+
+    _SC_PASS_MAX,
+
+
+    _SC_XOPEN_VERSION,
+
+    _SC_XOPEN_XCU_VERSION,
+
+    _SC_XOPEN_UNIX,
+
+    _SC_XOPEN_CRYPT,
+
+    _SC_XOPEN_ENH_I18N,
+
+    _SC_XOPEN_SHM,
+
+
+    _SC_2_CHAR_TERM,
+
+    _SC_2_C_VERSION,
+
+    _SC_2_UPE,
+
+
+    _SC_XOPEN_XPG2,
+
+    _SC_XOPEN_XPG3,
+
+    _SC_XOPEN_XPG4,
+
+
+    _SC_CHAR_BIT,
+
+    _SC_CHAR_MAX,
+
+    _SC_CHAR_MIN,
+
+    _SC_INT_MAX,
+
+    _SC_INT_MIN,
+
+    _SC_LONG_BIT,
+
+    _SC_WORD_BIT,
+
+    _SC_MB_LEN_MAX,
+
+    _SC_NZERO,
+
+    _SC_SSIZE_MAX,
+
+    _SC_SCHAR_MAX,
+
+    _SC_SCHAR_MIN,
+
+    _SC_SHRT_MAX,
+
+    _SC_SHRT_MIN,
+
+    _SC_UCHAR_MAX,
+
+    _SC_UINT_MAX,
+
+    _SC_ULONG_MAX,
+
+    _SC_USHRT_MAX,
+
+
+    _SC_NL_ARGMAX,
+
+    _SC_NL_LANGMAX,
+
+    _SC_NL_MSGMAX,
+
+    _SC_NL_NMAX,
+
+    _SC_NL_SETMAX,
+
+    _SC_NL_TEXTMAX,
+
+
+    _SC_XBS5_ILP32_OFF32,
+
+    _SC_XBS5_ILP32_OFFBIG,
+
+    _SC_XBS5_LP64_OFF64,
+
+    _SC_XBS5_LPBIG_OFFBIG,
+
+
+    _SC_XOPEN_LEGACY,
+
+    _SC_XOPEN_REALTIME,
+
+    _SC_XOPEN_REALTIME_THREADS,
+
+
+    _SC_ADVISORY_INFO,
+
+    _SC_BARRIERS,
+
+    _SC_BASE,
+
+    _SC_C_LANG_SUPPORT,
+
+    _SC_C_LANG_SUPPORT_R,
+
+    _SC_CLOCK_SELECTION,
+
+    _SC_CPUTIME,
+
+    _SC_THREAD_CPUTIME,
+
+    _SC_DEVICE_IO,
+
+    _SC_DEVICE_SPECIFIC,
+
+    _SC_DEVICE_SPECIFIC_R,
+
+    _SC_FD_MGMT,
+
+    _SC_FIFO,
+
+    _SC_PIPE,
+
+    _SC_FILE_ATTRIBUTES,
+
+    _SC_FILE_LOCKING,
+
+    _SC_FILE_SYSTEM,
+
+    _SC_MONOTONIC_CLOCK,
+
+    _SC_MULTI_PROCESS,
+
+    _SC_SINGLE_PROCESS,
+
+    _SC_NETWORKING,
+
+    _SC_READER_WRITER_LOCKS,
+
+    _SC_SPIN_LOCKS,
+
+    _SC_REGEXP,
+
+    _SC_REGEX_VERSION,
+
+    _SC_SHELL,
+
+    _SC_SIGNALS,
+
+    _SC_SPAWN,
+
+    _SC_SPORADIC_SERVER,
+
+    _SC_THREAD_SPORADIC_SERVER,
+
+    _SC_SYSTEM_DATABASE,
+
+    _SC_SYSTEM_DATABASE_R,
+
+    _SC_TIMEOUTS,
+
+    _SC_TYPED_MEMORY_OBJECTS,
+
+    _SC_USER_GROUPS,
+
+    _SC_USER_GROUPS_R,
+
+    _SC_2_PBS,
+
+    _SC_2_PBS_ACCOUNTING,
+
+    _SC_2_PBS_LOCATE,
+
+    _SC_2_PBS_MESSAGE,
+
+    _SC_2_PBS_TRACK,
+
+    _SC_SYMLOOP_MAX,
+
+    _SC_STREAMS,
+
+    _SC_2_PBS_CHECKPOINT,
+
+
+    _SC_V6_ILP32_OFF32,
+
+    _SC_V6_ILP32_OFFBIG,
+
+    _SC_V6_LP64_OFF64,
+
+    _SC_V6_LPBIG_OFFBIG,
+
+
+    _SC_HOST_NAME_MAX,
+
+    _SC_TRACE,
+
+    _SC_TRACE_EVENT_FILTER,
+
+    _SC_TRACE_INHERIT,
+
+    _SC_TRACE_LOG,
+
+
+    _SC_LEVEL1_ICACHE_SIZE,
+
+    _SC_LEVEL1_ICACHE_ASSOC,
+
+    _SC_LEVEL1_ICACHE_LINESIZE,
+
+    _SC_LEVEL1_DCACHE_SIZE,
+
+    _SC_LEVEL1_DCACHE_ASSOC,
+
+    _SC_LEVEL1_DCACHE_LINESIZE,
+
+    _SC_LEVEL2_CACHE_SIZE,
+
+    _SC_LEVEL2_CACHE_ASSOC,
+
+    _SC_LEVEL2_CACHE_LINESIZE,
+
+    _SC_LEVEL3_CACHE_SIZE,
+
+    _SC_LEVEL3_CACHE_ASSOC,
+
+    _SC_LEVEL3_CACHE_LINESIZE,
+
+    _SC_LEVEL4_CACHE_SIZE,
+
+    _SC_LEVEL4_CACHE_ASSOC,
+
+    _SC_LEVEL4_CACHE_LINESIZE,
+
+
+
+    _SC_IPV6 = _SC_LEVEL1_ICACHE_SIZE + 50,
+
+    _SC_RAW_SOCKETS,
+
+
+    _SC_V7_ILP32_OFF32,
+
+    _SC_V7_ILP32_OFFBIG,
+
+    _SC_V7_LP64_OFF64,
+
+    _SC_V7_LPBIG_OFFBIG,
+
+
+    _SC_SS_REPL_MAX,
+
+
+    _SC_TRACE_EVENT_NAME_MAX,
+
+    _SC_TRACE_NAME_MAX,
+
+    _SC_TRACE_SYS_MAX,
+
+    _SC_TRACE_USER_EVENT_MAX,
+
+
+    _SC_XOPEN_STREAMS,
+
+
+    _SC_THREAD_ROBUST_PRIO_INHERIT,
+
+    _SC_THREAD_ROBUST_PRIO_PROTECT
+
+  };
+
+
+enum
+  {
+    _CS_PATH,
+
+
+    _CS_V6_WIDTH_RESTRICTED_ENVS,
+
+
+
+    _CS_GNU_LIBC_VERSION,
+
+    _CS_GNU_LIBPTHREAD_VERSION,
+
+
+    _CS_V5_WIDTH_RESTRICTED_ENVS,
+
+
+
+    _CS_V7_WIDTH_RESTRICTED_ENVS,
+
+
+
+    _CS_LFS_CFLAGS = 1000,
+
+    _CS_LFS_LDFLAGS,
+
+    _CS_LFS_LIBS,
+
+    _CS_LFS_LINTFLAGS,
+
+    _CS_LFS64_CFLAGS,
+
+    _CS_LFS64_LDFLAGS,
+
+    _CS_LFS64_LIBS,
+
+    _CS_LFS64_LINTFLAGS,
+
+
+    _CS_XBS5_ILP32_OFF32_CFLAGS = 1100,
+
+    _CS_XBS5_ILP32_OFF32_LDFLAGS,
+
+    _CS_XBS5_ILP32_OFF32_LIBS,
+
+    _CS_XBS5_ILP32_OFF32_LINTFLAGS,
+
+    _CS_XBS5_ILP32_OFFBIG_CFLAGS,
+
+    _CS_XBS5_ILP32_OFFBIG_LDFLAGS,
+
+    _CS_XBS5_ILP32_OFFBIG_LIBS,
+
+    _CS_XBS5_ILP32_OFFBIG_LINTFLAGS,
+
+    _CS_XBS5_LP64_OFF64_CFLAGS,
+
+    _CS_XBS5_LP64_OFF64_LDFLAGS,
+
+    _CS_XBS5_LP64_OFF64_LIBS,
+
+    _CS_XBS5_LP64_OFF64_LINTFLAGS,
+
+    _CS_XBS5_LPBIG_OFFBIG_CFLAGS,
+
+    _CS_XBS5_LPBIG_OFFBIG_LDFLAGS,
+
+    _CS_XBS5_LPBIG_OFFBIG_LIBS,
+
+    _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS,
+
+
+    _CS_POSIX_V6_ILP32_OFF32_CFLAGS,
+
+    _CS_POSIX_V6_ILP32_OFF32_LDFLAGS,
+
+    _CS_POSIX_V6_ILP32_OFF32_LIBS,
+
+    _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS,
+
+    _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS,
+
+    _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS,
+
+    _CS_POSIX_V6_ILP32_OFFBIG_LIBS,
+
+    _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS,
+
+    _CS_POSIX_V6_LP64_OFF64_CFLAGS,
+
+    _CS_POSIX_V6_LP64_OFF64_LDFLAGS,
+
+    _CS_POSIX_V6_LP64_OFF64_LIBS,
+
+    _CS_POSIX_V6_LP64_OFF64_LINTFLAGS,
+
+    _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS,
+
+    _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS,
+
+    _CS_POSIX_V6_LPBIG_OFFBIG_LIBS,
+
+    _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS,
+
+
+    _CS_POSIX_V7_ILP32_OFF32_CFLAGS,
+
+    _CS_POSIX_V7_ILP32_OFF32_LDFLAGS,
+
+    _CS_POSIX_V7_ILP32_OFF32_LIBS,
+
+    _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS,
+
+    _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS,
+
+    _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS,
+
+    _CS_POSIX_V7_ILP32_OFFBIG_LIBS,
+
+    _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS,
+
+    _CS_POSIX_V7_LP64_OFF64_CFLAGS,
+
+    _CS_POSIX_V7_LP64_OFF64_LDFLAGS,
+
+    _CS_POSIX_V7_LP64_OFF64_LIBS,
+
+    _CS_POSIX_V7_LP64_OFF64_LINTFLAGS,
+
+    _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS,
+
+    _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS,
+
+    _CS_POSIX_V7_LPBIG_OFFBIG_LIBS,
+
+    _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS,
+
+
+    _CS_V6_ENV,
+
+    _CS_V7_ENV
+
+  };
+# 611 "/usr/include/unistd.h" 2 3 4
+
+
+extern long int pathconf (__const char *__path, int __name)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern long int fpathconf (int __fd, int __name) throw ();
+
+
+extern long int sysconf (int __name) throw ();
+
+
+
+extern size_t confstr (int __name, char *__buf, size_t __len) throw ();
+
+
+
+
+extern __pid_t getpid (void) throw ();
+
+
+extern __pid_t getppid (void) throw ();
+
+
+
+
+extern __pid_t getpgrp (void) throw ();
+# 647 "/usr/include/unistd.h" 3 4
+extern __pid_t __getpgid (__pid_t __pid) throw ();
+
+extern __pid_t getpgid (__pid_t __pid) throw ();
+
+
+
+
+
+
+extern int setpgid (__pid_t __pid, __pid_t __pgid) throw ();
+# 673 "/usr/include/unistd.h" 3 4
+extern int setpgrp (void) throw ();
+# 690 "/usr/include/unistd.h" 3 4
+extern __pid_t setsid (void) throw ();
+
+
+
+extern __pid_t getsid (__pid_t __pid) throw ();
+
+
+
+extern __uid_t getuid (void) throw ();
+
+
+extern __uid_t geteuid (void) throw ();
+
+
+extern __gid_t getgid (void) throw ();
+
+
+extern __gid_t getegid (void) throw ();
+
+
+
+
+extern int getgroups (int __size, __gid_t __list[]) throw () ;
+
+
+
+extern int group_member (__gid_t __gid) throw ();
+
+
+
+
+
+
+extern int setuid (__uid_t __uid) throw ();
+
+
+
+
+extern int setreuid (__uid_t __ruid, __uid_t __euid) throw ();
+
+
+
+
+extern int seteuid (__uid_t __uid) throw ();
+
+
+
+
+
+
+extern int setgid (__gid_t __gid) throw ();
+
+
+
+
+extern int setregid (__gid_t __rgid, __gid_t __egid) throw ();
+
+
+
+
+extern int setegid (__gid_t __gid) throw ();
+
+
+
+
+
+extern int getresuid (__uid_t *__ruid, __uid_t *__euid, __uid_t *__suid)
+     throw ();
+
+
+
+extern int getresgid (__gid_t *__rgid, __gid_t *__egid, __gid_t *__sgid)
+     throw ();
+
+
+
+extern int setresuid (__uid_t __ruid, __uid_t __euid, __uid_t __suid)
+     throw ();
+
+
+
+extern int setresgid (__gid_t __rgid, __gid_t __egid, __gid_t __sgid)
+     throw ();
+
+
+
+
+
+
+extern __pid_t fork (void) throw ();
+
+
+
+
+
+
+
+extern __pid_t vfork (void) throw ();
+
+
+
+
+
+extern char *ttyname (int __fd) throw ();
+
+
+
+extern int ttyname_r (int __fd, char *__buf, size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2))) ;
+
+
+
+extern int isatty (int __fd) throw ();
+
+
+
+
+
+extern int ttyslot (void) throw ();
+
+
+
+
+extern int link (__const char *__from, __const char *__to)
+     throw () __attribute__ ((__nonnull__ (1, 2))) ;
+
+
+
+
+extern int linkat (int __fromfd, __const char *__from, int __tofd,
+     __const char *__to, int __flags)
+     throw () __attribute__ ((__nonnull__ (2, 4))) ;
+
+
+
+
+extern int symlink (__const char *__from, __const char *__to)
+     throw () __attribute__ ((__nonnull__ (1, 2))) ;
+
+
+
+
+extern ssize_t readlink (__const char *__restrict __path,
+    char *__restrict __buf, size_t __len)
+     throw () __attribute__ ((__nonnull__ (1, 2))) ;
+
+
+
+
+extern int symlinkat (__const char *__from, int __tofd,
+        __const char *__to) throw () __attribute__ ((__nonnull__ (1, 3))) ;
+
+
+extern ssize_t readlinkat (int __fd, __const char *__restrict __path,
+      char *__restrict __buf, size_t __len)
+     throw () __attribute__ ((__nonnull__ (2, 3))) ;
+
+
+
+extern int unlink (__const char *__name) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int unlinkat (int __fd, __const char *__name, int __flag)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+extern int rmdir (__const char *__path) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern __pid_t tcgetpgrp (int __fd) throw ();
+
+
+extern int tcsetpgrp (int __fd, __pid_t __pgrp_id) throw ();
+
+
+
+
+
+
+extern char *getlogin (void);
+
+
+
+
+
+
+
+extern int getlogin_r (char *__name, size_t __name_len) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern int setlogin (__const char *__name) throw () __attribute__ ((__nonnull__ (1)));
+# 894 "/usr/include/unistd.h" 3 4
+# 1 "/usr/include/getopt.h" 1 3 4
+# 50 "/usr/include/getopt.h" 3 4
+extern "C" {
+# 59 "/usr/include/getopt.h" 3 4
+extern char *optarg;
+# 73 "/usr/include/getopt.h" 3 4
+extern int optind;
+
+
+
+
+extern int opterr;
+
+
+
+extern int optopt;
+# 152 "/usr/include/getopt.h" 3 4
+extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
+       throw ();
+# 187 "/usr/include/getopt.h" 3 4
+}
+# 895 "/usr/include/unistd.h" 2 3 4
+
+
+
+
+
+
+
+extern int gethostname (char *__name, size_t __len) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern int sethostname (__const char *__name, size_t __len)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+extern int sethostid (long int __id) throw () ;
+
+
+
+
+
+extern int getdomainname (char *__name, size_t __len)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+extern int setdomainname (__const char *__name, size_t __len)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+
+
+extern int vhangup (void) throw ();
+
+
+extern int revoke (__const char *__file) throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+
+
+
+
+extern int profil (unsigned short int *__sample_buffer, size_t __size,
+     size_t __offset, unsigned int __scale)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern int acct (__const char *__name) throw ();
+
+
+
+extern char *getusershell (void) throw ();
+extern void endusershell (void) throw ();
+extern void setusershell (void) throw ();
+
+
+
+
+
+extern int daemon (int __nochdir, int __noclose) throw () ;
+
+
+
+
+
+
+extern int chroot (__const char *__path) throw () __attribute__ ((__nonnull__ (1))) ;
+
+
+
+extern char *getpass (__const char *__prompt) __attribute__ ((__nonnull__ (1)));
+# 980 "/usr/include/unistd.h" 3 4
+extern int fsync (int __fd);
+
+
+
+
+
+
+extern int syncfs (int __fd) throw ();
+
+
+
+
+
+
+extern long int gethostid (void);
+
+
+extern void sync (void) throw ();
+
+
+
+
+
+extern int getpagesize (void) throw () __attribute__ ((__const__));
+
+
+
+
+extern int getdtablesize (void) throw ();
+# 1018 "/usr/include/unistd.h" 3 4
+extern int truncate (__const char *__file, __off_t __length)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+# 1030 "/usr/include/unistd.h" 3 4
+extern int truncate64 (__const char *__file, __off64_t __length)
+     throw () __attribute__ ((__nonnull__ (1))) ;
+# 1040 "/usr/include/unistd.h" 3 4
+extern int ftruncate (int __fd, __off_t __length) throw () ;
+# 1050 "/usr/include/unistd.h" 3 4
+extern int ftruncate64 (int __fd, __off64_t __length) throw () ;
+# 1061 "/usr/include/unistd.h" 3 4
+extern int brk (void *__addr) throw () ;
+
+
+
+
+
+extern void *sbrk (intptr_t __delta) throw ();
+# 1082 "/usr/include/unistd.h" 3 4
+extern long int syscall (long int __sysno, ...) throw ();
+# 1105 "/usr/include/unistd.h" 3 4
+extern int lockf (int __fd, int __cmd, __off_t __len) ;
+# 1115 "/usr/include/unistd.h" 3 4
+extern int lockf64 (int __fd, int __cmd, __off64_t __len) ;
+# 1136 "/usr/include/unistd.h" 3 4
+extern int fdatasync (int __fildes);
+
+
+
+
+
+
+
+extern char *crypt (__const char *__key, __const char *__salt)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern void encrypt (char *__libc_block, int __edflag) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern void swab (__const void *__restrict __from, void *__restrict __to,
+    ssize_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+
+
+
+extern char *ctermid (char *__s) throw ();
+# 1174 "/usr/include/unistd.h" 3 4
+}
+# 54 "./dscudatmp/broadcast.cu" 2
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h" 1
 # 37 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
 extern "C" {
@@ -16480,7 +17732,7 @@ extern "C" {
     cutGetAverageTimerValue( const unsigned int name);
 # 926 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil.h"
 }
-# 130 "./dscudatmp/vecadd.cu" 2
+# 55 "./dscudatmp/broadcast.cu" 2
 # 1 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h" 1
 # 15 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline.h"
 # 1 "/usr/local/cuda/include/cuda.h" 1
@@ -23392,1334 +24644,7 @@ extern int pthread_atfork (void (*__prepare) (void),
 # 1143 "/usr/include/pthread.h" 3 4
 }
 # 42 "/usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h" 2 3
-# 1 "/usr/include/unistd.h" 1 3 4
-# 28 "/usr/include/unistd.h" 3 4
-extern "C" {
-# 203 "/usr/include/unistd.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/posix_opt.h" 1 3 4
-# 204 "/usr/include/unistd.h" 2 3 4
 
-
-
-# 1 "/usr/include/x86_64-linux-gnu/bits/environments.h" 1 3 4
-# 23 "/usr/include/x86_64-linux-gnu/bits/environments.h" 3 4
-# 1 "/usr/include/x86_64-linux-gnu/bits/wordsize.h" 1 3 4
-# 24 "/usr/include/x86_64-linux-gnu/bits/environments.h" 2 3 4
-# 208 "/usr/include/unistd.h" 2 3 4
-# 227 "/usr/include/unistd.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h" 1 3 4
-# 228 "/usr/include/unistd.h" 2 3 4
-# 275 "/usr/include/unistd.h" 3 4
-typedef __socklen_t socklen_t;
-# 288 "/usr/include/unistd.h" 3 4
-extern int access (__const char *__name, int __type) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-extern int euidaccess (__const char *__name, int __type)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int eaccess (__const char *__name, int __type)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-extern int faccessat (int __fd, __const char *__file, int __type, int __flag)
-     throw () __attribute__ ((__nonnull__ (2))) ;
-# 335 "/usr/include/unistd.h" 3 4
-extern __off_t lseek (int __fd, __off_t __offset, int __whence) throw ();
-# 346 "/usr/include/unistd.h" 3 4
-extern __off64_t lseek64 (int __fd, __off64_t __offset, int __whence)
-     throw ();
-
-
-
-
-
-
-extern int close (int __fd);
-
-
-
-
-
-
-extern ssize_t read (int __fd, void *__buf, size_t __nbytes) ;
-
-
-
-
-
-extern ssize_t write (int __fd, __const void *__buf, size_t __n) ;
-# 377 "/usr/include/unistd.h" 3 4
-extern ssize_t pread (int __fd, void *__buf, size_t __nbytes,
-        __off_t __offset) ;
-
-
-
-
-
-
-extern ssize_t pwrite (int __fd, __const void *__buf, size_t __n,
-         __off_t __offset) ;
-# 405 "/usr/include/unistd.h" 3 4
-extern ssize_t pread64 (int __fd, void *__buf, size_t __nbytes,
-   __off64_t __offset) ;
-
-
-extern ssize_t pwrite64 (int __fd, __const void *__buf, size_t __n,
-    __off64_t __offset) ;
-
-
-
-
-
-
-
-extern int pipe (int __pipedes[2]) throw () ;
-
-
-
-
-extern int pipe2 (int __pipedes[2], int __flags) throw () ;
-# 433 "/usr/include/unistd.h" 3 4
-extern unsigned int alarm (unsigned int __seconds) throw ();
-# 445 "/usr/include/unistd.h" 3 4
-extern unsigned int sleep (unsigned int __seconds);
-
-
-
-
-
-
-
-extern __useconds_t ualarm (__useconds_t __value, __useconds_t __interval)
-     throw ();
-
-
-
-
-
-
-extern int usleep (__useconds_t __useconds);
-# 470 "/usr/include/unistd.h" 3 4
-extern int pause (void);
-
-
-
-extern int chown (__const char *__file, __uid_t __owner, __gid_t __group)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-extern int fchown (int __fd, __uid_t __owner, __gid_t __group) throw () ;
-
-
-
-
-extern int lchown (__const char *__file, __uid_t __owner, __gid_t __group)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-
-
-
-extern int fchownat (int __fd, __const char *__file, __uid_t __owner,
-       __gid_t __group, int __flag)
-     throw () __attribute__ ((__nonnull__ (2))) ;
-
-
-
-extern int chdir (__const char *__path) throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-extern int fchdir (int __fd) throw () ;
-# 512 "/usr/include/unistd.h" 3 4
-extern char *getcwd (char *__buf, size_t __size) throw () ;
-
-
-
-
-
-extern char *get_current_dir_name (void) throw ();
-
-
-
-
-
-
-
-extern char *getwd (char *__buf)
-     throw () __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__)) ;
-
-
-
-
-extern int dup (int __fd) throw () ;
-
-
-extern int dup2 (int __fd, int __fd2) throw ();
-
-
-
-
-extern int dup3 (int __fd, int __fd2, int __flags) throw ();
-
-
-
-extern char **__environ;
-
-extern char **environ;
-
-
-
-
-
-extern int execve (__const char *__path, char *__const __argv[],
-     char *__const __envp[]) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-extern int fexecve (int __fd, char *__const __argv[], char *__const __envp[])
-     throw () __attribute__ ((__nonnull__ (2)));
-
-
-
-
-extern int execv (__const char *__path, char *__const __argv[])
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int execle (__const char *__path, __const char *__arg, ...)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int execl (__const char *__path, __const char *__arg, ...)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int execvp (__const char *__file, char *__const __argv[])
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-extern int execlp (__const char *__file, __const char *__arg, ...)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-extern int execvpe (__const char *__file, char *__const __argv[],
-      char *__const __envp[])
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-
-extern int nice (int __inc) throw () ;
-
-
-
-
-extern void _exit (int __status) __attribute__ ((__noreturn__));
-
-
-
-
-
-# 1 "/usr/include/x86_64-linux-gnu/bits/confname.h" 1 3 4
-# 26 "/usr/include/x86_64-linux-gnu/bits/confname.h" 3 4
-enum
-  {
-    _PC_LINK_MAX,
-
-    _PC_MAX_CANON,
-
-    _PC_MAX_INPUT,
-
-    _PC_NAME_MAX,
-
-    _PC_PATH_MAX,
-
-    _PC_PIPE_BUF,
-
-    _PC_CHOWN_RESTRICTED,
-
-    _PC_NO_TRUNC,
-
-    _PC_VDISABLE,
-
-    _PC_SYNC_IO,
-
-    _PC_ASYNC_IO,
-
-    _PC_PRIO_IO,
-
-    _PC_SOCK_MAXBUF,
-
-    _PC_FILESIZEBITS,
-
-    _PC_REC_INCR_XFER_SIZE,
-
-    _PC_REC_MAX_XFER_SIZE,
-
-    _PC_REC_MIN_XFER_SIZE,
-
-    _PC_REC_XFER_ALIGN,
-
-    _PC_ALLOC_SIZE_MIN,
-
-    _PC_SYMLINK_MAX,
-
-    _PC_2_SYMLINKS
-
-  };
-
-
-enum
-  {
-    _SC_ARG_MAX,
-
-    _SC_CHILD_MAX,
-
-    _SC_CLK_TCK,
-
-    _SC_NGROUPS_MAX,
-
-    _SC_OPEN_MAX,
-
-    _SC_STREAM_MAX,
-
-    _SC_TZNAME_MAX,
-
-    _SC_JOB_CONTROL,
-
-    _SC_SAVED_IDS,
-
-    _SC_REALTIME_SIGNALS,
-
-    _SC_PRIORITY_SCHEDULING,
-
-    _SC_TIMERS,
-
-    _SC_ASYNCHRONOUS_IO,
-
-    _SC_PRIORITIZED_IO,
-
-    _SC_SYNCHRONIZED_IO,
-
-    _SC_FSYNC,
-
-    _SC_MAPPED_FILES,
-
-    _SC_MEMLOCK,
-
-    _SC_MEMLOCK_RANGE,
-
-    _SC_MEMORY_PROTECTION,
-
-    _SC_MESSAGE_PASSING,
-
-    _SC_SEMAPHORES,
-
-    _SC_SHARED_MEMORY_OBJECTS,
-
-    _SC_AIO_LISTIO_MAX,
-
-    _SC_AIO_MAX,
-
-    _SC_AIO_PRIO_DELTA_MAX,
-
-    _SC_DELAYTIMER_MAX,
-
-    _SC_MQ_OPEN_MAX,
-
-    _SC_MQ_PRIO_MAX,
-
-    _SC_VERSION,
-
-    _SC_PAGESIZE,
-
-
-    _SC_RTSIG_MAX,
-
-    _SC_SEM_NSEMS_MAX,
-
-    _SC_SEM_VALUE_MAX,
-
-    _SC_SIGQUEUE_MAX,
-
-    _SC_TIMER_MAX,
-
-
-
-
-    _SC_BC_BASE_MAX,
-
-    _SC_BC_DIM_MAX,
-
-    _SC_BC_SCALE_MAX,
-
-    _SC_BC_STRING_MAX,
-
-    _SC_COLL_WEIGHTS_MAX,
-
-    _SC_EQUIV_CLASS_MAX,
-
-    _SC_EXPR_NEST_MAX,
-
-    _SC_LINE_MAX,
-
-    _SC_RE_DUP_MAX,
-
-    _SC_CHARCLASS_NAME_MAX,
-
-
-    _SC_2_VERSION,
-
-    _SC_2_C_BIND,
-
-    _SC_2_C_DEV,
-
-    _SC_2_FORT_DEV,
-
-    _SC_2_FORT_RUN,
-
-    _SC_2_SW_DEV,
-
-    _SC_2_LOCALEDEF,
-
-
-    _SC_PII,
-
-    _SC_PII_XTI,
-
-    _SC_PII_SOCKET,
-
-    _SC_PII_INTERNET,
-
-    _SC_PII_OSI,
-
-    _SC_POLL,
-
-    _SC_SELECT,
-
-    _SC_UIO_MAXIOV,
-
-    _SC_IOV_MAX = _SC_UIO_MAXIOV,
-
-    _SC_PII_INTERNET_STREAM,
-
-    _SC_PII_INTERNET_DGRAM,
-
-    _SC_PII_OSI_COTS,
-
-    _SC_PII_OSI_CLTS,
-
-    _SC_PII_OSI_M,
-
-    _SC_T_IOV_MAX,
-
-
-
-    _SC_THREADS,
-
-    _SC_THREAD_SAFE_FUNCTIONS,
-
-    _SC_GETGR_R_SIZE_MAX,
-
-    _SC_GETPW_R_SIZE_MAX,
-
-    _SC_LOGIN_NAME_MAX,
-
-    _SC_TTY_NAME_MAX,
-
-    _SC_THREAD_DESTRUCTOR_ITERATIONS,
-
-    _SC_THREAD_KEYS_MAX,
-
-    _SC_THREAD_STACK_MIN,
-
-    _SC_THREAD_THREADS_MAX,
-
-    _SC_THREAD_ATTR_STACKADDR,
-
-    _SC_THREAD_ATTR_STACKSIZE,
-
-    _SC_THREAD_PRIORITY_SCHEDULING,
-
-    _SC_THREAD_PRIO_INHERIT,
-
-    _SC_THREAD_PRIO_PROTECT,
-
-    _SC_THREAD_PROCESS_SHARED,
-
-
-    _SC_NPROCESSORS_CONF,
-
-    _SC_NPROCESSORS_ONLN,
-
-    _SC_PHYS_PAGES,
-
-    _SC_AVPHYS_PAGES,
-
-    _SC_ATEXIT_MAX,
-
-    _SC_PASS_MAX,
-
-
-    _SC_XOPEN_VERSION,
-
-    _SC_XOPEN_XCU_VERSION,
-
-    _SC_XOPEN_UNIX,
-
-    _SC_XOPEN_CRYPT,
-
-    _SC_XOPEN_ENH_I18N,
-
-    _SC_XOPEN_SHM,
-
-
-    _SC_2_CHAR_TERM,
-
-    _SC_2_C_VERSION,
-
-    _SC_2_UPE,
-
-
-    _SC_XOPEN_XPG2,
-
-    _SC_XOPEN_XPG3,
-
-    _SC_XOPEN_XPG4,
-
-
-    _SC_CHAR_BIT,
-
-    _SC_CHAR_MAX,
-
-    _SC_CHAR_MIN,
-
-    _SC_INT_MAX,
-
-    _SC_INT_MIN,
-
-    _SC_LONG_BIT,
-
-    _SC_WORD_BIT,
-
-    _SC_MB_LEN_MAX,
-
-    _SC_NZERO,
-
-    _SC_SSIZE_MAX,
-
-    _SC_SCHAR_MAX,
-
-    _SC_SCHAR_MIN,
-
-    _SC_SHRT_MAX,
-
-    _SC_SHRT_MIN,
-
-    _SC_UCHAR_MAX,
-
-    _SC_UINT_MAX,
-
-    _SC_ULONG_MAX,
-
-    _SC_USHRT_MAX,
-
-
-    _SC_NL_ARGMAX,
-
-    _SC_NL_LANGMAX,
-
-    _SC_NL_MSGMAX,
-
-    _SC_NL_NMAX,
-
-    _SC_NL_SETMAX,
-
-    _SC_NL_TEXTMAX,
-
-
-    _SC_XBS5_ILP32_OFF32,
-
-    _SC_XBS5_ILP32_OFFBIG,
-
-    _SC_XBS5_LP64_OFF64,
-
-    _SC_XBS5_LPBIG_OFFBIG,
-
-
-    _SC_XOPEN_LEGACY,
-
-    _SC_XOPEN_REALTIME,
-
-    _SC_XOPEN_REALTIME_THREADS,
-
-
-    _SC_ADVISORY_INFO,
-
-    _SC_BARRIERS,
-
-    _SC_BASE,
-
-    _SC_C_LANG_SUPPORT,
-
-    _SC_C_LANG_SUPPORT_R,
-
-    _SC_CLOCK_SELECTION,
-
-    _SC_CPUTIME,
-
-    _SC_THREAD_CPUTIME,
-
-    _SC_DEVICE_IO,
-
-    _SC_DEVICE_SPECIFIC,
-
-    _SC_DEVICE_SPECIFIC_R,
-
-    _SC_FD_MGMT,
-
-    _SC_FIFO,
-
-    _SC_PIPE,
-
-    _SC_FILE_ATTRIBUTES,
-
-    _SC_FILE_LOCKING,
-
-    _SC_FILE_SYSTEM,
-
-    _SC_MONOTONIC_CLOCK,
-
-    _SC_MULTI_PROCESS,
-
-    _SC_SINGLE_PROCESS,
-
-    _SC_NETWORKING,
-
-    _SC_READER_WRITER_LOCKS,
-
-    _SC_SPIN_LOCKS,
-
-    _SC_REGEXP,
-
-    _SC_REGEX_VERSION,
-
-    _SC_SHELL,
-
-    _SC_SIGNALS,
-
-    _SC_SPAWN,
-
-    _SC_SPORADIC_SERVER,
-
-    _SC_THREAD_SPORADIC_SERVER,
-
-    _SC_SYSTEM_DATABASE,
-
-    _SC_SYSTEM_DATABASE_R,
-
-    _SC_TIMEOUTS,
-
-    _SC_TYPED_MEMORY_OBJECTS,
-
-    _SC_USER_GROUPS,
-
-    _SC_USER_GROUPS_R,
-
-    _SC_2_PBS,
-
-    _SC_2_PBS_ACCOUNTING,
-
-    _SC_2_PBS_LOCATE,
-
-    _SC_2_PBS_MESSAGE,
-
-    _SC_2_PBS_TRACK,
-
-    _SC_SYMLOOP_MAX,
-
-    _SC_STREAMS,
-
-    _SC_2_PBS_CHECKPOINT,
-
-
-    _SC_V6_ILP32_OFF32,
-
-    _SC_V6_ILP32_OFFBIG,
-
-    _SC_V6_LP64_OFF64,
-
-    _SC_V6_LPBIG_OFFBIG,
-
-
-    _SC_HOST_NAME_MAX,
-
-    _SC_TRACE,
-
-    _SC_TRACE_EVENT_FILTER,
-
-    _SC_TRACE_INHERIT,
-
-    _SC_TRACE_LOG,
-
-
-    _SC_LEVEL1_ICACHE_SIZE,
-
-    _SC_LEVEL1_ICACHE_ASSOC,
-
-    _SC_LEVEL1_ICACHE_LINESIZE,
-
-    _SC_LEVEL1_DCACHE_SIZE,
-
-    _SC_LEVEL1_DCACHE_ASSOC,
-
-    _SC_LEVEL1_DCACHE_LINESIZE,
-
-    _SC_LEVEL2_CACHE_SIZE,
-
-    _SC_LEVEL2_CACHE_ASSOC,
-
-    _SC_LEVEL2_CACHE_LINESIZE,
-
-    _SC_LEVEL3_CACHE_SIZE,
-
-    _SC_LEVEL3_CACHE_ASSOC,
-
-    _SC_LEVEL3_CACHE_LINESIZE,
-
-    _SC_LEVEL4_CACHE_SIZE,
-
-    _SC_LEVEL4_CACHE_ASSOC,
-
-    _SC_LEVEL4_CACHE_LINESIZE,
-
-
-
-    _SC_IPV6 = _SC_LEVEL1_ICACHE_SIZE + 50,
-
-    _SC_RAW_SOCKETS,
-
-
-    _SC_V7_ILP32_OFF32,
-
-    _SC_V7_ILP32_OFFBIG,
-
-    _SC_V7_LP64_OFF64,
-
-    _SC_V7_LPBIG_OFFBIG,
-
-
-    _SC_SS_REPL_MAX,
-
-
-    _SC_TRACE_EVENT_NAME_MAX,
-
-    _SC_TRACE_NAME_MAX,
-
-    _SC_TRACE_SYS_MAX,
-
-    _SC_TRACE_USER_EVENT_MAX,
-
-
-    _SC_XOPEN_STREAMS,
-
-
-    _SC_THREAD_ROBUST_PRIO_INHERIT,
-
-    _SC_THREAD_ROBUST_PRIO_PROTECT
-
-  };
-
-
-enum
-  {
-    _CS_PATH,
-
-
-    _CS_V6_WIDTH_RESTRICTED_ENVS,
-
-
-
-    _CS_GNU_LIBC_VERSION,
-
-    _CS_GNU_LIBPTHREAD_VERSION,
-
-
-    _CS_V5_WIDTH_RESTRICTED_ENVS,
-
-
-
-    _CS_V7_WIDTH_RESTRICTED_ENVS,
-
-
-
-    _CS_LFS_CFLAGS = 1000,
-
-    _CS_LFS_LDFLAGS,
-
-    _CS_LFS_LIBS,
-
-    _CS_LFS_LINTFLAGS,
-
-    _CS_LFS64_CFLAGS,
-
-    _CS_LFS64_LDFLAGS,
-
-    _CS_LFS64_LIBS,
-
-    _CS_LFS64_LINTFLAGS,
-
-
-    _CS_XBS5_ILP32_OFF32_CFLAGS = 1100,
-
-    _CS_XBS5_ILP32_OFF32_LDFLAGS,
-
-    _CS_XBS5_ILP32_OFF32_LIBS,
-
-    _CS_XBS5_ILP32_OFF32_LINTFLAGS,
-
-    _CS_XBS5_ILP32_OFFBIG_CFLAGS,
-
-    _CS_XBS5_ILP32_OFFBIG_LDFLAGS,
-
-    _CS_XBS5_ILP32_OFFBIG_LIBS,
-
-    _CS_XBS5_ILP32_OFFBIG_LINTFLAGS,
-
-    _CS_XBS5_LP64_OFF64_CFLAGS,
-
-    _CS_XBS5_LP64_OFF64_LDFLAGS,
-
-    _CS_XBS5_LP64_OFF64_LIBS,
-
-    _CS_XBS5_LP64_OFF64_LINTFLAGS,
-
-    _CS_XBS5_LPBIG_OFFBIG_CFLAGS,
-
-    _CS_XBS5_LPBIG_OFFBIG_LDFLAGS,
-
-    _CS_XBS5_LPBIG_OFFBIG_LIBS,
-
-    _CS_XBS5_LPBIG_OFFBIG_LINTFLAGS,
-
-
-    _CS_POSIX_V6_ILP32_OFF32_CFLAGS,
-
-    _CS_POSIX_V6_ILP32_OFF32_LDFLAGS,
-
-    _CS_POSIX_V6_ILP32_OFF32_LIBS,
-
-    _CS_POSIX_V6_ILP32_OFF32_LINTFLAGS,
-
-    _CS_POSIX_V6_ILP32_OFFBIG_CFLAGS,
-
-    _CS_POSIX_V6_ILP32_OFFBIG_LDFLAGS,
-
-    _CS_POSIX_V6_ILP32_OFFBIG_LIBS,
-
-    _CS_POSIX_V6_ILP32_OFFBIG_LINTFLAGS,
-
-    _CS_POSIX_V6_LP64_OFF64_CFLAGS,
-
-    _CS_POSIX_V6_LP64_OFF64_LDFLAGS,
-
-    _CS_POSIX_V6_LP64_OFF64_LIBS,
-
-    _CS_POSIX_V6_LP64_OFF64_LINTFLAGS,
-
-    _CS_POSIX_V6_LPBIG_OFFBIG_CFLAGS,
-
-    _CS_POSIX_V6_LPBIG_OFFBIG_LDFLAGS,
-
-    _CS_POSIX_V6_LPBIG_OFFBIG_LIBS,
-
-    _CS_POSIX_V6_LPBIG_OFFBIG_LINTFLAGS,
-
-
-    _CS_POSIX_V7_ILP32_OFF32_CFLAGS,
-
-    _CS_POSIX_V7_ILP32_OFF32_LDFLAGS,
-
-    _CS_POSIX_V7_ILP32_OFF32_LIBS,
-
-    _CS_POSIX_V7_ILP32_OFF32_LINTFLAGS,
-
-    _CS_POSIX_V7_ILP32_OFFBIG_CFLAGS,
-
-    _CS_POSIX_V7_ILP32_OFFBIG_LDFLAGS,
-
-    _CS_POSIX_V7_ILP32_OFFBIG_LIBS,
-
-    _CS_POSIX_V7_ILP32_OFFBIG_LINTFLAGS,
-
-    _CS_POSIX_V7_LP64_OFF64_CFLAGS,
-
-    _CS_POSIX_V7_LP64_OFF64_LDFLAGS,
-
-    _CS_POSIX_V7_LP64_OFF64_LIBS,
-
-    _CS_POSIX_V7_LP64_OFF64_LINTFLAGS,
-
-    _CS_POSIX_V7_LPBIG_OFFBIG_CFLAGS,
-
-    _CS_POSIX_V7_LPBIG_OFFBIG_LDFLAGS,
-
-    _CS_POSIX_V7_LPBIG_OFFBIG_LIBS,
-
-    _CS_POSIX_V7_LPBIG_OFFBIG_LINTFLAGS,
-
-
-    _CS_V6_ENV,
-
-    _CS_V7_ENV
-
-  };
-# 611 "/usr/include/unistd.h" 2 3 4
-
-
-extern long int pathconf (__const char *__path, int __name)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern long int fpathconf (int __fd, int __name) throw ();
-
-
-extern long int sysconf (int __name) throw ();
-
-
-
-extern size_t confstr (int __name, char *__buf, size_t __len) throw ();
-
-
-
-
-extern __pid_t getpid (void) throw ();
-
-
-extern __pid_t getppid (void) throw ();
-
-
-
-
-extern __pid_t getpgrp (void) throw ();
-# 647 "/usr/include/unistd.h" 3 4
-extern __pid_t __getpgid (__pid_t __pid) throw ();
-
-extern __pid_t getpgid (__pid_t __pid) throw ();
-
-
-
-
-
-
-extern int setpgid (__pid_t __pid, __pid_t __pgid) throw ();
-# 673 "/usr/include/unistd.h" 3 4
-extern int setpgrp (void) throw ();
-# 690 "/usr/include/unistd.h" 3 4
-extern __pid_t setsid (void) throw ();
-
-
-
-extern __pid_t getsid (__pid_t __pid) throw ();
-
-
-
-extern __uid_t getuid (void) throw ();
-
-
-extern __uid_t geteuid (void) throw ();
-
-
-extern __gid_t getgid (void) throw ();
-
-
-extern __gid_t getegid (void) throw ();
-
-
-
-
-extern int getgroups (int __size, __gid_t __list[]) throw () ;
-
-
-
-extern int group_member (__gid_t __gid) throw ();
-
-
-
-
-
-
-extern int setuid (__uid_t __uid) throw ();
-
-
-
-
-extern int setreuid (__uid_t __ruid, __uid_t __euid) throw ();
-
-
-
-
-extern int seteuid (__uid_t __uid) throw ();
-
-
-
-
-
-
-extern int setgid (__gid_t __gid) throw ();
-
-
-
-
-extern int setregid (__gid_t __rgid, __gid_t __egid) throw ();
-
-
-
-
-extern int setegid (__gid_t __gid) throw ();
-
-
-
-
-
-extern int getresuid (__uid_t *__ruid, __uid_t *__euid, __uid_t *__suid)
-     throw ();
-
-
-
-extern int getresgid (__gid_t *__rgid, __gid_t *__egid, __gid_t *__sgid)
-     throw ();
-
-
-
-extern int setresuid (__uid_t __ruid, __uid_t __euid, __uid_t __suid)
-     throw ();
-
-
-
-extern int setresgid (__gid_t __rgid, __gid_t __egid, __gid_t __sgid)
-     throw ();
-
-
-
-
-
-
-extern __pid_t fork (void) throw ();
-
-
-
-
-
-
-
-extern __pid_t vfork (void) throw ();
-
-
-
-
-
-extern char *ttyname (int __fd) throw ();
-
-
-
-extern int ttyname_r (int __fd, char *__buf, size_t __buflen)
-     throw () __attribute__ ((__nonnull__ (2))) ;
-
-
-
-extern int isatty (int __fd) throw ();
-
-
-
-
-
-extern int ttyslot (void) throw ();
-
-
-
-
-extern int link (__const char *__from, __const char *__to)
-     throw () __attribute__ ((__nonnull__ (1, 2))) ;
-
-
-
-
-extern int linkat (int __fromfd, __const char *__from, int __tofd,
-     __const char *__to, int __flags)
-     throw () __attribute__ ((__nonnull__ (2, 4))) ;
-
-
-
-
-extern int symlink (__const char *__from, __const char *__to)
-     throw () __attribute__ ((__nonnull__ (1, 2))) ;
-
-
-
-
-extern ssize_t readlink (__const char *__restrict __path,
-    char *__restrict __buf, size_t __len)
-     throw () __attribute__ ((__nonnull__ (1, 2))) ;
-
-
-
-
-extern int symlinkat (__const char *__from, int __tofd,
-        __const char *__to) throw () __attribute__ ((__nonnull__ (1, 3))) ;
-
-
-extern ssize_t readlinkat (int __fd, __const char *__restrict __path,
-      char *__restrict __buf, size_t __len)
-     throw () __attribute__ ((__nonnull__ (2, 3))) ;
-
-
-
-extern int unlink (__const char *__name) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int unlinkat (int __fd, __const char *__name, int __flag)
-     throw () __attribute__ ((__nonnull__ (2)));
-
-
-
-extern int rmdir (__const char *__path) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern __pid_t tcgetpgrp (int __fd) throw ();
-
-
-extern int tcsetpgrp (int __fd, __pid_t __pgrp_id) throw ();
-
-
-
-
-
-
-extern char *getlogin (void);
-
-
-
-
-
-
-
-extern int getlogin_r (char *__name, size_t __name_len) __attribute__ ((__nonnull__ (1)));
-
-
-
-
-extern int setlogin (__const char *__name) throw () __attribute__ ((__nonnull__ (1)));
-# 894 "/usr/include/unistd.h" 3 4
-# 1 "/usr/include/getopt.h" 1 3 4
-# 50 "/usr/include/getopt.h" 3 4
-extern "C" {
-# 59 "/usr/include/getopt.h" 3 4
-extern char *optarg;
-# 73 "/usr/include/getopt.h" 3 4
-extern int optind;
-
-
-
-
-extern int opterr;
-
-
-
-extern int optopt;
-# 152 "/usr/include/getopt.h" 3 4
-extern int getopt (int ___argc, char *const *___argv, const char *__shortopts)
-       throw ();
-# 187 "/usr/include/getopt.h" 3 4
-}
-# 895 "/usr/include/unistd.h" 2 3 4
-
-
-
-
-
-
-
-extern int gethostname (char *__name, size_t __len) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-extern int sethostname (__const char *__name, size_t __len)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-extern int sethostid (long int __id) throw () ;
-
-
-
-
-
-extern int getdomainname (char *__name, size_t __len)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-extern int setdomainname (__const char *__name, size_t __len)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-
-
-extern int vhangup (void) throw ();
-
-
-extern int revoke (__const char *__file) throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-
-
-
-
-extern int profil (unsigned short int *__sample_buffer, size_t __size,
-     size_t __offset, unsigned int __scale)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-extern int acct (__const char *__name) throw ();
-
-
-
-extern char *getusershell (void) throw ();
-extern void endusershell (void) throw ();
-extern void setusershell (void) throw ();
-
-
-
-
-
-extern int daemon (int __nochdir, int __noclose) throw () ;
-
-
-
-
-
-
-extern int chroot (__const char *__path) throw () __attribute__ ((__nonnull__ (1))) ;
-
-
-
-extern char *getpass (__const char *__prompt) __attribute__ ((__nonnull__ (1)));
-# 980 "/usr/include/unistd.h" 3 4
-extern int fsync (int __fd);
-
-
-
-
-
-
-extern int syncfs (int __fd) throw ();
-
-
-
-
-
-
-extern long int gethostid (void);
-
-
-extern void sync (void) throw ();
-
-
-
-
-
-extern int getpagesize (void) throw () __attribute__ ((__const__));
-
-
-
-
-extern int getdtablesize (void) throw ();
-# 1018 "/usr/include/unistd.h" 3 4
-extern int truncate (__const char *__file, __off_t __length)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-# 1030 "/usr/include/unistd.h" 3 4
-extern int truncate64 (__const char *__file, __off64_t __length)
-     throw () __attribute__ ((__nonnull__ (1))) ;
-# 1040 "/usr/include/unistd.h" 3 4
-extern int ftruncate (int __fd, __off_t __length) throw () ;
-# 1050 "/usr/include/unistd.h" 3 4
-extern int ftruncate64 (int __fd, __off64_t __length) throw () ;
-# 1061 "/usr/include/unistd.h" 3 4
-extern int brk (void *__addr) throw () ;
-
-
-
-
-
-extern void *sbrk (intptr_t __delta) throw ();
-# 1082 "/usr/include/unistd.h" 3 4
-extern long int syscall (long int __sysno, ...) throw ();
-# 1105 "/usr/include/unistd.h" 3 4
-extern int lockf (int __fd, int __cmd, __off_t __len) ;
-# 1115 "/usr/include/unistd.h" 3 4
-extern int lockf64 (int __fd, int __cmd, __off64_t __len) ;
-# 1136 "/usr/include/unistd.h" 3 4
-extern int fdatasync (int __fildes);
-
-
-
-
-
-
-
-extern char *crypt (__const char *__key, __const char *__salt)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern void encrypt (char *__libc_block, int __edflag) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-extern void swab (__const void *__restrict __from, void *__restrict __to,
-    ssize_t __n) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-
-
-
-extern char *ctermid (char *__s) throw ();
-# 1174 "/usr/include/unistd.h" 3 4
-}
-# 43 "/usr/include/c++/4.4/x86_64-linux-gnu/./bits/gthr-default.h" 2 3
 
 typedef pthread_t __gthread_t;
 typedef pthread_key_t __gthread_key_t;
@@ -38316,58 +38241,194 @@ inline void print_NVCC_min_spec(const char *sSDKsample, const char *sNVCCReq, co
     printf(" -> CUDA %s Toolkit\n" , sNVCCReq);
     printf(" -> %s NVIDIA Display Driver.\n", sDriverReq);
 }
-# 131 "./dscudatmp/vecadd.cu" 2
+# 56 "./dscudatmp/broadcast.cu" 2
+# 1 "/usr/include/x86_64-linux-gnu/sys/time.h" 1 3 4
+# 29 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+# 1 "/usr/include/x86_64-linux-gnu/bits/time.h" 1 3 4
+# 30 "/usr/include/x86_64-linux-gnu/sys/time.h" 2 3 4
+# 39 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+extern "C" {
+# 57 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
 
-# 1 "./vecadd.cuh" 1
-__attribute__((global)) void
-vecAdd(float *a, float *b, float *c)
+typedef struct timezone *__restrict __timezone_ptr_t;
+# 73 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+extern int settimeofday (__const struct timeval *__tv,
+    __const struct timezone *__tz)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern int adjtime (__const struct timeval *__delta,
+      struct timeval *__olddelta) throw ();
+
+
+
+
+enum __itimer_which
+  {
+
+    ITIMER_REAL = 0,
+
+
+    ITIMER_VIRTUAL = 1,
+
+
+
+    ITIMER_PROF = 2
+
+  };
+
+
+
+struct itimerval
+  {
+
+    struct timeval it_interval;
+
+    struct timeval it_value;
+  };
+
+
+
+
+
+
+typedef int __itimer_which_t;
+
+
+
+
+extern int getitimer (__itimer_which_t __which,
+        struct itimerval *__value) throw ();
+
+
+
+
+extern int setitimer (__itimer_which_t __which,
+        __const struct itimerval *__restrict __new,
+        struct itimerval *__restrict __old) throw ();
+
+
+
+
+extern int utimes (__const char *__file, __const struct timeval __tvp[2])
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int lutimes (__const char *__file, __const struct timeval __tvp[2])
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int futimes (int __fd, __const struct timeval __tvp[2]) throw ();
+
+
+
+
+
+
+extern int futimesat (int __fd, __const char *__file,
+        __const struct timeval __tvp[2]) throw ();
+# 191 "/usr/include/x86_64-linux-gnu/sys/time.h" 3 4
+}
+# 57 "./dscudatmp/broadcast.cu" 2
+
+
+
+
+
+static const double MEGA = 1e6;
+
+cudaError_t cudaMemcpyToAlldev(int ndev, void **dst, const void *src, size_t count, enum cudaMemcpyKind kind);
+
+static void
+get_cputime(double *splittime, double *laptime)
 {
-    int i = blockIdx.x * blockDim.x + threadIdx.x;
-    c[i] = a[i] + b[i];
+    struct timeval x;
+
+    gettimeofday(&x, __null);
+
+    *splittime = x.tv_sec + x.tv_usec/1000000.0 - *laptime;
+    *laptime = x.tv_sec + x.tv_usec/1000000.0;
 }
 
-__attribute__((global)) void
-vecMul(float *a, float *b, float c, float *d, int e, int * f)
+static void
+bcastperf(int argc, char **argv)
 {
-    int i = threadIdx.x;
-    d[i] = a[i] * b[i] + c + e + f[i];
+    int maxsize = 1024 * 1024 * 10.0;
+    int i, j;
+    size_t size0 = 4096, size;
+    double sized;
+    double lt = 0.0, st = 0.0;
+    double ratio = 2.0;
+    double nloop = 2e8;
+    char *src = (char *)malloc(sizeof(char) * maxsize);
+    char *dst[32];
+    int ndev0 = 1, ndev, ndevmax;
+    static int nthread = 0;
+
+    if (1 < argc) {
+        ndev0 = atoi(argv[1]);
+    }
+    if (2 < argc) {
+        size0 = atoi(argv[2]);
+    }
+    __cudaSafeCall (cudaGetDeviceCount(&ndevmax), "./dscudatmp/broadcast.cu", 98);
+    printf("# %d device%s found.\n", ndevmax, ndevmax > 1 ? "s" : "");
+
+    for (i = 0; i < ndevmax; i++) {
+        cudaSetDevice(i);
+        __cudaSafeCall (cudaMalloc((void**) &dst[i], sizeof(char) * maxsize), "./dscudatmp/broadcast.cu", 103);
+    }
+    printf("\n#\n# cudaMemcpy (HostToDevice)\n");
+    printf("# broadcast to %d..%d servers.\n#\n", ndev0, ndevmax);
+
+    for (sized = size0; sized < maxsize; sized *= ratio) {
+
+        size = (size_t)sized;
+
+        for (ndev = ndev0; ndev <= ndevmax; ndev++) {
+            get_cputime(&lt, &st);
+#pragma omp parallel for private(j)
+            for (i = 0; i < ndev; i++) {
+
+
+
+
+
+
+                for (j = 0; j < nloop/size; j++) {
+                    cudaSetDevice(i);
+                    cudaMemcpy(dst[i], src, size, cudaMemcpyHostToDevice);
+                }
+                cudaDeviceSynchronize();
+            }
+            get_cputime(&lt, &st);
+            printf("%d devices %d byte    %f sec    %f MB/s   %f MB/s\n",
+                   ndev, size, lt, nloop/MEGA/lt, nloop/MEGA/lt*ndev);
+            fflush(stdout);
+ }
+    }
 }
-# 133 "./dscudatmp/vecadd.cu" 2
-
-
 
 int
-main(void)
+main(int argc, char **argv)
 {
-    int i, t;
-    float a[(8)], b[(8)], c[(8)];
-
-    float *d_a, *d_b, *d_c;
-    __cudaSafeCall (cudaMalloc((void**) &d_a, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 143);
-    __cudaSafeCall (cudaMalloc((void**) &d_b, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 144);
-    __cudaSafeCall (cudaMalloc((void**) &d_c, sizeof(float) * (8)), "./dscudatmp/vecadd.cu", 145);
-
-    for (t = 0; t < 3; t++) {
-        printf("try %d\n", t);
-        for (i = 0; i < (8); i++) {
-            a[i] = rand()%64;
-            b[i] = rand()%64;
-        }
-        __cudaSafeCall (cudaMemcpy(d_a, a, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 153);
-        __cudaSafeCall (cudaMemcpy(d_b, b, sizeof(float) * (8), cudaMemcpyHostToDevice), "./dscudatmp/vecadd.cu", 154);
-        int nth = 4;
-        dim3 threads(nth, 1, 1);
-        dim3 grids(((8)+nth-1)/nth, 1, 1);
-        vecAdd<<<grids, threads>>>(d_a, d_b, d_c);
-        __cudaSafeCall (cudaMemcpy(c, d_c, sizeof(float) * (8), cudaMemcpyDeviceToHost), "./dscudatmp/vecadd.cu", 159);
-        for (i = 0; i < (8); i++) {
-            printf("% 6.2f + % 6.2f = % 7.2f",
-                   a[i], b[i], c[i]);
-            if (a[i] + b[i] != c[i]) printf("   NG");
-            printf("\n");
-        }
-        printf("\n");
-    }
-
+    bcastperf(argc, argv);
+    fprintf(stderr, "going to quit...\n");
+    sleep(1);
     exit(0);
 }

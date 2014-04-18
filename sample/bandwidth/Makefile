@@ -2,71 +2,80 @@
 #By Edgar J.                   #
 ################################
 
+#Makefiles Includes..................
+#include $(DSCUDA_PATH)/script/aux.mk
+include /usr/local/DSCUDA/dscudapkg1.7.5.1/script/aux.mk
+
 #General Paths........................
 #CUDA..............................
-CUDAPATH        ?= /usr/local/cuda
-CUDASDKPATH     ?= $(CUDAPATH)/NVIDIA_GPU_Computing_SDK
-NVCC						:= $(CUDAPATH)/bin/nvcc
+CUDA_PATH       ?= /usr/local/cuda
+CUDA_SDKPATH    ?= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
+NVCC						?= $(CUDA_PATH)/bin/nvcc
 #DSCUDA............................
-DSCUDAPATH			?= /usr/local/DSCUDA/dscudapkg1.4.2
-DSCUDASDKPATH		?= $(DSCUDAPATH)/sample
-DSCUDACPP				:= $(DSCUDAPATH)/bin/dscudacpp
+DSCUDA_PATH			?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
+DSCUDA_SDKPATH	?= $(DSCUDA_PATH)/sample
+DSCUDA_CPP			?= $(DSCUDA_PATH)/bin/dscudacpp
 #Others............................
+CPP							?= g++
+
 #Libraries...........................
+ifeq ($(OS_SIZE),64)
+	OS_SIZE_LIB 	:= lib64
+	CUTIL_SIZE		:= x86_64
+endif
+ifeq ($(OS_SIZE),32)
+	OS_SIZE_LIB 	:= lib
+	CUTIL_SIZE		:= i386 
+endif
+
 #CUDA........................
-CUDALIB_DIR			:= -L$(CUDAPATH)/lib -L$(CUDASDKPATH)/C/lib -L$(CUDASDKPATH)/CUDALibraries/common/lib \
-									 -L$(CUDASDKPATH)/shared/lib
-CUDALIB					:= -lcudart -lcutil_i386 
+CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_SDKPATH)/CUDALibraries/common/lib \
+								-L$(CUDA_SDKPATH)/shared/lib
+CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
-DSCUDALIB_DIR		:= -L$(DSCUDAPATH)/lib
-DSCUDALIB				:= -ldscuda_rpc
+DSCUDA_LIB_TYPE	?= dscuda_tcp
+DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
+DSCUDA_LIB			:= -l$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
 
 #Includes............................
 #CUDA
-CUDAINC					:= -I$(CUDAPATH)/include -I$(CUDASDKPATH)/C/common/inc -I$(CUDASDKPATH)/shared/inc
+CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/C/common/inc -I$(CUDA_SDKPATH)/shared/inc
 #DSCUDA......................
-DSCUDAINC				:= -I.
+DSCUDA_INC			:= -I.
 #Others......................
-GL_INC					:= -I$(CUDASDKPATH)/shared/inc 
+GL_INC					:= -I$(CUDA_SDKPATH)/shared/inc 
 
 #Specific Flags......................
 #CUDA........................
 CUDA_FLAGS			:= -use_fast_math
 
 #DSCUDA......................
-CONNECT_FLAG		:= -DRPC_ONLY=1
-CONNECT_LIB			:= $(DSCUDAPATH)/lib/libdscuda_rpc.a
-PERF						:= 
+CONNECT_LIB			:= $(DSCUDA_PATH)/lib/lib$(DSCUDA_LIB_TYPE).a
+PERF_FLAG				:= 
 
 #Others......................
 OPENMP					:= -Xcompiler -fopenmp
 
-#Makefiles Includes..................
-include $(DSCUDASDKPATH)/aux.mk
-
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #--------------------------------------
 #.........GLOBAL VARIABLES.............
-LIB							:= $(DSCUDALIB)  
-LIBDIR					:= $(CUDALIB_DIR) $(DSCUDALIB_DIR) 
-INC							:= $(CUDAINC) $(DSCUDAINC)
-FLAGS						:= $(CONNECT_FLAG) $(PERF)  
+LIB							:= $(DSCUDA_LIB)  
+LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
+INC							:= $(CUDA_INC) $(DSCUDA_INC)
+FLAGS						:= $(PERF_FLAG)  
 
 ###########...Main Body...#############
 TARGET = bandwidth
 
-all: $(TARGET)_rpc $(TARGET)_rpcOMP $(TARGET)_nativCUDA
+all: $(TARGET)_tcp
 
-$(TARGET)_rpc : $(TARGET).cu $(CONNECT_LIB)
-	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
+$(TARGET)_tcp: $(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
 
-$(TARGET)_rpcOMP: $(TARGET).cu $(CONNECT_LIB)
-	$(DSCUDACPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(OPENMP)
-	
-$(TARGET)_nativCUDA:	$(TARGET).cu 
-	$(NVCC) $(FLAGS) $(INC) $(CUDALIB_DIR) $< -o $@
+$(TARGET)_ibv: $(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) 
 
 clean:
 	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp

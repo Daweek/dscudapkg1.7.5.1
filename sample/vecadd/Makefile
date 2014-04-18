@@ -9,13 +9,13 @@ include /usr/local/DSCUDA/dscudapkg1.7.5.1/script/aux.mk
 #CUDA..............................
 CUDA_PATH       ?= /usr/local/cuda
 CUDA_SDKPATH    ?= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
-NVCC						:= $(CUDA_PATH)/bin/nvcc
+NVCC						?= $(CUDA_PATH)/bin/nvcc
 #DSCUDA............................
 DSCUDA_PATH			?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
 DSCUDA_SDKPATH	?= $(DSCUDA_PATH)/sample
-DSCUDA_CPP			:= $(DSCUDA_PATH)/bin/dscudacpp
+DSCUDA_CPP			?= $(DSCUDA_PATH)/bin/dscudacpp
 #Others............................
-CPP							:= g++
+CPP							?= g++
 
 #Libraries...........................
 ifeq ($(OS_SIZE),64)
@@ -33,7 +33,8 @@ CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
-DSCUDA_LIB			:= -ldscuda_tcp
+DSCUDA_LIB_TYPE	?= dscuda_tcp
+DSCUDA_LIB			:= -l$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
 
@@ -50,8 +51,7 @@ GL_INC					:= -I$(CUDA_SDKPATH)/shared/inc
 CUDA_FLAGS			:= -use_fast_math
 
 #DSCUDA......................
-CONNECT_FLAG		:= -DTCP_ONLY=1
-CONNECT_LIB			:= $(DSCUDA_PATH)/lib/libdscuda_tcp.a
+CONNECT_LIB			:= $(DSCUDA_PATH)/lib/lib$(DSCUDA_LIB_TYPE).a
 PERF_FLAG				:= 
 
 #Others......................
@@ -63,7 +63,7 @@ OPENMP					:= -Xcompiler -fopenmp
 LIB							:= $(DSCUDA_LIB)  
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
-FLAGS						:= $(CONNECT_FLAG) $(PERF_FLAG)  
+FLAGS						:= $(PERF_FLAG)  
 
 ###########...Main Body...#############
 TARGET = vecadd
@@ -71,13 +71,10 @@ TARGET = vecadd
 all: $(TARGET)_tcp
 
 $(TARGET)_tcp: $(TARGET).cu $(CONNECT_LIB)
-	$(DSCUDA_CPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
 
 $(TARGET)_ibv: $(TARGET).cu $(CONNECT_LIB)
-	$(DSCUDA_CPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(OPENMP)
-
-$(TARGET)_nativCUDA:	$(TARGET).cu 
-	$(NVCC) $(FLAGS) $(INC) $(CUDA_LIB_DIR) $< -o $@
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(OPENMP)
 
 clean:
 	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp

@@ -1,8 +1,7 @@
 # General Makefile to manage DSCUDA libraries and binaries
 # By Dr. Kawai and Edgar J.
 #Makefiles Includes..................
-DSCUDA_PATH	:= /usr/local/DSCUDA/dscudapkg1.7.5.1
-include $(DSCUDA_PATH)/script/aux.mk
+include ../script/aux.mk
 
 #General Paths........................
 #CUDA..............................

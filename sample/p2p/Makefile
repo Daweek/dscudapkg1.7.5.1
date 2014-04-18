@@ -3,8 +3,7 @@
 ################################
 
 #Makefiles Includes..................
-#include $(DSCUDA_PATH)/script/aux.mk
-include /usr/local/DSCUDA/dscudapkg1.7.5.1/script/aux.mk
+include ../../script/aux.mk
 
 #General Paths........................
 #CUDA..............................

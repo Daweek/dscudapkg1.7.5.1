@@ -32,9 +32,9 @@ CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_
 								-L$(CUDA_SDKPATH)/shared/lib
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
-DSCUDA_LIB_TYPE	?= dscuda_tcp
+DSCUDA_LIB_TYPE	?= tcp
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
-DSCUDA_LIB			:= -l$(DSCUDA_LIB_TYPE)
+DSCUDA_LIB			:= -ldscuda_$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
 
@@ -51,7 +51,7 @@ GL_INC					:= -I$(CUDA_SDKPATH)/shared/inc
 CUDA_FLAGS			:= -use_fast_math
 
 #DSCUDA......................
-CONNECT_LIB			:= $(DSCUDA_PATH)/lib/lib$(DSCUDA_LIB_TYPE).a
+CONNECT_LIB			:= $(DSCUDA_PATH)/lib/libdscuda_$(DSCUDA_LIB_TYPE).a
 PERF_FLAG				:= 
 
 #Others......................
@@ -82,11 +82,14 @@ run_ibv: $(TARGET)_ibv pl2k pl8k pl64k
 $(TARGET)_tcp: $(TARGET)_tcp.o util.o $(CONNECT_LIB) 
 	$(NVCC) $(CUDA_FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@  $< util.o $(LIB)
 
-$(TARGET)_ibv: $(TARGET).cu util.o $(CONNECT_LIB) 
-	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) util.o -o $@ -i $< $(LIB) 
+$(TARGET)_ibv: $(TARGET)_ibv.o util.o $(CONNECT_LIB) 
+	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) -o $@  $< util.o $(LIB) 
 
 $(TARGET)_tcp.o:$(TARGET).cu $(CONNECT_LIB)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -c -i $< 
+
+$(TARGET)_ibv.o:$(TARGET).cu $(CONNECT_LIB)
+	$(DSCUDA_CPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -c -i $< 
 
 util.o:   util.c
 	$(GCC) -c -o $@ util.c

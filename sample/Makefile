@@ -1,7 +1,7 @@
 #General makefile for Maintaining DS-CUDA SDK
 #By Edgar J.
 
-DSCUDA_LIB_TYPE ?=dscuda_tcp
+DSCUDA_LIB_TYPE ?= tcp
 PROJECTS 	?= $(shell find matrixMul/ bandwidth/ broadcast/ claret/ direct/ p2p/ reduction/ vecadd/ -name Makefile)
 
 FILTER-OUT :=
@@ -9,16 +9,16 @@ FILTER-OUT :=
 PROJECTS := $(filter-out $(FILTER-OUT), $(PROJECTS))
 
 
-#ifneq ($(DSCUDA_LIB_TYPE),dscuda_tcp)
-#	DSCUDA_LIB_TYPE=dscuda_ibv
-#endif
+ifneq ($(DSCUDA_LIB_TYPE),tcp)
+	DSCUDA_LIB_TYPE := ibv
+endif
 
 %.generate:
 	+@$(MAKE) -C $(dir $*) $(MAKECMDGOALS)
 %.clean:
 	+@$(MAKE) -C $(dir $*) clean
 
-all: lib$(DSCUDA_LIB_TYPE).a $(addsuffix .generate, $(PROJECTS)) 
+all: libdscuda_$(DSCUDA_LIB_TYPE).a $(addsuffix .generate, $(PROJECTS)) 
 	@echo ".......... "	
 	@echo "......... "	
 	@echo "........ "	
@@ -31,8 +31,8 @@ all: lib$(DSCUDA_LIB_TYPE).a $(addsuffix .generate, $(PROJECTS))
 	@echo ". "	
 	@echo "DSCUDA samples generated..........."
 
-lib$(DSCUDA_LIB_TYPE).a:
-	$(MAKE) -C ../src lib$(DSCUDA_LIB_TYPE).a
+libdscuda_$(DSCUDA_LIB_TYPE).a:
+	$(MAKE) -C ../src libdscuda_$(DSCUDA_LIB_TYPE).a
 
 tidy:
 	@find * | egrep "#" | xargs rm -f

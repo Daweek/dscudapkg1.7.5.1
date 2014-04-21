@@ -32,9 +32,9 @@ CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_
 								-L$(CUDA_SDKPATH)/shared/lib
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
-DSCUDA_LIB_TYPE	?= dscuda_tcp
+DSCUDA_LIB_TYPE	?= tcp
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
-DSCUDA_LIB			:= -l$(DSCUDA_LIB_TYPE)
+DSCUDA_LIB			:= -ldscuda_$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
 
@@ -51,7 +51,7 @@ GL_INC					:= -I$(CUDA_SDKPATH)/shared/inc
 CUDA_FLAGS			:= -use_fast_math
 
 #DSCUDA......................
-CONNECT_LIB			:= $(DSCUDA_PATH)/lib/lib$(DSCUDA_LIB_TYPE).a
+CONNECT_LIB			:= $(DSCUDA_PATH)/lib/libdscuda_$(DSCUDA_LIB_TYPE).a
 PERF_FLAG				:= 
 
 #Others......................

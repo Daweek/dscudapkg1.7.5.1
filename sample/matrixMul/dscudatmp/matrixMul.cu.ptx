@@ -1,10 +1,10 @@
 	.version 1.4
 	.target sm_10, map_f64_to_f32
-	// compiled with /usr/local/cuda-4.1/open64/lib//be
+	// compiled with /usr/local/cuda4.1/cuda/open64/lib//be
 	// nvopencc 4.1 built on 2012-01-12
 
 	//-----------------------------------------------------------
-	// Compiling /tmp/tmpxft_00001a37_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.t5fQVp)
+	// Compiling /tmp/tmpxft_0000053e_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.rWsLED)
 	//-----------------------------------------------------------
 
 	//-----------------------------------------------------------
@@ -17,8 +17,8 @@
 	//-----------------------------------------------------------
 
 	.file	1	"<command-line>"
-	.file	2	"/tmp/tmpxft_00001a37_00000000-8_matrixMul.cudafe2.gpu"
-	.file	3	"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h"
+	.file	2	"/tmp/tmpxft_0000053e_00000000-8_matrixMul.cudafe2.gpu"
+	.file	3	"/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h"
 	.file	4	"/usr/local/cuda/include/crt/device_runtime.h"
 	.file	5	"/usr/local/cuda/include/host_defines.h"
 	.file	6	"/usr/local/cuda/include/builtin_types.h"
@@ -55,8 +55,8 @@
 	.reg .u64 %rd<29>;
 	.reg .f32 %f<100>;
 	.reg .pred %p<4>;
-	.shared .align 4 .b8 __cuda___cuda_local_var_37569_38_non_const_Bs32[4096];
-	.shared .align 4 .b8 __cuda___cuda_local_var_37568_36_non_const_As4128[4096];
+	.shared .align 4 .b8 __cuda___cuda_local_var_37736_38_non_const_Bs32[4096];
+	.shared .align 4 .b8 __cuda___cuda_local_var_37735_36_non_const_As4128[4096];
 	.loc	14	89	0
 $LDWbegin__Z11matrixMulDSPfS_S_ii:
 	.loc	14	124	0
@@ -73,8 +73,8 @@ $LDWbegin__Z11matrixMulDSPfS_S_ii:
 	ld.param.s32 	%r11, [__cudaparm__Z11matrixMulDSPfS_S_ii_wB];
 	setp.lt.s32 	%p1, %r8, %r6;
 	@%p1 bra 	$Lt_0_3330;
-	mov.u64 	%rd1, __cuda___cuda_local_var_37569_38_non_const_Bs32;
-	mov.u64 	%rd2, __cuda___cuda_local_var_37568_36_non_const_As4128;
+	mov.u64 	%rd1, __cuda___cuda_local_var_37736_38_non_const_Bs32;
+	mov.u64 	%rd2, __cuda___cuda_local_var_37735_36_non_const_As4128;
 	ld.param.s32 	%r4, [__cudaparm__Z11matrixMulDSPfS_S_ii_wA];
 	add.s32 	%r12, %r4, 31;
 	shr.s32 	%r13, %r12, 31;

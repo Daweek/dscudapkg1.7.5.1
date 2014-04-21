@@ -242,7 +242,7 @@ spawn_server(int listening_sock)
 #if TCP_ONLY
         argv[0] = "dscudasvr_tcp";
 #else
-        argv[0] = "dscudasvr";
+        argv[0] = "dscudasvr_ibv";
 #endif
         sprintf(portstr, "-p%d", sport);
         argv[1] = portstr;

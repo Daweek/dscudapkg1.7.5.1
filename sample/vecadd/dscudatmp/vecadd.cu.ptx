@@ -1,10 +1,10 @@
 	.version 1.4
 	.target sm_10, map_f64_to_f32
-	// compiled with /usr/local/cuda-4.1/open64/lib//be
+	// compiled with /usr/local/cuda4.1/cuda/open64/lib//be
 	// nvopencc 4.1 built on 2012-01-12
 
 	//-----------------------------------------------------------
-	// Compiling /tmp/tmpxft_00001e55_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.fJ0T2s)
+	// Compiling /tmp/tmpxft_00000646_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.H8fFhA)
 	//-----------------------------------------------------------
 
 	//-----------------------------------------------------------
@@ -17,8 +17,8 @@
 	//-----------------------------------------------------------
 
 	.file	1	"<command-line>"
-	.file	2	"/tmp/tmpxft_00001e55_00000000-8_vecadd.cudafe2.gpu"
-	.file	3	"/usr/lib/gcc/x86_64-linux-gnu/4.4.7/include/stddef.h"
+	.file	2	"/tmp/tmpxft_00000646_00000000-8_vecadd.cudafe2.gpu"
+	.file	3	"/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h"
 	.file	4	"/usr/local/cuda/include/crt/device_runtime.h"
 	.file	5	"/usr/local/cuda/include/host_defines.h"
 	.file	6	"/usr/local/cuda/include/builtin_types.h"

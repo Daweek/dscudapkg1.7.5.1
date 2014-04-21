@@ -60,7 +60,7 @@ OPENMP					:= -Xcompiler -fopenmp
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #--------------------------------------
 #.........GLOBAL VARIABLES.............
-LIB							:= $(DSCUDA_LIB)  
+LIB							:= $(DSCUDA_LIB) -lpthread 
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
 FLAGS						:= $(PERF_FLAG)  
@@ -74,7 +74,11 @@ $(TARGET)_tcp: $(TARGET).cu $(CONNECT_LIB)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
 
 $(TARGET)_ibv: $(TARGET).cu $(CONNECT_LIB)
+<<<<<<< HEAD
 	$(DSCUDA_CPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -i $< $(LIB) 
+=======
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -lrdmacm -libverbs
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 clean:
 	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp

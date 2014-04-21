@@ -93,7 +93,7 @@ dummyclient :	dummyclient.c
 dscudasvr_ibv :	dscudasvr.cu dscudasvr_ibv.cu dscudasvr_tcp.cu $(DSCUDA_HDR) \
                 dscudautil.o ibvutil.o sockutil.o
 	$(NVCC) $(CUDA_INC) $(SVROPT) -c -o $@.o dscudasvr.cu
-	$(NVCC) $(CUDA_LIB_DIR) $(SVROPT) -o $@ dscudasvr.o dscudautil.o ibvutil.o  sockutil.o \
+	$(NVCC) $(CUDA_LIB_DIR) $(SVROPT) -o $@ $@.o dscudautil.o ibvutil.o  sockutil.o \
                 -lcufft -lcudart -lcuda -lrdmacm -libverbs -lpthread
 
 dscudasvr_tcp:	dscudasvr.cu dscudasvr_tcp.cu $(DSCUDA_HDR) \

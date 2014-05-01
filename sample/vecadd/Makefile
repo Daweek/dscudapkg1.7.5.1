@@ -28,8 +28,6 @@ ifeq ($(OS_SIZE),32)
 endif
 
 #CUDA........................
-#CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_SDKPATH)/CUDALibraries/common/lib \
-								-L$(CUDA_SDKPATH)/shared/lib
 CUDA_LIB_DIR		:= 
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
@@ -38,7 +36,7 @@ DSCUDA_LIB_TYPE	?= tcp
 DSCUDA_LIB			:= -ldscuda_$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
-IBV							:= -lrdmacm -libverbs
+IBV							:= -lrdmacm -libverbs -lpthread
 #Includes............................
 #CUDA
 CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc 
@@ -52,7 +50,8 @@ GL_INC					:= -I$(CUDA_SDKPATH)/common/inc
 CUDA_FLAGS			:= --cudart=shared -use_fast_math
 
 #DSCUDA......................
-CONNECT_LIB			:= $(DSCUDA_PATH)/lib/libdscuda_$(DSCUDA_LIB_TYPE).a
+CONNECT_TCP			:= $(DSCUDA_PATH)/lib/libdscuda_tcp.a
+CONNECT_IBV			:= $(DSCUDA_PATH)/lib/libdscuda_ibv.a
 PERF_FLAG				:= 
 
 #Others......................
@@ -71,10 +70,10 @@ TARGET = vecadd
 
 all: $(TARGET)_tcp
 
-$(TARGET)_tcp: $(TARGET).cu $(CONNECT_LIB)
+$(TARGET)_tcp: $(TARGET).cu $(CONNECT_TCP)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
 
-$(TARGET)_ibv: $(TARGET).cu $(CONNECT_LIB)
+$(TARGET)_ibv: $(TARGET).cu $(CONNECT_IBV)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(IBV)
 
 clean:

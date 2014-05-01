@@ -36,7 +36,7 @@ DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
 DSCUDA_LIB			:= -ldscuda_$(DSCUDA_LIB_TYPE)
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
-IBV							:= -lrdmacm -libverbs
+IBV							:= -lrdmacm -libverbs -lpthread
 #Includes............................
 #CUDA
 CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/C/common/inc -I$(CUDA_SDKPATH)/shared/inc

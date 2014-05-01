@@ -2856,6 +2856,7 @@ extern __attribute__((host)) __attribute__((device)) __attribute__((device_built
 # 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/new" 3
        
 # 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/new" 3
+<<<<<<< HEAD
 
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
 # 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
@@ -2870,8 +2871,27 @@ extern __attribute__((host)) __attribute__((device)) __attribute__((device_built
 # 1791 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 3
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/os_defines.h" 1 3
 # 1792 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 2 3
+=======
 
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
 
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 1 3
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 4 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 2 3
+# 1791 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/os_defines.h" 1 3
+# 1792 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 2 3
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/cpu_defines.h" 1 3
 # 1795 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++config.h" 2 3
 # 44 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
@@ -14396,7 +14416,11 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
+<<<<<<< HEAD
+    "	// Compiling /tmp/tmpxft_000031ad_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.lU5T9B)\n"
+=======
     "	// Compiling /tmp/tmpxft_0000053e_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.rWsLED)\n"
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -14409,7 +14433,11 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
+<<<<<<< HEAD
+    "	.file	2	\"/tmp/tmpxft_000031ad_00000000-8_matrixMul.cudafe2.gpu\"\n"
+=======
     "	.file	2	\"/tmp/tmpxft_0000053e_00000000-8_matrixMul.cudafe2.gpu\"\n"
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     "	.file	3	\"/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -14726,6 +14754,3402 @@ int dscudaWarnLevel(void);
 void dscudaSetWarnLevel(int level);
 # 13 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 2
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/ibvdefs.h" 1
+
+
+
+
+
+# 1 "/usr/include/rdma/rdma_cma.h" 1 3 4
+# 37 "/usr/include/rdma/rdma_cma.h" 3 4
+# 1 "/usr/include/netinet/in.h" 1 3 4
+# 25 "/usr/include/netinet/in.h" 3 4
+# 1 "/usr/include/sys/socket.h" 1 3 4
+# 26 "/usr/include/sys/socket.h" 3 4
+extern "C" {
+
+# 1 "/usr/include/sys/uio.h" 1 3 4
+# 26 "/usr/include/sys/uio.h" 3 4
+extern "C" {
+
+
+# 1 "/usr/include/bits/uio.h" 1 3 4
+# 44 "/usr/include/bits/uio.h" 3 4
+struct iovec
+  {
+    void *iov_base;
+    size_t iov_len;
+  };
+# 30 "/usr/include/sys/uio.h" 2 3 4
+# 40 "/usr/include/sys/uio.h" 3 4
+extern ssize_t readv (int __fd, __const struct iovec *__iovec, int __count)
+  ;
+# 51 "/usr/include/sys/uio.h" 3 4
+extern ssize_t writev (int __fd, __const struct iovec *__iovec, int __count)
+  ;
+# 66 "/usr/include/sys/uio.h" 3 4
+extern ssize_t preadv (int __fd, __const struct iovec *__iovec, int __count,
+         __off_t __offset) ;
+# 78 "/usr/include/sys/uio.h" 3 4
+extern ssize_t pwritev (int __fd, __const struct iovec *__iovec, int __count,
+   __off_t __offset) ;
+# 104 "/usr/include/sys/uio.h" 3 4
+extern ssize_t preadv64 (int __fd, __const struct iovec *__iovec, int __count,
+    __off64_t __offset) ;
+# 116 "/usr/include/sys/uio.h" 3 4
+extern ssize_t pwritev64 (int __fd, __const struct iovec *__iovec, int __count,
+     __off64_t __offset) ;
+
+
+
+}
+# 29 "/usr/include/sys/socket.h" 2 3 4
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 31 "/usr/include/sys/socket.h" 2 3 4
+
+
+# 1 "/usr/include/bits/sigset.h" 1 3 4
+# 34 "/usr/include/sys/socket.h" 2 3 4
+
+
+
+
+
+
+# 1 "/usr/include/bits/socket.h" 1 3 4
+# 29 "/usr/include/bits/socket.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 30 "/usr/include/bits/socket.h" 2 3 4
+
+
+
+
+
+typedef __socklen_t socklen_t;
+
+
+
+
+enum __socket_type
+{
+  SOCK_STREAM = 1,
+
+
+  SOCK_DGRAM = 2,
+
+
+  SOCK_RAW = 3,
+
+  SOCK_RDM = 4,
+
+  SOCK_SEQPACKET = 5,
+
+
+  SOCK_DCCP = 6,
+
+  SOCK_PACKET = 10,
+
+
+
+
+
+
+
+  SOCK_CLOEXEC = 02000000,
+
+
+  SOCK_NONBLOCK = 04000
+
+
+};
+# 171 "/usr/include/bits/socket.h" 3 4
+# 1 "/usr/include/bits/sockaddr.h" 1 3 4
+# 29 "/usr/include/bits/sockaddr.h" 3 4
+typedef unsigned short int sa_family_t;
+# 172 "/usr/include/bits/socket.h" 2 3 4
+
+
+struct sockaddr
+  {
+    sa_family_t sa_family;
+    char sa_data[14];
+  };
+# 187 "/usr/include/bits/socket.h" 3 4
+struct sockaddr_storage
+  {
+    sa_family_t ss_family;
+    unsigned long int __ss_align;
+    char __ss_padding[(128 - (2 * sizeof (unsigned long int)))];
+  };
+
+
+
+enum
+  {
+    MSG_OOB = 0x01,
+
+    MSG_PEEK = 0x02,
+
+    MSG_DONTROUTE = 0x04,
+
+
+
+    MSG_TRYHARD = MSG_DONTROUTE,
+
+
+    MSG_CTRUNC = 0x08,
+
+    MSG_PROXY = 0x10,
+
+    MSG_TRUNC = 0x20,
+
+    MSG_DONTWAIT = 0x40,
+
+    MSG_EOR = 0x80,
+
+    MSG_WAITALL = 0x100,
+
+    MSG_FIN = 0x200,
+
+    MSG_SYN = 0x400,
+
+    MSG_CONFIRM = 0x800,
+
+    MSG_RST = 0x1000,
+
+    MSG_ERRQUEUE = 0x2000,
+
+    MSG_NOSIGNAL = 0x4000,
+
+    MSG_MORE = 0x8000,
+
+    MSG_WAITFORONE = 0x10000,
+
+
+    MSG_CMSG_CLOEXEC = 0x40000000
+
+
+
+  };
+
+
+
+
+struct msghdr
+  {
+    void *msg_name;
+    socklen_t msg_namelen;
+
+    struct iovec *msg_iov;
+    size_t msg_iovlen;
+
+    void *msg_control;
+    size_t msg_controllen;
+
+
+
+
+    int msg_flags;
+  };
+
+
+
+struct mmsghdr
+  {
+    struct msghdr msg_hdr;
+    unsigned int msg_len;
+  };
+
+
+
+struct cmsghdr
+  {
+    size_t cmsg_len;
+
+
+
+
+    int cmsg_level;
+    int cmsg_type;
+
+    __extension__ unsigned char __cmsg_data [];
+
+  };
+# 304 "/usr/include/bits/socket.h" 3 4
+extern struct cmsghdr *__cmsg_nxthdr (struct msghdr *__mhdr,
+          struct cmsghdr *__cmsg) throw ();
+# 331 "/usr/include/bits/socket.h" 3 4
+enum
+  {
+    SCM_RIGHTS = 0x01
+
+
+    , SCM_CREDENTIALS = 0x02
+
+
+  };
+
+
+
+struct ucred
+{
+  pid_t pid;
+  uid_t uid;
+  gid_t gid;
+};
+# 377 "/usr/include/bits/socket.h" 3 4
+# 1 "/usr/include/asm/socket.h" 1 3 4
+# 1 "/usr/include/asm-generic/socket.h" 1 3 4
+
+
+
+# 1 "/usr/include/asm/sockios.h" 1 3 4
+# 1 "/usr/include/asm-generic/sockios.h" 1 3 4
+# 1 "/usr/include/asm/sockios.h" 2 3 4
+# 5 "/usr/include/asm-generic/socket.h" 2 3 4
+# 1 "/usr/include/asm/socket.h" 2 3 4
+# 378 "/usr/include/bits/socket.h" 2 3 4
+# 411 "/usr/include/bits/socket.h" 3 4
+struct linger
+  {
+    int l_onoff;
+    int l_linger;
+  };
+
+
+extern "C" {
+
+
+
+
+
+
+extern int recvmmsg (int __fd, struct mmsghdr *__vmessages,
+       unsigned int __vlen, int __flags,
+       __const struct timespec *__tmo);
+
+}
+# 41 "/usr/include/sys/socket.h" 2 3 4
+
+
+
+
+struct osockaddr
+  {
+    unsigned short int sa_family;
+    unsigned char sa_data[14];
+  };
+
+
+
+
+enum
+{
+  SHUT_RD = 0,
+
+  SHUT_WR,
+
+  SHUT_RDWR
+
+};
+# 105 "/usr/include/sys/socket.h" 3 4
+extern int socket (int __domain, int __type, int __protocol) throw ();
+
+
+
+
+
+extern int socketpair (int __domain, int __type, int __protocol,
+         int __fds[2]) throw ();
+
+
+extern int bind (int __fd, __const struct sockaddr * __addr, socklen_t __len)
+     throw ();
+
+
+extern int getsockname (int __fd, struct sockaddr *__restrict __addr,
+   socklen_t *__restrict __len) throw ();
+# 129 "/usr/include/sys/socket.h" 3 4
+extern int connect (int __fd, __const struct sockaddr * __addr, socklen_t __len);
+
+
+
+extern int getpeername (int __fd, struct sockaddr *__restrict __addr,
+   socklen_t *__restrict __len) throw ();
+
+
+
+
+
+
+extern ssize_t send (int __fd, __const void *__buf, size_t __n, int __flags);
+
+
+
+
+
+
+extern ssize_t recv (int __fd, void *__buf, size_t __n, int __flags);
+
+
+
+
+
+
+extern ssize_t sendto (int __fd, __const void *__buf, size_t __n,
+         int __flags, __const struct sockaddr * __addr,
+         socklen_t __addr_len);
+# 166 "/usr/include/sys/socket.h" 3 4
+extern ssize_t recvfrom (int __fd, void *__restrict __buf, size_t __n,
+    int __flags, struct sockaddr *__restrict __addr,
+    socklen_t *__restrict __addr_len);
+
+
+
+<<<<<<< HEAD
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 35 "/usr/include/stdio.h" 2 3 4
+# 45 "/usr/include/stdio.h" 3 4
+struct _IO_FILE;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+
+extern ssize_t sendmsg (int __fd, __const struct msghdr *__message,
+   int __flags);
+
+
+
+
+<<<<<<< HEAD
+=======
+# 65 "/usr/include/stdio.h" 3 4
+typedef struct _IO_FILE __FILE;
+# 75 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/libio.h" 1 3 4
+# 32 "/usr/include/libio.h" 3 4
+# 1 "/usr/include/_G_config.h" 1 3 4
+# 15 "/usr/include/_G_config.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 16 "/usr/include/_G_config.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern ssize_t recvmsg (int __fd, struct msghdr *__message, int __flags);
+
+
+
+
+
+extern int getsockopt (int __fd, int __level, int __optname,
+         void *__restrict __optval,
+         socklen_t *__restrict __optlen) throw ();
+
+
+<<<<<<< HEAD
+=======
+typedef struct
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} _G_fpos_t;
+typedef struct
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} _G_fpos64_t;
+# 53 "/usr/include/_G_config.h" 3 4
+typedef int _G_int16_t __attribute__ ((__mode__ (__HI__)));
+typedef int _G_int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int _G_uint16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int _G_uint32_t __attribute__ ((__mode__ (__SI__)));
+# 33 "/usr/include/libio.h" 2 3 4
+# 53 "/usr/include/libio.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stdarg.h" 1 3 4
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 54 "/usr/include/libio.h" 2 3 4
+# 170 "/usr/include/libio.h" 3 4
+struct _IO_jump_t; struct _IO_FILE;
+# 180 "/usr/include/libio.h" 3 4
+typedef void _IO_lock_t;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int setsockopt (int __fd, int __level, int __optname,
+         __const void *__optval, socklen_t __optlen) throw ();
+
+
+
+
+
+extern int listen (int __fd, int __n) throw ();
+# 214 "/usr/include/sys/socket.h" 3 4
+extern int accept (int __fd, struct sockaddr *__restrict __addr,
+     socklen_t *__restrict __addr_len);
+
+<<<<<<< HEAD
+
+
+=======
+  int _pos;
+# 203 "/usr/include/libio.h" 3 4
+};
+
+
+enum __codecvt_result
+{
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
+};
+# 271 "/usr/include/libio.h" 3 4
+struct _IO_FILE {
+  int _flags;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+extern int accept4 (int __fd, struct sockaddr *__restrict __addr,
+      socklen_t *__restrict __addr_len, int __flags);
+# 232 "/usr/include/sys/socket.h" 3 4
+extern int shutdown (int __fd, int __how) throw ();
+
+
+
+
+extern int sockatmark (int __fd) throw ();
+
+
+
+
+
+
+
+extern int isfdtype (int __fd, int __fdtype) throw ();
+# 254 "/usr/include/sys/socket.h" 3 4
+}
+# 26 "/usr/include/netinet/in.h" 2 3 4
+
+
+
+extern "C" {
+
+<<<<<<< HEAD
+=======
+  _IO_lock_t *_lock;
+# 319 "/usr/include/libio.h" 3 4
+  __off64_t _offset;
+# 328 "/usr/include/libio.h" 3 4
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+  size_t __pad5;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+enum
+  {
+    IPPROTO_IP = 0,
+
+    IPPROTO_HOPOPTS = 0,
+
+    IPPROTO_ICMP = 1,
+
+    IPPROTO_IGMP = 2,
+
+    IPPROTO_IPIP = 4,
+
+    IPPROTO_TCP = 6,
+
+    IPPROTO_EGP = 8,
+
+    IPPROTO_PUP = 12,
+
+<<<<<<< HEAD
+    IPPROTO_UDP = 17,
+=======
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+# 364 "/usr/include/libio.h" 3 4
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+    IPPROTO_IDP = 22,
+
+    IPPROTO_TP = 29,
+
+    IPPROTO_DCCP = 33,
+
+    IPPROTO_IPV6 = 41,
+
+    IPPROTO_ROUTING = 43,
+
+    IPPROTO_FRAGMENT = 44,
+
+    IPPROTO_RSVP = 46,
+
+    IPPROTO_GRE = 47,
+
+    IPPROTO_ESP = 50,
+
+    IPPROTO_AH = 51,
+
+    IPPROTO_ICMPV6 = 58,
+
+    IPPROTO_NONE = 59,
+
+    IPPROTO_DSTOPTS = 60,
+
+    IPPROTO_MTP = 92,
+
+    IPPROTO_ENCAP = 98,
+
+    IPPROTO_PIM = 103,
+
+    IPPROTO_COMP = 108,
+
+    IPPROTO_SCTP = 132,
+
+    IPPROTO_UDPLITE = 136,
+
+    IPPROTO_RAW = 255,
+
+    IPPROTO_MAX
+  };
+
+
+
+typedef uint16_t in_port_t;
+
+
+enum
+  {
+    IPPORT_ECHO = 7,
+    IPPORT_DISCARD = 9,
+    IPPORT_SYSTAT = 11,
+    IPPORT_DAYTIME = 13,
+    IPPORT_NETSTAT = 15,
+    IPPORT_FTP = 21,
+    IPPORT_TELNET = 23,
+    IPPORT_SMTP = 25,
+    IPPORT_TIMESERVER = 37,
+    IPPORT_NAMESERVER = 42,
+    IPPORT_WHOIS = 43,
+    IPPORT_MTP = 57,
+
+    IPPORT_TFTP = 69,
+    IPPORT_RJE = 77,
+    IPPORT_FINGER = 79,
+    IPPORT_TTYLINK = 87,
+    IPPORT_SUPDUP = 95,
+
+
+    IPPORT_EXECSERVER = 512,
+    IPPORT_LOGINSERVER = 513,
+    IPPORT_CMDSERVER = 514,
+    IPPORT_EFSSERVER = 520,
+
+
+<<<<<<< HEAD
+    IPPORT_BIFFUDP = 512,
+    IPPORT_WHOSERVER = 513,
+    IPPORT_ROUTESERVER = 520,
+=======
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+# 460 "/usr/include/libio.h" 3 4
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) throw ();
+extern int _IO_ferror (_IO_FILE *__fp) throw ();
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+    IPPORT_RESERVED = 1024,
+
+
+    IPPORT_USERRESERVED = 5000
+  };
+
+
+<<<<<<< HEAD
+=======
+extern void _IO_flockfile (_IO_FILE *) throw ();
+extern void _IO_funlockfile (_IO_FILE *) throw ();
+extern int _IO_ftrylockfile (_IO_FILE *) throw ();
+# 490 "/usr/include/libio.h" 3 4
+extern int _IO_vfscanf (_IO_FILE * __restrict, const char * __restrict,
+   __gnuc_va_list, int *__restrict);
+extern int _IO_vfprintf (_IO_FILE *__restrict, const char *__restrict,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+typedef uint32_t in_addr_t;
+struct in_addr
+  {
+    in_addr_t s_addr;
+  };
+# 198 "/usr/include/netinet/in.h" 3 4
+struct in6_addr
+  {
+    union
+      {
+ uint8_t __u6_addr8[16];
+
+<<<<<<< HEAD
+ uint16_t __u6_addr16[8];
+ uint32_t __u6_addr32[4];
+=======
+extern void _IO_free_backup_area (_IO_FILE *) throw ();
+# 552 "/usr/include/libio.h" 3 4
+}
+# 76 "/usr/include/stdio.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+      } __in6_u;
+
+
+
+
+
+  };
+
+extern const struct in6_addr in6addr_any;
+extern const struct in6_addr in6addr_loopback;
+# 225 "/usr/include/netinet/in.h" 3 4
+struct sockaddr_in
+  {
+    sa_family_t sin_family;
+    in_port_t sin_port;
+    struct in_addr sin_addr;
+
+
+    unsigned char sin_zero[sizeof (struct sockaddr) -
+      (sizeof (unsigned short int)) -
+      sizeof (in_port_t) -
+      sizeof (struct in_addr)];
+  };
+
+
+<<<<<<< HEAD
+struct sockaddr_in6
+  {
+    sa_family_t sin6_family;
+    in_port_t sin6_port;
+    uint32_t sin6_flowinfo;
+    struct in6_addr sin6_addr;
+    uint32_t sin6_scope_id;
+  };
+=======
+typedef _G_fpos64_t fpos64_t;
+# 161 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/bits/stdio_lim.h" 1 3 4
+# 162 "/usr/include/stdio.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+
+struct ip_mreq
+  {
+
+    struct in_addr imr_multiaddr;
+
+
+    struct in_addr imr_interface;
+  };
+
+struct ip_mreq_source
+  {
+
+    struct in_addr imr_multiaddr;
+
+<<<<<<< HEAD
+=======
+
+
+extern int remove (__const char *__filename) throw ();
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+    struct in_addr imr_interface;
+
+
+    struct in_addr imr_sourceaddr;
+  };
+
+
+
+
+struct ipv6_mreq
+  {
+
+    struct in6_addr ipv6mr_multiaddr;
+
+
+    unsigned int ipv6mr_interface;
+  };
+
+
+
+<<<<<<< HEAD
+=======
+extern FILE *tmpfile (void) ;
+# 204 "/usr/include/stdio.h" 3 4
+extern FILE *tmpfile64 (void) ;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+struct group_req
+  {
+
+    uint32_t gr_interface;
+
+
+    struct sockaddr_storage gr_group;
+  };
+
+struct group_source_req
+  {
+
+    uint32_t gsr_interface;
+
+
+<<<<<<< HEAD
+    struct sockaddr_storage gsr_group;
+=======
+extern char *tmpnam_r (char *__s) throw () ;
+# 226 "/usr/include/stdio.h" 3 4
+extern char *tempnam (__const char *__dir, __const char *__pfx)
+     throw () __attribute__ ((__malloc__)) ;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+    struct sockaddr_storage gsr_source;
+  };
+
+
+
+struct ip_msfilter
+  {
+
+    struct in_addr imsf_multiaddr;
+
+
+    struct in_addr imsf_interface;
+
+
+    uint32_t imsf_fmode;
+
+
+    uint32_t imsf_numsrc;
+
+<<<<<<< HEAD
+    struct in_addr imsf_slist[1];
+  };
+=======
+# 251 "/usr/include/stdio.h" 3 4
+extern int fflush_unlocked (FILE *__stream);
+# 261 "/usr/include/stdio.h" 3 4
+extern int fcloseall (void);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+
+
+struct group_filter
+  {
+
+    uint32_t gf_interface;
+
+
+    struct sockaddr_storage gf_group;
+
+
+    uint32_t gf_fmode;
+
+
+    uint32_t gf_numsrc;
+
+<<<<<<< HEAD
+    struct sockaddr_storage gf_slist[1];
+};
+# 356 "/usr/include/netinet/in.h" 3 4
+# 1 "/usr/include/bits/in.h" 1 3 4
+# 98 "/usr/include/bits/in.h" 3 4
+struct ip_opts
+  {
+    struct in_addr ip_dst;
+    char ip_opts[40];
+  };
+=======
+extern FILE *freopen (__const char *__restrict __filename,
+        __const char *__restrict __modes,
+        FILE *__restrict __stream) ;
+# 294 "/usr/include/stdio.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+struct ip_mreqn
+  {
+    struct in_addr imr_multiaddr;
+    struct in_addr imr_address;
+    int imr_ifindex;
+  };
+
+
+struct in_pktinfo
+  {
+    int ipi_ifindex;
+    struct in_addr ipi_spec_dst;
+    struct in_addr ipi_addr;
+  };
+# 357 "/usr/include/netinet/in.h" 2 3 4
+# 365 "/usr/include/netinet/in.h" 3 4
+extern uint32_t ntohl (uint32_t __netlong) throw () __attribute__ ((__const__));
+extern uint16_t ntohs (uint16_t __netshort)
+     throw () __attribute__ ((__const__));
+extern uint32_t htonl (uint32_t __hostlong)
+     throw () __attribute__ ((__const__));
+extern uint16_t htons (uint16_t __hostshort)
+     throw () __attribute__ ((__const__));
+
+
+
+
+# 1 "/usr/include/bits/byteswap.h" 1 3 4
+# 377 "/usr/include/netinet/in.h" 2 3 4
+# 440 "/usr/include/netinet/in.h" 3 4
+extern int bindresvport (int __sockfd, struct sockaddr_in *__sock_in) throw ();
+
+
+extern int bindresvport6 (int __sockfd, struct sockaddr_in6 *__sock_in)
+     throw ();
+# 471 "/usr/include/netinet/in.h" 3 4
+struct in6_pktinfo
+  {
+    struct in6_addr ipi6_addr;
+    unsigned int ipi6_ifindex;
+  };
+
+
+struct ip6_mtuinfo
+  {
+    struct sockaddr_in6 ip6m_addr;
+    uint32_t ip6m_mtu;
+  };
+
+
+
+extern int inet6_option_space (int __nbytes)
+     throw () __attribute__ ((__deprecated__));
+extern int inet6_option_init (void *__bp, struct cmsghdr **__cmsgp,
+         int __type) throw () __attribute__ ((__deprecated__));
+extern int inet6_option_append (struct cmsghdr *__cmsg,
+    __const uint8_t *__typep, int __multx,
+    int __plusy) throw () __attribute__ ((__deprecated__));
+extern uint8_t *inet6_option_alloc (struct cmsghdr *__cmsg, int __datalen,
+        int __multx, int __plusy)
+     throw () __attribute__ ((__deprecated__));
+extern int inet6_option_next (__const struct cmsghdr *__cmsg,
+         uint8_t **__tptrp)
+     throw () __attribute__ ((__deprecated__));
+extern int inet6_option_find (__const struct cmsghdr *__cmsg,
+         uint8_t **__tptrp, int __type)
+     throw () __attribute__ ((__deprecated__));
+
+
+
+extern int inet6_opt_init (void *__extbuf, socklen_t __extlen) throw ();
+extern int inet6_opt_append (void *__extbuf, socklen_t __extlen, int __offset,
+        uint8_t __type, socklen_t __len, uint8_t __align,
+        void **__databufp) throw ();
+extern int inet6_opt_finish (void *__extbuf, socklen_t __extlen, int __offset)
+     throw ();
+extern int inet6_opt_set_val (void *__databuf, int __offset, void *__val,
+         socklen_t __vallen) throw ();
+extern int inet6_opt_next (void *__extbuf, socklen_t __extlen, int __offset,
+      uint8_t *__typep, socklen_t *__lenp,
+      void **__databufp) throw ();
+extern int inet6_opt_find (void *__extbuf, socklen_t __extlen, int __offset,
+      uint8_t __type, socklen_t *__lenp,
+      void **__databufp) throw ();
+extern int inet6_opt_get_val (void *__databuf, int __offset, void *__val,
+         socklen_t __vallen) throw ();
+
+
+
+extern socklen_t inet6_rth_space (int __type, int __segments) throw ();
+extern void *inet6_rth_init (void *__bp, socklen_t __bp_len, int __type,
+        int __segments) throw ();
+extern int inet6_rth_add (void *__bp, __const struct in6_addr *__addr) throw ();
+extern int inet6_rth_reverse (__const void *__in, void *__out) throw ();
+extern int inet6_rth_segments (__const void *__bp) throw ();
+extern struct in6_addr *inet6_rth_getaddr (__const void *__bp, int __index)
+     throw ();
+
+
+
+
+
+extern int getipv4sourcefilter (int __s, struct in_addr __interface_addr,
+    struct in_addr __group, uint32_t *__fmode,
+    uint32_t *__numsrc, struct in_addr *__slist)
+     throw ();
+
+
+extern int setipv4sourcefilter (int __s, struct in_addr __interface_addr,
+    struct in_addr __group, uint32_t __fmode,
+    uint32_t __numsrc,
+    __const struct in_addr *__slist)
+     throw ();
+
+
+
+extern int getsourcefilter (int __s, uint32_t __interface_addr,
+       __const struct sockaddr *__group,
+       socklen_t __grouplen, uint32_t *__fmode,
+       uint32_t *__numsrc,
+       struct sockaddr_storage *__slist) throw ();
+
+
+extern int setsourcefilter (int __s, uint32_t __interface_addr,
+       __const struct sockaddr *__group,
+       socklen_t __grouplen, uint32_t __fmode,
+       uint32_t __numsrc,
+       __const struct sockaddr_storage *__slist) throw ();
+
+
+}
+# 38 "/usr/include/rdma/rdma_cma.h" 2 3 4
+
+# 1 "/usr/include/infiniband/verbs.h" 1 3 4
+# 40 "/usr/include/infiniband/verbs.h" 3 4
+# 1 "/usr/include/pthread.h" 1 3 4
+# 25 "/usr/include/pthread.h" 3 4
+# 1 "/usr/include/sched.h" 1 3 4
+# 30 "/usr/include/sched.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 31 "/usr/include/sched.h" 2 3 4
+# 43 "/usr/include/sched.h" 3 4
+# 1 "/usr/include/bits/sched.h" 1 3 4
+# 74 "/usr/include/bits/sched.h" 3 4
+struct sched_param
+  {
+    int __sched_priority;
+  };
+
+extern "C" {
+
+
+
+extern int clone (int (*__fn) (void *__arg), void *__child_stack,
+    int __flags, void *__arg, ...) throw ();
+
+
+extern int unshare (int __flags) throw ();
+
+
+extern int sched_getcpu (void) throw ();
+
+
+}
+
+
+
+
+
+
+
+struct __sched_param
+  {
+    int __sched_priority;
+  };
+# 116 "/usr/include/bits/sched.h" 3 4
+typedef unsigned long int __cpu_mask;
+
+
+
+
+
+
+typedef struct
+{
+  __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
+} cpu_set_t;
+# 199 "/usr/include/bits/sched.h" 3 4
+extern "C" {
+
+extern int __sched_cpucount (size_t __setsize, const cpu_set_t *__setp)
+  throw ();
+extern cpu_set_t *__sched_cpualloc (size_t __count) throw () ;
+extern void __sched_cpufree (cpu_set_t *__set) throw ();
+
+}
+# 44 "/usr/include/sched.h" 2 3 4
+
+
+
+
+extern "C" {
+
+
+extern int sched_setparam (__pid_t __pid, __const struct sched_param *__param)
+     throw ();
+
+
+extern int sched_getparam (__pid_t __pid, struct sched_param *__param) throw ();
+
+
+extern int sched_setscheduler (__pid_t __pid, int __policy,
+          __const struct sched_param *__param) throw ();
+
+
+<<<<<<< HEAD
+extern int sched_getscheduler (__pid_t __pid) throw ();
+=======
+extern int vasprintf (char **__restrict __ptr, __const char *__restrict __f,
+        __gnuc_va_list __arg)
+     throw () __attribute__ ((__format__ (__printf__, 2, 0))) ;
+extern int __asprintf (char **__restrict __ptr,
+         __const char *__restrict __fmt, ...)
+     throw () __attribute__ ((__format__ (__printf__, 2, 3))) ;
+extern int asprintf (char **__restrict __ptr,
+       __const char *__restrict __fmt, ...)
+     throw () __attribute__ ((__format__ (__printf__, 2, 3))) ;
+# 416 "/usr/include/stdio.h" 3 4
+extern int vdprintf (int __fd, __const char *__restrict __fmt,
+       __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__printf__, 2, 0)));
+extern int dprintf (int __fd, __const char *__restrict __fmt, ...)
+     __attribute__ ((__format__ (__printf__, 2, 3)));
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int sched_yield (void) throw ();
+
+
+extern int sched_get_priority_max (int __algorithm) throw ();
+
+
+extern int sched_get_priority_min (int __algorithm) throw ();
+
+
+extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) throw ();
+# 118 "/usr/include/sched.h" 3 4
+extern int sched_setaffinity (__pid_t __pid, size_t __cpusetsize,
+         __const cpu_set_t *__cpuset) throw ();
+
+
+extern int sched_getaffinity (__pid_t __pid, size_t __cpusetsize,
+         cpu_set_t *__cpuset) throw ();
+
+
+}
+# 26 "/usr/include/pthread.h" 2 3 4
+
+<<<<<<< HEAD
+=======
+extern int sscanf (__const char *__restrict __s,
+     __const char *__restrict __format, ...) throw ();
+# 467 "/usr/include/stdio.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+# 1 "/usr/include/bits/setjmp.h" 1 3 4
+# 27 "/usr/include/bits/setjmp.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/bits/setjmp.h" 2 3 4
+
+
+
+
+typedef long int __jmp_buf[8];
+# 30 "/usr/include/pthread.h" 2 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 31 "/usr/include/pthread.h" 2 3 4
+
+
+
+enum
+{
+  PTHREAD_CREATE_JOINABLE,
+
+  PTHREAD_CREATE_DETACHED
+
+};
+
+
+
+enum
+{
+  PTHREAD_MUTEX_TIMED_NP,
+  PTHREAD_MUTEX_RECURSIVE_NP,
+  PTHREAD_MUTEX_ERRORCHECK_NP,
+  PTHREAD_MUTEX_ADAPTIVE_NP
+
+<<<<<<< HEAD
+  ,
+  PTHREAD_MUTEX_NORMAL = PTHREAD_MUTEX_TIMED_NP,
+  PTHREAD_MUTEX_RECURSIVE = PTHREAD_MUTEX_RECURSIVE_NP,
+  PTHREAD_MUTEX_ERRORCHECK = PTHREAD_MUTEX_ERRORCHECK_NP,
+  PTHREAD_MUTEX_DEFAULT = PTHREAD_MUTEX_NORMAL
+=======
+extern int vsscanf (__const char *__restrict __s,
+      __const char *__restrict __format, __gnuc_va_list __arg)
+     throw () __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 526 "/usr/include/stdio.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+  , PTHREAD_MUTEX_FAST_NP = PTHREAD_MUTEX_TIMED_NP
+
+};
+
+
+
+
+enum
+{
+  PTHREAD_MUTEX_STALLED,
+  PTHREAD_MUTEX_STALLED_NP = PTHREAD_MUTEX_STALLED,
+  PTHREAD_MUTEX_ROBUST,
+  PTHREAD_MUTEX_ROBUST_NP = PTHREAD_MUTEX_ROBUST
+};
+
+
+
+
+
+enum
+{
+  PTHREAD_PRIO_NONE,
+  PTHREAD_PRIO_INHERIT,
+  PTHREAD_PRIO_PROTECT
+};
+# 115 "/usr/include/pthread.h" 3 4
+enum
+{
+  PTHREAD_RWLOCK_PREFER_READER_NP,
+  PTHREAD_RWLOCK_PREFER_WRITER_NP,
+  PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP,
+  PTHREAD_RWLOCK_DEFAULT_NP = PTHREAD_RWLOCK_PREFER_READER_NP
+};
+# 147 "/usr/include/pthread.h" 3 4
+enum
+{
+  PTHREAD_INHERIT_SCHED,
+
+  PTHREAD_EXPLICIT_SCHED
+
+<<<<<<< HEAD
+};
+=======
+# 554 "/usr/include/stdio.h" 3 4
+extern int getc_unlocked (FILE *__stream);
+extern int getchar_unlocked (void);
+# 565 "/usr/include/stdio.h" 3 4
+extern int fgetc_unlocked (FILE *__stream);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+enum
+{
+  PTHREAD_SCOPE_SYSTEM,
+
+  PTHREAD_SCOPE_PROCESS
+
+};
+
+
+
+enum
+{
+  PTHREAD_PROCESS_PRIVATE,
+
+  PTHREAD_PROCESS_SHARED
+
+};
+# 182 "/usr/include/pthread.h" 3 4
+struct _pthread_cleanup_buffer
+{
+  void (*__routine) (void *);
+  void *__arg;
+  int __canceltype;
+  struct _pthread_cleanup_buffer *__prev;
+};
+
+
+enum
+{
+  PTHREAD_CANCEL_ENABLE,
+
+  PTHREAD_CANCEL_DISABLE
+
+};
+enum
+{
+  PTHREAD_CANCEL_DEFERRED,
+
+  PTHREAD_CANCEL_ASYNCHRONOUS
+
+};
+# 220 "/usr/include/pthread.h" 3 4
+extern "C" {
+
+<<<<<<< HEAD
+=======
+# 598 "/usr/include/stdio.h" 3 4
+extern int fputc_unlocked (int __c, FILE *__stream);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+extern int pthread_create (pthread_t *__restrict __newthread,
+      __const pthread_attr_t *__restrict __attr,
+      void *(*__start_routine) (void *),
+      void *__restrict __arg) throw () __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+
+
+extern void pthread_exit (void *__retval) __attribute__ ((__noreturn__));
+
+
+
+
+
+
+
+extern int pthread_join (pthread_t __th, void **__thread_return);
+
+
+
+
+extern int pthread_tryjoin_np (pthread_t __th, void **__thread_return) throw ();
+
+
+
+
+
+
+
+extern int pthread_timedjoin_np (pthread_t __th, void **__thread_return,
+     __const struct timespec *__abstime);
+
+
+
+
+<<<<<<< HEAD
+=======
+# 644 "/usr/include/stdio.h" 3 4
+extern char *fgets_unlocked (char *__restrict __s, int __n,
+        FILE *__restrict __stream) ;
+# 660 "/usr/include/stdio.h" 3 4
+extern __ssize_t __getdelim (char **__restrict __lineptr,
+          size_t *__restrict __n, int __delimiter,
+          FILE *__restrict __stream) ;
+extern __ssize_t getdelim (char **__restrict __lineptr,
+        size_t *__restrict __n, int __delimiter,
+        FILE *__restrict __stream) ;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int pthread_detach (pthread_t __th) throw ();
+
+
+
+extern pthread_t pthread_self (void) throw () __attribute__ ((__const__));
+
+
+extern int pthread_equal (pthread_t __thread1, pthread_t __thread2) throw ();
+
+
+
+
+
+
+
+extern int pthread_attr_init (pthread_attr_t *__attr) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_attr_destroy (pthread_attr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_attr_getdetachstate (__const pthread_attr_t *__attr,
+     int *__detachstate)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_setdetachstate (pthread_attr_t *__attr,
+     int __detachstate)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_attr_getguardsize (__const pthread_attr_t *__attr,
+          size_t *__guardsize)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_setguardsize (pthread_attr_t *__attr,
+          size_t __guardsize)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_attr_getschedparam (__const pthread_attr_t *__restrict
+           __attr,
+           struct sched_param *__restrict __param)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_setschedparam (pthread_attr_t *__restrict __attr,
+           __const struct sched_param *__restrict
+           __param) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_getschedpolicy (__const pthread_attr_t *__restrict
+     __attr, int *__restrict __policy)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_setschedpolicy (pthread_attr_t *__attr, int __policy)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+<<<<<<< HEAD
+extern int pthread_attr_getinheritsched (__const pthread_attr_t *__restrict
+      __attr, int *__restrict __inherit)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+=======
+extern size_t fwrite (__const void *__restrict __ptr, size_t __size,
+        size_t __n, FILE *__restrict __s) ;
+
+# 721 "/usr/include/stdio.h" 3 4
+extern int fputs_unlocked (__const char *__restrict __s,
+      FILE *__restrict __stream);
+# 732 "/usr/include/stdio.h" 3 4
+extern size_t fread_unlocked (void *__restrict __ptr, size_t __size,
+         size_t __n, FILE *__restrict __stream) ;
+extern size_t fwrite_unlocked (__const void *__restrict __ptr, size_t __size,
+          size_t __n, FILE *__restrict __stream) ;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+extern int pthread_attr_setinheritsched (pthread_attr_t *__attr,
+      int __inherit)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_attr_getscope (__const pthread_attr_t *__restrict __attr,
+      int *__restrict __scope)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_attr_setscope (pthread_attr_t *__attr, int __scope)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_attr_getstackaddr (__const pthread_attr_t *__restrict
+          __attr, void **__restrict __stackaddr)
+     throw () __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__deprecated__));
+
+
+
+
+
+extern int pthread_attr_setstackaddr (pthread_attr_t *__attr,
+          void *__stackaddr)
+     throw () __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__));
+
+
+extern int pthread_attr_getstacksize (__const pthread_attr_t *__restrict
+          __attr, size_t *__restrict __stacksize)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+<<<<<<< HEAD
+=======
+# 768 "/usr/include/stdio.h" 3 4
+extern int fseeko (FILE *__stream, __off_t __off, int __whence);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int pthread_attr_setstacksize (pthread_attr_t *__attr,
+          size_t __stacksize)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+<<<<<<< HEAD
+=======
+extern __off_t ftello (FILE *__stream) ;
+# 787 "/usr/include/stdio.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+extern int pthread_attr_getstack (__const pthread_attr_t *__restrict __attr,
+      void **__restrict __stackaddr,
+      size_t *__restrict __stacksize)
+     throw () __attribute__ ((__nonnull__ (1, 2, 3)));
+
+
+
+
+extern int pthread_attr_setstack (pthread_attr_t *__attr, void *__stackaddr,
+      size_t __stacksize) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+<<<<<<< HEAD
+extern int pthread_attr_setaffinity_np (pthread_attr_t *__attr,
+     size_t __cpusetsize,
+     __const cpu_set_t *__cpuset)
+     throw () __attribute__ ((__nonnull__ (1, 3)));
+=======
+extern int fsetpos (FILE *__stream, __const fpos_t *__pos);
+# 810 "/usr/include/stdio.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+extern int pthread_attr_getaffinity_np (__const pthread_attr_t *__attr,
+     size_t __cpusetsize,
+     cpu_set_t *__cpuset)
+     throw () __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+
+
+extern int pthread_getattr_np (pthread_t __th, pthread_attr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+
+
+
+
+
+extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
+      __const struct sched_param *__param)
+     throw () __attribute__ ((__nonnull__ (3)));
+
+
+extern int pthread_getschedparam (pthread_t __target_thread,
+      int *__restrict __policy,
+      struct sched_param *__restrict __param)
+     throw () __attribute__ ((__nonnull__ (2, 3)));
+
+
+extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
+     throw ();
+
+
+
+
+extern int pthread_getname_np (pthread_t __target_thread, char *__buf,
+          size_t __buflen)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+extern int pthread_setname_np (pthread_t __target_thread, __const char *__name)
+     throw () __attribute__ ((__nonnull__ (2)));
+
+
+<<<<<<< HEAD
+
+
+=======
+# 1 "/usr/include/bits/sys_errlist.h" 1 3 4
+# 27 "/usr/include/bits/sys_errlist.h" 3 4
+extern int sys_nerr;
+extern __const char *__const sys_errlist[];
+
+
+extern int _sys_nerr;
+extern __const char *__const _sys_errlist[];
+# 849 "/usr/include/stdio.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+extern int pthread_getconcurrency (void) throw ();
+
+
+extern int pthread_setconcurrency (int __level) throw ();
+
+
+
+
+
+<<<<<<< HEAD
+=======
+extern int fileno_unlocked (FILE *__stream) throw () ;
+# 868 "/usr/include/stdio.h" 3 4
+extern FILE *popen (__const char *__command, __const char *__modes) ;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int pthread_yield (void) throw ();
+
+
+
+
+extern int pthread_setaffinity_np (pthread_t __th, size_t __cpusetsize,
+       __const cpu_set_t *__cpuset)
+     throw () __attribute__ ((__nonnull__ (3)));
+
+
+extern int pthread_getaffinity_np (pthread_t __th, size_t __cpusetsize,
+       cpu_set_t *__cpuset)
+     throw () __attribute__ ((__nonnull__ (3)));
+# 478 "/usr/include/pthread.h" 3 4
+extern int pthread_once (pthread_once_t *__once_control,
+    void (*__init_routine) (void)) __attribute__ ((__nonnull__ (1, 2)));
+# 490 "/usr/include/pthread.h" 3 4
+extern int pthread_setcancelstate (int __state, int *__oldstate);
+
+
+
+extern int pthread_setcanceltype (int __type, int *__oldtype);
+
+
+extern int pthread_cancel (pthread_t __th);
+
+
+
+
+extern void pthread_testcancel (void);
+
+
+
+
+typedef struct
+{
+  struct
+  {
+    __jmp_buf __cancel_jmp_buf;
+    int __mask_was_saved;
+  } __cancel_jmp_buf[1];
+  void *__pad[4];
+} __pthread_unwind_buf_t __attribute__ ((__aligned__));
+# 524 "/usr/include/pthread.h" 3 4
+struct __pthread_cleanup_frame
+{
+  void (*__cancel_routine) (void *);
+  void *__cancel_arg;
+  int __do_it;
+  int __cancel_type;
+};
+
+
+
+
+class __pthread_cleanup_class
+{
+  void (*__cancel_routine) (void *);
+  void *__cancel_arg;
+  int __do_it;
+  int __cancel_type;
+
+ public:
+  __pthread_cleanup_class (void (*__fct) (void *), void *__arg)
+    : __cancel_routine (__fct), __cancel_arg (__arg), __do_it (1) { }
+  ~__pthread_cleanup_class () { if (__do_it) __cancel_routine (__cancel_arg); }
+  void __setdoit (int __newval) { __do_it = __newval; }
+  void __defer () { pthread_setcanceltype (PTHREAD_CANCEL_DEFERRED,
+        &__cancel_type); }
+  void __restore () const { pthread_setcanceltype (__cancel_type, 0); }
+};
+# 726 "/usr/include/pthread.h" 3 4
+struct __jmp_buf_tag;
+extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) throw ();
+
+
+
+
+
+extern int pthread_mutex_init (pthread_mutex_t *__mutex,
+          __const pthread_mutexattr_t *__mutexattr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+<<<<<<< HEAD
+extern int pthread_mutex_destroy (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_mutex_trylock (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+=======
+extern void funlockfile (FILE *__stream) throw ();
+# 938 "/usr/include/stdio.h" 3 4
+}
+# 264 "./dscudatmp/matrixMul.cu" 2
+
+
+# 1 "/usr/include/sys/time.h" 1 3 4
+# 29 "/usr/include/sys/time.h" 3 4
+# 1 "/usr/include/bits/time.h" 1 3 4
+# 30 "/usr/include/sys/time.h" 2 3 4
+# 39 "/usr/include/sys/time.h" 3 4
+extern "C" {
+# 57 "/usr/include/sys/time.h" 3 4
+struct timezone
+  {
+    int tz_minuteswest;
+    int tz_dsttime;
+  };
+
+typedef struct timezone *__restrict __timezone_ptr_t;
+# 73 "/usr/include/sys/time.h" 3 4
+extern int gettimeofday (struct timeval *__restrict __tv,
+    __timezone_ptr_t __tz) throw () __attribute__ ((__nonnull__ (1)));
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+extern int pthread_mutex_lock (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_mutex_timedlock (pthread_mutex_t *__restrict __mutex,
+        __const struct timespec *__restrict
+        __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int pthread_mutex_unlock (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_mutex_getprioceiling (__const pthread_mutex_t *
+      __restrict __mutex,
+      int *__restrict __prioceiling)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int pthread_mutex_setprioceiling (pthread_mutex_t *__restrict __mutex,
+      int __prioceiling,
+      int *__restrict __old_ceiling)
+     throw () __attribute__ ((__nonnull__ (1, 3)));
+
+
+
+
+extern int pthread_mutex_consistent (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+extern int pthread_mutex_consistent_np (pthread_mutex_t *__mutex)
+     throw () __attribute__ ((__nonnull__ (1)));
+# 790 "/usr/include/pthread.h" 3 4
+extern int pthread_mutexattr_init (pthread_mutexattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_mutexattr_destroy (pthread_mutexattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_mutexattr_getpshared (__const pthread_mutexattr_t *
+      __restrict __attr,
+      int *__restrict __pshared)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_mutexattr_setpshared (pthread_mutexattr_t *__attr,
+      int __pshared)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_mutexattr_gettype (__const pthread_mutexattr_t *__restrict
+          __attr, int *__restrict __kind)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern int pthread_mutexattr_settype (pthread_mutexattr_t *__attr, int __kind)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_mutexattr_getprotocol (__const pthread_mutexattr_t *
+       __restrict __attr,
+       int *__restrict __protocol)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int pthread_mutexattr_setprotocol (pthread_mutexattr_t *__attr,
+       int __protocol)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_mutexattr_getprioceiling (__const pthread_mutexattr_t *
+          __restrict __attr,
+          int *__restrict __prioceiling)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_mutexattr_setprioceiling (pthread_mutexattr_t *__attr,
+          int __prioceiling)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_mutexattr_getrobust (__const pthread_mutexattr_t *__attr,
+     int *__robustness)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+extern int pthread_mutexattr_getrobust_np (__const pthread_mutexattr_t *__attr,
+        int *__robustness)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int pthread_mutexattr_setrobust (pthread_mutexattr_t *__attr,
+     int __robustness)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+extern int pthread_mutexattr_setrobust_np (pthread_mutexattr_t *__attr,
+        int __robustness)
+     throw () __attribute__ ((__nonnull__ (1)));
+# 872 "/usr/include/pthread.h" 3 4
+extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
+    __const pthread_rwlockattr_t *__restrict
+    __attr) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlock_destroy (pthread_rwlock_t *__rwlock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlock_rdlock (pthread_rwlock_t *__rwlock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlock_tryrdlock (pthread_rwlock_t *__rwlock)
+  throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_rwlock_timedrdlock (pthread_rwlock_t *__restrict __rwlock,
+           __const struct timespec *__restrict
+           __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+<<<<<<< HEAD
+=======
+extern int futimesat (int __fd, __const char *__file,
+        __const struct timeval __tvp[2]) throw ();
+# 191 "/usr/include/sys/time.h" 3 4
+}
+# 267 "./dscudatmp/matrixMul.cu" 2
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+extern int pthread_rwlock_wrlock (pthread_rwlock_t *__rwlock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlock_trywrlock (pthread_rwlock_t *__rwlock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_rwlock_timedwrlock (pthread_rwlock_t *__restrict __rwlock,
+           __const struct timespec *__restrict
+           __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+extern int pthread_rwlock_unlock (pthread_rwlock_t *__rwlock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern int pthread_rwlockattr_init (pthread_rwlockattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlockattr_destroy (pthread_rwlockattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlockattr_getpshared (__const pthread_rwlockattr_t *
+       __restrict __attr,
+       int *__restrict __pshared)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_rwlockattr_setpshared (pthread_rwlockattr_t *__attr,
+       int __pshared)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_rwlockattr_getkind_np (__const pthread_rwlockattr_t *
+       __restrict __attr,
+       int *__restrict __pref)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_rwlockattr_setkind_np (pthread_rwlockattr_t *__attr,
+       int __pref) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+
+extern int pthread_cond_init (pthread_cond_t *__restrict __cond,
+         __const pthread_condattr_t *__restrict
+         __cond_attr) throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_cond_destroy (pthread_cond_t *__cond)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_cond_signal (pthread_cond_t *__cond)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_cond_broadcast (pthread_cond_t *__cond)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
+         pthread_mutex_t *__restrict __mutex)
+     __attribute__ ((__nonnull__ (1, 2)));
+# 984 "/usr/include/pthread.h" 3 4
+extern int pthread_cond_timedwait (pthread_cond_t *__restrict __cond,
+       pthread_mutex_t *__restrict __mutex,
+       __const struct timespec *__restrict
+       __abstime) __attribute__ ((__nonnull__ (1, 2, 3)));
+
+
+
+
+extern int pthread_condattr_init (pthread_condattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_condattr_destroy (pthread_condattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_condattr_getpshared (__const pthread_condattr_t *
+     __restrict __attr,
+     int *__restrict __pshared)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_condattr_setpshared (pthread_condattr_t *__attr,
+     int __pshared) throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_condattr_getclock (__const pthread_condattr_t *
+          __restrict __attr,
+          __clockid_t *__restrict __clock_id)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_condattr_setclock (pthread_condattr_t *__attr,
+          __clockid_t __clock_id)
+     throw () __attribute__ ((__nonnull__ (1)));
+# 1028 "/usr/include/pthread.h" 3 4
+extern int pthread_spin_init (pthread_spinlock_t *__lock, int __pshared)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_spin_destroy (pthread_spinlock_t *__lock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_spin_lock (pthread_spinlock_t *__lock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_spin_trylock (pthread_spinlock_t *__lock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_spin_unlock (pthread_spinlock_t *__lock)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+
+extern int pthread_barrier_init (pthread_barrier_t *__restrict __barrier,
+     __const pthread_barrierattr_t *__restrict
+     __attr, unsigned int __count)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_barrier_destroy (pthread_barrier_t *__barrier)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_barrier_wait (pthread_barrier_t *__barrier)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+
+extern int pthread_barrierattr_init (pthread_barrierattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_barrierattr_destroy (pthread_barrierattr_t *__attr)
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_barrierattr_getpshared (__const pthread_barrierattr_t *
+        __restrict __attr,
+        int *__restrict __pshared)
+     throw () __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int pthread_barrierattr_setpshared (pthread_barrierattr_t *__attr,
+        int __pshared)
+     throw () __attribute__ ((__nonnull__ (1)));
+# 1095 "/usr/include/pthread.h" 3 4
+extern int pthread_key_create (pthread_key_t *__key,
+          void (*__destr_function) (void *))
+     throw () __attribute__ ((__nonnull__ (1)));
+
+
+extern int pthread_key_delete (pthread_key_t __key) throw ();
+
+
+extern void *pthread_getspecific (pthread_key_t __key) throw ();
+
+
+extern int pthread_setspecific (pthread_key_t __key,
+    __const void *__pointer) throw () ;
+
+
+
+
+extern int pthread_getcpuclockid (pthread_t __thread_id,
+      __clockid_t *__clock_id)
+     throw () __attribute__ ((__nonnull__ (2)));
+# 1129 "/usr/include/pthread.h" 3 4
+extern int pthread_atfork (void (*__prepare) (void),
+      void (*__parent) (void),
+      void (*__child) (void)) throw ();
+# 1143 "/usr/include/pthread.h" 3 4
+}
+# 41 "/usr/include/infiniband/verbs.h" 2 3 4
+# 56 "/usr/include/infiniband/verbs.h" 3 4
+extern "C" {
+
+union ibv_gid {
+ uint8_t raw[16];
+ struct {
+  uint64_t subnet_prefix;
+  uint64_t interface_id;
+ } global;
+};
+
+enum ibv_node_type {
+ IBV_NODE_UNKNOWN = -1,
+ IBV_NODE_CA = 1,
+ IBV_NODE_SWITCH,
+ IBV_NODE_ROUTER,
+ IBV_NODE_RNIC
+};
+
+enum ibv_transport_type {
+ IBV_TRANSPORT_UNKNOWN = -1,
+ IBV_TRANSPORT_IB = 0,
+ IBV_TRANSPORT_IWARP
+};
+
+enum ibv_device_cap_flags {
+ IBV_DEVICE_RESIZE_MAX_WR = 1,
+ IBV_DEVICE_BAD_PKEY_CNTR = 1 << 1,
+ IBV_DEVICE_BAD_QKEY_CNTR = 1 << 2,
+ IBV_DEVICE_RAW_MULTI = 1 << 3,
+ IBV_DEVICE_AUTO_PATH_MIG = 1 << 4,
+ IBV_DEVICE_CHANGE_PHY_PORT = 1 << 5,
+ IBV_DEVICE_UD_AV_PORT_ENFORCE = 1 << 6,
+ IBV_DEVICE_CURR_QP_STATE_MOD = 1 << 7,
+ IBV_DEVICE_SHUTDOWN_PORT = 1 << 8,
+ IBV_DEVICE_INIT_TYPE = 1 << 9,
+ IBV_DEVICE_PORT_ACTIVE_EVENT = 1 << 10,
+ IBV_DEVICE_SYS_IMAGE_GUID = 1 << 11,
+ IBV_DEVICE_RC_RNR_NAK_GEN = 1 << 12,
+ IBV_DEVICE_SRQ_RESIZE = 1 << 13,
+ IBV_DEVICE_N_NOTIFY_CQ = 1 << 14,
+ IBV_DEVICE_XRC = 1 << 20
+};
+
+enum ibv_atomic_cap {
+ IBV_ATOMIC_NONE,
+ IBV_ATOMIC_HCA,
+ IBV_ATOMIC_GLOB
+};
+
+struct ibv_device_attr {
+ char fw_ver[64];
+ uint64_t node_guid;
+ uint64_t sys_image_guid;
+ uint64_t max_mr_size;
+ uint64_t page_size_cap;
+ uint32_t vendor_id;
+ uint32_t vendor_part_id;
+ uint32_t hw_ver;
+ int max_qp;
+ int max_qp_wr;
+ int device_cap_flags;
+ int max_sge;
+ int max_sge_rd;
+ int max_cq;
+ int max_cqe;
+ int max_mr;
+ int max_pd;
+ int max_qp_rd_atom;
+ int max_ee_rd_atom;
+ int max_res_rd_atom;
+ int max_qp_init_rd_atom;
+ int max_ee_init_rd_atom;
+ enum ibv_atomic_cap atomic_cap;
+ int max_ee;
+ int max_rdd;
+ int max_mw;
+ int max_raw_ipv6_qp;
+ int max_raw_ethy_qp;
+ int max_mcast_grp;
+ int max_mcast_qp_attach;
+ int max_total_mcast_qp_attach;
+ int max_ah;
+ int max_fmr;
+ int max_map_per_fmr;
+ int max_srq;
+ int max_srq_wr;
+ int max_srq_sge;
+ uint16_t max_pkeys;
+ uint8_t local_ca_ack_delay;
+ uint8_t phys_port_cnt;
+};
+
+enum ibv_mtu {
+ IBV_MTU_256 = 1,
+ IBV_MTU_512 = 2,
+ IBV_MTU_1024 = 3,
+ IBV_MTU_2048 = 4,
+ IBV_MTU_4096 = 5
+};
+
+enum ibv_port_state {
+ IBV_PORT_NOP = 0,
+ IBV_PORT_DOWN = 1,
+ IBV_PORT_INIT = 2,
+ IBV_PORT_ARMED = 3,
+ IBV_PORT_ACTIVE = 4,
+ IBV_PORT_ACTIVE_DEFER = 5
+};
+
+enum {
+ IBV_LINK_LAYER_UNSPECIFIED,
+ IBV_LINK_LAYER_INFINIBAND,
+ IBV_LINK_LAYER_ETHERNET,
+};
+
+struct ibv_port_attr {
+ enum ibv_port_state state;
+ enum ibv_mtu max_mtu;
+ enum ibv_mtu active_mtu;
+ int gid_tbl_len;
+ uint32_t port_cap_flags;
+ uint32_t max_msg_sz;
+ uint32_t bad_pkey_cntr;
+ uint32_t qkey_viol_cntr;
+ uint16_t pkey_tbl_len;
+ uint16_t lid;
+ uint16_t sm_lid;
+ uint8_t lmc;
+ uint8_t max_vl_num;
+ uint8_t sm_sl;
+ uint8_t subnet_timeout;
+ uint8_t init_type_reply;
+ uint8_t active_width;
+ uint8_t active_speed;
+ uint8_t phys_state;
+ uint8_t link_layer;
+ uint8_t pad;
+};
+
+enum ibv_event_type {
+ IBV_EVENT_CQ_ERR,
+ IBV_EVENT_QP_FATAL,
+ IBV_EVENT_QP_REQ_ERR,
+ IBV_EVENT_QP_ACCESS_ERR,
+ IBV_EVENT_COMM_EST,
+ IBV_EVENT_SQ_DRAINED,
+ IBV_EVENT_PATH_MIG,
+ IBV_EVENT_PATH_MIG_ERR,
+ IBV_EVENT_DEVICE_FATAL,
+ IBV_EVENT_PORT_ACTIVE,
+ IBV_EVENT_PORT_ERR,
+ IBV_EVENT_LID_CHANGE,
+ IBV_EVENT_PKEY_CHANGE,
+ IBV_EVENT_SM_CHANGE,
+ IBV_EVENT_SRQ_ERR,
+ IBV_EVENT_SRQ_LIMIT_REACHED,
+ IBV_EVENT_QP_LAST_WQE_REACHED,
+ IBV_EVENT_CLIENT_REREGISTER,
+ IBV_EVENT_GID_CHANGE,
+};
+
+enum ibv_event_flags {
+ IBV_XRC_QP_EVENT_FLAG = 0x80000000,
+};
+
+struct ibv_async_event {
+ union {
+  struct ibv_cq *cq;
+  struct ibv_qp *qp;
+  struct ibv_srq *srq;
+  int port_num;
+  uint32_t xrc_qp_num;
+ } element;
+ enum ibv_event_type event_type;
+};
+
+enum ibv_wc_status {
+ IBV_WC_SUCCESS,
+ IBV_WC_LOC_LEN_ERR,
+ IBV_WC_LOC_QP_OP_ERR,
+ IBV_WC_LOC_EEC_OP_ERR,
+ IBV_WC_LOC_PROT_ERR,
+ IBV_WC_WR_FLUSH_ERR,
+ IBV_WC_MW_BIND_ERR,
+ IBV_WC_BAD_RESP_ERR,
+ IBV_WC_LOC_ACCESS_ERR,
+ IBV_WC_REM_INV_REQ_ERR,
+ IBV_WC_REM_ACCESS_ERR,
+ IBV_WC_REM_OP_ERR,
+ IBV_WC_RETRY_EXC_ERR,
+ IBV_WC_RNR_RETRY_EXC_ERR,
+ IBV_WC_LOC_RDD_VIOL_ERR,
+ IBV_WC_REM_INV_RD_REQ_ERR,
+ IBV_WC_REM_ABORT_ERR,
+ IBV_WC_INV_EECN_ERR,
+ IBV_WC_INV_EEC_STATE_ERR,
+ IBV_WC_FATAL_ERR,
+ IBV_WC_RESP_TIMEOUT_ERR,
+ IBV_WC_GENERAL_ERR
+};
+const char *ibv_wc_status_str(enum ibv_wc_status status);
+
+enum ibv_wc_opcode {
+ IBV_WC_SEND,
+ IBV_WC_RDMA_WRITE,
+ IBV_WC_RDMA_READ,
+ IBV_WC_COMP_SWAP,
+ IBV_WC_FETCH_ADD,
+ IBV_WC_BIND_MW,
+
+
+
+
+ IBV_WC_RECV = 1 << 7,
+ IBV_WC_RECV_RDMA_WITH_IMM
+};
+
+enum ibv_wc_flags {
+ IBV_WC_GRH = 1 << 0,
+ IBV_WC_WITH_IMM = 1 << 1,
+ IBV_WC_WITH_VLAN = 1 << 3
+};
+
+struct ibv_wc {
+ uint64_t wr_id;
+ enum ibv_wc_status status;
+ enum ibv_wc_opcode opcode;
+ uint32_t vendor_err;
+ uint32_t byte_len;
+ uint32_t imm_data;
+ uint32_t qp_num;
+ uint32_t src_qp;
+ int wc_flags;
+ uint16_t pkey_index;
+ uint16_t slid;
+ uint8_t sl;
+ uint8_t dlid_path_bits;
+};
+
+enum ibv_access_flags {
+ IBV_ACCESS_LOCAL_WRITE = 1,
+ IBV_ACCESS_REMOTE_WRITE = (1<<1),
+ IBV_ACCESS_REMOTE_READ = (1<<2),
+ IBV_ACCESS_REMOTE_ATOMIC = (1<<3),
+ IBV_ACCESS_MW_BIND = (1<<4)
+};
+
+struct ibv_pd {
+ struct ibv_context *context;
+ uint32_t handle;
+};
+
+enum ibv_rereg_mr_flags {
+ IBV_REREG_MR_CHANGE_TRANSLATION = (1 << 0),
+ IBV_REREG_MR_CHANGE_PD = (1 << 1),
+ IBV_REREG_MR_CHANGE_ACCESS = (1 << 2),
+ IBV_REREG_MR_KEEP_VALID = (1 << 3)
+};
+
+struct ibv_mr {
+ struct ibv_context *context;
+ struct ibv_pd *pd;
+ void *addr;
+ size_t length;
+ uint32_t handle;
+ uint32_t lkey;
+ uint32_t rkey;
+};
+
+enum ibv_mw_type {
+ IBV_MW_TYPE_1 = 1,
+ IBV_MW_TYPE_2 = 2
+};
+
+struct ibv_mw {
+ struct ibv_context *context;
+ struct ibv_pd *pd;
+ uint32_t rkey;
+};
+
+struct ibv_global_route {
+ union ibv_gid dgid;
+ uint32_t flow_label;
+ uint8_t sgid_index;
+ uint8_t hop_limit;
+ uint8_t traffic_class;
+};
+
+struct ibv_grh {
+ uint32_t version_tclass_flow;
+ uint16_t paylen;
+ uint8_t next_hdr;
+ uint8_t hop_limit;
+ union ibv_gid sgid;
+ union ibv_gid dgid;
+};
+
+enum ibv_rate {
+ IBV_RATE_MAX = 0,
+ IBV_RATE_2_5_GBPS = 2,
+ IBV_RATE_5_GBPS = 5,
+ IBV_RATE_10_GBPS = 3,
+ IBV_RATE_20_GBPS = 6,
+ IBV_RATE_30_GBPS = 4,
+ IBV_RATE_40_GBPS = 7,
+ IBV_RATE_60_GBPS = 8,
+ IBV_RATE_80_GBPS = 9,
+ IBV_RATE_120_GBPS = 10
+};
+
+
+
+
+
+
+
+int ibv_rate_to_mult(enum ibv_rate rate) __attribute__((const));
+
+
+
+
+
+enum ibv_rate mult_to_ibv_rate(int mult) __attribute__((const));
+
+struct ibv_ah_attr {
+ struct ibv_global_route grh;
+ uint16_t dlid;
+ uint8_t sl;
+ uint8_t src_path_bits;
+ uint8_t static_rate;
+ uint8_t is_global;
+ uint8_t port_num;
+};
+
+struct ibv_xrc_domain {
+ struct ibv_context *context;
+ uint32_t handle;
+};
+
+enum ibv_srq_attr_mask {
+ IBV_SRQ_MAX_WR = 1 << 0,
+ IBV_SRQ_LIMIT = 1 << 1
+};
+
+struct ibv_srq_attr {
+ uint32_t max_wr;
+ uint32_t max_sge;
+ uint32_t srq_limit;
+};
+
+struct ibv_srq_init_attr {
+ void *srq_context;
+ struct ibv_srq_attr attr;
+};
+
+enum ibv_qp_type {
+ IBV_QPT_RC = 2,
+ IBV_QPT_UC,
+ IBV_QPT_UD,
+ IBV_QPT_XRC,
+ IBV_QPT_RAW_PACKET = 8,
+ IBV_QPT_RAW_ETH = 8
+};
+
+struct ibv_qp_cap {
+ uint32_t max_send_wr;
+ uint32_t max_recv_wr;
+ uint32_t max_send_sge;
+ uint32_t max_recv_sge;
+ uint32_t max_inline_data;
+};
+
+struct ibv_qp_init_attr {
+ void *qp_context;
+ struct ibv_cq *send_cq;
+ struct ibv_cq *recv_cq;
+ struct ibv_srq *srq;
+ struct ibv_qp_cap cap;
+ enum ibv_qp_type qp_type;
+ int sq_sig_all;
+ struct ibv_xrc_domain *xrc_domain;
+};
+
+enum ibv_qp_attr_mask {
+ IBV_QP_STATE = 1 << 0,
+ IBV_QP_CUR_STATE = 1 << 1,
+ IBV_QP_EN_SQD_ASYNC_NOTIFY = 1 << 2,
+ IBV_QP_ACCESS_FLAGS = 1 << 3,
+ IBV_QP_PKEY_INDEX = 1 << 4,
+ IBV_QP_PORT = 1 << 5,
+ IBV_QP_QKEY = 1 << 6,
+ IBV_QP_AV = 1 << 7,
+ IBV_QP_PATH_MTU = 1 << 8,
+ IBV_QP_TIMEOUT = 1 << 9,
+ IBV_QP_RETRY_CNT = 1 << 10,
+ IBV_QP_RNR_RETRY = 1 << 11,
+ IBV_QP_RQ_PSN = 1 << 12,
+ IBV_QP_MAX_QP_RD_ATOMIC = 1 << 13,
+ IBV_QP_ALT_PATH = 1 << 14,
+ IBV_QP_MIN_RNR_TIMER = 1 << 15,
+ IBV_QP_SQ_PSN = 1 << 16,
+ IBV_QP_MAX_DEST_RD_ATOMIC = 1 << 17,
+ IBV_QP_PATH_MIG_STATE = 1 << 18,
+ IBV_QP_CAP = 1 << 19,
+ IBV_QP_DEST_QPN = 1 << 20
+};
+
+enum ibv_qp_state {
+ IBV_QPS_RESET,
+ IBV_QPS_INIT,
+ IBV_QPS_RTR,
+ IBV_QPS_RTS,
+ IBV_QPS_SQD,
+ IBV_QPS_SQE,
+ IBV_QPS_ERR
+};
+
+enum ibv_mig_state {
+ IBV_MIG_MIGRATED,
+ IBV_MIG_REARM,
+ IBV_MIG_ARMED
+};
+
+struct ibv_qp_attr {
+ enum ibv_qp_state qp_state;
+ enum ibv_qp_state cur_qp_state;
+ enum ibv_mtu path_mtu;
+ enum ibv_mig_state path_mig_state;
+ uint32_t qkey;
+ uint32_t rq_psn;
+ uint32_t sq_psn;
+ uint32_t dest_qp_num;
+ int qp_access_flags;
+ struct ibv_qp_cap cap;
+ struct ibv_ah_attr ah_attr;
+ struct ibv_ah_attr alt_ah_attr;
+ uint16_t pkey_index;
+ uint16_t alt_pkey_index;
+ uint8_t en_sqd_async_notify;
+ uint8_t sq_draining;
+ uint8_t max_rd_atomic;
+ uint8_t max_dest_rd_atomic;
+ uint8_t min_rnr_timer;
+ uint8_t port_num;
+ uint8_t timeout;
+ uint8_t retry_cnt;
+ uint8_t rnr_retry;
+ uint8_t alt_port_num;
+ uint8_t alt_timeout;
+};
+
+enum ibv_wr_opcode {
+ IBV_WR_RDMA_WRITE,
+ IBV_WR_RDMA_WRITE_WITH_IMM,
+ IBV_WR_SEND,
+ IBV_WR_SEND_WITH_IMM,
+ IBV_WR_RDMA_READ,
+ IBV_WR_ATOMIC_CMP_AND_SWP,
+ IBV_WR_ATOMIC_FETCH_AND_ADD
+};
+
+enum ibv_send_flags {
+ IBV_SEND_FENCE = 1 << 0,
+ IBV_SEND_SIGNALED = 1 << 1,
+ IBV_SEND_SOLICITED = 1 << 2,
+ IBV_SEND_INLINE = 1 << 3,
+ IBV_SEND_IP_CSUM = 1 << 4
+};
+
+struct ibv_sge {
+ uint64_t addr;
+ uint32_t length;
+ uint32_t lkey;
+};
+
+struct ibv_send_wr {
+ uint64_t wr_id;
+ struct ibv_send_wr *next;
+ struct ibv_sge *sg_list;
+ int num_sge;
+ enum ibv_wr_opcode opcode;
+ int send_flags;
+ uint32_t imm_data;
+ union {
+  struct {
+   uint64_t remote_addr;
+   uint32_t rkey;
+  } rdma;
+  struct {
+   uint64_t remote_addr;
+   uint64_t compare_add;
+   uint64_t swap;
+   uint32_t rkey;
+  } atomic;
+  struct {
+   struct ibv_ah *ah;
+   uint32_t remote_qpn;
+   uint32_t remote_qkey;
+  } ud;
+ } wr;
+ uint32_t xrc_remote_srq_num;
+};
+
+struct ibv_recv_wr {
+ uint64_t wr_id;
+ struct ibv_recv_wr *next;
+ struct ibv_sge *sg_list;
+ int num_sge;
+};
+
+struct ibv_mw_bind {
+ uint64_t wr_id;
+ struct ibv_mr *mr;
+ void *addr;
+ size_t length;
+ int send_flags;
+ int mw_access_flags;
+};
+
+struct ibv_srq {
+ struct ibv_context *context;
+ void *srq_context;
+ struct ibv_pd *pd;
+ uint32_t handle;
+
+ uint32_t events_completed;
+
+ uint32_t xrc_srq_num;
+ struct ibv_xrc_domain *xrc_domain;
+ struct ibv_cq *xrc_cq;
+
+ pthread_mutex_t mutex;
+ pthread_cond_t cond;
+};
+
+struct ibv_qp {
+ struct ibv_context *context;
+ void *qp_context;
+ struct ibv_pd *pd;
+ struct ibv_cq *send_cq;
+ struct ibv_cq *recv_cq;
+ struct ibv_srq *srq;
+ uint32_t handle;
+ uint32_t qp_num;
+ enum ibv_qp_state state;
+ enum ibv_qp_type qp_type;
+
+ uint32_t events_completed;
+
+ struct ibv_xrc_domain *xrc_domain;
+
+ pthread_mutex_t mutex;
+ pthread_cond_t cond;
+};
+
+struct ibv_comp_channel {
+ struct ibv_context *context;
+ int fd;
+ int refcnt;
+};
+
+struct ibv_cq {
+ struct ibv_context *context;
+ struct ibv_comp_channel *channel;
+ void *cq_context;
+ uint32_t handle;
+ int cqe;
+
+ uint32_t comp_events_completed;
+ uint32_t async_events_completed;
+
+ pthread_mutex_t mutex;
+ pthread_cond_t cond;
+};
+
+struct ibv_ah {
+ struct ibv_context *context;
+ struct ibv_pd *pd;
+ uint32_t handle;
+};
+
+struct ibv_device;
+struct ibv_context;
+
+struct ibv_device_ops {
+ struct ibv_context * (*alloc_context)(struct ibv_device *device, int cmd_fd);
+ void (*free_context)(struct ibv_context *context);
+};
+
+enum {
+ IBV_SYSFS_NAME_MAX = 64,
+ IBV_SYSFS_PATH_MAX = 256
+};
+
+struct ibv_device {
+ struct ibv_device_ops ops;
+ enum ibv_node_type node_type;
+ enum ibv_transport_type transport_type;
+
+ char name[IBV_SYSFS_NAME_MAX];
+
+ char dev_name[IBV_SYSFS_NAME_MAX];
+
+ char dev_path[IBV_SYSFS_PATH_MAX];
+
+ char ibdev_path[IBV_SYSFS_PATH_MAX];
+};
+
+struct ibv_more_ops {
+ struct ibv_srq * (*create_xrc_srq)(struct ibv_pd *pd,
+        struct ibv_xrc_domain *xrc_domain,
+        struct ibv_cq *xrc_cq,
+        struct ibv_srq_init_attr *srq_init_attr);
+ struct ibv_xrc_domain * (*open_xrc_domain)(struct ibv_context *context,
+         int fd, int oflag);
+ int (*close_xrc_domain)(struct ibv_xrc_domain *d);
+ int (*create_xrc_rcv_qp)(struct ibv_qp_init_attr *init_attr,
+           uint32_t *xrc_qp_num);
+ int (*modify_xrc_rcv_qp)(struct ibv_xrc_domain *xrc_domain,
+           uint32_t xrc_qp_num,
+           struct ibv_qp_attr *attr,
+           int attr_mask);
+ int (*query_xrc_rcv_qp)(struct ibv_xrc_domain *xrc_domain,
+          uint32_t xrc_qp_num,
+          struct ibv_qp_attr *attr,
+          int attr_mask,
+          struct ibv_qp_init_attr *init_attr);
+ int (*reg_xrc_rcv_qp)(struct ibv_xrc_domain *xrc_domain,
+        uint32_t xrc_qp_num);
+ int (*unreg_xrc_rcv_qp)(struct ibv_xrc_domain *xrc_domain,
+          uint32_t xrc_qp_num);
+
+};
+
+struct ibv_context_ops {
+ int (*query_device)(struct ibv_context *context,
+           struct ibv_device_attr *device_attr);
+ int (*query_port)(struct ibv_context *context, uint8_t port_num,
+           struct ibv_port_attr *port_attr);
+ struct ibv_pd * (*alloc_pd)(struct ibv_context *context);
+ int (*dealloc_pd)(struct ibv_pd *pd);
+ struct ibv_mr * (*reg_mr)(struct ibv_pd *pd, void *addr, size_t length,
+       int access);
+ struct ibv_mr * (*rereg_mr)(struct ibv_mr *mr,
+         int flags,
+         struct ibv_pd *pd, void *addr,
+         size_t length,
+         int access);
+ int (*dereg_mr)(struct ibv_mr *mr);
+ struct ibv_mw * (*alloc_mw)(struct ibv_pd *pd, enum ibv_mw_type type);
+ int (*bind_mw)(struct ibv_qp *qp, struct ibv_mw *mw,
+        struct ibv_mw_bind *mw_bind);
+ int (*dealloc_mw)(struct ibv_mw *mw);
+ struct ibv_cq * (*create_cq)(struct ibv_context *context, int cqe,
+          struct ibv_comp_channel *channel,
+          int comp_vector);
+ int (*poll_cq)(struct ibv_cq *cq, int num_entries, struct ibv_wc *wc);
+ int (*req_notify_cq)(struct ibv_cq *cq, int solicited_only);
+ void (*cq_event)(struct ibv_cq *cq);
+ int (*resize_cq)(struct ibv_cq *cq, int cqe);
+ int (*destroy_cq)(struct ibv_cq *cq);
+ struct ibv_srq * (*create_srq)(struct ibv_pd *pd,
+           struct ibv_srq_init_attr *srq_init_attr);
+ int (*modify_srq)(struct ibv_srq *srq,
+           struct ibv_srq_attr *srq_attr,
+           int srq_attr_mask);
+ int (*query_srq)(struct ibv_srq *srq,
+          struct ibv_srq_attr *srq_attr);
+ int (*destroy_srq)(struct ibv_srq *srq);
+ int (*post_srq_recv)(struct ibv_srq *srq,
+       struct ibv_recv_wr *recv_wr,
+       struct ibv_recv_wr **bad_recv_wr);
+ struct ibv_qp * (*create_qp)(struct ibv_pd *pd, struct ibv_qp_init_attr *attr);
+ int (*query_qp)(struct ibv_qp *qp, struct ibv_qp_attr *attr,
+         int attr_mask,
+         struct ibv_qp_init_attr *init_attr);
+ int (*modify_qp)(struct ibv_qp *qp, struct ibv_qp_attr *attr,
+          int attr_mask);
+ int (*destroy_qp)(struct ibv_qp *qp);
+ int (*post_send)(struct ibv_qp *qp, struct ibv_send_wr *wr,
+          struct ibv_send_wr **bad_wr);
+ int (*post_recv)(struct ibv_qp *qp, struct ibv_recv_wr *wr,
+          struct ibv_recv_wr **bad_wr);
+ struct ibv_ah * (*create_ah)(struct ibv_pd *pd, struct ibv_ah_attr *attr);
+ int (*destroy_ah)(struct ibv_ah *ah);
+ int (*attach_mcast)(struct ibv_qp *qp, const union ibv_gid *gid,
+      uint16_t lid);
+ int (*detach_mcast)(struct ibv_qp *qp, const union ibv_gid *gid,
+      uint16_t lid);
+ void (*async_event)(struct ibv_async_event *event);
+};
+
+struct ibv_context {
+ struct ibv_device *device;
+ struct ibv_context_ops ops;
+ int cmd_fd;
+ int async_fd;
+ int num_comp_vectors;
+ pthread_mutex_t mutex;
+ void *abi_compat;
+ struct ibv_more_ops *more_ops;
+};
+
+static inline int ___ibv_query_port(struct ibv_context *context,
+        uint8_t port_num,
+        struct ibv_port_attr *port_attr)
+{
+ port_attr->link_layer = IBV_LINK_LAYER_UNSPECIFIED;
+ port_attr->pad = 0;
+
+ return context->ops.query_port(context, port_num, port_attr);
+}
+# 777 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_device **ibv_get_device_list(int *num_devices);
+# 787 "/usr/include/infiniband/verbs.h" 3 4
+void ibv_free_device_list(struct ibv_device **list);
+
+
+
+
+const char *ibv_get_device_name(struct ibv_device *device);
+
+
+
+
+uint64_t ibv_get_device_guid(struct ibv_device *device);
+
+
+
+
+struct ibv_context *ibv_open_device(struct ibv_device *device);
+
+
+
+
+int ibv_close_device(struct ibv_context *context);
+# 816 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_get_async_event(struct ibv_context *context,
+   struct ibv_async_event *event);
+# 829 "/usr/include/infiniband/verbs.h" 3 4
+void ibv_ack_async_event(struct ibv_async_event *event);
+
+
+
+
+int ibv_query_device(struct ibv_context *context,
+       struct ibv_device_attr *device_attr);
+
+
+
+
+int ibv_query_port(struct ibv_context *context, uint8_t port_num,
+     struct ibv_port_attr *port_attr);
+
+
+
+
+int ibv_query_gid(struct ibv_context *context, uint8_t port_num,
+    int index, union ibv_gid *gid);
+
+
+
+
+int ibv_query_pkey(struct ibv_context *context, uint8_t port_num,
+     int index, uint16_t *pkey);
+
+
+
+
+struct ibv_pd *ibv_alloc_pd(struct ibv_context *context);
+
+
+
+
+int ibv_dealloc_pd(struct ibv_pd *pd);
+
+
+
+
+struct ibv_mr *ibv_reg_mr(struct ibv_pd *pd, void *addr,
+     size_t length, int access);
+
+
+
+
+int ibv_dereg_mr(struct ibv_mr *mr);
+
+
+
+
+struct ibv_comp_channel *ibv_create_comp_channel(struct ibv_context *context);
+
+
+
+
+int ibv_destroy_comp_channel(struct ibv_comp_channel *channel);
+# 896 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_cq *ibv_create_cq(struct ibv_context *context, int cqe,
+        void *cq_context,
+        struct ibv_comp_channel *channel,
+        int comp_vector);
+# 908 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_resize_cq(struct ibv_cq *cq, int cqe);
+
+
+
+
+int ibv_destroy_cq(struct ibv_cq *cq);
+# 924 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_get_cq_event(struct ibv_comp_channel *channel,
+       struct ibv_cq **cq, void **cq_context);
+# 940 "/usr/include/infiniband/verbs.h" 3 4
+void ibv_ack_cq_events(struct ibv_cq *cq, unsigned int nevents);
+# 955 "/usr/include/infiniband/verbs.h" 3 4
+static inline int ibv_poll_cq(struct ibv_cq *cq, int num_entries, struct ibv_wc *wc)
+{
+ return cq->context->ops.poll_cq(cq, num_entries, wc);
+}
+# 969 "/usr/include/infiniband/verbs.h" 3 4
+static inline int ibv_req_notify_cq(struct ibv_cq *cq, int solicited_only)
+{
+ return cq->context->ops.req_notify_cq(cq, solicited_only);
+}
+# 985 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_srq *ibv_create_srq(struct ibv_pd *pd,
+          struct ibv_srq_init_attr *srq_init_attr);
+# 1002 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_srq *ibv_create_xrc_srq(struct ibv_pd *pd,
+       struct ibv_xrc_domain *xrc_domain,
+       struct ibv_cq *xrc_cq,
+       struct ibv_srq_init_attr *srq_init_attr);
+# 1019 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_modify_srq(struct ibv_srq *srq,
+     struct ibv_srq_attr *srq_attr,
+     int srq_attr_mask);
+
+
+
+
+
+
+
+int ibv_query_srq(struct ibv_srq *srq, struct ibv_srq_attr *srq_attr);
+
+
+
+
+
+int ibv_destroy_srq(struct ibv_srq *srq);
+# 1044 "/usr/include/infiniband/verbs.h" 3 4
+static inline int ibv_post_srq_recv(struct ibv_srq *srq,
+        struct ibv_recv_wr *recv_wr,
+        struct ibv_recv_wr **bad_recv_wr)
+{
+ return srq->context->ops.post_srq_recv(srq, recv_wr, bad_recv_wr);
+}
+
+
+
+
+struct ibv_qp *ibv_create_qp(struct ibv_pd *pd,
+        struct ibv_qp_init_attr *qp_init_attr);
+
+
+
+
+int ibv_modify_qp(struct ibv_qp *qp, struct ibv_qp_attr *attr,
+    int attr_mask);
+# 1074 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_query_qp(struct ibv_qp *qp, struct ibv_qp_attr *attr,
+   int attr_mask,
+   struct ibv_qp_init_attr *init_attr);
+
+
+
+
+int ibv_destroy_qp(struct ibv_qp *qp);
+
+
+
+
+
+
+
+static inline int ibv_post_send(struct ibv_qp *qp, struct ibv_send_wr *wr,
+    struct ibv_send_wr **bad_wr)
+{
+ return qp->context->ops.post_send(qp, wr, bad_wr);
+}
+
+
+
+
+static inline int ibv_post_recv(struct ibv_qp *qp, struct ibv_recv_wr *wr,
+    struct ibv_recv_wr **bad_wr)
+{
+ return qp->context->ops.post_recv(qp, wr, bad_wr);
+}
+
+
+
+
+struct ibv_ah *ibv_create_ah(struct ibv_pd *pd, struct ibv_ah_attr *attr);
+# 1120 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_init_ah_from_wc(struct ibv_context *context, uint8_t port_num,
+   struct ibv_wc *wc, struct ibv_grh *grh,
+   struct ibv_ah_attr *ah_attr);
+# 1136 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_ah *ibv_create_ah_from_wc(struct ibv_pd *pd, struct ibv_wc *wc,
+         struct ibv_grh *grh, uint8_t port_num);
+
+
+
+
+int ibv_destroy_ah(struct ibv_ah *ah);
+# 1155 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_attach_mcast(struct ibv_qp *qp, const union ibv_gid *gid, uint16_t lid);
+
+
+
+
+
+
+
+int ibv_detach_mcast(struct ibv_qp *qp, const union ibv_gid *gid, uint16_t lid);
+
+
+
+
+
+
+
+int ibv_fork_init(void);
+
+
+
+
+const char *ibv_node_type_str(enum ibv_node_type node_type);
+
+
+
+
+const char *ibv_port_state_str(enum ibv_port_state port_state);
+
+
+
+
+const char *ibv_event_type_str(enum ibv_event_type event);
+# 1211 "/usr/include/infiniband/verbs.h" 3 4
+struct ibv_xrc_domain *ibv_open_xrc_domain(struct ibv_context *context,
+        int fd, int oflag);
+# 1222 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_close_xrc_domain(struct ibv_xrc_domain *d);
+# 1246 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_create_xrc_rcv_qp(struct ibv_qp_init_attr *init_attr,
+     uint32_t *xrc_rcv_qpn);
+# 1272 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_modify_xrc_rcv_qp(struct ibv_xrc_domain *xrc_domain,
+     uint32_t xrc_qp_num,
+     struct ibv_qp_attr *attr, int attr_mask);
+# 1288 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_query_xrc_rcv_qp(struct ibv_xrc_domain *xrc_domain, uint32_t xrc_qp_num,
+    struct ibv_qp_attr *attr, int attr_mask,
+    struct ibv_qp_init_attr *init_attr);
+# 1305 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_reg_xrc_rcv_qp(struct ibv_xrc_domain *xrc_domain, uint32_t xrc_qp_num);
+# 1323 "/usr/include/infiniband/verbs.h" 3 4
+int ibv_unreg_xrc_rcv_qp(struct ibv_xrc_domain *xrc_domain,
+    uint32_t xrc_qp_num);
+
+}
+# 40 "/usr/include/rdma/rdma_cma.h" 2 3 4
+# 1 "/usr/include/infiniband/sa.h" 1 3 4
+# 39 "/usr/include/infiniband/sa.h" 3 4
+struct ibv_sa_path_rec {
+
+
+ union ibv_gid dgid;
+ union ibv_gid sgid;
+ uint16_t dlid;
+ uint16_t slid;
+ int raw_traffic;
+
+ uint32_t flow_label;
+ uint8_t hop_limit;
+ uint8_t traffic_class;
+ int reversible;
+ uint8_t numb_path;
+ uint16_t pkey;
+
+ uint8_t sl;
+ uint8_t mtu_selector;
+ uint8_t mtu;
+ uint8_t rate_selector;
+ uint8_t rate;
+ uint8_t packet_life_time_selector;
+ uint8_t packet_life_time;
+ uint8_t preference;
+};
+
+struct ibv_sa_mcmember_rec {
+ union ibv_gid mgid;
+ union ibv_gid port_gid;
+ uint32_t qkey;
+ uint16_t mlid;
+ uint8_t mtu_selector;
+ uint8_t mtu;
+ uint8_t traffic_class;
+ uint16_t pkey;
+ uint8_t rate_selector;
+ uint8_t rate;
+ uint8_t packet_life_time_selector;
+ uint8_t packet_life_time;
+ uint8_t sl;
+ uint32_t flow_label;
+ uint8_t hop_limit;
+ uint8_t scope;
+ uint8_t join_state;
+ int proxy_join;
+};
+
+struct ibv_sa_service_rec {
+ uint64_t id;
+ union ibv_gid gid;
+ uint16_t pkey;
+
+ uint32_t lease;
+ uint8_t key[16];
+ uint8_t name[64];
+ uint8_t data8[16];
+ uint16_t data16[8];
+ uint32_t data32[4];
+ uint64_t data64[2];
+};
+
+
+
+struct ibv_path_record {
+ uint64_t service_id;
+ union ibv_gid dgid;
+ union ibv_gid sgid;
+ uint16_t dlid;
+ uint16_t slid;
+ uint32_t flowlabel_hoplimit;
+ uint8_t tclass;
+ uint8_t reversible_numpath;
+ uint16_t pkey;
+ uint16_t qosclass_sl;
+ uint8_t mtu;
+ uint8_t rate;
+ uint8_t packetlifetime;
+ uint8_t preference;
+ uint8_t reserved[6];
+};
+# 129 "/usr/include/infiniband/sa.h" 3 4
+struct ibv_path_data {
+ uint32_t flags;
+ uint32_t reserved;
+ struct ibv_path_record path;
+};
+# 41 "/usr/include/rdma/rdma_cma.h" 2 3 4
+
+
+extern "C" {
+
+
+
+
+
+
+enum rdma_cm_event_type {
+ RDMA_CM_EVENT_ADDR_RESOLVED,
+ RDMA_CM_EVENT_ADDR_ERROR,
+ RDMA_CM_EVENT_ROUTE_RESOLVED,
+ RDMA_CM_EVENT_ROUTE_ERROR,
+ RDMA_CM_EVENT_CONNECT_REQUEST,
+ RDMA_CM_EVENT_CONNECT_RESPONSE,
+ RDMA_CM_EVENT_CONNECT_ERROR,
+ RDMA_CM_EVENT_UNREACHABLE,
+ RDMA_CM_EVENT_REJECTED,
+ RDMA_CM_EVENT_ESTABLISHED,
+ RDMA_CM_EVENT_DISCONNECTED,
+ RDMA_CM_EVENT_DEVICE_REMOVAL,
+ RDMA_CM_EVENT_MULTICAST_JOIN,
+ RDMA_CM_EVENT_MULTICAST_ERROR,
+ RDMA_CM_EVENT_ADDR_CHANGE,
+ RDMA_CM_EVENT_TIMEWAIT_EXIT
+};
+
+enum rdma_port_space {
+ RDMA_PS_IPOIB = 0x0002,
+ RDMA_PS_TCP = 0x0106,
+ RDMA_PS_UDP = 0x0111,
+ RDMA_PS_IB = 0x013F,
+};
+# 87 "/usr/include/rdma/rdma_cma.h" 3 4
+struct rdma_ib_addr {
+ union ibv_gid sgid;
+ union ibv_gid dgid;
+ uint16_t pkey;
+};
+
+struct rdma_addr {
+ union {
+  struct sockaddr src_addr;
+  struct sockaddr_in src_sin;
+  struct sockaddr_in6 src_sin6;
+  struct sockaddr_storage src_storage;
+ };
+ union {
+  struct sockaddr dst_addr;
+  struct sockaddr_in dst_sin;
+  struct sockaddr_in6 dst_sin6;
+  struct sockaddr_storage dst_storage;
+ };
+ union {
+  struct rdma_ib_addr ibaddr;
+ } addr;
+};
+
+struct rdma_route {
+ struct rdma_addr addr;
+ struct ibv_sa_path_rec *path_rec;
+ int num_paths;
+};
+
+struct rdma_event_channel {
+ int fd;
+};
+
+struct rdma_cm_id {
+ struct ibv_context *verbs;
+ struct rdma_event_channel *channel;
+ void *context;
+ struct ibv_qp *qp;
+ struct rdma_route route;
+ enum rdma_port_space ps;
+ uint8_t port_num;
+ struct rdma_cm_event *event;
+ struct ibv_comp_channel *send_cq_channel;
+ struct ibv_cq *send_cq;
+ struct ibv_comp_channel *recv_cq_channel;
+ struct ibv_cq *recv_cq;
+ struct ibv_srq *srq;
+ struct ibv_pd *pd;
+ enum ibv_qp_type qp_type;
+};
+
+enum {
+ RDMA_MAX_RESP_RES = 0xFF,
+ RDMA_MAX_INIT_DEPTH = 0xFF
+};
+
+struct rdma_conn_param {
+ const void *private_data;
+ uint8_t private_data_len;
+ uint8_t responder_resources;
+ uint8_t initiator_depth;
+ uint8_t flow_control;
+ uint8_t retry_count;
+ uint8_t rnr_retry_count;
+
+ uint8_t srq;
+ uint32_t qp_num;
+};
+
+struct rdma_ud_param {
+ const void *private_data;
+ uint8_t private_data_len;
+ struct ibv_ah_attr ah_attr;
+ uint32_t qp_num;
+ uint32_t qkey;
+};
+
+struct rdma_cm_event {
+ struct rdma_cm_id *id;
+ struct rdma_cm_id *listen_id;
+ enum rdma_cm_event_type event;
+ int status;
+ union {
+  struct rdma_conn_param conn;
+  struct rdma_ud_param ud;
+ } param;
+};
+
+
+
+
+
+struct rdma_addrinfo {
+ int ai_flags;
+ int ai_family;
+ int ai_qp_type;
+ int ai_port_space;
+ socklen_t ai_src_len;
+ socklen_t ai_dst_len;
+ struct sockaddr *ai_src_addr;
+ struct sockaddr *ai_dst_addr;
+ char *ai_src_canonname;
+ char *ai_dst_canonname;
+ size_t ai_route_len;
+ void *ai_route;
+ size_t ai_connect_len;
+ void *ai_connect;
+ struct rdma_addrinfo *ai_next;
+};
+# 210 "/usr/include/rdma/rdma_cma.h" 3 4
+struct rdma_event_channel *rdma_create_event_channel(void);
+# 224 "/usr/include/rdma/rdma_cma.h" 3 4
+void rdma_destroy_event_channel(struct rdma_event_channel *channel);
+# 247 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_create_id(struct rdma_event_channel *channel,
+     struct rdma_cm_id **id, void *context,
+     enum rdma_port_space ps);
+# 274 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_create_ep(struct rdma_cm_id **id, struct rdma_addrinfo *res,
+     struct ibv_pd *pd, struct ibv_qp_init_attr *qp_init_attr);
+# 286 "/usr/include/rdma/rdma_cma.h" 3 4
+void rdma_destroy_ep(struct rdma_cm_id *id);
+# 300 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_destroy_id(struct rdma_cm_id *id);
+# 318 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_bind_addr(struct rdma_cm_id *id, struct sockaddr *addr);
+# 343 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_resolve_addr(struct rdma_cm_id *id, struct sockaddr *src_addr,
+        struct sockaddr *dst_addr, int timeout_ms);
+# 360 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_resolve_route(struct rdma_cm_id *id, int timeout_ms);
+# 383 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_create_qp(struct rdma_cm_id *id, struct ibv_pd *pd,
+     struct ibv_qp_init_attr *qp_init_attr);
+# 397 "/usr/include/rdma/rdma_cma.h" 3 4
+void rdma_destroy_qp(struct rdma_cm_id *id);
+# 415 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_connect(struct rdma_cm_id *id, struct rdma_conn_param *conn_param);
+# 435 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_listen(struct rdma_cm_id *id, int backlog);
+
+
+
+
+int rdma_get_request(struct rdma_cm_id *listen, struct rdma_cm_id **id);
+# 461 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_accept(struct rdma_cm_id *id, struct rdma_conn_param *conn_param);
+# 479 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_reject(struct rdma_cm_id *id, const void *private_data,
+  uint8_t private_data_len);
+# 502 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_notify(struct rdma_cm_id *id, enum ibv_event_type event);
+# 513 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_disconnect(struct rdma_cm_id *id);
+# 533 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_join_multicast(struct rdma_cm_id *id, struct sockaddr *addr,
+   void *context);
+# 551 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_leave_multicast(struct rdma_cm_id *id, struct sockaddr *addr);
+# 569 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_get_cm_event(struct rdma_event_channel *channel,
+        struct rdma_cm_event **event);
+# 582 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_ack_cm_event(struct rdma_cm_event *event);
+
+static inline uint16_t rdma_get_src_port(struct rdma_cm_id *id)
+{
+ return id->route.addr.src_addr.sa_family == 10 ?
+  id->route.addr.src_sin6.sin6_port :
+  id->route.addr.src_sin.sin_port;
+}
+
+static inline uint16_t rdma_get_dst_port(struct rdma_cm_id *id)
+{
+ return id->route.addr.dst_addr.sa_family == 10 ?
+  id->route.addr.dst_sin6.sin6_port :
+  id->route.addr.dst_sin.sin_port;
+}
+
+static inline struct sockaddr *rdma_get_local_addr(struct rdma_cm_id *id)
+{
+ return &id->route.addr.src_addr;
+}
+
+static inline struct sockaddr *rdma_get_peer_addr(struct rdma_cm_id *id)
+{
+ return &id->route.addr.dst_addr;
+}
+# 621 "/usr/include/rdma/rdma_cma.h" 3 4
+struct ibv_context **rdma_get_devices(int *num_devices);
+# 631 "/usr/include/rdma/rdma_cma.h" 3 4
+void rdma_free_devices(struct ibv_context **list);
+# 641 "/usr/include/rdma/rdma_cma.h" 3 4
+const char *rdma_event_str(enum rdma_cm_event_type event);
+
+
+enum {
+ RDMA_OPTION_ID = 0,
+ RDMA_OPTION_IB = 1
+};
+
+
+enum {
+ RDMA_OPTION_ID_TOS = 0,
+ RDMA_OPTION_ID_REUSEADDR = 1,
+ RDMA_OPTION_IB_PATH = 1
+};
+# 664 "/usr/include/rdma/rdma_cma.h" 3 4
+int rdma_set_option(struct rdma_cm_id *id, int level, int optname,
+      void *optval, size_t optlen);
+
+
+
+
+
+
+int rdma_migrate_id(struct rdma_cm_id *id, struct rdma_event_channel *channel);
+
+
+
+
+int rdma_getaddrinfo(char *node, char *service,
+       struct rdma_addrinfo *hints,
+       struct rdma_addrinfo **res);
+
+void rdma_freeaddrinfo(struct rdma_addrinfo *res);
+
+
+}
+# 7 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/ibvdefs.h" 2
+# 32 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/ibvdefs.h"
+struct message {
+    struct ibv_mr mr[(16)];
+};
+
+enum rdma_state_t {
+    STATE_INIT,
+    STATE_READY,
+    STATE_BUSY,
+};
+
+typedef struct {
+
+    struct rdma_cm_id *id;
+    struct ibv_qp *qp;
+    struct ibv_context *ibvctx;
+    struct ibv_pd *pd;
+    struct ibv_cq *cq;
+    struct ibv_comp_channel *comp_channel;
+
+
+    struct message *recv_msg;
+    struct message *send_msg;
+
+
+    char *rdma_local_region;
+    char *rdma_remote_region;
+
+
+    struct ibv_mr *recv_mr;
+    struct ibv_mr *send_mr;
+    struct ibv_mr peer_mr[(16)];
+
+
+    struct ibv_mr *rdma_local_mr[(16)];
+    struct ibv_mr *rdma_remote_mr[(16)];
+
+
+    pthread_t cq_poller_thread;
+    int connected;
+    enum rdma_state_t rdma_state;
+    int rdma_nreq_pending;
+    pthread_mutex_t rdma_mutex;
+    void (*on_completion_handler)(struct ibv_wc *);
+} IbvConnection;
+
+void rdmaBuildConnection(struct rdma_cm_id *id, bool is_server);
+void rdmaBuildParams(struct rdma_conn_param *params);
+void rdmaDestroyConnection(IbvConnection *conn);
+void rdmaWaitEvent(struct rdma_event_channel *ec, rdma_cm_event_type et, int (*handler)(struct rdma_cm_id *id));
+void rdmaWaitReadyToKickoff(IbvConnection *conn);
+void rdmaWaitReadyToDisconnect(IbvConnection *conn);
+void rdmaKickoff(IbvConnection *conn, int length);
+void rdmaPipelinedKickoff(IbvConnection *conn, int length, char *payload_buf, char *payload_src, int payload_size);
+void rdmaSendMr(IbvConnection *conn);
+
+int dscudaMyServerId(void);
 # 14 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/dscuda.h" 2
 # 1 "/usr/local/DSCUDA/dscudapkg1.7.5.1/bin/../include/tcpdefs.h" 1
 
@@ -17098,10 +20522,37 @@ typedef enum CUjit_option_enum
 } CUjit_option;
 
 
+<<<<<<< HEAD
 
+=======
+     if (deviceProp.major == best_SM_arch) {
+      max_compute_perf = compute_perf;
+      max_perf_device = current_device;
+     }
+    } else {
+     max_compute_perf = compute_perf;
+     max_perf_device = current_device;
+    }
+   }
+  }
+  ++current_device;
+ }
+ return max_perf_device;
+}
+# 267 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
+inline void __cudaSafeCallNoSync( cudaError err, const char *file, const int line )
+{
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : cudaSafeCallNoSync() Runtime API error %d : %s.\n", file, line, (int)err, cudaGetErrorString( err ) )
+                                                                  ;
+        exit(-1);
+    }
+}
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 typedef enum CUjit_target_enum
 {
+<<<<<<< HEAD
     CU_TARGET_COMPUTE_10 = 0,
     CU_TARGET_COMPUTE_11,
     CU_TARGET_COMPUTE_12,
@@ -17112,9 +20563,28 @@ typedef enum CUjit_target_enum
 
 
 
+=======
+    if( cudaSuccess != err) {
+  fprintf (stderr, "%s(%i) : cudaSafeCall() Runtime API error %d: %s.\n", file, line, (int)err, cudaGetErrorString( err ) )
+                                                                  ;
+        exit(-1);
+    }
+}
+
+inline void __cudaSafeThreadSync( const char *file, const int line )
+{
+    cudaError err = cutilDeviceSynchronize();
+    if ( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : cudaDeviceSynchronize() Runtime API error %d: %s.\n", file, line, (int)err, cudaGetErrorString( err ) )
+                                                                  ;
+        exit(-1);
+    }
+}
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 typedef enum CUjit_fallback_enum
 {
+<<<<<<< HEAD
     CU_PREFER_PTX = 0,
 
     CU_PREFER_BINARY
@@ -17154,6 +20624,126 @@ typedef enum CUarray_cubemap_face_enum {
 } CUarray_cubemap_face;
 
 
+=======
+    if( CUFFT_SUCCESS != err) {
+        fprintf (stderr, "%s(%i) : cufftSafeCall() CUFFT error %d: ", file, line, (int)err)
+                                      ;
+        switch (err) {
+            case CUFFT_INVALID_PLAN: fprintf (stderr, "CUFFT_INVALID_PLAN\n");
+            case CUFFT_ALLOC_FAILED: fprintf (stderr, "CUFFT_ALLOC_FAILED\n");
+            case CUFFT_INVALID_TYPE: fprintf (stderr, "CUFFT_INVALID_TYPE\n");
+            case CUFFT_INVALID_VALUE: fprintf (stderr, "CUFFT_INVALID_VALUE\n");
+            case CUFFT_INTERNAL_ERROR: fprintf (stderr, "CUFFT_INTERNAL_ERROR\n");
+            case CUFFT_EXEC_FAILED: fprintf (stderr, "CUFFT_EXEC_FAILED\n");
+            case CUFFT_SETUP_FAILED: fprintf (stderr, "CUFFT_SETUP_FAILED\n");
+            case CUFFT_INVALID_SIZE: fprintf (stderr, "CUFFT_INVALID_SIZE\n");
+            case CUFFT_UNALIGNED_DATA: fprintf (stderr, "CUFFT_UNALIGNED_DATA\n");
+            default: fprintf (stderr, "CUFFT Unknown error code\n");
+        }
+        exit(-1);
+    }
+}
+
+inline void __curandSafeCall( curandStatus_t err, const char *file, const int line )
+    {
+    if( CURAND_STATUS_SUCCESS != err) {
+        fprintf (stderr, "%s(%i) : curandSafeCall() CURAND error %d: ", file, line, (int)err)
+                                      ;
+        switch (err) {
+            case CURAND_STATUS_VERSION_MISMATCH: fprintf (stderr, "CURAND_STATUS_VERSION_MISMATCH");
+            case CURAND_STATUS_NOT_INITIALIZED: fprintf (stderr, "CURAND_STATUS_NOT_INITIALIZED");
+            case CURAND_STATUS_ALLOCATION_FAILED: fprintf (stderr, "CURAND_STATUS_ALLOCATION_FAILED");
+            case CURAND_STATUS_TYPE_ERROR: fprintf (stderr, "CURAND_STATUS_TYPE_ERROR");
+            case CURAND_STATUS_OUT_OF_RANGE: fprintf (stderr, "CURAND_STATUS_OUT_OF_RANGE");
+            case CURAND_STATUS_LENGTH_NOT_MULTIPLE: fprintf (stderr, "CURAND_STATUS_LENGTH_NOT_MULTIPLE");
+            case CURAND_STATUS_DOUBLE_PRECISION_REQUIRED:
+                                                    fprintf (stderr, "CURAND_STATUS_DOUBLE_PRECISION_REQUIRED");
+            case CURAND_STATUS_LAUNCH_FAILURE: fprintf (stderr, "CURAND_STATUS_LAUNCH_FAILURE");
+            case CURAND_STATUS_PREEXISTING_FAILURE: fprintf (stderr, "CURAND_STATUS_PREEXISTING_FAILURE");
+            case CURAND_STATUS_INITIALIZATION_FAILED:
+                                                    fprintf (stderr, "CURAND_STATUS_INITIALIZATION_FAILED");
+            case CURAND_STATUS_ARCH_MISMATCH: fprintf (stderr, "CURAND_STATUS_ARCH_MISMATCH");
+            case CURAND_STATUS_INTERNAL_ERROR: fprintf (stderr, "CURAND_STATUS_INTERNAL_ERROR");
+            default: fprintf (stderr, "CURAND Unknown error code\n");
+        }
+        exit(-1);
+    }
+}
+
+
+inline void __cutilCheckError( CUTBoolean err, const char *file, const int line )
+{
+    if( CUTTrue != err) {
+        fprintf (stderr, "%s(%i) : CUTIL CUDA error.\n", file, line)
+                            ;
+        exit(-1);
+    }
+}
+
+inline void __cutilGetLastError( const char *errorMessage, const char *file, const int line )
+{
+    cudaError_t err = cudaGetLastError();
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : cutilCheckMsg() CUTIL CUDA error : %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString( err ) )
+                                                                                ;
+        exit(-1);
+    }
+}
+
+inline void __cutilGetLastErrorAndSync( const char *errorMessage, const char *file, const int line )
+{
+    cudaError_t err = cudaGetLastError();
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : cutilCheckMsg() CUTIL CUDA error : %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString( err ) )
+                                                                                ;
+        exit(-1);
+    }
+
+ err = cutilDeviceSynchronize();
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : cutilCheckMsg cudaDeviceSynchronize error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString( err ) )
+                                                                                ;
+        exit(-1);
+    }
+}
+
+inline void __cutilSafeMalloc( void *pointer, const char *file, const int line )
+{
+    if( !(pointer)) {
+        fprintf (stderr, "%s(%i) : cutilSafeMalloc host malloc failure\n", file, line)
+                            ;
+        exit(-1);
+    }
+}
+
+inline int cutilDeviceInit(int ARGC, char **ARGV)
+{
+    int deviceCount;
+    __cudaSafeCallNoSync(cudaGetDeviceCount(&deviceCount), "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 391);
+    if (deviceCount == 0) {
+        fprintf (stderr, "CUTIL CUDA error: no devices supporting CUDA.\n");
+        exit(-1);
+    }
+    int dev = 0;
+    cutGetCmdLineArgumenti(ARGC, (const char **) ARGV, "device", &dev);
+    if (dev < 0)
+        dev = 0;
+    if (dev > deviceCount-1) {
+  fprintf(stderr, "\n");
+  fprintf(stderr, ">> %d CUDA capable GPU device(s) detected. <<\n", deviceCount);
+        fprintf(stderr, ">> cutilDeviceInit (-device=%d) is not a valid GPU device. <<\n", dev);
+  fprintf(stderr, "\n");
+        return -dev;
+    }
+    cudaDeviceProp deviceProp;
+    __cudaSafeCallNoSync(cudaGetDeviceProperties(&deviceProp, dev), "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 408);
+    if (deviceProp.major < 1) {
+        fprintf (stderr, "cutil error: GPU device does not support CUDA.\n");
+        exit(-1);
+    }
+    printf("> Using CUDA device [%d]: %s\n", dev, deviceProp.name);
+    __cudaSafeCall (cudaSetDevice(dev), "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h", 414);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 typedef enum CUlimit_enum {
@@ -17167,8 +20757,30 @@ typedef enum CUlimit_enum {
 
 typedef enum cudaError_enum {
 
+<<<<<<< HEAD
 
 
+=======
+inline void cutilCudaCheckCtxLost(const char *errorMessage, const char *file, const int line )
+{
+    cudaError_t err = cudaGetLastError();
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : CUDA error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString( err ) )
+                                                                                 ;
+        exit(-1);
+    }
+    err = cutilDeviceSynchronize();
+    if( cudaSuccess != err) {
+        fprintf (stderr, "%s(%i) : CUDA error: %s : (%d) %s.\n", file, line, errorMessage, (int)err, cudaGetErrorString( err ) )
+                                                                        ;
+        exit(-1);
+    }
+}
+# 475 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_runtime.h"
+inline void __cutilQAFinish(int argc, char **argv, bool bStatus)
+{
+    const char *sStatus[] = { "FAILED", "PASSED", "WAIVED", __null };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
     CUDA_SUCCESS = 0,
@@ -17867,6 +21479,7 @@ extern "C" {
 
 typedef float2 cuFloatComplex;
 
+<<<<<<< HEAD
 __attribute__((host)) __attribute__((device)) static __inline__ float cuCrealf (cuFloatComplex x)
 {
     return x.x;
@@ -17896,6 +21509,27 @@ __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex c
     return make_cuFloatComplex (cuCrealf(x) + cuCrealf(y),
                                 cuCimagf(x) + cuCimagf(y));
 }
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/fstream" 1 3
+# 38 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/fstream" 3
+       
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/fstream" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/istream" 1 3
+# 38 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/istream" 3
+       
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/istream" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 1 3
+# 37 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 3
+       
+# 38 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 1 3
+# 38 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 3
+       
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex cuCsubf (cuFloatComplex x,
                                                               cuFloatComplex y)
@@ -17904,11 +21538,19 @@ __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex c
                                     cuCimagf(x) - cuCimagf(y));
 }
 
+<<<<<<< HEAD
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stringfwd.h" 1 3
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stringfwd.h" 3
+       
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stringfwd.h" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
 
 
+<<<<<<< HEAD
 __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex cuCmulf (cuFloatComplex x,
                                                               cuFloatComplex y)
 {
@@ -17919,12 +21561,23 @@ __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex c
                                  (cuCimagf(x) * cuCrealf(y)));
     return prod;
 }
+=======
 
 
 
 
 
 
+  template<class _CharT>
+    struct char_traits;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+
+
+
+
+<<<<<<< HEAD
 __attribute__((host)) __attribute__((device)) static __inline__ cuFloatComplex cuCdivf (cuFloatComplex x,
                                                               cuFloatComplex y)
 {
@@ -17964,6 +21617,44 @@ __attribute__((host)) __attribute__((device)) static __inline__ float cuCabsf (c
     }
     return t;
 }
+=======
+  typedef basic_string<wchar_t> wstring;
+# 83 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stringfwd.h" 3
+}
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 1 3
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+       
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 2 3
+
+
+# 1 "/usr/include/wchar.h" 1 3 4
+# 40 "/usr/include/wchar.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stdarg.h" 1 3 4
+# 41 "/usr/include/wchar.h" 2 3 4
+# 52 "/usr/include/wchar.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 352 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 3 4
+typedef unsigned int wint_t;
+# 53 "/usr/include/wchar.h" 2 3 4
+# 104 "/usr/include/wchar.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 typedef double2 cuDoubleComplex;
@@ -18329,7 +22020,13 @@ typedef unsigned int curandDirectionVectors32_t[32];
 
 
 
+<<<<<<< HEAD
 typedef unsigned long long curandDirectionVectors64_t[64];
+=======
+extern int wmemcmp (__const wchar_t *__restrict __s1,
+      __const wchar_t *__restrict __s2, size_t __n)
+     throw () __attribute__ ((__pure__));
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -18467,6 +22164,7 @@ inline int _ConvertSMVer2Cores_local(int major, int minor)
   int Cores;
  } sSMtoCores;
 
+<<<<<<< HEAD
  sSMtoCores nGpuArchCoresPerSM[] =
  { { 0x10, 8 },
    { 0x11, 8 },
@@ -18476,6 +22174,9 @@ inline int _ConvertSMVer2Cores_local(int major, int minor)
    { 0x21, 48 },
    { -1, -1 }
  };
+=======
+# 403 "/usr/include/wchar.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
  int index = 0;
  while (nGpuArchCoresPerSM[index].SM != -1) {
@@ -18858,6 +22559,17 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
+=======
+__extension__
+extern unsigned long long int wcstouq (__const wchar_t *__restrict __nptr,
+           wchar_t **__restrict __endptr,
+           int __base) throw ();
+# 528 "/usr/include/wchar.h" 3 4
+extern long int wcstol_l (__const wchar_t *__restrict __nptr,
+     wchar_t **__restrict __endptr, int __base,
+     __locale_t __loc) throw ();
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
     { "CUDA_SUCCESS", 0 },
 
@@ -18873,6 +22585,7 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
     { "CUDA_ERROR_OUT_OF_MEMORY", 2 },
 
+<<<<<<< HEAD
 
 
 
@@ -18884,6 +22597,16 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
     { "CUDA_ERROR_DEINITIALIZED", 4 },
 
+=======
+extern wchar_t *wcpcpy (wchar_t *__dest, __const wchar_t *__src) throw ();
+
+
+
+extern wchar_t *wcpncpy (wchar_t *__dest, __const wchar_t *__src, size_t __n)
+     throw ();
+# 578 "/usr/include/wchar.h" 3 4
+extern __FILE *open_wmemstream (wchar_t **__bufloc, size_t *__sizeloc) throw ();
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -18935,7 +22658,14 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
     { "CUDA_ERROR_UNMAP_FAILED", 206 },
+=======
+extern int swscanf (__const wchar_t *__restrict __s,
+      __const wchar_t *__restrict __format, ...)
+     throw () ;
+# 678 "/usr/include/wchar.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -18952,6 +22682,14 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
+=======
+extern int vswscanf (__const wchar_t *__restrict __s,
+       __const wchar_t *__restrict __format,
+       __gnuc_va_list __arg)
+     throw () ;
+# 734 "/usr/include/wchar.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
     { "CUDA_ERROR_NO_BINARY_FOR_GPU", 209 },
@@ -19005,7 +22743,13 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
     { "CUDA_ERROR_FILE_NOT_FOUND", 301 },
+=======
+# 799 "/usr/include/wchar.h" 3 4
+extern wint_t getwc_unlocked (__FILE *__stream);
+extern wint_t getwchar_unlocked (void);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19023,6 +22767,16 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
     { "CUDA_ERROR_OPERATING_SYSTEM", 304 },
 
 
+<<<<<<< HEAD
+=======
+extern wint_t fputwc_unlocked (wchar_t __wc, __FILE *__stream);
+# 825 "/usr/include/wchar.h" 3 4
+extern wint_t putwc_unlocked (wchar_t __wc, __FILE *__stream);
+extern wint_t putwchar_unlocked (wchar_t __wc);
+# 835 "/usr/include/wchar.h" 3 4
+extern wchar_t *fgetws_unlocked (wchar_t *__restrict __ws, int __n,
+     __FILE *__restrict __stream);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19055,9 +22809,27 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
     { "CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED", 704 },
+=======
+extern size_t wcsftime_l (wchar_t *__restrict __s, size_t __maxsize,
+     __const wchar_t *__restrict __format,
+     __const struct tm *__restrict __tp,
+     __locale_t __loc) throw ();
+# 889 "/usr/include/wchar.h" 3 4
+}
+# 48 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 2 3
+# 65 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
+<<<<<<< HEAD
+=======
+}
+# 139 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19074,6 +22846,27 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
 
 
 
+<<<<<<< HEAD
+=======
+  using ::wcstok;
+  using ::wcstol;
+  using ::wcstoul;
+  using ::wcsxfrm;
+  using ::wctob;
+  using ::wmemcmp;
+  using ::wmemcpy;
+  using ::wmemmove;
+  using ::wmemset;
+  using ::wprintf;
+  using ::wscanf;
+  using ::wcschr;
+  using ::wcspbrk;
+  using ::wcsrchr;
+  using ::wcsstr;
+  using ::wmemchr;
+# 234 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+}
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
     { "CUDA_ERROR_CONTEXT_IS_DESTROYED", 709 },
 
@@ -19092,6 +22885,13 @@ static s_CudaErrorStr sCudaDrvErrorString[] =
     { __null, -1 }
 };
 
+<<<<<<< HEAD
+=======
+  using ::wcstold;
+# 258 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+  using ::wcstoll;
+  using ::wcstoull;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 inline const char * getCudaDrvErrorString(CUresult error_id)
@@ -19141,7 +22941,25 @@ inline const char * getCudaDrvErrorString(CUresult error_id)
 
 
 
+<<<<<<< HEAD
 namespace std __attribute__ ((__visibility__ ("default"))) {
+=======
+}
+# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 2 3
+# 70 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 88 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+  typedef long streamoff;
+# 98 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+  typedef ptrdiff_t streamsize;
+# 111 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+  template<typename _StateT>
+    class fpos
+    {
+    private:
+      streamoff _M_off;
+      _StateT _M_state;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _Alloc>
     class allocator;
@@ -19149,6 +22967,14 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
+=======
+      fpos()
+      : _M_off(0), _M_state() { }
+# 133 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+      fpos(streamoff __off)
+      : _M_off(__off), _M_state() { }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19256,7 +23082,18 @@ extern int wcsncasecmp (__const wchar_t *__s1, __const wchar_t *__s2,
    size_t __n) throw ();
 
 
+<<<<<<< HEAD
 
+=======
+  typedef fpos<mbstate_t> wstreampos;
+# 239 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/postypes.h" 3
+}
+# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 74 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 3
+  class ios_base;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 extern int wcscasecmp_l (__const wchar_t *__s1, __const wchar_t *__s2,
@@ -19282,6 +23119,23 @@ extern size_t wcsxfrm (wchar_t *__restrict __s1,
 
 
 
+<<<<<<< HEAD
+=======
+
+  typedef basic_ios<char> ios;
+  typedef basic_streambuf<char> streambuf;
+  typedef basic_istream<char> istream;
+  typedef basic_ostream<char> ostream;
+  typedef basic_iostream<char> iostream;
+  typedef basic_stringbuf<char> stringbuf;
+  typedef basic_istringstream<char> istringstream;
+  typedef basic_ostringstream<char> ostringstream;
+  typedef basic_stringstream<char> stringstream;
+  typedef basic_filebuf<char> filebuf;
+  typedef basic_ifstream<char> ifstream;
+  typedef basic_ofstream<char> ofstream;
+  typedef basic_fstream<char> fstream;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern int wcscoll_l (__const wchar_t *__s1, __const wchar_t *__s2,
         __locale_t __loc) throw ();
@@ -19289,6 +23143,7 @@ extern int wcscoll_l (__const wchar_t *__s1, __const wchar_t *__s2,
 
 
 
+<<<<<<< HEAD
 extern size_t wcsxfrm_l (wchar_t *__s1, __const wchar_t *__s2,
     size_t __n, __locale_t __loc) throw ();
 
@@ -19296,6 +23151,31 @@ extern size_t wcsxfrm_l (wchar_t *__s1, __const wchar_t *__s2,
 extern wchar_t *wcsdup (__const wchar_t *__s) throw () __attribute__ ((__malloc__));
 
 
+=======
+}
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 2 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 1 3
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+       
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 1 3
+# 61 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 62 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/functexcept.h" 1 3
+# 37 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/functexcept.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/exception_defines.h" 1 3
+# 38 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/functexcept.h" 2 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19328,10 +23208,29 @@ extern wchar_t *wcschrnul (__const wchar_t *__s, wchar_t __wc)
 
 
 
+<<<<<<< HEAD
+=======
+  void
+  __throw_future_error(int) __attribute__((__noreturn__));
+
+
+  void
+  __throw_bad_function_call() __attribute__((__noreturn__));
+
+}
+# 63 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern size_t wcscspn (__const wchar_t *__wcs, __const wchar_t *__reject)
      throw () __attribute__ ((__pure__));
 
+<<<<<<< HEAD
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 1 3
+# 32 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 3
+       
+# 33 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern size_t wcsspn (__const wchar_t *__wcs, __const wchar_t *__accept)
      throw () __attribute__ ((__pure__));
@@ -19343,6 +23242,14 @@ extern "C++" __const wchar_t *wcspbrk (__const wchar_t *__wcs,
            __const wchar_t *__accept)
      throw () __asm ("wcspbrk") __attribute__ ((__pure__));
 
+<<<<<<< HEAD
+=======
+namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
+# 52 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 3
+  template<typename _Value>
+    struct __numeric_traits_integer
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19356,6 +23263,15 @@ extern "C++" __const wchar_t *wcsstr (__const wchar_t *__haystack,
 
 
 
+<<<<<<< HEAD
+=======
+  template<typename _Value>
+    const int __numeric_traits_integer<_Value>::__digits;
+# 97 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 3
+  template<typename _Value>
+    struct __numeric_traits_floating
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19369,6 +23285,19 @@ extern size_t wcslen (__const wchar_t *__s) throw () __attribute__ ((__pure__));
 
 
 
+<<<<<<< HEAD
+=======
+}
+# 66 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 1 3
+# 60 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 1 3
+# 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern "C++" wchar_t *wcswcs (wchar_t *__haystack, __const wchar_t *__needle)
      throw () __asm ("wcswcs") __attribute__ ((__pure__));
@@ -19379,6 +23308,7 @@ extern "C++" __const wchar_t *wcswcs (__const wchar_t *__haystack,
 extern size_t wcsnlen (__const wchar_t *__s, size_t __maxlen)
      throw () __attribute__ ((__pure__));
 
+<<<<<<< HEAD
 
 
 
@@ -19391,6 +23321,23 @@ extern "C++" __const wchar_t *wmemchr (__const wchar_t *__s, wchar_t __c,
      throw () __asm ("wmemchr") __attribute__ ((__pure__));
 
 
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 35 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/concept_check.h" 1 3
+# 33 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/concept_check.h" 3
+       
+# 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/concept_check.h" 3
+# 36 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 2 3
+# 95 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 104 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/move.h" 3
+  template<typename _Tp>
+    inline void
+    swap(_Tp& __a, _Tp& __b)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19400,8 +23347,17 @@ extern int wmemcmp (__const wchar_t *__restrict __s1,
      throw () __attribute__ ((__pure__));
 
 
+<<<<<<< HEAD
 extern wchar_t *wmemcpy (wchar_t *__restrict __s1,
     __const wchar_t *__restrict __s2, size_t __n) throw ();
+=======
+}
+# 61 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 2 3
+
+
+
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19420,6 +23376,18 @@ extern wchar_t *wmempcpy (wchar_t *__restrict __s1,
      throw ();
 
 
+<<<<<<< HEAD
+=======
+      pair(const _T1& __a, const _T2& __b)
+      : first(__a), second(__b) { }
+# 113 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 3
+      template<class _U1, class _U2>
+        pair(const pair<_U1, _U2>& __p)
+ : first(__p.first),
+   second(__p.second) { }
+# 149 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 3
+    };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19435,15 +23403,42 @@ extern int wctob (wint_t __c) throw ();
 extern int mbsinit (__const mbstate_t *__ps) throw () __attribute__ ((__pure__));
 
 
+<<<<<<< HEAD
+=======
+  template<class _T1, class _T2>
+    inline bool
+    operator>=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+    { return !(__x < __y); }
+# 211 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 3
+  template<class _T1, class _T2>
+    inline pair<_T1, _T2>
+    make_pair(_T1 __x, _T2 __y)
+    { return pair<_T1, _T2>(__x, __y); }
+# 257 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 3
+}
+# 67 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 1 3
+# 63 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 3
+       
+# 64 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern size_t mbrtowc (wchar_t *__restrict __pwc,
          __const char *__restrict __s, size_t __n,
          mbstate_t *__p) throw ();
 
+<<<<<<< HEAD
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern size_t wcrtomb (char *__restrict __s, wchar_t __wc,
          mbstate_t *__restrict __ps) throw ();
 
+<<<<<<< HEAD
 
 extern size_t __mbrlen (__const char *__restrict __s, size_t __n,
    mbstate_t *__restrict __ps) throw ();
@@ -19459,6 +23454,34 @@ extern size_t mbsrtowcs (wchar_t *__restrict __dst,
     mbstate_t *__restrict __ps) throw ();
 
 
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 67 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 2 3
+
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 85 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 3
+  struct input_iterator_tag { };
+
+
+  struct output_iterator_tag { };
+
+
+  struct forward_iterator_tag : public input_iterator_tag { };
+
+
+
+  struct bidirectional_iterator_tag : public forward_iterator_tag { };
+
+
+
+  struct random_access_iterator_tag : public bidirectional_iterator_tag { };
+# 112 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 3
+  template<typename _Category, typename _Tp, typename _Distance = ptrdiff_t,
+           typename _Pointer = _Tp*, typename _Reference = _Tp&>
+    struct iterator
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern size_t wcsrtombs (char *__restrict __dst,
     __const wchar_t **__restrict __src, size_t __len,
@@ -19467,6 +23490,7 @@ extern size_t wcsrtombs (char *__restrict __dst,
 
 
 
+<<<<<<< HEAD
 
 
 extern size_t mbsnrtowcs (wchar_t *__restrict __dst,
@@ -19483,6 +23507,42 @@ extern size_t wcsnrtombs (char *__restrict __dst,
 
 
 
+=======
+      typedef _Reference reference;
+    };
+# 136 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_types.h" 3
+  template<typename _Iterator>
+    struct iterator_traits
+    {
+      typedef typename _Iterator::iterator_category iterator_category;
+      typedef typename _Iterator::value_type value_type;
+      typedef typename _Iterator::difference_type difference_type;
+      typedef typename _Iterator::pointer pointer;
+      typedef typename _Iterator::reference reference;
+    };
+
+
+  template<typename _Tp>
+    struct iterator_traits<_Tp*>
+    {
+      typedef random_access_iterator_tag iterator_category;
+      typedef _Tp value_type;
+      typedef ptrdiff_t difference_type;
+      typedef _Tp* pointer;
+      typedef _Tp& reference;
+    };
+
+
+  template<typename _Tp>
+    struct iterator_traits<const _Tp*>
+    {
+      typedef random_access_iterator_tag iterator_category;
+      typedef _Tp value_type;
+      typedef ptrdiff_t difference_type;
+      typedef const _Tp* pointer;
+      typedef const _Tp& reference;
+    };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 extern int wcwidth (wchar_t __c) throw ();
@@ -19493,6 +23553,16 @@ extern int wcswidth (__const wchar_t *__s, size_t __n) throw ();
 
 
 
+<<<<<<< HEAD
+=======
+}
+# 68 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_funcs.h" 1 3
+# 63 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_funcs.h" 3
+       
+# 64 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_funcs.h" 3
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19503,6 +23573,7 @@ extern double wcstod (__const wchar_t *__restrict __nptr,
 
 
 
+<<<<<<< HEAD
 extern float wcstof (__const wchar_t *__restrict __nptr,
        wchar_t **__restrict __endptr) throw ();
 extern long double wcstold (__const wchar_t *__restrict __nptr,
@@ -19510,6 +23581,15 @@ extern long double wcstold (__const wchar_t *__restrict __nptr,
 
 
 
+=======
+      return __last - __first;
+    }
+# 109 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_funcs.h" 3
+  template<typename _InputIterator>
+    inline typename iterator_traits<_InputIterator>::difference_type
+    distance(_InputIterator __first, _InputIterator __last)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19524,8 +23604,47 @@ extern unsigned long int wcstoul (__const wchar_t *__restrict __nptr,
      throw ();
 
 
+<<<<<<< HEAD
 
 
+=======
+      __i += __n;
+    }
+# 167 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator_base_funcs.h" 3
+  template<typename _InputIterator, typename _Distance>
+    inline void
+    advance(_InputIterator& __i, _Distance __n)
+    {
+
+      typename iterator_traits<_InputIterator>::difference_type __d = __n;
+      std::__advance(__i, __d, std::__iterator_category(__i));
+    }
+
+}
+# 69 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 1 3
+# 68 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 94 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Iterator>
+    class reverse_iterator
+    : public iterator<typename iterator_traits<_Iterator>::iterator_category,
+        typename iterator_traits<_Iterator>::value_type,
+        typename iterator_traits<_Iterator>::difference_type,
+        typename iterator_traits<_Iterator>::pointer,
+                      typename iterator_traits<_Iterator>::reference>
+    {
+    protected:
+      _Iterator current;
+
+      typedef iterator_traits<_Iterator> __traits_type;
+
+    public:
+      typedef _Iterator iterator_type;
+      typedef typename __traits_type::difference_type difference_type;
+      typedef typename __traits_type::pointer pointer;
+      typedef typename __traits_type::reference reference;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 __extension__
@@ -19703,6 +23822,19 @@ extern int vswscanf (__const wchar_t *__restrict __s,
 
 
 
+<<<<<<< HEAD
+=======
+      reference
+      operator[](difference_type __n) const
+      { return *(*this + __n); }
+    };
+# 281 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Iterator>
+    inline bool
+    operator==(const reverse_iterator<_Iterator>& __x,
+        const reverse_iterator<_Iterator>& __y)
+    { return __x.base() == __y.base(); }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern wint_t fgetwc (__FILE *__stream);
 extern wint_t getwc (__FILE *__stream);
@@ -19733,30 +23865,111 @@ extern wint_t putwchar (wchar_t __wc);
 
 
 
+<<<<<<< HEAD
 extern wchar_t *fgetws (wchar_t *__restrict __ws, int __n,
    __FILE *__restrict __stream);
+=======
+    { return __y.base() - __x.base(); }
+# 393 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container>
+    class back_insert_iterator
+    : public iterator<output_iterator_tag, void, void, void, void>
+    {
+    protected:
+      _Container* container;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
 
+<<<<<<< HEAD
+=======
+      explicit
+      back_insert_iterator(_Container& __x) : container(&__x) { }
+# 420 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      back_insert_iterator&
+      operator=(typename _Container::const_reference __value)
+      {
+ container->push_back(__value);
+ return *this;
+      }
+# 443 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      back_insert_iterator&
+      operator*()
+      { return *this; }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 extern int fputws (__const wchar_t *__restrict __ws,
      __FILE *__restrict __stream);
 
 
 
+<<<<<<< HEAD
+=======
+      back_insert_iterator
+      operator++(int)
+      { return *this; }
+    };
+# 469 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container>
+    inline back_insert_iterator<_Container>
+    back_inserter(_Container& __x)
+    { return back_insert_iterator<_Container>(__x); }
+# 484 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container>
+    class front_insert_iterator
+    : public iterator<output_iterator_tag, void, void, void, void>
+    {
+    protected:
+      _Container* container;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
 extern wint_t ungetwc (wint_t __wc, __FILE *__stream);
 
+<<<<<<< HEAD
 # 799 "/usr/include/wchar.h" 3 4
 extern wint_t getwc_unlocked (__FILE *__stream);
 extern wint_t getwchar_unlocked (void);
+=======
+      explicit front_insert_iterator(_Container& __x) : container(&__x) { }
+# 510 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      front_insert_iterator&
+      operator=(typename _Container::const_reference __value)
+      {
+ container->push_front(__value);
+ return *this;
+      }
+# 533 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      front_insert_iterator&
+      operator*()
+      { return *this; }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
 
+<<<<<<< HEAD
+=======
+      front_insert_iterator
+      operator++(int)
+      { return *this; }
+    };
+# 559 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container>
+    inline front_insert_iterator<_Container>
+    front_inserter(_Container& __x)
+    { return front_insert_iterator<_Container>(__x); }
+# 578 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container>
+    class insert_iterator
+    : public iterator<output_iterator_tag, void, void, void, void>
+    {
+    protected:
+      _Container* container;
+      typename _Container::iterator iter;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19765,6 +23978,23 @@ extern wint_t fgetwc_unlocked (__FILE *__stream);
 
 
 
+<<<<<<< HEAD
+=======
+      insert_iterator(_Container& __x, typename _Container::iterator __i)
+      : container(&__x), iter(__i) {}
+# 621 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      insert_iterator&
+      operator=(typename _Container::const_reference __value)
+      {
+ iter = container->insert(iter, __value);
+ ++iter;
+ return *this;
+      }
+# 647 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+      insert_iterator&
+      operator*()
+      { return *this; }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19776,9 +24006,48 @@ extern wint_t putwchar_unlocked (wchar_t __wc);
 extern wchar_t *fgetws_unlocked (wchar_t *__restrict __ws, int __n,
      __FILE *__restrict __stream);
 
+<<<<<<< HEAD
 
 
 
+=======
+      insert_iterator&
+      operator++(int)
+      { return *this; }
+    };
+# 673 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _Container, typename _Iterator>
+    inline insert_iterator<_Container>
+    inserter(_Container& __x, _Iterator __i)
+    {
+      return insert_iterator<_Container>(__x,
+      typename _Container::iterator(__i));
+    }
+
+
+
+}
+
+namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
+# 694 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  using std::iterator_traits;
+  using std::iterator;
+  template<typename _Iterator, typename _Container>
+    class __normal_iterator
+    {
+    protected:
+      _Iterator _M_current;
+
+      typedef iterator_traits<_Iterator> __traits_type;
+
+    public:
+      typedef _Iterator iterator_type;
+      typedef typename __traits_type::iterator_category iterator_category;
+      typedef typename __traits_type::value_type value_type;
+      typedef typename __traits_type::difference_type difference_type;
+      typedef typename __traits_type::reference reference;
+      typedef typename __traits_type::pointer pointer;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19813,9 +24082,22 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
   using ::mbstate_t;
 
+<<<<<<< HEAD
 }
 # 139 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
 namespace std __attribute__ ((__visibility__ ("default"))) {
+=======
+      const _Iterator&
+      base() const
+      { return _M_current; }
+    };
+# 792 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_iterator.h" 3
+  template<typename _IteratorL, typename _IteratorR, typename _Container>
+    inline bool
+    operator==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+        const __normal_iterator<_IteratorR, _Container>& __rhs)
+    { return __lhs.base() == __rhs.base(); }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   using ::wint_t;
 
@@ -19910,8 +24192,19 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
 
 
 }
+<<<<<<< HEAD
 
 namespace std __attribute__ ((__visibility__ ("default"))) {
+=======
+# 70 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/debug/debug.h" 1 3
+# 47 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/debug/debug.h" 3
+namespace std
+{
+  namespace __debug { }
+}
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   using ::__gnu_cxx::wcstold;
   using ::__gnu_cxx::wcstoll;
@@ -19935,6 +24228,14 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
     public:
 
+<<<<<<< HEAD
+=======
+namespace __gnu_debug
+{
+  using namespace std::__debug;
+}
+# 72 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19948,9 +24249,31 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
       operator streamoff() const { return _M_off; }
 
 
+<<<<<<< HEAD
       void
       state(_StateT __st)
       { _M_state = __st; }
+=======
+  template<>
+    struct __iter_swap<true>
+    {
+      template<typename _ForwardIterator1, typename _ForwardIterator2>
+        static void
+        iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+        {
+          swap(*__a, *__b);
+        }
+    };
+# 115 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _ForwardIterator1, typename _ForwardIterator2>
+    inline void
+    iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+    {
+      typedef typename iterator_traits<_ForwardIterator1>::value_type
+ _ValueType1;
+      typedef typename iterator_traits<_ForwardIterator2>::value_type
+ _ValueType2;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
       _StateT
@@ -19961,16 +24284,46 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
       fpos&
       operator+=(streamoff __off)
       {
  _M_off += __off;
  return *this;
       }
+=======
+      typedef typename iterator_traits<_ForwardIterator1>::reference
+ _ReferenceType1;
+      typedef typename iterator_traits<_ForwardIterator2>::reference
+ _ReferenceType2;
+      std::__iter_swap<__are_same<_ValueType1, _ValueType2>::__value
+ && __are_same<_ValueType1&, _ReferenceType1>::__value
+ && __are_same<_ValueType2&, _ReferenceType2>::__value>::
+ iter_swap(__a, __b);
+    }
+# 156 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _ForwardIterator1, typename _ForwardIterator2>
+    _ForwardIterator2
+    swap_ranges(_ForwardIterator1 __first1, _ForwardIterator1 __last1,
+  _ForwardIterator2 __first2)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
 
+<<<<<<< HEAD
+=======
+      for (; __first1 != __last1; ++__first1, ++__first2)
+ std::iter_swap(__first1, __first2);
+      return __first2;
+    }
+# 184 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _Tp>
+    inline const _Tp&
+    min(const _Tp& __a, const _Tp& __b)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       fpos&
       operator-=(streamoff __off)
@@ -19979,9 +24332,43 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
  return *this;
       }
 
+<<<<<<< HEAD
+=======
+      if (__b < __a)
+ return __b;
+      return __a;
+    }
+# 207 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _Tp>
+    inline const _Tp&
+    max(const _Tp& __a, const _Tp& __b)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
+<<<<<<< HEAD
 
+=======
+      if (__a < __b)
+ return __b;
+      return __a;
+    }
+# 230 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _Tp, typename _Compare>
+    inline const _Tp&
+    min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+    {
+
+      if (__comp(__b, __a))
+ return __b;
+      return __a;
+    }
+# 251 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _Tp, typename _Compare>
+    inline const _Tp&
+    max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -19994,10 +24381,53 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
       }
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+  template<typename _Iterator, bool _HasBase>
+    struct _Iter_base
+    {
+      typedef _Iterator iterator_type;
+      static iterator_type
+      _S_base(_Iterator __it)
+      { return __it; }
+    };
+
+  template<typename _Iterator>
+    struct _Iter_base<_Iterator, true>
+    {
+      typedef typename _Iterator::iterator_type iterator_type;
+      static iterator_type
+      _S_base(_Iterator __it)
+      { return __it.base(); }
+    };
+
+
+
+  template<typename _Iterator>
+    struct _Niter_base
+    : _Iter_base<_Iterator, __is_normal_iterator<_Iterator>::__value>
+    { };
+
+  template<typename _Iterator>
+    inline typename _Niter_base<_Iterator>::iterator_type
+    __niter_base(_Iterator __it)
+    { return std::_Niter_base<_Iterator>::_S_base(__it); }
+
+
+  template<typename _Iterator>
+    struct _Miter_base
+    : _Iter_base<_Iterator, __is_move_iterator<_Iterator>::__value>
+    { };
+
+  template<typename _Iterator>
+    inline typename _Miter_base<_Iterator>::iterator_type
+    __miter_base(_Iterator __it)
+    { return std::_Miter_base<_Iterator>::_S_base(__it); }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       fpos
       operator-(streamoff __off) const
@@ -20012,9 +24442,55 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
       streamoff
       operator-(const fpos& __other) const
       { return _M_off - __other._M_off; }
+=======
+  template<bool, bool, typename>
+    struct __copy_move
+    {
+      template<typename _II, typename _OI>
+        static _OI
+        __copy_m(_II __first, _II __last, _OI __result)
+        {
+   for (; __first != __last; ++__result, ++__first)
+     *__result = *__first;
+   return __result;
+ }
+    };
+# 339 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<>
+    struct __copy_move<false, false, random_access_iterator_tag>
+    {
+      template<typename _II, typename _OI>
+        static _OI
+        __copy_m(_II __first, _II __last, _OI __result)
+        {
+   typedef typename iterator_traits<_II>::difference_type _Distance;
+   for(_Distance __n = __last - __first; __n > 0; --__n)
+     {
+       *__result = *__first;
+       ++__first;
+       ++__result;
+     }
+   return __result;
+ }
+    };
+# 377 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<bool _IsMove>
+    struct __copy_move<_IsMove, true, random_access_iterator_tag>
+    {
+      template<typename _Tp>
+        static _Tp*
+        __copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)
+        {
+   const ptrdiff_t _Num = __last - __first;
+   if (_Num)
+     __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
+   return __result + _Num;
+ }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     };
 
 
@@ -20035,6 +24511,22 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
+=======
+  template<bool _IsMove, typename _II, typename _OI>
+    inline _OI
+    __copy_move_a2(_II __first, _II __last, _OI __result)
+    {
+      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+          std::__niter_base(__last),
+          std::__niter_base(__result)));
+    }
+# 462 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _II, typename _OI>
+    inline _OI
+    copy(_II __first, _II __last, _OI __result)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   typedef fpos<mbstate_t> streampos;
 
@@ -20043,9 +24535,57 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 }
 # 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 2 3
 
+<<<<<<< HEAD
 namespace std __attribute__ ((__visibility__ ("default"))) {
 # 74 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/iosfwd" 3
   class ios_base;
+=======
+      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
+       (std::__miter_base(__first), std::__miter_base(__last),
+        __result));
+    }
+# 514 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<bool, bool, typename>
+    struct __copy_move_backward
+    {
+      template<typename _BI1, typename _BI2>
+        static _BI2
+        __copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)
+        {
+   while (__first != __last)
+     *--__result = *--__last;
+   return __result;
+ }
+    };
+# 542 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<>
+    struct __copy_move_backward<false, false, random_access_iterator_tag>
+    {
+      template<typename _BI1, typename _BI2>
+        static _BI2
+        __copy_move_b(_BI1 __first, _BI1 __last, _BI2 __result)
+        {
+   typename iterator_traits<_BI1>::difference_type __n;
+   for (__n = __last - __first; __n > 0; --__n)
+     *--__result = *--__last;
+   return __result;
+ }
+    };
+# 572 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<bool _IsMove>
+    struct __copy_move_backward<_IsMove, true, random_access_iterator_tag>
+    {
+      template<typename _Tp>
+        static _Tp*
+        __copy_move_b(const _Tp* __first, const _Tp* __last, _Tp* __result)
+        {
+   const ptrdiff_t _Num = __last - __first;
+   if (_Num)
+     __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+   return __result - _Num;
+ }
+    };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_ios;
@@ -20053,8 +24593,24 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_streambuf;
 
+<<<<<<< HEAD
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_istream;
+=======
+  template<bool _IsMove, typename _BI1, typename _BI2>
+    inline _BI2
+    __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)
+    {
+      return _BI2(std::__copy_move_backward_a<_IsMove>
+    (std::__niter_base(__first), std::__niter_base(__last),
+     std::__niter_base(__result)));
+    }
+# 631 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _BI1, typename _BI2>
+    inline _BI2
+    copy_backward(_BI1 __first, _BI1 __last, _BI2 __result)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_ostream;
@@ -20066,9 +24622,26 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
      typename _Alloc = allocator<_CharT> >
     class basic_stringbuf;
 
+<<<<<<< HEAD
   template<typename _CharT, typename _Traits = char_traits<_CharT>,
     typename _Alloc = allocator<_CharT> >
     class basic_istringstream;
+=======
+      return (std::__copy_move_backward_a2<__is_move_iterator<_BI1>::__value>
+       (std::__miter_base(__first), std::__miter_base(__last),
+        __result));
+    }
+# 689 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _ForwardIterator, typename _Tp>
+    inline typename
+    __gnu_cxx::__enable_if<!__is_scalar<_Tp>::__value, void>::__type
+    __fill_a(_ForwardIterator __first, _ForwardIterator __last,
+       const _Tp& __value)
+    {
+      for (; __first != __last; ++__first)
+ *__first = __value;
+    }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _CharT, typename _Traits = char_traits<_CharT>,
     typename _Alloc = allocator<_CharT> >
@@ -20078,8 +24651,25 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
     typename _Alloc = allocator<_CharT> >
     class basic_stringstream;
 
+<<<<<<< HEAD
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_filebuf;
+=======
+  template<typename _Tp>
+    inline typename
+    __gnu_cxx::__enable_if<__is_byte<_Tp>::__value, void>::__type
+    __fill_a(_Tp* __first, _Tp* __last, const _Tp& __c)
+    {
+      const _Tp __tmp = __c;
+      __builtin_memset(__first, static_cast<unsigned char>(__tmp),
+         __last - __first);
+    }
+# 733 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _ForwardIterator, typename _Tp>
+    inline void
+    fill(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __value)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_ifstream;
@@ -20087,8 +24677,14 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_ofstream;
 
+<<<<<<< HEAD
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class basic_fstream;
+=======
+      std::__fill_a(std::__niter_base(__first), std::__niter_base(__last),
+      __value);
+    }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class istreambuf_iterator;
@@ -20096,8 +24692,29 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   template<typename _CharT, typename _Traits = char_traits<_CharT> >
     class ostreambuf_iterator;
 
+<<<<<<< HEAD
+=======
+  template<typename _Size, typename _Tp>
+    inline typename
+    __gnu_cxx::__enable_if<__is_byte<_Tp>::__value, _Tp*>::__type
+    __fill_n_a(_Tp* __first, _Size __n, const _Tp& __c)
+    {
+      std::__fill_a(__first, __first + __n, __c);
+      return __first + __n;
+    }
+# 791 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _OI, typename _Size, typename _Tp>
+    inline _OI
+    fill_n(_OI __first, _Size __n, const _Tp& __value)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
+<<<<<<< HEAD
+=======
+      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
+    }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   typedef basic_ios<char> ios;
   typedef basic_streambuf<char> streambuf;
@@ -20161,12 +24778,87 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   __throw_bad_exception(void) __attribute__((__noreturn__));
 
 
+<<<<<<< HEAD
   void
   __throw_bad_alloc(void) __attribute__((__noreturn__));
+=======
+      return std::__lexicographical_compare<__simple>::__lc(__first1, __last1,
+           __first2, __last2);
+    }
+# 952 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _ForwardIterator, typename _Tp>
+    _ForwardIterator
+    lower_bound(_ForwardIterator __first, _ForwardIterator __last,
+  const _Tp& __val)
+    {
+      typedef typename iterator_traits<_ForwardIterator>::value_type
+ _ValueType;
+      typedef typename iterator_traits<_ForwardIterator>::difference_type
+ _DistanceType;
 
 
+     
+     
+      ;
+
+      _DistanceType __len = std::distance(__first, __last);
+      _DistanceType __half;
+      _ForwardIterator __middle;
+
+      while (__len > 0)
+ {
+   __half = __len >> 1;
+   __middle = __first;
+   std::advance(__middle, __half);
+   if (*__middle < __val)
+     {
+       __first = __middle;
+       ++__first;
+       __len = __len - __half - 1;
+     }
+   else
+     __len = __half;
+ }
+      return __first;
+    }
+
+
+
+  template<typename _Size>
+    inline _Size
+    __lg(_Size __n)
+    {
+      _Size __k;
+      for (__k = 0; __n != 0; __n >>= 1)
+ ++__k;
+      return __k - 1;
+    }
+
+  inline int
+  __lg(int __n)
+  { return sizeof(int) * 8 - 1 - __builtin_clz(__n); }
+
+  inline long
+  __lg(long __n)
+  { return sizeof(long) * 8 - 1 - __builtin_clzl(__n); }
+
+  inline long long
+  __lg(long long __n)
+  { return sizeof(long long) * 8 - 1 - __builtin_clzll(__n); }
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+<<<<<<< HEAD
   void
   __throw_bad_cast(void) __attribute__((__noreturn__));
+=======
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 1028 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _II1, typename _II2>
+    inline bool
+    equal(_II1 __first1, _II1 __last1, _II2 __first2)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   void
   __throw_bad_typeid(void) __attribute__((__noreturn__));
@@ -20175,20 +24867,64 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   void
   __throw_logic_error(const char*) __attribute__((__noreturn__));
 
+<<<<<<< HEAD
   void
   __throw_domain_error(const char*) __attribute__((__noreturn__));
+=======
+      return std::__equal_aux(std::__niter_base(__first1),
+         std::__niter_base(__last1),
+         std::__niter_base(__first2));
+    }
+# 1060 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _IIter1, typename _IIter2, typename _BinaryPredicate>
+    inline bool
+    equal(_IIter1 __first1, _IIter1 __last1,
+   _IIter2 __first2, _BinaryPredicate __binary_pred)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   void
   __throw_invalid_argument(const char*) __attribute__((__noreturn__));
 
+<<<<<<< HEAD
   void
   __throw_length_error(const char*) __attribute__((__noreturn__));
+=======
+      for (; __first1 != __last1; ++__first1, ++__first2)
+ if (!bool(__binary_pred(*__first1, *__first2)))
+   return false;
+      return true;
+    }
+# 1091 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _II1, typename _II2>
+    inline bool
+    lexicographical_compare(_II1 __first1, _II1 __last1,
+       _II2 __first2, _II2 __last2)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   void
   __throw_out_of_range(const char*) __attribute__((__noreturn__));
 
+<<<<<<< HEAD
   void
   __throw_runtime_error(const char*) __attribute__((__noreturn__));
+=======
+      return std::__lexicographical_compare_aux(std::__niter_base(__first1),
+      std::__niter_base(__last1),
+      std::__niter_base(__first2),
+      std::__niter_base(__last2));
+    }
+# 1125 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _II1, typename _II2, typename _Compare>
+    bool
+    lexicographical_compare(_II1 __first1, _II1 __last1,
+       _II2 __first2, _II2 __last2, _Compare __comp)
+    {
+      typedef typename iterator_traits<_II1>::iterator_category _Category1;
+      typedef typename iterator_traits<_II2>::iterator_category _Category2;
+      typedef std::__lc_rai<_Category1, _Category2> __rai_type;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   void
   __throw_range_error(const char*) __attribute__((__noreturn__));
@@ -20196,8 +24932,28 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   void
   __throw_overflow_error(const char*) __attribute__((__noreturn__));
 
+<<<<<<< HEAD
   void
   __throw_underflow_error(const char*) __attribute__((__noreturn__));
+=======
+      __last1 = __rai_type::__newlast1(__first1, __last1, __first2, __last2);
+      for (; __first1 != __last1 && __rai_type::__cnd2(__first2, __last2);
+    ++__first1, ++__first2)
+ {
+   if (__comp(*__first1, *__first2))
+     return true;
+   if (__comp(*__first2, *__first1))
+     return false;
+ }
+      return __first1 == __last1 && __first2 != __last2;
+    }
+# 1165 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _InputIterator1, typename _InputIterator2>
+    pair<_InputIterator1, _InputIterator2>
+    mismatch(_InputIterator1 __first1, _InputIterator1 __last1,
+      _InputIterator2 __first2)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
   void
@@ -20206,14 +24962,32 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
   void
   __throw_system_error(int) __attribute__((__noreturn__));
 
+<<<<<<< HEAD
   void
   __throw_future_error(int) __attribute__((__noreturn__));
+=======
+      while (__first1 != __last1 && *__first1 == *__first2)
+        {
+   ++__first1;
+   ++__first2;
+        }
+      return pair<_InputIterator1, _InputIterator2>(__first1, __first2);
+    }
+# 1202 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 3
+  template<typename _InputIterator1, typename _InputIterator2,
+    typename _BinaryPredicate>
+    pair<_InputIterator1, _InputIterator2>
+    mismatch(_InputIterator1 __first1, _InputIterator1 __last1,
+      _InputIterator2 __first2, _BinaryPredicate __binary_pred)
+    {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
   void
   __throw_bad_function_call() __attribute__((__noreturn__));
 
 }
+<<<<<<< HEAD
 # 63 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_algobase.h" 2 3
 
 
@@ -20229,6 +25003,44 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
 # 52 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/numeric_traits.h" 3
   template<typename _Value>
     struct __numeric_traits_integer
+=======
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 2 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 2 3
+
+
+# 1 "/usr/include/wchar.h" 1 3 4
+# 48 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cwchar" 2 3
+# 44 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 2 3
+# 52 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
+# 64 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+  template<typename _CharT>
+    struct _Char_types
+    {
+      typedef unsigned long int_type;
+      typedef std::streampos pos_type;
+      typedef std::streamoff off_type;
+      typedef std::mbstate_t state_type;
+    };
+# 89 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+  template<typename _CharT>
+    struct char_traits
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     {
 
       static const _Value __min = (((_Value)(-1) < 0) ? (_Value)1 << (sizeof(_Value) * 8 - ((_Value)(-1) < 0)) : (_Value)0);
@@ -20331,6 +25143,14 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 }
 # 61 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/stl_pair.h" 2 3
 
+<<<<<<< HEAD
+=======
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 230 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/char_traits.h" 3
+  template<class _CharT>
+    struct char_traits : public __gnu_cxx::char_traits<_CharT>
+    { };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -20438,6 +25258,7 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
   struct bidirectional_iterator_tag : public forward_iterator_tag { };
 
 
@@ -20448,10 +25269,55 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
            typename _Pointer = _Tp*, typename _Reference = _Tp&>
     struct iterator
     {
+=======
+}
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 1 3
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 3
+       
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 1 3
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 3
+       
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/clocale" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/clocale" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/clocale" 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       typedef _Category iterator_category;
 
+<<<<<<< HEAD
       typedef _Tp value_type;
+=======
+# 1 "/usr/include/locale.h" 1 3 4
+# 29 "/usr/include/locale.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 30 "/usr/include/locale.h" 2 3 4
+# 1 "/usr/include/bits/locale.h" 1 3 4
+# 27 "/usr/include/bits/locale.h" 3 4
+enum
+{
+  __LC_CTYPE = 0,
+  __LC_NUMERIC = 1,
+  __LC_TIME = 2,
+  __LC_COLLATE = 3,
+  __LC_MONETARY = 4,
+  __LC_MESSAGES = 5,
+  __LC_ALL = 6,
+  __LC_PAPER = 7,
+  __LC_NAME = 8,
+  __LC_ADDRESS = 9,
+  __LC_TELEPHONE = 10,
+  __LC_MEASUREMENT = 11,
+  __LC_IDENTIFICATION = 12
+};
+# 31 "/usr/include/locale.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       typedef _Distance difference_type;
 
@@ -20652,13 +25518,34 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
+=======
+}
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/clocale" 2 3
+# 53 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/clocale" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       iterator_type
       base() const
       { return current; }
 
+<<<<<<< HEAD
 
 
+=======
+}
+# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 3
+
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cstddef" 2 3
+# 44 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 2 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -20691,6 +25578,13 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
       }
 
 
+<<<<<<< HEAD
+=======
+    __c_locale __old = __gnu_cxx::__uselocale(__cloc);
+# 85 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/c++locale.h" 3
+    __builtin_va_list __args;
+    __builtin_va_start(__args, __fmt);
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -20720,6 +25614,7 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
       reverse_iterator
       operator--(int)
       {
@@ -20730,6 +25625,44 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+=======
+}
+# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 2 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cctype" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cctype" 3
+       
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cctype" 3
+
+
+# 1 "/usr/include/ctype.h" 1 3 4
+# 30 "/usr/include/ctype.h" 3 4
+extern "C" {
+# 48 "/usr/include/ctype.h" 3 4
+enum
+{
+  _ISupper = ((0) < 8 ? ((1 << (0)) << 8) : ((1 << (0)) >> 8)),
+  _ISlower = ((1) < 8 ? ((1 << (1)) << 8) : ((1 << (1)) >> 8)),
+  _ISalpha = ((2) < 8 ? ((1 << (2)) << 8) : ((1 << (2)) >> 8)),
+  _ISdigit = ((3) < 8 ? ((1 << (3)) << 8) : ((1 << (3)) >> 8)),
+  _ISxdigit = ((4) < 8 ? ((1 << (4)) << 8) : ((1 << (4)) >> 8)),
+  _ISspace = ((5) < 8 ? ((1 << (5)) << 8) : ((1 << (5)) >> 8)),
+  _ISprint = ((6) < 8 ? ((1 << (6)) << 8) : ((1 << (6)) >> 8)),
+  _ISgraph = ((7) < 8 ? ((1 << (7)) << 8) : ((1 << (7)) >> 8)),
+  _ISblank = ((8) < 8 ? ((1 << (8)) << 8) : ((1 << (8)) >> 8)),
+  _IScntrl = ((9) < 8 ? ((1 << (9)) << 8) : ((1 << (9)) >> 8)),
+  _ISpunct = ((10) < 8 ? ((1 << (10)) << 8) : ((1 << (10)) >> 8)),
+  _ISalnum = ((11) < 8 ? ((1 << (11)) << 8) : ((1 << (11)) >> 8))
+};
+# 81 "/usr/include/ctype.h" 3 4
+extern __const unsigned short int **__ctype_b_loc (void)
+     throw () __attribute__ ((__const));
+extern __const __int32_t **__ctype_tolower_loc (void)
+     throw () __attribute__ ((__const));
+extern __const __int32_t **__ctype_toupper_loc (void)
+     throw () __attribute__ ((__const));
+# 96 "/usr/include/ctype.h" 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
 
@@ -20830,11 +25763,28 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
 
 
+<<<<<<< HEAD
   template<typename _IteratorL, typename _IteratorR>
     inline bool
     operator==(const reverse_iterator<_IteratorL>& __x,
         const reverse_iterator<_IteratorR>& __y)
     { return __x.base() == __y.base(); }
+=======
+extern int _toupper (int) throw ();
+extern int _tolower (int) throw ();
+# 247 "/usr/include/ctype.h" 3 4
+extern int isalnum_l (int, __locale_t) throw ();
+extern int isalpha_l (int, __locale_t) throw ();
+extern int iscntrl_l (int, __locale_t) throw ();
+extern int isdigit_l (int, __locale_t) throw ();
+extern int islower_l (int, __locale_t) throw ();
+extern int isgraph_l (int, __locale_t) throw ();
+extern int isprint_l (int, __locale_t) throw ();
+extern int ispunct_l (int, __locale_t) throw ();
+extern int isspace_l (int, __locale_t) throw ();
+extern int isupper_l (int, __locale_t) throw ();
+extern int isxdigit_l (int, __locale_t) throw ();
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _IteratorL, typename _IteratorR>
     inline bool
@@ -20866,12 +25816,31 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
         const reverse_iterator<_IteratorR>& __y)
     { return !(__x < __y); }
 
+<<<<<<< HEAD
   template<typename _IteratorL, typename _IteratorR>
+=======
+extern int __toupper_l (int __c, __locale_t __l) throw ();
+extern int toupper_l (int __c, __locale_t __l) throw ();
+# 323 "/usr/include/ctype.h" 3 4
+}
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cctype" 2 3
+# 64 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cctype" 3
+namespace std __attribute__ ((__visibility__ ("default"))) {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
+
+
+<<<<<<< HEAD
 
 
 
+=======
+}
+# 45 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 2 3
 
-
+namespace std __attribute__ ((__visibility__ ("default"))) {
+# 55 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/localefwd.h" 3
+  class locale;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
     inline typename reverse_iterator<_IteratorL>::difference_type
@@ -21042,6 +26011,7 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
       explicit
       __normal_iterator(const _Iterator& __i) : _M_current(__i) { }
 
+<<<<<<< HEAD
 
       template<typename _Iter>
         __normal_iterator(const __normal_iterator<_Iter,
@@ -21049,6 +26019,36 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
               (std::__are_same<_Iter, typename _Container::pointer>::__value),
         _Container>::__type>& __i)
         : _M_current(__i.base()) { }
+=======
+}
+# 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 2 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ios_base.h" 1 3
+# 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ios_base.h" 3
+       
+# 40 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ios_base.h" 3
+
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/atomicity.h" 1 3
+# 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ext/atomicity.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr.h" 1 3
+# 30 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr.h" 3
+#pragma GCC visibility push(default)
+# 162 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr.h" 3
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 1 3
+# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 3
+# 1 "/usr/include/pthread.h" 1 3 4
+# 25 "/usr/include/pthread.h" 3 4
+# 1 "/usr/include/sched.h" 1 3 4
+# 30 "/usr/include/sched.h" 3 4
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
+# 31 "/usr/include/sched.h" 2 3 4
+# 43 "/usr/include/sched.h" 3 4
+# 1 "/usr/include/bits/sched.h" 1 3 4
+# 74 "/usr/include/bits/sched.h" 3 4
+struct sched_param
+  {
+    int __sched_priority;
+  };
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
       reference
@@ -21083,6 +26083,7 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
       { return __normal_iterator(_M_current--); }
 
 
+<<<<<<< HEAD
       reference
       operator[](const difference_type& __n) const
       { return _M_current[__n]; }
@@ -21098,6 +26099,9 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
       __normal_iterator&
       operator-=(const difference_type& __n)
       { _M_current -= __n; return *this; }
+=======
+}
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
       __normal_iterator
       operator-(const difference_type& __n) const
@@ -21133,11 +26137,20 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
     { return __lhs.base() != __rhs.base(); }
 
 
+<<<<<<< HEAD
   template<typename _IteratorL, typename _IteratorR, typename _Container>
     inline bool
     operator<(const __normal_iterator<_IteratorL, _Container>& __lhs,
        const __normal_iterator<_IteratorR, _Container>& __rhs)
     { return __lhs.base() < __rhs.base(); }
+=======
+struct __sched_param
+  {
+    int __sched_priority;
+  };
+# 116 "/usr/include/bits/sched.h" 3 4
+typedef unsigned long int __cpu_mask;
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _Iterator, typename _Container>
     inline bool
@@ -21169,11 +26182,20 @@ namespace __gnu_cxx __attribute__ ((__visibility__ ("default"))) {
         const __normal_iterator<_Iterator, _Container>& __rhs)
     { return __lhs.base() <= __rhs.base(); }
 
+<<<<<<< HEAD
   template<typename _IteratorL, typename _IteratorR, typename _Container>
     inline bool
     operator>=(const __normal_iterator<_IteratorL, _Container>& __lhs,
         const __normal_iterator<_IteratorR, _Container>& __rhs)
     { return __lhs.base() >= __rhs.base(); }
+=======
+typedef struct
+{
+  __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
+} cpu_set_t;
+# 199 "/usr/include/bits/sched.h" 3 4
+extern "C" {
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
   template<typename _Iterator, typename _Container>
     inline bool
@@ -21271,6 +26293,13 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
       typedef typename iterator_traits<_ForwardIterator2>::value_type
  _ValueType2;
 
+<<<<<<< HEAD
+=======
+# 1 "/usr/include/bits/setjmp.h" 1 3 4
+# 27 "/usr/include/bits/setjmp.h" 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/bits/setjmp.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
      
 
@@ -21278,7 +26307,14 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 
      
 
+<<<<<<< HEAD
      
+=======
+typedef long int __jmp_buf[8];
+# 30 "/usr/include/pthread.h" 2 3 4
+# 1 "/usr/include/bits/wordsize.h" 1 3 4
+# 31 "/usr/include/pthread.h" 2 3 4
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 
       typedef typename iterator_traits<_ForwardIterator1>::reference
@@ -22805,6 +27841,7 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
     class messages_byname;
 
 }
+<<<<<<< HEAD
 # 43 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/ios" 2 3
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ios_base.h" 1 3
 # 39 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ios_base.h" 3
@@ -22818,902 +27855,10 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 #pragma GCC visibility push(default)
 # 162 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr.h" 3
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 1 3
-# 41 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 3
-# 1 "/usr/include/pthread.h" 1 3 4
-# 25 "/usr/include/pthread.h" 3 4
-# 1 "/usr/include/sched.h" 1 3 4
-# 30 "/usr/include/sched.h" 3 4
-# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
-# 31 "/usr/include/sched.h" 2 3 4
-# 43 "/usr/include/sched.h" 3 4
-# 1 "/usr/include/bits/sched.h" 1 3 4
-# 74 "/usr/include/bits/sched.h" 3 4
-struct sched_param
-  {
-    int __sched_priority;
-  };
-
-extern "C" {
-
-
-
-extern int clone (int (*__fn) (void *__arg), void *__child_stack,
-    int __flags, void *__arg, ...) throw ();
-
-
-extern int unshare (int __flags) throw ();
-
-
-extern int sched_getcpu (void) throw ();
-
-
-}
-
-
-
-
-
-
-
-struct __sched_param
-  {
-    int __sched_priority;
-  };
-# 116 "/usr/include/bits/sched.h" 3 4
-typedef unsigned long int __cpu_mask;
-
-
-
-
-
-
-typedef struct
-{
-  __cpu_mask __bits[1024 / (8 * sizeof (__cpu_mask))];
-} cpu_set_t;
-# 199 "/usr/include/bits/sched.h" 3 4
-extern "C" {
-
-extern int __sched_cpucount (size_t __setsize, const cpu_set_t *__setp)
-  throw ();
-extern cpu_set_t *__sched_cpualloc (size_t __count) throw () ;
-extern void __sched_cpufree (cpu_set_t *__set) throw ();
-
-}
-# 44 "/usr/include/sched.h" 2 3 4
-
-
-
-
-extern "C" {
-
-
-extern int sched_setparam (__pid_t __pid, __const struct sched_param *__param)
-     throw ();
-
-
-extern int sched_getparam (__pid_t __pid, struct sched_param *__param) throw ();
-
-
-extern int sched_setscheduler (__pid_t __pid, int __policy,
-          __const struct sched_param *__param) throw ();
-
-
-extern int sched_getscheduler (__pid_t __pid) throw ();
-
-
-extern int sched_yield (void) throw ();
-
-
-extern int sched_get_priority_max (int __algorithm) throw ();
-
-
-extern int sched_get_priority_min (int __algorithm) throw ();
-
-
-extern int sched_rr_get_interval (__pid_t __pid, struct timespec *__t) throw ();
-# 118 "/usr/include/sched.h" 3 4
-extern int sched_setaffinity (__pid_t __pid, size_t __cpusetsize,
-         __const cpu_set_t *__cpuset) throw ();
-
-
-extern int sched_getaffinity (__pid_t __pid, size_t __cpusetsize,
-         cpu_set_t *__cpuset) throw ();
-
-
-}
-# 26 "/usr/include/pthread.h" 2 3 4
-
-
-
-# 1 "/usr/include/bits/setjmp.h" 1 3 4
-# 27 "/usr/include/bits/setjmp.h" 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/bits/setjmp.h" 2 3 4
-
-
-
-
-typedef long int __jmp_buf[8];
-# 30 "/usr/include/pthread.h" 2 3 4
-# 1 "/usr/include/bits/wordsize.h" 1 3 4
-# 31 "/usr/include/pthread.h" 2 3 4
-
-
-
-enum
-{
-  PTHREAD_CREATE_JOINABLE,
-
-  PTHREAD_CREATE_DETACHED
-
-};
-
-
-
-enum
-{
-  PTHREAD_MUTEX_TIMED_NP,
-  PTHREAD_MUTEX_RECURSIVE_NP,
-  PTHREAD_MUTEX_ERRORCHECK_NP,
-  PTHREAD_MUTEX_ADAPTIVE_NP
-
-  ,
-  PTHREAD_MUTEX_NORMAL = PTHREAD_MUTEX_TIMED_NP,
-  PTHREAD_MUTEX_RECURSIVE = PTHREAD_MUTEX_RECURSIVE_NP,
-  PTHREAD_MUTEX_ERRORCHECK = PTHREAD_MUTEX_ERRORCHECK_NP,
-  PTHREAD_MUTEX_DEFAULT = PTHREAD_MUTEX_NORMAL
-
-
-
-  , PTHREAD_MUTEX_FAST_NP = PTHREAD_MUTEX_TIMED_NP
-
-};
-
-
-
-
-enum
-{
-  PTHREAD_MUTEX_STALLED,
-  PTHREAD_MUTEX_STALLED_NP = PTHREAD_MUTEX_STALLED,
-  PTHREAD_MUTEX_ROBUST,
-  PTHREAD_MUTEX_ROBUST_NP = PTHREAD_MUTEX_ROBUST
-};
-
-
-
-
-
-enum
-{
-  PTHREAD_PRIO_NONE,
-  PTHREAD_PRIO_INHERIT,
-  PTHREAD_PRIO_PROTECT
-};
-# 115 "/usr/include/pthread.h" 3 4
-enum
-{
-  PTHREAD_RWLOCK_PREFER_READER_NP,
-  PTHREAD_RWLOCK_PREFER_WRITER_NP,
-  PTHREAD_RWLOCK_PREFER_WRITER_NONRECURSIVE_NP,
-  PTHREAD_RWLOCK_DEFAULT_NP = PTHREAD_RWLOCK_PREFER_READER_NP
-};
-# 147 "/usr/include/pthread.h" 3 4
-enum
-{
-  PTHREAD_INHERIT_SCHED,
-
-  PTHREAD_EXPLICIT_SCHED
-
-};
-
-
-
-enum
-{
-  PTHREAD_SCOPE_SYSTEM,
-
-  PTHREAD_SCOPE_PROCESS
-
-};
-
-
-
-enum
-{
-  PTHREAD_PROCESS_PRIVATE,
-
-  PTHREAD_PROCESS_SHARED
-
-};
-# 182 "/usr/include/pthread.h" 3 4
-struct _pthread_cleanup_buffer
-{
-  void (*__routine) (void *);
-  void *__arg;
-  int __canceltype;
-  struct _pthread_cleanup_buffer *__prev;
-};
-
-
-enum
-{
-  PTHREAD_CANCEL_ENABLE,
-
-  PTHREAD_CANCEL_DISABLE
-
-};
-enum
-{
-  PTHREAD_CANCEL_DEFERRED,
-
-  PTHREAD_CANCEL_ASYNCHRONOUS
-
-};
-# 220 "/usr/include/pthread.h" 3 4
-extern "C" {
-
-
-
-
-extern int pthread_create (pthread_t *__restrict __newthread,
-      __const pthread_attr_t *__restrict __attr,
-      void *(*__start_routine) (void *),
-      void *__restrict __arg) throw () __attribute__ ((__nonnull__ (1, 3)));
-
-
-
-
-
-extern void pthread_exit (void *__retval) __attribute__ ((__noreturn__));
-
-
-
-
-
-
-
-extern int pthread_join (pthread_t __th, void **__thread_return);
-
-
-
-
-extern int pthread_tryjoin_np (pthread_t __th, void **__thread_return) throw ();
-
-
-
-
-
-
-
-extern int pthread_timedjoin_np (pthread_t __th, void **__thread_return,
-     __const struct timespec *__abstime);
-
-
-
-
-
-
-extern int pthread_detach (pthread_t __th) throw ();
-
-
-
-extern pthread_t pthread_self (void) throw () __attribute__ ((__const__));
-
-
-extern int pthread_equal (pthread_t __thread1, pthread_t __thread2) throw ();
-
-
-
-
-
-
-
-extern int pthread_attr_init (pthread_attr_t *__attr) throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_attr_destroy (pthread_attr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_attr_getdetachstate (__const pthread_attr_t *__attr,
-     int *__detachstate)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setdetachstate (pthread_attr_t *__attr,
-     int __detachstate)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_attr_getguardsize (__const pthread_attr_t *__attr,
-          size_t *__guardsize)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setguardsize (pthread_attr_t *__attr,
-          size_t __guardsize)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_attr_getschedparam (__const pthread_attr_t *__restrict
-           __attr,
-           struct sched_param *__restrict __param)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setschedparam (pthread_attr_t *__restrict __attr,
-           __const struct sched_param *__restrict
-           __param) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_getschedpolicy (__const pthread_attr_t *__restrict
-     __attr, int *__restrict __policy)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setschedpolicy (pthread_attr_t *__attr, int __policy)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_attr_getinheritsched (__const pthread_attr_t *__restrict
-      __attr, int *__restrict __inherit)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setinheritsched (pthread_attr_t *__attr,
-      int __inherit)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_attr_getscope (__const pthread_attr_t *__restrict __attr,
-      int *__restrict __scope)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_attr_setscope (pthread_attr_t *__attr, int __scope)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_attr_getstackaddr (__const pthread_attr_t *__restrict
-          __attr, void **__restrict __stackaddr)
-     throw () __attribute__ ((__nonnull__ (1, 2))) __attribute__ ((__deprecated__));
-
-
-
-
-
-extern int pthread_attr_setstackaddr (pthread_attr_t *__attr,
-          void *__stackaddr)
-     throw () __attribute__ ((__nonnull__ (1))) __attribute__ ((__deprecated__));
-
-
-extern int pthread_attr_getstacksize (__const pthread_attr_t *__restrict
-          __attr, size_t *__restrict __stacksize)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-extern int pthread_attr_setstacksize (pthread_attr_t *__attr,
-          size_t __stacksize)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_attr_getstack (__const pthread_attr_t *__restrict __attr,
-      void **__restrict __stackaddr,
-      size_t *__restrict __stacksize)
-     throw () __attribute__ ((__nonnull__ (1, 2, 3)));
-
-
-
-
-extern int pthread_attr_setstack (pthread_attr_t *__attr, void *__stackaddr,
-      size_t __stacksize) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-extern int pthread_attr_setaffinity_np (pthread_attr_t *__attr,
-     size_t __cpusetsize,
-     __const cpu_set_t *__cpuset)
-     throw () __attribute__ ((__nonnull__ (1, 3)));
-
-
-
-extern int pthread_attr_getaffinity_np (__const pthread_attr_t *__attr,
-     size_t __cpusetsize,
-     cpu_set_t *__cpuset)
-     throw () __attribute__ ((__nonnull__ (1, 3)));
-
-
-
-
-
-extern int pthread_getattr_np (pthread_t __th, pthread_attr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (2)));
-
-
-
-
-
-
-
-extern int pthread_setschedparam (pthread_t __target_thread, int __policy,
-      __const struct sched_param *__param)
-     throw () __attribute__ ((__nonnull__ (3)));
-
-
-extern int pthread_getschedparam (pthread_t __target_thread,
-      int *__restrict __policy,
-      struct sched_param *__restrict __param)
-     throw () __attribute__ ((__nonnull__ (2, 3)));
-
-
-extern int pthread_setschedprio (pthread_t __target_thread, int __prio)
-     throw ();
-
-
-
-
-extern int pthread_getname_np (pthread_t __target_thread, char *__buf,
-          size_t __buflen)
-     throw () __attribute__ ((__nonnull__ (2)));
-
-
-extern int pthread_setname_np (pthread_t __target_thread, __const char *__name)
-     throw () __attribute__ ((__nonnull__ (2)));
-
-
-
-
-
-extern int pthread_getconcurrency (void) throw ();
-
-
-extern int pthread_setconcurrency (int __level) throw ();
-
-
-
-
-
-
-
-extern int pthread_yield (void) throw ();
-
-
-
-
-extern int pthread_setaffinity_np (pthread_t __th, size_t __cpusetsize,
-       __const cpu_set_t *__cpuset)
-     throw () __attribute__ ((__nonnull__ (3)));
-
-
-extern int pthread_getaffinity_np (pthread_t __th, size_t __cpusetsize,
-       cpu_set_t *__cpuset)
-     throw () __attribute__ ((__nonnull__ (3)));
-# 478 "/usr/include/pthread.h" 3 4
-extern int pthread_once (pthread_once_t *__once_control,
-    void (*__init_routine) (void)) __attribute__ ((__nonnull__ (1, 2)));
-# 490 "/usr/include/pthread.h" 3 4
-extern int pthread_setcancelstate (int __state, int *__oldstate);
-
-
-
-extern int pthread_setcanceltype (int __type, int *__oldtype);
-
-
-extern int pthread_cancel (pthread_t __th);
-
-
-
-
-extern void pthread_testcancel (void);
-
-
-
-
-typedef struct
-{
-  struct
-  {
-    __jmp_buf __cancel_jmp_buf;
-    int __mask_was_saved;
-  } __cancel_jmp_buf[1];
-  void *__pad[4];
-} __pthread_unwind_buf_t __attribute__ ((__aligned__));
-# 524 "/usr/include/pthread.h" 3 4
-struct __pthread_cleanup_frame
-{
-  void (*__cancel_routine) (void *);
-  void *__cancel_arg;
-  int __do_it;
-  int __cancel_type;
-};
-
-
-
-
-class __pthread_cleanup_class
-{
-  void (*__cancel_routine) (void *);
-  void *__cancel_arg;
-  int __do_it;
-  int __cancel_type;
-
- public:
-  __pthread_cleanup_class (void (*__fct) (void *), void *__arg)
-    : __cancel_routine (__fct), __cancel_arg (__arg), __do_it (1) { }
-  ~__pthread_cleanup_class () { if (__do_it) __cancel_routine (__cancel_arg); }
-  void __setdoit (int __newval) { __do_it = __newval; }
-  void __defer () { pthread_setcanceltype (PTHREAD_CANCEL_DEFERRED,
-        &__cancel_type); }
-  void __restore () const { pthread_setcanceltype (__cancel_type, 0); }
-};
-# 726 "/usr/include/pthread.h" 3 4
-struct __jmp_buf_tag;
-extern int __sigsetjmp (struct __jmp_buf_tag *__env, int __savemask) throw ();
-
-
-
-
-
-extern int pthread_mutex_init (pthread_mutex_t *__mutex,
-          __const pthread_mutexattr_t *__mutexattr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutex_destroy (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutex_trylock (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutex_lock (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_mutex_timedlock (pthread_mutex_t *__restrict __mutex,
-        __const struct timespec *__restrict
-        __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_mutex_unlock (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_mutex_getprioceiling (__const pthread_mutex_t *
-      __restrict __mutex,
-      int *__restrict __prioceiling)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_mutex_setprioceiling (pthread_mutex_t *__restrict __mutex,
-      int __prioceiling,
-      int *__restrict __old_ceiling)
-     throw () __attribute__ ((__nonnull__ (1, 3)));
-
-
-
-
-extern int pthread_mutex_consistent (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-extern int pthread_mutex_consistent_np (pthread_mutex_t *__mutex)
-     throw () __attribute__ ((__nonnull__ (1)));
-# 790 "/usr/include/pthread.h" 3 4
-extern int pthread_mutexattr_init (pthread_mutexattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutexattr_destroy (pthread_mutexattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutexattr_getpshared (__const pthread_mutexattr_t *
-      __restrict __attr,
-      int *__restrict __pshared)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_mutexattr_setpshared (pthread_mutexattr_t *__attr,
-      int __pshared)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_mutexattr_gettype (__const pthread_mutexattr_t *__restrict
-          __attr, int *__restrict __kind)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-
-extern int pthread_mutexattr_settype (pthread_mutexattr_t *__attr, int __kind)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_mutexattr_getprotocol (__const pthread_mutexattr_t *
-       __restrict __attr,
-       int *__restrict __protocol)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_mutexattr_setprotocol (pthread_mutexattr_t *__attr,
-       int __protocol)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_mutexattr_getprioceiling (__const pthread_mutexattr_t *
-          __restrict __attr,
-          int *__restrict __prioceiling)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_mutexattr_setprioceiling (pthread_mutexattr_t *__attr,
-          int __prioceiling)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_mutexattr_getrobust (__const pthread_mutexattr_t *__attr,
-     int *__robustness)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-extern int pthread_mutexattr_getrobust_np (__const pthread_mutexattr_t *__attr,
-        int *__robustness)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_mutexattr_setrobust (pthread_mutexattr_t *__attr,
-     int __robustness)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-extern int pthread_mutexattr_setrobust_np (pthread_mutexattr_t *__attr,
-        int __robustness)
-     throw () __attribute__ ((__nonnull__ (1)));
-# 872 "/usr/include/pthread.h" 3 4
-extern int pthread_rwlock_init (pthread_rwlock_t *__restrict __rwlock,
-    __const pthread_rwlockattr_t *__restrict
-    __attr) throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlock_destroy (pthread_rwlock_t *__rwlock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlock_rdlock (pthread_rwlock_t *__rwlock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlock_tryrdlock (pthread_rwlock_t *__rwlock)
-  throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_rwlock_timedrdlock (pthread_rwlock_t *__restrict __rwlock,
-           __const struct timespec *__restrict
-           __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_rwlock_wrlock (pthread_rwlock_t *__rwlock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlock_trywrlock (pthread_rwlock_t *__rwlock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_rwlock_timedwrlock (pthread_rwlock_t *__restrict __rwlock,
-           __const struct timespec *__restrict
-           __abstime) throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-
-extern int pthread_rwlock_unlock (pthread_rwlock_t *__rwlock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-extern int pthread_rwlockattr_init (pthread_rwlockattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlockattr_destroy (pthread_rwlockattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlockattr_getpshared (__const pthread_rwlockattr_t *
-       __restrict __attr,
-       int *__restrict __pshared)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_rwlockattr_setpshared (pthread_rwlockattr_t *__attr,
-       int __pshared)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_rwlockattr_getkind_np (__const pthread_rwlockattr_t *
-       __restrict __attr,
-       int *__restrict __pref)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_rwlockattr_setkind_np (pthread_rwlockattr_t *__attr,
-       int __pref) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-
-extern int pthread_cond_init (pthread_cond_t *__restrict __cond,
-         __const pthread_condattr_t *__restrict
-         __cond_attr) throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_cond_destroy (pthread_cond_t *__cond)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_cond_signal (pthread_cond_t *__cond)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_cond_broadcast (pthread_cond_t *__cond)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-extern int pthread_cond_wait (pthread_cond_t *__restrict __cond,
-         pthread_mutex_t *__restrict __mutex)
-     __attribute__ ((__nonnull__ (1, 2)));
-# 984 "/usr/include/pthread.h" 3 4
-extern int pthread_cond_timedwait (pthread_cond_t *__restrict __cond,
-       pthread_mutex_t *__restrict __mutex,
-       __const struct timespec *__restrict
-       __abstime) __attribute__ ((__nonnull__ (1, 2, 3)));
-
-
-
-
-extern int pthread_condattr_init (pthread_condattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_condattr_destroy (pthread_condattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_condattr_getpshared (__const pthread_condattr_t *
-     __restrict __attr,
-     int *__restrict __pshared)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_condattr_setpshared (pthread_condattr_t *__attr,
-     int __pshared) throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_condattr_getclock (__const pthread_condattr_t *
-          __restrict __attr,
-          __clockid_t *__restrict __clock_id)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_condattr_setclock (pthread_condattr_t *__attr,
-          __clockid_t __clock_id)
-     throw () __attribute__ ((__nonnull__ (1)));
-# 1028 "/usr/include/pthread.h" 3 4
-extern int pthread_spin_init (pthread_spinlock_t *__lock, int __pshared)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_spin_destroy (pthread_spinlock_t *__lock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_spin_lock (pthread_spinlock_t *__lock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_spin_trylock (pthread_spinlock_t *__lock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_spin_unlock (pthread_spinlock_t *__lock)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-
-
-
-extern int pthread_barrier_init (pthread_barrier_t *__restrict __barrier,
-     __const pthread_barrierattr_t *__restrict
-     __attr, unsigned int __count)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_barrier_destroy (pthread_barrier_t *__barrier)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_barrier_wait (pthread_barrier_t *__barrier)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-
-extern int pthread_barrierattr_init (pthread_barrierattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_barrierattr_destroy (pthread_barrierattr_t *__attr)
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_barrierattr_getpshared (__const pthread_barrierattr_t *
-        __restrict __attr,
-        int *__restrict __pshared)
-     throw () __attribute__ ((__nonnull__ (1, 2)));
-
-
-extern int pthread_barrierattr_setpshared (pthread_barrierattr_t *__attr,
-        int __pshared)
-     throw () __attribute__ ((__nonnull__ (1)));
-# 1095 "/usr/include/pthread.h" 3 4
-extern int pthread_key_create (pthread_key_t *__key,
-          void (*__destr_function) (void *))
-     throw () __attribute__ ((__nonnull__ (1)));
-
-
-extern int pthread_key_delete (pthread_key_t __key) throw ();
-
-
-extern void *pthread_getspecific (pthread_key_t __key) throw ();
-
-
-extern int pthread_setspecific (pthread_key_t __key,
-    __const void *__pointer) throw () ;
-
-
-
-
-extern int pthread_getcpuclockid (pthread_t __thread_id,
-      __clockid_t *__clock_id)
-     throw () __attribute__ ((__nonnull__ (2)));
-# 1129 "/usr/include/pthread.h" 3 4
-extern int pthread_atfork (void (*__prepare) (void),
-      void (*__parent) (void),
-      void (*__child) (void)) throw ();
-# 1143 "/usr/include/pthread.h" 3 4
-}
+# 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 3
+=======
 # 42 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/x86_64-redhat-linux/bits/gthr-default.h" 2 3
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 # 1 "/usr/include/unistd.h" 1 3 4
 # 28 "/usr/include/unistd.h" 3 4
 extern "C" {
@@ -23731,8 +27876,6 @@ extern "C" {
 # 227 "/usr/include/unistd.h" 3 4
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h" 1 3 4
 # 228 "/usr/include/unistd.h" 2 3 4
-# 275 "/usr/include/unistd.h" 3 4
-typedef __socklen_t socklen_t;
 # 288 "/usr/include/unistd.h" 3 4
 extern int access (__const char *__name, int __type) throw () __attribute__ ((__nonnull__ (1)));
 
@@ -25578,13 +29721,24 @@ namespace std __attribute__ ((__visibility__ ("default"))) {
 # 33 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ostream_insert.h" 3
        
 # 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/bits/ostream_insert.h" 3
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 
 # 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 1 3
 # 33 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 3
        
 # 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 3
 
+<<<<<<< HEAD
+=======
+# 1 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 1 3
+# 33 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 3
+       
+# 34 "/usr/lib/gcc/x86_64-redhat-linux/4.5.1/../../../../include/c++/4.5.1/cxxabi-forced.h" 3
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
 #pragma GCC visibility push(default)
 
 
@@ -38451,6 +42605,7 @@ inline int cutilDrvGetMaxGflopsDeviceId()
  "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
 # 111 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
   ,
+<<<<<<< HEAD
 
  113
 # 111 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
@@ -38467,6 +42622,24 @@ inline int cutilDrvGetMaxGflopsDeviceId()
 # 114 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
         )
 
+=======
+
+ 113
+# 111 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
+  )
+
+                                                                              ;
+        __cuSafeCallNoSync (cuDeviceGetAttribute( &clockRate, CU_DEVICE_ATTRIBUTE_CLOCK_RATE, current_device ),
+
+ "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
+# 114 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
+        ,
+
+ 116
+# 114 "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h"
+        )
+
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
                                                                               ;
   __cuSafeCallNoSync (cuDeviceComputeCapability(&major, &minor, current_device ), "/usr/local/cuda/NVIDIA_GPU_Computing_SDK/C/common/inc/cutil_inline_drvapi.h", 117);
 

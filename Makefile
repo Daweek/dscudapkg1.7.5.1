@@ -6,12 +6,12 @@ run_server_ibv:
 
 client_tcp_test:
 	$(MAKE) -C src/ libdscuda_tcp.a
-	$(MAKE) DSCUDA_LIB_TYPE=dscuda_tcp -C sample/vecadd/ vecadd_tcp
+	$(MAKE) DSCUDA_LIB_TYPE=tcp -C sample/vecadd/ vecadd_tcp
 	sample/vecadd/vecadd_tcp
 
 client_ibv_test:
 	$(MAKE) -C src/ libdscuda_ibv.a
-	$(MAKE) DSCUDA_LIB_TYPE=dscuda_ibv -C sample/vecadd/ vecadd_tcp
+	$(MAKE) DSCUDA_LIB_TYPE=ibv -C sample/vecadd/ vecadd_tcp
 	sample/vecadd/vecadd_ibv
 
 server_ibv:	

@@ -5,7 +5,11 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2012-01-12\n"
     "\n"
     "	//-----------------------------------------------------------\n"
+<<<<<<< HEAD
+    "	// Compiling /tmp/tmpxft_000031ad_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.lU5T9B)\n"
+=======
     "	// Compiling /tmp/tmpxft_0000053e_00000000-9_matrixMul.cpp3.i (/tmp/ccBI#.rWsLED)\n"
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -18,7 +22,11 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
+<<<<<<< HEAD
+    "	.file	2	\"/tmp/tmpxft_000031ad_00000000-8_matrixMul.cudafe2.gpu\"\n"
+=======
     "	.file	2	\"/tmp/tmpxft_0000053e_00000000-8_matrixMul.cudafe2.gpu\"\n"
+>>>>>>> 06475ac3a3418d1b6dd018e9921875b37a5245cb
     "	.file	3	\"/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"

@@ -1,10 +1,10 @@
 	.version 1.4
 	.target sm_10, map_f64_to_f32
-	// compiled with /usr/local/cuda4.1/cuda/open64/lib//be
-	// nvopencc 4.1 built on 2012-01-12
+	// compiled with /usr/local/cuda-6.0/open64/lib//be
+	// nvopencc 4.1 built on 2014-03-13
 
 	//-----------------------------------------------------------
-	// Compiling /tmp/tmpxft_00000646_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.H8fFhA)
+	// Compiling /tmp/tmpxft_00000a52_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.YbsuqM)
 	//-----------------------------------------------------------
 
 	//-----------------------------------------------------------
@@ -17,8 +17,8 @@
 	//-----------------------------------------------------------
 
 	.file	1	"<command-line>"
-	.file	2	"/tmp/tmpxft_00000646_00000000-8_vecadd.cudafe2.gpu"
-	.file	3	"/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stddef.h"
+	.file	2	"/tmp/tmpxft_00000a52_00000000-8_vecadd.cudafe2.gpu"
+	.file	3	"/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h"
 	.file	4	"/usr/local/cuda/include/crt/device_runtime.h"
 	.file	5	"/usr/local/cuda/include/host_defines.h"
 	.file	6	"/usr/local/cuda/include/builtin_types.h"
@@ -38,10 +38,17 @@
 	.file	20	"/usr/local/cuda/include/sm_12_atomic_functions.h"
 	.file	21	"/usr/local/cuda/include/sm_13_double_functions.h"
 	.file	22	"/usr/local/cuda/include/sm_20_atomic_functions.h"
-	.file	23	"/usr/local/cuda/include/sm_20_intrinsics.h"
-	.file	24	"/usr/local/cuda/include/surface_functions.h"
-	.file	25	"/usr/local/cuda/include/texture_fetch_functions.h"
-	.file	26	"/usr/local/cuda/include/math_functions_dbl_ptx1.h"
+	.file	23	"/usr/local/cuda/include/sm_32_atomic_functions.h"
+	.file	24	"/usr/local/cuda/include/sm_35_atomic_functions.h"
+	.file	25	"/usr/local/cuda/include/sm_20_intrinsics.h"
+	.file	26	"/usr/local/cuda/include/sm_30_intrinsics.h"
+	.file	27	"/usr/local/cuda/include/sm_32_intrinsics.h"
+	.file	28	"/usr/local/cuda/include/sm_35_intrinsics.h"
+	.file	29	"/usr/local/cuda/include/surface_functions.h"
+	.file	30	"/usr/local/cuda/include/texture_fetch_functions.h"
+	.file	31	"/usr/local/cuda/include/texture_indirect_functions.h"
+	.file	32	"/usr/local/cuda/include/surface_indirect_functions.h"
+	.file	33	"/usr/local/cuda/include/math_functions_dbl_ptx1.h"
 
 
 	.entry _Z6vecAddPfS_S_ (

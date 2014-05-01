@@ -28,7 +28,9 @@ ifeq ($(OS_SIZE),32)
 endif
 
 #CUDA........................
-CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_SDKPATH)/CUDALibraries/common/lib \
+#CUDA_LIB_DIR		:= -L$(CUDA_PATH)/$(OS_SIZE_LIB) -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_SDKPATH)/CUDALibraries/common/lib \
+								-L$(CUDA_SDKPATH)/shared/lib
+CUDA_LIB_DIR		:= -L$(CUDA_SDKPATH)/C/lib -L$(CUDA_SDKPATH)/CUDALibraries/common/lib \
 								-L$(CUDA_SDKPATH)/shared/lib
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
@@ -40,9 +42,9 @@ GL_LIB					:= -lglut -lGL -lGLU
 
 #Includes............................
 #CUDA
-CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/C/common/inc -I$(CUDA_SDKPATH)/shared/inc
+CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc 
 #DSCUDA......................
-DSCUDA_INC			:= -I.
+DSCUDA_INC			:= -I. -I$(DSCUDA_PATH)/include/common/inc
 #Others......................
 GL_INC					:= -I$(CUDA_SDKPATH)/shared/inc 
 
@@ -63,7 +65,7 @@ OPENMP					:= -Xcompiler -fopenmp
 LIB							:= $(DSCUDA_LIB)  
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
-FLAGS						:= $(PERF_FLAG)  
+FLAGS						:= $(PERF_FLAG) --cudart=shared
 
 ###########...Main Body...#############
 TARGET = vecadd

@@ -6,7 +6,7 @@ include ../script/aux.mk
 #General Paths........................
 #CUDA..............................
 CUDA_PATH       ?= /usr/local/cuda
-CUDA_SDKPATH    ?= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
+CUDA_SDKPATH    ?= $(CUDA_PATH)/samples
 NVCC            := $(CUDA_PATH)/bin/nvcc
 #DSCUDA............................
 DSCUDA_PATH     ?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
@@ -37,7 +37,8 @@ GL_LIB          := -lglut -lGL -lGLU
 
 #Includes............................
 #CUDA
-CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/C/common/inc -I$(CUDA_SDKPATH)/shared/inc
+CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc -I$(CUDA_SDKPATH)/shared/inc
+#CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(DSCUDA_PATH)/include/common/inc
 #DSCUDA......................
 DSCUDA_INC      := -I.
 DSCUDA_HDR			:= dscuda.h dscudadefs.h dscudamacros.h 

@@ -68,6 +68,13 @@ ifeq ("$(OSUPPER)","LINUX")
 				CUDA_SDKPATH 	:= $(CUDA_PATH)/samples
 				DSCUDA_PATH		:= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
     endif
+		#For Fedora..............
+    ifeq ("$(DISTRO)","fedora")
+        CUDA_PATH  		:= /usr/local/cuda
+				#CUDA_SDKPATH 	:= $(CUDA_PATH)/NVIDIA_GPU_Computing_SDK
+				CUDA_SDKPATH 	:= $(CUDA_PATH)/samples
+				DSCUDA_PATH		:= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
+endif
   # Search for Linux distribution path for libcuda.so
   CUDALIB ?= $(shell find $(CUDAPATH) $(DFLT_PATH) -name libcuda.so -print 2>/dev/null)
 
@@ -77,17 +84,20 @@ ifeq ("$(OSUPPER)","LINUX")
   endif
 	
 	# Search for DSCUDA libraries
-	#This for RPC_ONLY
-  DSCUDA_LIB ?= $(shell find $(DSCUDA_PATH)/src -name libdscuda_rpc.a -print 2>/dev/null)
+	#This for TPC_ONLY
+  DSCUDA_LIB_TCP ?= $(shell find $(DSCUDA_PATH)/src -name libdscuda_rpc.a -print 2>/dev/null)
+  DSCUDA_LIB_IBV ?= $(shell find $(DSCUDA_PATH)/src -name libdscuda_ibv.a -print 2>/dev/null)
 
-  ifeq ("$(DSCUDA_LIB)",'')
+  ifeq ("$(DSCUDA_LIB_TCP)",'')
+			$(info >>> WARNING - DSCUDA Libraries are not found. <<<)
+  endif 
+  
+ifeq ("$(DSCUDA_LIB_IBV)",'')
 			$(info >>> WARNING - DSCUDA Libraries are not found. <<<)
   endif 
 	
 
 else
-
-
 
   # This would be the Mac OS X path if we had to do anything special
 endif

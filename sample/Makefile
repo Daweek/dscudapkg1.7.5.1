@@ -2,7 +2,8 @@
 #By Edgar J.
 
 DSCUDA_LIB_TYPE ?= tcp
-PROJECTS 	?= $(shell find matrixMul/ bandwidth/ broadcast/ claret/ direct/ p2p/ reduction/ vecadd/ -name Makefile)
+#PROJECTS 	?= $(shell find matrixMul/ bandwidth/ broadcast/ claret/ direct/ p2p/ reduction/ vecadd/ -name Makefile)
+PROJECTS 	?= $(shell find vecadd/ -name Makefile)
 
 FILTER-OUT :=
 

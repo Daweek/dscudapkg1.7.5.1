@@ -24,4 +24,4 @@ server_tcp:
 
 clean:
 	$(MAKE) -C src/ clean
-	$(MAKE) -C sample/vecadd clean
+	$(MAKE) -C sample/ clean

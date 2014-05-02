@@ -32,8 +32,8 @@ CUDA_LIB_DIR		:=
 CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
-DSCUDA_LIB_TYPE	?= tcp
-DSCUDA_LIB			:= -ldscuda_$(DSCUDA_LIB_TYPE)
+CONNECT_TCP			:= $(DSCUDA_PATH)/lib/libdscuda_tcp.a
+CONNECT_IBV			:= $(DSCUDA_PATH)/lib/libdscuda_ibv.a
 #Others......................
 GL_LIB					:= -lglut -lGL -lGLU
 IBV							:= -lrdmacm -libverbs -lpthread
@@ -50,8 +50,6 @@ GL_INC					:= -I$(CUDA_SDKPATH)/common/inc
 CUDA_FLAGS			:= --cudart=shared -use_fast_math
 
 #DSCUDA......................
-CONNECT_TCP			:= $(DSCUDA_PATH)/lib/libdscuda_tcp.a
-CONNECT_IBV			:= $(DSCUDA_PATH)/lib/libdscuda_ibv.a
 PERF_FLAG				:= 
 
 #Others......................
@@ -60,7 +58,7 @@ OPENMP					:= -Xcompiler -fopenmp
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #--------------------------------------
 #.........GLOBAL VARIABLES.............
-LIB							:= $(DSCUDA_LIB)  
+LIB							:=   
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
 FLAGS						:= $(CUDA_FLAGS) 
@@ -71,10 +69,10 @@ TARGET = vecadd
 all: $(TARGET)_tcp
 
 $(TARGET)_tcp: $(TARGET).cu $(CONNECT_TCP)
-	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB)
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp
 
 $(TARGET)_ibv: $(TARGET).cu $(CONNECT_IBV)
-	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) $(IBV)
+	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_ibv $(IBV)
 
 clean:
 	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp

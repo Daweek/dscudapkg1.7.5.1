@@ -72,11 +72,17 @@ all: $(TARGET)_tcp
 $(TARGET)_tcp: cras36.c sockhelp.o mr3_tcp.o $(CONNECT_TCP)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp.o -ldscuda_tcp
 
+$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o $(CONNECT_TCP)
+	$(CC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_android.o -ldscuda_tcp
+
 $(TARGET)_ibv: cras36.c sockhelp.o mr3_ibv.o $(CONNECT_IBV)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_ibv.o -ldscuda_ibv $(IBV)
 #---------------------Objects
 mr3_tcp.o:  mr3.cu
 	$(DSCUDA_CPP) $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
+
+mr3_tcp_android.o:  mr3.cu
+	$(DSCUDA_CPP) --cpp $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
  
 mr3_ibv.o:  mr3.cu
 	$(DSCUDA_CPP) $(PERF_FLAGS) -DTCP_ONLY=0 $(INC) -o $@ -c -i $< 

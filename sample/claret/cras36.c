@@ -4463,8 +4463,7 @@ void md_run()
 	static n3_bak=0;
 	if(n3!=n3_bak){
 #if 1
-	  if(n3_bak!=0) MR3free();
-	  MR3init();
+	  if(n3_bak!=0);
 #else
 	  if(n3_bak==0) MR3init();
 #endif
@@ -4583,9 +4582,9 @@ void md_run()
 	  MR3init();
 	  ini=1;
 	}
-	MR3calcnacl(cd,n3/3,atype,2,(double *)pol,(double *)sigm,
-		    (double *)ipotro,(double *)pc,(double *)pd,
-		    (double *)zz2,8,side[0],0,fc);
+//	MR3calcnacl(cd,n3/3,atype,2,(double *)pol,(double *)sigm,
+//		    (double *)ipotro,(double *)pc,(double *)pd,
+//		    (double *)zz2,8,side[0],0,fc);
 	//	ini++; if(ini<4) for(i=0;i<6;i++) printf("vtgrape fc[%d]=%e\n",i,fc[i]);
 #else // else of VTGRAPE
 	for(i = 0; i < n3; i += 3){

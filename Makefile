@@ -1,8 +1,7 @@
 #General File to generate DSCUDA server or client
 #By Edgar J.
 
-run_server_ibv:
-	./src/server_ibv 
+all: client_tcp_test
 
 client_tcp_test:
 	$(MAKE) -C src/ libdscuda_tcp.a

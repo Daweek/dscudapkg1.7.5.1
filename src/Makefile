@@ -138,7 +138,7 @@ libdscuda_tcp.a :	$(CLIENTBASE) libdscuda_tcp.cu $(DSCUDA_HDR) \
 libdscuda_tcp_andr.a :	$(CLIENTBASEANDR) libdscuda_tcp.cpp $(DSCUDA_HDR) \
                         dscudautil_andr.o sockutil_andr.o
 	$(CXX) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp_andr.o libdscuda_tcp.cpp
-	ar rvu $@ libdscuda_tcp_andr.o dscudautil_andr.o dscudaverb_andr.o  sockutil_andr.o
+	ar rvu $@ libdscuda_tcp_andr.o dscudautil_andr.o dscudaverb_andr.o sockutil_andr.o
 	ranlib $@
 
 # A dummy library to override CUDA runtime library functions.
@@ -165,7 +165,7 @@ dscudautil_andr.o:	dscudautil.cpp
 	$(CXX) $(CUDA_INC) -c -o $@ $<
 
 sockutil_andr.o:	sockutil.c
-	$(CXX) $(CUDA_INC) -c -o $@ $<
+	$(CC) $(CUDA_INC) -c -o $@ $<
 ############################################################################
 #Others.........................
 

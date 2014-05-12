@@ -5,7 +5,7 @@ static char *Ptxdata =
     "	// nvopencc 4.1 built on 2014-03-13\n"
     "\n"
     "	//-----------------------------------------------------------\n"
-    "	// Compiling /tmp/tmpxft_00007c86_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.yjS8vI)\n"
+    "	// Compiling /tmp/tmpxft_0000740a_00000000-9_vecadd.cpp3.i (/tmp/ccBI#.4xwPWa)\n"
     "	//-----------------------------------------------------------\n"
     "\n"
     "	//-----------------------------------------------------------\n"
@@ -18,7 +18,7 @@ static char *Ptxdata =
     "	//-----------------------------------------------------------\n"
     "\n"
     "	.file	1	\"<command-line>\"\n"
-    "	.file	2	\"/tmp/tmpxft_00007c86_00000000-8_vecadd.cudafe2.gpu\"\n"
+    "	.file	2	\"/tmp/tmpxft_0000740a_00000000-8_vecadd.cudafe2.gpu\"\n"
     "	.file	3	\"/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h\"\n"
     "	.file	4	\"/usr/local/cuda/include/crt/device_runtime.h\"\n"
     "	.file	5	\"/usr/local/cuda/include/host_defines.h\"\n"
@@ -128,7 +128,6 @@ static char *Ptxdata =
     "	} // _Z6vecMulPfS_fS_iPi\n"
     "\n";
 #pragma dscuda endofptx
-#include "dscuda.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

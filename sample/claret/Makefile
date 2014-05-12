@@ -15,7 +15,7 @@ DSCUDA_PATH		?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
 DSCUDA_SDKPATH	?= $(DSCUDA_PATH)/sample
 DSCUDA_CPP		?= $(DSCUDA_PATH)/bin/dscudacpp
 #Others............................
-CPP				?= g++
+CPP				:= g++
 
 #Libraries...........................
 ifeq ($(OS_SIZE),64)
@@ -34,9 +34,10 @@ CUDA_LIB			:= -lcudart -lcutil_$(CUTIL_SIZE)
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
 CONNECT_TCP     := $(DSCUDA_PATH)/lib/libdscuda_tcp.a
 CONNECT_IBV     := $(DSCUDA_PATH)/lib/libdscuda_ibv.a
+GL_LIB_DIR		:= -L/usr/local/lib 
 
 #Others......................
-GL_LIB					:= -lglut -lGL -lGLU
+GL_LIB						:= -lGL -lGLU -lglut
 IBV							:= -lrdmacm -libverbs -lpthread
 #Includes............................
 #CUDA
@@ -44,7 +45,8 @@ CUDA_INC				:= -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc
 #DSCUDA......................
 DSCUDA_INC			:= -I. -I$(DSCUDA_PATH)/include/common/inc
 #Others......................
-GL_INC					:= -I$(CUDA_SDKPATH)/common/inc 
+GL_INC					:= -I/usr/local/include/GL
+#-I$(CUDA_SDKPATH)/common/inc 
 
 #Specific Flags......................
 #CUDA........................
@@ -60,7 +62,7 @@ OPENMP					:= -Xcompiler -fopenmp
 #--------------------------------------
 #.........GLOBAL VARIABLES.............
 LIB							:= $(GL_LIB)  
-LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
+LIBDIR						:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) $(GL_LIB_DIR)
 INC							:= $(CUDA_INC) $(DSCUDA_INC) $(GL_INC)
 FLAGS						:=   
 
@@ -72,8 +74,10 @@ all: $(TARGET)_tcp
 $(TARGET)_tcp: cras36.c sockhelp.o mr3_tcp.o $(CONNECT_TCP)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp.o -ldscuda_tcp
 
-$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o libdscuda_tcp_andr.a
-	$(CC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_android.o -ldscuda_tcp_andr
+$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o $(DSCUDA_PATH)/lib/libdscuda_tcp_andr.a
+	gcc -DVTGRAPE -DTCP_ONLY=1 -O0 -g -P -ffast-math -funroll-loops $(INC) $(LIBDIR) \
+	 $< -o $@ $(LIB) mr3_tcp_android.o -ldscuda_tcp_andr \
+	-lm
 
 $(TARGET)_ibv: cras36.c sockhelp.o mr3_ibv.o $(CONNECT_IBV)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_ibv.o -ldscuda_ibv $(IBV)
@@ -88,14 +92,14 @@ mr3_ibv.o:  mr3.cu
 	$(DSCUDA_CPP) $(PERF_FLAGS) -DTCP_ONLY=0 $(INC) -o $@ -c -i $< 
 
 cras_host : cras36.c sockhelp.o mr3_host.o
-	$(CC) $(PERF_FLAG) $(INC) $< -o $@ sockhelp.o $(LIB) 
+	$(CPP) $(PERF_FLAG) $(INC) $< -o $@ sockhelp.o $(LIB) 
 
 mr3_host.o : mr3_host.c
-	$(CC) $(PERF_FLAG) -c $<
+	$(CPP) $(PERF_FLAG) -c $<
  
 sockhelp.o : sockhelp.c
-	$(CC) $(PERF_FLAG) -o $@ -c $<
 
+	$(CC) $(PERF_FLAG) -o $@ -c $<
 clean:
 	rm -rf *.o *.ptx *.txt  $(TARGET)_* *.linkinfo ./dscudatmp
 

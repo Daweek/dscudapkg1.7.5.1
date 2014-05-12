@@ -70,7 +70,7 @@ all: $(TARGET)_tcp
 
 $(TARGET)_tcp: $(TARGET).cu $(CONNECT_TCP)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp
-
+	
 $(TARGET)_ibv: $(TARGET).cu $(CONNECT_IBV)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_ibv $(IBV)
 

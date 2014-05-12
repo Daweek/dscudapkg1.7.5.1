@@ -66,8 +66,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+
 #ifdef GL_ON
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 #endif
 #if MDM == 2
 #ifdef MDGRAPE3
@@ -452,7 +453,13 @@ static int connectsock = -1;
 static int s_sock;
 
 /* This waits for all children, so that they don't become zombies. */
+
+
+
 void sig_chld(signal_type)
+void MR3calcnacl(cd,n3/3,atype,2,(double *)pol,(double *)sigm,
+	    (double *)ipotro,(double *)pc,(double *)pd,(double *)zz2,8,
+	    side[0], 0,fc);
 int signal_type;
 {
   int pid;
@@ -460,6 +467,7 @@ int signal_type;
 
   while ( (pid = wait3(&status, WNOHANG, NULL)) > 0);
 }
+
 void sock_send_char(int sockfd, char* buf, int size)
 {
   sock_write(sockfd,buf,sizeof(char)*size);
@@ -4460,7 +4468,7 @@ void md_run()
 #elif MDM == 2 && defined(VTGRAPE)
 	double zz2[2][2],center[3];
 	int ii,jj;
-	static n3_bak=0;
+	static int n3_bak=0;
 	if(n3!=n3_bak){
 #if 1
 	  if(n3_bak!=0);
@@ -4474,7 +4482,6 @@ void md_run()
 		    (double *)ipotro,(double *)pc,(double *)pd,
 		    (double *)zz2,8,
 		    side[0],
-		    //		    side[0]*2.0,
 		    0,fc);
 
 #if 0 // find large force

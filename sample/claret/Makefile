@@ -9,13 +9,13 @@ include ../../script/aux.mk
 #CUDA..............................
 CUDA_PATH       ?= /usr/local/cuda
 CUDA_SDKPATH    ?= $(CUDA_PATH)/samples
-NVCC						?= $(CUDA_PATH)/bin/nvcc
+NVCC			?= $(CUDA_PATH)/bin/nvcc
 #DSCUDA............................
-DSCUDA_PATH			?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
+DSCUDA_PATH		?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
 DSCUDA_SDKPATH	?= $(DSCUDA_PATH)/sample
-DSCUDA_CPP			?= $(DSCUDA_PATH)/bin/dscudacpp
+DSCUDA_CPP		?= $(DSCUDA_PATH)/bin/dscudacpp
 #Others............................
-CPP							?= g++
+CPP				?= g++
 
 #Libraries...........................
 ifeq ($(OS_SIZE),64)
@@ -29,7 +29,7 @@ endif
 
 #CUDA........................
 CUDA_LIB_DIR		:= 
-CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
+CUDA_LIB			:= -lcudart -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
 CONNECT_TCP     := $(DSCUDA_PATH)/lib/libdscuda_tcp.a
@@ -72,8 +72,8 @@ all: $(TARGET)_tcp
 $(TARGET)_tcp: cras36.c sockhelp.o mr3_tcp.o $(CONNECT_TCP)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp.o -ldscuda_tcp
 
-$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o $(CONNECT_TCP)
-	$(CC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_android.o -ldscuda_tcp
+$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o libdscuda_tcp_andr.a
+	$(CC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_android.o -ldscuda_tcp_andr
 
 $(TARGET)_ibv: cras36.c sockhelp.o mr3_ibv.o $(CONNECT_IBV)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_ibv.o -ldscuda_ibv $(IBV)

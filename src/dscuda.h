@@ -783,7 +783,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
                                     const void *devPtr,
                                     const struct cudaChannelFormatDesc *desc,
                                     size_t size = UINT_MAX);
-
+#if 0 // texture is not supported yet
 template<class T, int dim, enum cudaTextureReadMode readMode>
 cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
                                     size_t *offset,
@@ -805,7 +805,7 @@ cudaError_t dscudaBindTextureWrapper(int *moduleid, char *texname,
     return dscudaBindTextureWrapper(moduleid, texname, offset, &tex, devPtr, &tex.channelDesc, size);
 }
 
-#if 0 // texture is not supported yet
+
 
 cudaError_t dscudaBindTexture2DWrapper(int *moduleid, char *texname,
                                       size_t *offset,

@@ -7,14 +7,15 @@ include ../script/aux.mk
 #CUDA..............................
 CUDA_PATH       ?= /usr/local/cuda
 CUDA_SDKPATH    ?= $(CUDA_PATH)/samples
-NVCC            := $(CUDA_PATH)/bin/nvcc
+NVCC            ?= $(CUDA_PATH)/bin/nvcc
+
 #DSCUDA............................
 DSCUDA_PATH     ?= /usr/local/DSCUDA/dscudapkg$(DSCUDA_VER)
 DSCUDA_SDKPATH  ?= $(DSCUDA_PATH)/sample
-DSCUDA_CPP      := $(DSCUDA_PATH)/bin/dscudacpp
+DSCUDA_CPP      ?= $(DSCUDA_PATH)/bin/dscudacpp
 #Others............................
 CXX             := g++ 
-CC							:= gcc
+CC				:= gcc
 #Libraries...........................
 ifeq ($(OS_SIZE),64)
   OS_SIZE_LIB   := lib64
@@ -38,7 +39,7 @@ GL_LIB          := -lglut -lGL -lGLU
 #Includes............................
 #CUDA
 CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc -I$(CUDA_SDKPATH)/shared/inc
-#CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(DSCUDA_PATH)/include/common/inc
+#CUDA_INC       := -I. -I$(CUDA_PATH)/include -I$(DSCUDA_PATH)/include/common/inc
 #DSCUDA......................
 DSCUDA_INC      := -I.
 DSCUDA_HDR			:= dscuda.h dscudadefs.h dscudamacros.h 
@@ -48,10 +49,10 @@ GL_INC          := -I$(CUDA_SDKPATH)/shared/inc
 
 #Specific Flags......................
 #C and C++ Flags.............
-PERF_C					:= -O0 -g -ffast-math -funroll-loops
+PERF_C			:= -O0 -g -ffast-math -funroll-loops
 #CUDA........................
 CUDA_FLAGS      := -use_fast_math
-PICOPT					:= -Xcompiler -fPIC
+PICOPT			:= -Xcompiler -fPIC
 #DSCUDA......................
 CONNECT_FLAG    := -DRPC_ONLY=1
 CONNECT_LIB     := $(DSCUDA_PATH)/lib/libdscuda_tcp.a
@@ -74,6 +75,7 @@ TARGET         	:= dscudad_ibv dscudasvr_ibv libdscuda_ibv.a libdscuda_tcp.a lib
 TARGET_TCPONLY 	:= dscudad_tcp dscudasvr_tcp libdscuda_tcp.a libcudart.so.3
 DSCUDAHDR      	:= dscuda.h dscudadefs.h dscudamacros.h
 CLIENTBASE     	:= dscudaverb.h libdscuda.h libdscuda.cu dscudaverb.o
+CLIENTBASEANDR 	:= dscudaverb.h libdscuda.h libdscuda.cu dscudaverb_andr.o
 
 default :	$(TARGET)
 
@@ -132,6 +134,12 @@ libdscuda_tcp.a :	$(CLIENTBASE) libdscuda_tcp.cu $(DSCUDA_HDR) \
 	$(NVCC) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp.o libdscuda_tcp.cu
 	ar rvu $@ libdscuda_tcp.o dscudautil.o dscudaverb.o  sockutil.o
 	ranlib $@
+	
+libdscuda_tcp_andr.a :	$(CLIENTBASEANDR) libdscuda_tcp.cpp $(DSCUDA_HDR) \
+                        dscudautil_andr.o sockutil_andr.o
+	$(CXX) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp_andr.o libdscuda_tcp.cpp
+	ar rvu $@ libdscuda_tcp_andr.o dscudautil_andr.o dscudaverb_andr.o  sockutil_andr.o
+	ranlib $@
 
 # A dummy library to override CUDA runtime library functions.
 libcudart.so.3:	cudart_dummy.cu
@@ -149,6 +157,15 @@ sockutil.o:	sockutil.c
 
 ibvutil.o:	ibvutil.cpp ibvdefs.h
 	$(CXX) $(PERF_C) $(CUDA_INC) -c -o $@ $<
+#For android.....................
+dscudaverb_andr.o:	dscudaverb.cpp
+	$(CXX) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@ $<
+
+dscudautil_andr.o:	dscudautil.cpp
+	$(CXX) $(CUDA_INC) -c -o $@ $<
+
+sockutil_andr.o:	sockutil.c
+	$(CXX) $(CUDA_INC) -c -o $@ $<
 ############################################################################
 #Others.........................
 

@@ -638,7 +638,7 @@ def cufile2tmpcufile(cufile, ptxfile, incpath, cppdef, addhdr)
 end
 
 def cufile2rcufile(cufile, ptxfile, incpath)
-  rcufile = Dscudatmpdir + '/' + File.basename(cufile, '.cu') + '.rcu.c'
+  rcufile = Dscudatmpdir + '/' + File.basename(cufile, '.cu') + '.rcu.cpp'
   unless File.exist? Dscudatmpdir
     Dir.mkdir Dscudatmpdir
   end

@@ -22,5 +22,6 @@ server_tcp:
 	$(MAKE) -C src/ dscudad_tcp
 
 clean:
-	$(MAKE) -C src/ clean
 	$(MAKE) -C sample/ clean
+	$(MAKE) -C src/ clean
+	

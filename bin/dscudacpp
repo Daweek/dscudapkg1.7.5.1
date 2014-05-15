@@ -211,7 +211,7 @@ def toplevel
     infile_rcu = cufile2rcufile(infile_tmpcu, ptxfile, incpath)
 
     cmd = "#{Cxx} #{phase} #{cppdef} -I#{Dscudaincdir} -I#{Cudaincdir} -I#{Cudasdkincdir4} -I#{Cudasdkincdir5} " +
-      "-L#{Dscudalibdir} -o #{app_context[:outfile]} #{infile_rcu} #{nvccarg} -lcudart "
+      "-L#{Dscudalibdir} -o #{app_context[:outfile]} #{infile_rcu} #{nvccarg}"
 
     puts cmd
     unless system(cmd)

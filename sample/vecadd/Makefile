@@ -29,7 +29,7 @@ endif
 
 #CUDA........................
 CUDA_LIB_DIR		:= 
-CUDA_LIB				:= -lcudart -lcutil_$(CUTIL_SIZE) 
+CUDA_LIB				:= -lcutil_$(CUTIL_SIZE) 
 #DSCUDA......................
 DSCUDA_LIB_DIR	:= -L$(DSCUDA_PATH)/lib
 CONNECT_TCP			:= $(DSCUDA_PATH)/lib/libdscuda_tcp.a
@@ -69,7 +69,7 @@ TARGET = vecadd
 all: $(TARGET)_tcp
 
 $(TARGET)_tcp: $(TARGET).cu $(CONNECT_TCP)
-	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp
+	$(DSCUDA_CPP) -g $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp
 	
 $(TARGET)_tcp_andr: $(TARGET).cu $(DSCUDA_PATH)/lib/libdscuda_tcp_andr.a
 	$(DSCUDA_CPP) --cpp -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp_andr

@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/CUDAPATH/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/CUDAPATH/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/CUDAPATH/value=/usr/local/cuda
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_PATH/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_PATH/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_PATH/value=/usr/local/DSCUDA/dscuda1.7.5.1
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_USEDAEMON/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_USEDAEMON/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_USEDAEMON/value=1
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_WARNLEVEL/delimiter=\:
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_WARNLEVEL/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/DSCUDA_WARNLEVEL/value=2
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.base.558076087/appendContributed=true

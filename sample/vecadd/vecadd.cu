@@ -12,7 +12,7 @@
 int
 main(void)
 {
-    int i, t;
+	int i, t;
     float a[N], b[N], c[N];
 
     float *d_a, *d_b, *d_c;

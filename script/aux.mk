@@ -1,9 +1,8 @@
 #Auxiliary file to discover OS,pataforms and other tools
 #Based on findcudalib.mk from NVIDIA cuda toolkit 5.5
 #By Edgar J. 
-DSCUDA_VER := 1.7.5.1
-
-
+DSCUDA_VER 	:= 1.7.5.1
+LTYPEP64	:= -DLTYPEP64
 # OS Name (Linux or Darwin)
 OSUPPER = $(shell uname -s 2>/dev/null | tr "[:lower:]" "[:upper:]")
 OSLOWER = $(shell uname -s 2>/dev/null | tr "[:upper:]" "[:lower:]")
@@ -47,10 +46,12 @@ endif
 ifeq ($(x86_64),1)
 	OS_SIZE = 64
 	OS_ARCH = x86_64
+	LTYPEP64 := -DLTYPEP64
 endif
 ifeq ($(ARMv7),1)
 	OS_SIZE = 32
 	OS_ARCH = armv7l
+	LTYPEP64 :=
 endif
 
 ifeq ("$(OSUPPER)","LINUX")

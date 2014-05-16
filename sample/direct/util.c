@@ -266,7 +266,7 @@ writefingerprint(int nj, double *mj, double (*xj)[3], double (*vj)[3], char *fna
         }
     }
 
-    fprintf(fp, "checksum: %016llx\n", checksum);
+    fprintf(fp, "checksum: %016RC_LTYPEP\n", checksum);
     fclose(fp);
 }
 

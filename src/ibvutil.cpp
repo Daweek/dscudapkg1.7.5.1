@@ -109,7 +109,7 @@ build_verbs(IbvConnection *conn, struct ibv_context *verbs, bool is_server)
 
 
     TEST_Z(conn->cq = ibv_create_cq(conn->ibvctx, cqe, NULL, conn->comp_channel, 0));
-    // !!!   WARN(0, ">>>>>>> create cq:0x%08llx\n", conn->cq);
+    // !!!   WARN(0, ">>>>>>> create cq:0x%08RC_LTYPEP\n", conn->cq);
 
     TEST_NZ(ibv_req_notify_cq(conn->cq, 0));
     TEST_NZ(pthread_create(&conn->cq_poller_thread, NULL, poll_cq, conn));
@@ -153,7 +153,7 @@ poll_cq(void *ctx)
                 continue; // escape from this do block.
             }
             if (wc.status != IBV_WC_SUCCESS) {
-                WARN(0, "ibv_poll_cq() got WC with status %d, %s. cq:0x%08llx\n",
+                WARN(0, "ibv_poll_cq() got WC with status %d, %s. cq:0x%08RC_LTYPEP\n",
                      wc.status, ibv_wc_status_str(wc.status), cq);
                 //                exit(1);
             }

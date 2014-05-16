@@ -184,7 +184,7 @@ showsta(void)
 {
     RCstreamArray *st = RCstreamArrayListTop;
     while (st) {
-        fprintf(stderr, ">>> 0x%08llx    prev:%p  next:%p\n", st, st->prev, st->next);
+        fprintf(stderr, ">>> 0x%08RC_LTYPEP    prev:%p  next:%p\n", st, st->prev, st->next);
         st = st->next;
     }
 }
@@ -435,7 +435,7 @@ showuva(void)
 {
     RCuva *st = RCuvaListTop;
     while (st) {
-        fprintf(stderr, ">>> 0x%08llx    prev:%p  next:%p\n", st, st->prev, st->next);
+        fprintf(stderr, ">>> 0x%08RC_LTYPEP    prev:%p  next:%p\n", st, st->prev, st->next);
         st = st->next;
     }
 }
@@ -810,7 +810,7 @@ dscudaGetMangledFunctionName(char *name, const char *funcif, const char *ptxdata
     FILE *tmpfp;
     char ptxfile[1024];
 
-    WARN(4, "getMangledFunctionName(%08llx, %08llx, %08llx)  funcif:\"%s\"\n",
+    WARN(4, "getMangledFunctionName(%08RC_LTYPEP, %08RC_LTYPEP, %08RC_LTYPEP)  funcif:\"%s\"\n",
          name, funcif, ptxdata, funcif);
 
     // create a tmporary file that contains 'ptxdata'.
@@ -856,7 +856,7 @@ dscudaLoadModule(char *name, char *strdata) // 'strdata' must be NULL terminated
     int i, j, mid;
     Module *mp;
 
-    WARN(5, "dscudaLoadModule(0x%08llx) modulename:%s  ...", name, name);
+    WARN(5, "dscudaLoadModule(0x%08RC_LTYPEP) modulename:%s  ...", name, name);
 
 #if RC_CACHE_MODULE
     // look for modulename in the module list.
@@ -916,7 +916,7 @@ dscudaFuncGetAttributesWrapper(int *moduleid, struct cudaFuncAttributes *attr, c
     dscudaFuncGetAttributesResult *rp;
 
     initClient();
-    WARN(3, "dscudaFuncGetAttributesWrapper(%d, 0x%08llx, %s)...",
+    WARN(3, "dscudaFuncGetAttributesWrapper(%d, 0x%08RC_LTYPEP, %s)...",
          moduleid, (unsigned long)attr, func);
     Vdev_t *vdev = Vdev + Vdevid[vdevidIndex()];
     RCServer_t *sp = vdev->server;
@@ -1205,7 +1205,7 @@ dscudaMemcpyToSymbolWrapper(int *moduleid, const char *symbol, const void *src,
 
     initClient();
 
-    WARN(3, "dscudaMemcpyToSymbolWrapper(%d, 0x%08llx, 0x%08llx, %d, %d, %s)"
+    WARN(3, "dscudaMemcpyToSymbolWrapper(%d, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, %d, %d, %s)"
          "symbol:%s  ...",
          moduleid, (unsigned long)symbol, (unsigned long)src,
          count, offset, dscudaMemcpyKindName(kind), symbol);
@@ -1253,7 +1253,7 @@ dscudaMemcpyFromSymbolWrapper(int *moduleid, void *dst, const char *symbol,
 
     initClient();
 
-    WARN(3, "dscudaMemcpyFromSymbolWrapper(0x%08llx, 0x%08llx, 0x%08llx, %d, %d, %s)"
+    WARN(3, "dscudaMemcpyFromSymbolWrapper(0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, %d, %d, %s)"
          "symbol:%s  ...",
          moduleid, (unsigned long)dst, (unsigned long)symbol,
          count, offset, dscudaMemcpyKindName(kind), symbol);
@@ -1318,7 +1318,7 @@ dscudaMemcpyToSymbolAsyncWrapper(int *moduleid, const char *symbol, const void *
          count, offset, dscudaMemcpyKindName(kind), (unsigned long)stream, symbol);
     st = RCstreamArrayQuery(stream);
     if (!st) {
-        WARN(0, "invalid stream : 0x%08llx\n", stream);
+        WARN(0, "invalid stream : 0x%08RC_LTYPEP\n", stream);
         exit(1);
     }
     nredundancy = (Vdev + Vdevid[vdevidIndex()])->nredundancy;
@@ -1362,7 +1362,7 @@ dscudaMemcpyFromSymbolAsyncWrapper(int *moduleid, void *dst, const char *symbol,
          count, offset, dscudaMemcpyKindName(kind), (unsigned long)stream, symbol);
     st = RCstreamArrayQuery(stream);
     if (!st) {
-        WARN(0, "invalid stream : 0x%08llx\n", stream);
+        WARN(0, "invalid stream : 0x%08RC_LTYPEP\n", stream);
         exit(1);
     }
     nredundancy = (Vdev + Vdevid[vdevidIndex()])->nredundancy;
@@ -1458,7 +1458,7 @@ dscudaBindTextureWrapper(int *moduleid, char *texname,
 
     initClient();
 
-    WARN(3, "dscudaBindTextureWrapper(0x%08llx, %s, 0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx, %d)...",
+    WARN(3, "dscudaBindTextureWrapper(0x%08RC_LTYPEP, %s, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, %d)...",
          moduleid, texname, offset, tex, devPtr, desc, size);
 
     setTextureParams(&texbuf, tex, desc);
@@ -1492,7 +1492,7 @@ dscudaBindTexture2DWrapper(int *moduleid, char *texname,
 
     initClient();
 
-    WARN(3, "dscudaBindTexture2DWrapper(0x%08llx, %s, 0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx, %d, %d, %d)...",
+    WARN(3, "dscudaBindTexture2DWrapper(0x%08RC_LTYPEP, %s, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, %d, %d, %d)...",
          moduleid, texname,
          offset, tex, devPtr, desc, width, height, pitch);
 
@@ -1545,14 +1545,14 @@ dscudaBindTextureToArrayWrapper(int *moduleid, char *texname,
 
     initClient();
 
-    WARN(3, "dscudaBindTextureToArrayWrapper(0x%08llx, %s, 0x%08llx, 0x%08llx)...",
+    WARN(3, "dscudaBindTextureToArrayWrapper(0x%08RC_LTYPEP, %s, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP)...",
          moduleid, texname, (unsigned long)array, (unsigned long)desc);
 
     setTextureParams(&texbuf, tex, desc);
 
     ca = RCcuarrayArrayQuery((cudaArray *)array);
     if (!ca) {
-        WARN(0, "invalid cudaArray : 0x%08llx\n", array);
+        WARN(0, "invalid cudaArray : 0x%08RC_LTYPEP\n", array);
         exit(1);
     }
 
@@ -2021,7 +2021,7 @@ dscudaLaunchKernelWrapper(int *moduleid, int kid, char *kname,
 
     st = RCstreamArrayQuery((cudaStream_t)stream);
     if (!st) {
-        WARN(0, "invalid stream : 0x%08llx\n", stream);
+        WARN(0, "invalid stream : 0x%08RC_LTYPEP\n", stream);
         exit(1);
     }
 
@@ -2224,7 +2224,7 @@ cudaRuntimeGetVersion(int *runtimeVersion)
     int vid = vdevidIndex();
 
     initClient();
-    WARN(3, "cudaRuntimeGetVersion(0x%08llx)...", (unsigned long)runtimeVersion);
+    WARN(3, "cudaRuntimeGetVersion(0x%08RC_LTYPEP)...", (unsigned long)runtimeVersion);
     Vdev_t *vdev = Vdev + Vdevid[vid];
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(RuntimeGetVersion, Vdevid[vid], i);
@@ -2296,7 +2296,7 @@ cudaLaunch(const char *func)
     Vdev_t *vdev = Vdev + Vdevid[vi];
 
     initClient();
-    WARN(3, "cudaLaunch(0x%08llx)...", func);
+    WARN(3, "cudaLaunch(0x%08RC_LTYPEP)...", func);
 
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(Launch, vdevid, i);
@@ -2360,7 +2360,7 @@ cudaSetupArgument(const void *arg, size_t size, size_t offset)
     RCbuf argbuf;
 
     initClient();
-    WARN(3, "cudaSetupArgument(0x%llx, %d, %d)...", arg, size, offset);
+    WARN(3, "cudaSetupArgument(0x%RC_LTYPEP, %d, %d)...", arg, size, offset);
 
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(SetupArgument, vdevid, i);
@@ -2396,7 +2396,7 @@ cudaGetDevice(int *device)
     cudaError_t err = cudaSuccess;
 
     initClient();
-    WARN(3, "cudaGetDevice(0x%08llx)...", (unsigned long)device);
+    WARN(3, "cudaGetDevice(0x%08RC_LTYPEP)...", (unsigned long)device);
     *device = Vdevid[vdevidIndex()];
     WARN(3, "done.\n");
 
@@ -2441,7 +2441,7 @@ cudaChooseDevice(int *device, const struct cudaDeviceProp *prop)
     cudaError_t err = cudaSuccess;
 
     initClient();
-    WARN(3, "cudaChooseDevice(0x%08llx, 0x%08llx)...",
+    WARN(3, "cudaChooseDevice(0x%08RC_LTYPEP, 0x%08RC_LTYPEP)...",
          (unsigned long)device, (unsigned long)prop);
     *device = 0;
     WARN(3, "done.\n");
@@ -2457,7 +2457,7 @@ cudaGetDeviceCount(int *count)
 
     initClient();
     *count = Nvdev;
-    WARN(3, "cudaGetDeviceCount(0x%08llx)  count:%d ...",
+    WARN(3, "cudaGetDeviceCount(0x%08RC_LTYPEP)  count:%d ...",
     (unsigned long)count, *count);
     WARN(3, "done.\n");
 
@@ -2522,7 +2522,7 @@ cudaMalloc(void **devAdrPtr, size_t size)
     void *adrs[RC_NREDUNDANCYMAX];
 
     initClient();
-    WARN(3, "cudaMalloc(0x%08llx, %d)...", (unsigned long)devAdrPtr, size);
+    WARN(3, "cudaMalloc(0x%08RC_LTYPEP, %d)...", (unsigned long)devAdrPtr, size);
     Vdev_t *vdev = Vdev + Vdevid[vid];
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(Malloc, Vdevid[vid], i);
@@ -2540,7 +2540,7 @@ cudaMalloc(void **devAdrPtr, size_t size)
     RCuvaRegister(Vdevid[vid], adrs, size);
     *devAdrPtr = dscudaUvaOfAdr(adrs[0], Vdevid[vid]);
 
-    WARN(3, "done. *devAdrPtr:0x%08llx\n", *devAdrPtr);
+    WARN(3, "done. *devAdrPtr:0x%08RC_LTYPEP\n", *devAdrPtr);
 
     return err;
 }
@@ -2581,8 +2581,8 @@ cudaMemcpy(void *dst, const void *src, size_t count, enum cudaMemcpyKind kind)
     ldst = dscudaAdrOfUva(dst);
 
 
-    //    fprintf(stderr, ">>>> src:0x%016llx  lsrc:0x%016llx\n", src, lsrc);
-    //    fprintf(stderr, ">>>> dst:0x%016llx  ldst:0x%016llx\n", dst, ldst);
+    //    fprintf(stderr, ">>>> src:0x%016RC_LTYPEP  lsrc:0x%016RC_LTYPEP\n", src, lsrc);
+    //    fprintf(stderr, ">>>> dst:0x%016RC_LTYPEP  ldst:0x%016RC_LTYPEP\n", dst, ldst);
 
     switch (kind) {
       case cudaMemcpyDeviceToHost:
@@ -2665,7 +2665,7 @@ cudaFree(void *mem)
     int vid = vdevidIndex();
 
     initClient();
-    WARN(3, "cudaFree(0x%08llx)...", (unsigned long)mem);
+    WARN(3, "cudaFree(0x%08RC_LTYPEP)...", (unsigned long)mem);
     Vdev_t *vdev = Vdev + Vdevid[vid];
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(Free, Vdevid[vid], i);
@@ -2842,7 +2842,7 @@ __cudaRegisterFatBinary(void *fatCubin)
 
     initClient();
 
-    WARN(3, "__cudaRegisterFatBinary(0x%016llx).\n", fatCubin);
+    WARN(3, "__cudaRegisterFatBinary(0x%016RC_LTYPEP).\n", fatCubin);
 
     fatDeviceText_t *fdtp = (fatDeviceText_t *)fatCubin;
     unsigned long long int *img = fdtp->d;
@@ -2850,7 +2850,7 @@ __cudaRegisterFatBinary(void *fatCubin)
     imgword = imgbyte / 8 + 0;
 
     for (i = 0; i < 3 * 4; i += 4) {
-        WARN(3, "%d: %016llx %016llx %016llx %016llx\n",
+        WARN(3, "%d: %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP\n",
              i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
     }
 
@@ -2912,7 +2912,7 @@ __cudaUnregisterFatBinary(void **fatCubinHandle)
     void **handle;
 
     initClient();
-    WARN(3, "__cudaUnregisterFatBinary(0x%016llx).\n", fatCubinHandle);
+    WARN(3, "__cudaUnregisterFatBinary(0x%016RC_LTYPEP).\n", fatCubinHandle);
 
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(DscudaUnregisterFatBinary, Vdevid[vid], i);
@@ -2943,7 +2943,7 @@ __cudaRegisterFunction(void       **fatCubinHandle,
     Vdev_t *vdev = Vdev + Vdevid[vid];
 
     initClient();
-    WARN(3, "__cudaRegisterFunction(0x%llx, 0x%llx, %s, %s, %d, ...).\n",
+    WARN(3, "__cudaRegisterFunction(0x%RC_LTYPEP, 0x%RC_LTYPEP, %s, %s, %d, ...).\n",
          fatCubinHandle, hostFun, deviceFun, deviceName, thread_limit);
 
     if (tid || bid || bDim || gDim || wSize) {
@@ -2983,7 +2983,7 @@ __cudaRegisterVar(void **fatCubinHandle,
     Vdev_t *vdev = Vdev + Vdevid[vid];
 
     initClient();
-    WARN(3, "__cudaRegisterVar(0x%llx, 0x%llx, %s, %s, %d, %d, %d, %d).\n",
+    WARN(3, "__cudaRegisterVar(0x%RC_LTYPEP, 0x%RC_LTYPEP, %s, %s, %d, %d, %d, %d).\n",
          fatCubinHandle, hostVar, deviceAddress, deviceName, ext, size, constant, global);
 
     for (int i = 0; i < vdev->nredundancy; i++) {

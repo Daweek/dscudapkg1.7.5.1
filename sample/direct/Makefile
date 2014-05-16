@@ -62,7 +62,7 @@ OPENMP					:= -Xcompiler -fopenmp
 LIB							:=   
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
-FLAGS						:= $(CUDA_FLAGS)  
+FLAGS						:= $(LTYPEP64) $(CUDA_FLAGS)  
 
 ###########...Main Body...#############
 TARGET = direct
@@ -79,10 +79,10 @@ run_ibv: $(TARGET)_ibv pl2k pl8k pl64k
 	./$(TARGET)_ibv pl8k pl64k.snapshot
 
 $(TARGET)_tcp: $(TARGET)_tcp.o util.o $(CONNECT_TCP) 
-	$(NVCC) $(CUDA_FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@  $< util.o $(LIB) -ldscuda_tcp 
+	$(NVCC) $(LTYPEP64) $(CUDA_FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@  $< util.o $(LIB) -ldscuda_tcp 
 
 $(TARGET)_ibv: $(TARGET)_ibv.o util.o $(CONNECT_IBV) 
-	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) -o $@  $< util.o $(LIB) -ldscuda_ibv $(IBV)
+	$(NVCC) $(LTYPEP64) $(CUDA_FLAGS) $(INC) $(LIBDIR) -o $@  $< util.o $(LIB) -ldscuda_ibv $(IBV)
 
 $(TARGET)_tcp.o:$(TARGET).cu 
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -c -i $< 
@@ -91,10 +91,10 @@ $(TARGET)_ibv.o:$(TARGET).cu
 	$(DSCUDA_CPP) $(FLAGS) $(INC) $(LIBDIR) -o $@ -c -i $< 
 
 util.o:   util.c
-	$(GCC) -c -o $@ util.c
+	$(GCC) $(LTYPEP64) -c -o $@ util.c
 
 mkdist:   mkdist.c util.o
-	$(GCC) -o $@ mkdist.c util.o -lm
+	$(GCC) $(LTYPEP64) -o $@ mkdist.c util.o -lm
 
 pl2k: mkdist
 	./mkdist 2048 1 pl2k

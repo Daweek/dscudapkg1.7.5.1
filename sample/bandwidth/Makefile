@@ -62,7 +62,7 @@ OPENMP					:= -Xcompiler -fopenmp
 LIB							:=   
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
-FLAGS						:= $(CUDA_FLAGS)  
+FLAGS						:= $(LTYPEP64) $(CUDA_FLAGS)  
 
 ###########...Main Body...#############
 TARGET = bandwidth

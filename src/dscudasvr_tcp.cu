@@ -219,7 +219,7 @@ tcpUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             pval = (void*)&(argp->val.pointerval);
             cuerr = cuParamSetv(kfunc, argp->offset, pval, argp->size);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d) failed. %s\n",
+                WARN(0, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d) failed. %s\n",
                      kfunc, argp->offset, pval, argp->size,
                      cudaGetErrorString((cudaError_t)cuerr));
                 fatal_error(1);
@@ -230,7 +230,7 @@ tcpUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             ival = argp->val.intval;
             cuerr = cuParamSeti(kfunc, argp->offset, ival);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSeti(0x%08llx, %d, %d) failed. %s\n",
+                WARN(0, "cuParamSeti(0x%08RC_LTYPEP, %d, %d) failed. %s\n",
                      kfunc, argp->offset, ival,
                      cudaGetErrorString((cudaError_t)cuerr));
                 fatal_error(1);
@@ -241,7 +241,7 @@ tcpUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             fval = argp->val.floatval;
             cuerr = cuParamSetf(kfunc, argp->offset, fval);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetf(0x%08llx, %d, %f) failed. %s\n",
+                WARN(0, "cuParamSetf(0x%08RC_LTYPEP, %d, %f) failed. %s\n",
                      kfunc, argp->offset, fval,
                      cudaGetErrorString((cudaError_t)cuerr));
                 fatal_error(1);
@@ -252,7 +252,7 @@ tcpUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             pval = argp->val.customval;
             cuerr = cuParamSetv(kfunc, argp->offset, pval, argp->size);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d) failed. %s\n",
+                WARN(0, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d) failed. %s\n",
                      kfunc, argp->offset, pval, argp->size,
                      cudaGetErrorString((cudaError_t)cuerr));
                 fatal_error(1);

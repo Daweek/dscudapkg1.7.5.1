@@ -61,7 +61,7 @@ OPENMP					:= -Xcompiler -fopenmp
 LIB							:=   
 LIBDIR					:= $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR) 
 INC							:= $(CUDA_INC) $(DSCUDA_INC)
-FLAGS						:= $(CUDA_FLAGS) 
+FLAGS						:= $(LTYPEP64) $(CUDA_FLAGS) 
 
 ###########...Main Body...#############
 TARGET = vecadd
@@ -72,7 +72,7 @@ $(TARGET)_tcp: $(TARGET).cu $(CONNECT_TCP)
 	$(DSCUDA_CPP) -g $(FLAGS) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp
 	
 $(TARGET)_tcp_andr: $(TARGET).cu $(DSCUDA_PATH)/lib/libdscuda_tcp_andr.a
-	$(DSCUDA_CPP) --cpp -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp_andr
+	$(DSCUDA_CPP) --cpp $(LTYPEP64) -DTCP_ONLY=1 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_tcp_andr
 	
 $(TARGET)_ibv: $(TARGET).cu $(CONNECT_IBV)
 	$(DSCUDA_CPP) $(FLAGS) -DTCP_ONLY=0 $(INC) $(LIBDIR) -o $@ -i $< $(LIB) -ldscuda_ibv $(IBV)

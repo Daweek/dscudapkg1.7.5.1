@@ -207,7 +207,7 @@ RCDscudaSendP2P(RCHdr *rpkt0, RCHdr *spkt0)
 
 
     err = cudaMemcpy(&p2pspkt->srcbuf, (void *)rpkt->srcadr, rpkt->count, cudaMemcpyDeviceToHost);
-    WARN(3, "RCDscudaSendP2P:cudaMemcpy(0x%08llx, 0x%08lx, %d, %s) done.\n",
+    WARN(3, "RCDscudaSendP2P:cudaMemcpy(0x%08RC_LTYPEP, 0x%08lx, %d, %s) done.\n",
          &p2pspkt->srcbuf, rpkt->srcadr, rpkt->count,
          dscudaMemcpyKindName(cudaMemcpyDeviceToHost));
     check_cuda_error(err);
@@ -220,7 +220,7 @@ RCDscudaSendP2P(RCHdr *rpkt0, RCHdr *spkt0)
 
     // ack to the client.
     spkt->err = err;
-    WARN(3, "0x%08llx, 0x%08lx, %d, %s) done.\n",
+    WARN(3, "0x%08RC_LTYPEP, 0x%08lx, %d, %s) done.\n",
          &p2pspkt->srcbuf, rpkt->srcadr, rpkt->count,
          dscudaMemcpyKindName(cudaMemcpyHostToDevice));
 
@@ -262,7 +262,7 @@ recv_p2p_post_process(void)
     }
     rpkt->size = 0;
     err = cudaMemcpy((void *)rpkt->dstadr, &rpkt->srcbuf, rpkt->count, cudaMemcpyHostToDevice);
-    WARN(3, "recv_p2p_post_process:cudaMemcpy(0x%08llx, 0x%08lx, %d, %s) done.\n",
+    WARN(3, "recv_p2p_post_process:cudaMemcpy(0x%08RC_LTYPEP, 0x%08lx, %d, %s) done.\n",
          rpkt->dstadr, (unsigned long)&rpkt->srcbuf, rpkt->count,
          dscudaMemcpyKindName(cudaMemcpyHostToDevice));
     check_cuda_error(err);

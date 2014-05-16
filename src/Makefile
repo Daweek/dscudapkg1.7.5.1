@@ -67,7 +67,7 @@ BINCOMPAT				:= -DBINCOMPATIBLE=1
 LIB             := $(DSCUDA_LIB)
 LIBDIR          := $(CUDA_LIB_DIR) $(DSCUDA_LIB_DIR)
 INC             := $(CUDA_INC) $(DSCUDA_INC)
-FLAGS           := $(CONNECT_FLAG) $(PERF_FLAG)
+FLAGS           := $(LTYPEP64)
 
 ############################################################################
 #Targets................................
@@ -84,10 +84,10 @@ tcponly:	$(TARGET_TCPONLY)
 #Binaries..............................
 
 dscudad_ibv :	dscudad.c sockutil.c sockutil.h
-	$(CC) $(PERF_C) -o $@ dscudad.c sockutil.c -lpthread
+	$(CC) $(FLAGS) $(PERF_C) -o $@ dscudad.c sockutil.c -lpthread
 
 dscudad_tcp:	dscudad.c sockutil.c sockutil.h
-	$(CC) $(PERF_C) -DTCP_ONLY=1 -o $@ dscudad.c sockutil.c -lpthread
+	$(CC) $(FLAGS) $(PERF_C) -DTCP_ONLY=1 -o $@ dscudad.c sockutil.c -lpthread
 
 dummysvr :	dummysvr.c
 
@@ -95,77 +95,77 @@ dummyclient :	dummyclient.c
 
 dscudasvr_ibv :	dscudasvr.cu dscudasvr_ibv.cu dscudasvr_tcp.cu $(DSCUDA_HDR) \
                 dscudautil.o ibvutil.o sockutil.o
-	$(NVCC) $(CUDA_INC) $(SVROPT) -c -o $@.o dscudasvr.cu
-	$(NVCC) $(CUDA_LIB_DIR) $(SVROPT) -o $@ $@.o dscudautil.o ibvutil.o  sockutil.o \
+	$(NVCC) $(FLAGS) $(CUDA_INC) $(SVROPT) -c -o $@.o dscudasvr.cu
+	$(NVCC) $(FLAGS) $(CUDA_LIB_DIR) $(SVROPT) -o $@ $@.o dscudautil.o ibvutil.o  sockutil.o \
                 -lcufft -lcudart -lcuda -lrdmacm -libverbs -lpthread
 
 dscudasvr_tcp:	dscudasvr.cu dscudasvr_tcp.cu $(DSCUDA_HDR) \
                 dscudautil.o sockutil.o
-	$(NVCC) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@.o dscudasvr.cu
-	$(NVCC) $(CUDA_LIB_DIR) -o $@ $@.o dscudautil.o  sockutil.o \
+	$(NVCC) $(FLAGS) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@.o dscudasvr.cu
+	$(NVCC) $(FLAGS) $(CUDA_LIB_DIR) -o $@ $@.o dscudautil.o  sockutil.o \
                 -lcufft -lcudart -lcuda -lpthread
 
 dscudatest :	dscudatest.cu libdscuda_ibv.so
-	$(NVCC) $(CUDA_INC) -o $@ $< -L../lib -ldscuda_ibv -lrdmacm -libverbs -lpthread
+	$(NVCC) $(FLAGS) $(CUDA_INC) -o $@ $< -L../lib -ldscuda_ibv -lrdmacm -libverbs -lpthread
 
 ############################################################################
 #Libraries....................
 
 libdscuda_ibv.so :	$(CLIENTBASE) libdscuda_ibv.cu $(DSCUDA_HDR) \
                         dscudautil.o ibvutil.o sockutil.o
-	$(NVCC) $(PICOPT) $(BINCOMPAT) $(CUDA_INC) -c -o libdscuda_ibv.o libdscuda_ibv.cu
-	$(CXX) $(PERF_C) -shared -Wl,-soname,libdscuda.so -o $@ libdscuda_ibv.o dscudautil.o \
+	$(NVCC) $(FLAGS) $(PICOPT) $(BINCOMPAT) $(CUDA_INC) -c -o libdscuda_ibv.o libdscuda_ibv.cu
+	$(CXX) $(FLAGS) $(PERF_C) -shared -Wl,-soname,libdscuda.so -o $@ libdscuda_ibv.o dscudautil.o \
                ibvutil.o dscudaverb.o sockutil.o -lrdmacm -libverbs -lpthread
 
 libdscuda_tcp.so :	$(CLIENTBASE) libdscuda_tcp.cu $(DSCUDAHDR) \
                         dscudautil.o sockutil.o
-	$(NVCC) $(PICOPT) $(BINCOMPAT) $(CUDA_INC) -c -o libdscuda_tcp.o libdscuda_tcp.cu
-	$(CXX) $(PERF_C) -shared -Wl,-soname,libdscuda.so -o $@ libdscuda_tcp.o \
+	$(NVCC) $(FLAGS) $(PICOPT) $(BINCOMPAT) $(CUDA_INC) -c -o libdscuda_tcp.o libdscuda_tcp.cu
+	$(CXX) $(FLAGS) $(PERF_C) -shared -Wl,-soname,libdscuda.so -o $@ libdscuda_tcp.o \
                dscudautil.o dscudaverb.o sockutil.o
 
 libdscuda_ibv.a :	$(CLIENTBASE) libdscuda_ibv.cu $(DSCUDA_HDR) \
                         dscudautil.o ibvutil.o sockutil.o
-	$(NVCC) $(CUDA_INC) -c -o libdscuda_ibv.o libdscuda_ibv.cu
+	$(NVCC) $(FLAGS) $(CUDA_INC) -c -o libdscuda_ibv.o libdscuda_ibv.cu
 	ar rvu $@ libdscuda_ibv.o dscudautil.o ibvutil.o dscudaverb.o sockutil.o
 	ranlib $@
 
 libdscuda_tcp.a :	$(CLIENTBASE) libdscuda_tcp.cu $(DSCUDA_HDR) \
                         dscudautil.o sockutil.o
-	$(NVCC) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp.o libdscuda_tcp.cu
+	$(NVCC) $(FLAGS) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp.o libdscuda_tcp.cu
 	ar rvu $@ libdscuda_tcp.o dscudautil.o dscudaverb.o  sockutil.o
 	ranlib $@
 	
 libdscuda_tcp_andr.a :	$(CLIENTBASEANDR) libdscuda_tcp.cpp $(DSCUDA_HDR) \
                         dscudautil_andr.o sockutil_andr.o
-	$(CXX) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp_andr.o libdscuda_tcp.cpp
+	$(CXX) $(FLAGS) $(CUDA_INC) -DTCP_ONLY=1 -c -o libdscuda_tcp_andr.o libdscuda_tcp.cpp
 	ar rvu $@ libdscuda_tcp_andr.o dscudautil_andr.o dscudaverb_andr.o sockutil_andr.o
 	ranlib $@
 
 # A dummy library to override CUDA runtime library functions.
 libcudart.so.3:	cudart_dummy.cu
-	$(NVCC) $(CUDA_INC) -shared -Xcompiler -fPIC -o $@ $<
+	$(NVCC) $(FLAGS) $(CUDA_INC) -shared -Xcompiler -fPIC -o $@ $<
 ############################################################################
 #Objects........................
 dscudaverb.o:	dscudaverb.cu
-	$(NVCC) $(PICOPT) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@ $<
+	$(NVCC) $(FLAGS) $(PICOPT) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@ $<
 
 dscudautil.o:	dscudautil.cu
-	$(NVCC) $(PICOPT) $(CUDA_INC) -c -o $@ $<
+	$(NVCC) $(FLAGS) $(PICOPT) $(CUDA_INC) -c -o $@ $<
 
 sockutil.o:	sockutil.c
-	$(NVCC) $(PICOPT) $(CUDA_INC) -c -o $@ $<
+	$(NVCC) $(FLAGS) $(PICOPT) $(CUDA_INC) -c -o $@ $<
 
 ibvutil.o:	ibvutil.cpp ibvdefs.h
-	$(CXX) $(PERF_C) $(CUDA_INC) -c -o $@ $<
+	$(CXX) $(FLAGS) $(PERF_C) $(CUDA_INC) -c -o $@ $<
 #For android.....................
 dscudaverb_andr.o:	dscudaverb.cpp
-	$(CXX) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@ $<
+	$(CXX) $(FLAGS) $(CUDA_INC) -DTCP_ONLY=1 -c -o $@ $<
 
 dscudautil_andr.o:	dscudautil.cpp
-	$(CXX) $(CUDA_INC) -c -o $@ $<
+	$(CXX) $(FLAGS) $(CUDA_INC) -c -o $@ $<
 
 sockutil_andr.o:	sockutil.c
-	$(CC) $(CUDA_INC) -c -o $@ $<
+	$(CC) $(FLAGS) $(CUDA_INC) -c -o $@ $<
 ############################################################################
 #Others.........................
 

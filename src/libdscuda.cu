@@ -1,6 +1,9 @@
 /*
  * this file is included into the bottom of libdscuda_ibv.cu & libdscuda_tcp.cu.
  */
+#include "dscudadefs.h"
+#include "dscuda.h"
+
 
 static cudaError_t cudaMemcpyP2P(void *dst, int ddev, const void *src, int sdev, size_t count);
 
@@ -2517,12 +2520,18 @@ cudaDeviceDisablePeerAccess(int peerDevice)
 cudaError_t
 cudaMalloc(void **devAdrPtr, size_t size)
 {
-    cudaError_t err = cudaSuccess;
+	cudaError_t err = cudaSuccess;
     int vid = vdevidIndex();
     void *adrs[RC_NREDUNDANCYMAX];
 
     initClient();
-    WARN(3, "cudaMalloc(0x%08RC_LTYPEP, %d)...", (unsigned long)devAdrPtr, size);
+
+#ifdef RC_LTYPEP64
+    WARN(3, "cudaMalloc(0x%08llx, %d)...", (unsigned long)devAdrPtr, size);
+#else
+    WARN(3, "cudaMalloc(0x%08lx, %d)...", (unsigned long)devAdrPtr, size);
+#endif
+
     Vdev_t *vdev = Vdev + Vdevid[vid];
     for (int i = 0; i < vdev->nredundancy; i++) {
         SETUP_PACKET_BUF(Malloc, Vdevid[vid], i);

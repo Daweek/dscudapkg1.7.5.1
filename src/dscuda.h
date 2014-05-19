@@ -13,6 +13,8 @@
 #include "ibvdefs.h"
 #include "tcpdefs.h"
 
+extern char	tmp[10];
+
 typedef unsigned long RCadr;
 typedef unsigned long RCstream;
 typedef unsigned long RCevent;

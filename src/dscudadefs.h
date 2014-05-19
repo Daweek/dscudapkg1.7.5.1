@@ -29,10 +29,11 @@
 
 #define RC_DAEMON_IP_PORT  (65432)
 #define RC_SERVER_IP_PORT  (RC_DAEMON_IP_PORT+1)
+
 #ifdef LTYPEP64
-	#define RC_LTYPEP "llx"	//For printing WARN messages 64/32 bits such as WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx)
+#define RC_LTYPEP64 	//For printing WARN messages 64/32 bits such as WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx)
 #else
-	#define RC_LTYPE "lx"
+#undef RC_LTYPEP
 #endif
 
 #endif //  _DSCUDADEFS_H

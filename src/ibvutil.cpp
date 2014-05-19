@@ -153,8 +153,14 @@ poll_cq(void *ctx)
                 continue; // escape from this do block.
             }
             if (wc.status != IBV_WC_SUCCESS) {
-                WARN(0, "ibv_poll_cq() got WC with status %d, %s. cq:0x%08RC_LTYPEP\n",
-                     wc.status, ibv_wc_status_str(wc.status), cq);
+#ifdef RC_LTYPEP64
+            	WARN(0, "ibv_poll_cq() got WC with status %d, %s. cq:0x%08llx\n",
+            	                     wc.status, ibv_wc_status_str(wc.status), cq);
+#else
+            	WARN(0, "ibv_poll_cq() got WC with status %d, %s. cq:0x%08lx\n",
+            	                     wc.status, ibv_wc_status_str(wc.status), cq);
+#endif
+
                 //                exit(1);
             }
             (conn->on_completion_handler)(&wc);

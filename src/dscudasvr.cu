@@ -238,9 +238,16 @@ RCMemcpyH2D(RCHdr *rpkt0, RCHdr *spkt0)
     check_cuda_error(err);
 
     spkt->err = err;
-    WARN(3, "0x%08RC_LTYPEP, 0x%08lx, %d, %s) done.\n",
-         rpkt->dstadr, (unsigned long)&rpkt->srcbuf, rpkt->count,
-         dscudaMemcpyKindName(cudaMemcpyHostToDevice));
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%08llx, 0x%08lx, %d, %s) done.\n",
+            rpkt->dstadr, (unsigned long)&rpkt->srcbuf, rpkt->count,
+            dscudaMemcpyKindName(cudaMemcpyHostToDevice));
+#else
+    WARN(3, "0x%08lx, 0x%08lx, %d, %s) done.\n",
+            rpkt->dstadr, (unsigned long)&rpkt->srcbuf, rpkt->count,
+            dscudaMemcpyKindName(cudaMemcpyHostToDevice));
+#endif
+
 
     WAIT_READY_TO_KICKOFF(IbvConn);
     return spktsize;
@@ -255,9 +262,16 @@ RCMemcpyD2H(RCHdr *rpkt0, RCHdr *spkt0)
     err = cudaMemcpy(&spkt->dstbuf, (void *)rpkt->srcadr, rpkt->count, cudaMemcpyDeviceToHost);
     check_cuda_error(err);
     spkt->err = err;
-    WARN(3, "0x%08lx, 0x%08RC_LTYPEP, %d, %s) done.\n",
-         (unsigned long)&spkt->dstbuf, rpkt->srcadr, rpkt->count,
-         dscudaMemcpyKindName(cudaMemcpyDeviceToHost));
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%08lx, 0x%08llx, %d, %s) done.\n",
+             (unsigned long)&spkt->dstbuf, rpkt->srcadr, rpkt->count,
+             dscudaMemcpyKindName(cudaMemcpyDeviceToHost));
+#else
+    WARN(3, "0x%08lx, 0x%08lx, %d, %s) done.\n",
+             (unsigned long)&spkt->dstbuf, rpkt->srcadr, rpkt->count,
+             dscudaMemcpyKindName(cudaMemcpyDeviceToHost));
+#endif
+
 
     WAIT_READY_TO_KICKOFF(IbvConn);
     spktsize += rpkt->count;
@@ -296,9 +310,16 @@ RCMemcpyD2D(RCHdr *rpkt0, RCHdr *spkt0)
     check_cuda_error(err);
 
     spkt->err = err;
-    WARN(3, "0x%08RC_LTYPEP, 0x%08lx, %d, %s) done.\n",
-         rpkt->dstadr, rpkt->srcadr, rpkt->count,
-         dscudaMemcpyKindName(cudaMemcpyDeviceToDevice));
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%08llx, 0x%08lx, %d, %s) done.\n",
+             rpkt->dstadr, rpkt->srcadr, rpkt->count,
+             dscudaMemcpyKindName(cudaMemcpyDeviceToDevice));
+#else
+    WARN(3, "0x%08lx, 0x%08lx, %d, %s) done.\n",
+             rpkt->dstadr, rpkt->srcadr, rpkt->count,
+             dscudaMemcpyKindName(cudaMemcpyDeviceToDevice));
+#endif
+
 
     WAIT_READY_TO_KICKOFF(IbvConn);
     return spktsize;
@@ -330,7 +351,13 @@ RCMalloc(RCHdr *rpkt0, RCHdr *spkt0)
     err = cudaMalloc((void**)&spkt->devAdr, rpkt->size);
     check_cuda_error(err);
     spkt->err = err;
-    WARN(3, "0x%08RC_LTYPEP, %d) done. devadr:0x%08RC_LTYPEP\n", &spkt->devAdr, rpkt->size, spkt->devAdr);
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%08llx, %d) done. devadr:0x%08llx\n", &spkt->devAdr, rpkt->size, spkt->devAdr);
+
+#else
+    WARN(3, "0x%08lx, %d) done. devadr:0x%08lx\n", &spkt->devAdr, rpkt->size, spkt->devAdr);
+
+#endif
 
     WAIT_READY_TO_KICKOFF(IbvConn);
     return spktsize;
@@ -345,7 +372,12 @@ RCFree(RCHdr *rpkt0, RCHdr *spkt0)
     err = cudaFree((void*)rpkt->devAdr);
     check_cuda_error(err);
     spkt->err = err;
-    WARN(3, "0x%08RC_LTYPEP) done.\n", rpkt->devAdr);
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%08llx) done.\n", rpkt->devAdr);
+#else
+    WARN(3, "0x%08lx) done.\n", rpkt->devAdr);
+#endif
+
 
     WAIT_READY_TO_KICKOFF(IbvConn);
     return spktsize;
@@ -673,9 +705,16 @@ RCUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             pval = (void*)&(argp->val.pointerval);
             cuerr = cuParamSetv(kfunc, argp->offset, pval, argp->size);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d) failed. %s\n",
-                     kfunc, argp->offset, pval, argp->size,
-                     cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+            	WARN(0, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d) failed. %s\n",
+            	                     kfunc, argp->offset, pval, argp->size,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#else
+            	WARN(0, "cuParamSetv(0x%08lx, %d, 0x%08lx, %d) failed. %s\n",
+            	                     kfunc, argp->offset, pval, argp->size,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
                 fatal_error(1);
             }
             break;
@@ -684,9 +723,16 @@ RCUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             ival = argp->val.intval;
             cuerr = cuParamSeti(kfunc, argp->offset, ival);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSeti(0x%08RC_LTYPEP, %d, %d) failed. %s\n",
-                     kfunc, argp->offset, ival,
-                     cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+            	 WARN(0, "cuParamSeti(0x%08llx, %d, %d) failed. %s\n",
+            	                     kfunc, argp->offset, ival,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#else
+            	 WARN(0, "cuParamSeti(0x%08lx, %d, %d) failed. %s\n",
+            	                     kfunc, argp->offset, ival,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
                 fatal_error(1);
             }
             break;
@@ -695,9 +741,16 @@ RCUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             fval = argp->val.floatval;
             cuerr = cuParamSetf(kfunc, argp->offset, fval);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetf(0x%08RC_LTYPEP, %d, %f) failed. %s\n",
-                     kfunc, argp->offset, fval,
-                     cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+            	 WARN(0, "cuParamSetf(0x%08llx, %d, %f) failed. %s\n",
+            	                     kfunc, argp->offset, fval,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#else
+            	 WARN(0, "cuParamSetf(0x%08lx, %d, %f) failed. %s\n",
+            	                     kfunc, argp->offset, fval,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
                 fatal_error(1);
             }
             break;
@@ -706,9 +759,16 @@ RCUnpackKernelParam(CUfunction *kfuncp, int narg, RCArg *args)
             pval = argp->val.customval;
             cuerr = cuParamSetv(kfunc, argp->offset, pval, argp->size);
             if (cuerr != CUDA_SUCCESS) {
-                WARN(0, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d) failed. %s\n",
-                     kfunc, argp->offset, pval, argp->size,
-                     cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+            	WARN(0, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d) failed. %s\n",
+            	                     kfunc, argp->offset, pval, argp->size,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#else
+            	WARN(0, "cuParamSetv(0x%08lx, %d, 0x%08lx, %d) failed. %s\n",
+            	                     kfunc, argp->offset, pval, argp->size,
+            	                     cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
                 fatal_error(1);
             }
             break;
@@ -905,7 +965,12 @@ setTextureParams(CUtexref texref, RCtexture texbuf, char *texname, CUDA_ARRAY_DE
         descp->Format = fmt[fmt_index];
         descp->NumChannels = ncomponent;
     }
-    WARN(4, "cuTexRefSetFormat(0x%08RC_LTYPEP, %d, %d)\n", texref, fmt[fmt_index], ncomponent);
+#ifdef RC_LTYPEP64
+    WARN(4, "cuTexRefSetFormat(0x%08llx, %d, %d)\n", texref, fmt[fmt_index], ncomponent);
+#else
+    WARN(4, "cuTexRefSetFormat(0x%08lx, %d, %d)\n", texref, fmt[fmt_index], ncomponent);
+#endif
+
     err = (cudaError_t)cuTexRefSetFormat(texref, fmt[fmt_index], ncomponent);
     if (err != cudaSuccess) {
         check_cuda_error(err);
@@ -928,7 +993,12 @@ RCDscudaBindTexture(RCHdr *rpkt0, RCHdr *spkt0)
     getTexRef(rpkt->moduleid, rpkt->texname, &texref);
     err = setTextureParams(texref, rpkt->texbuf, rpkt->texname);
     if (err == cudaSuccess) {
-        WARN(4, "cuTexRefSetAddress(0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, %d)\n", &spkt->offset, texref, rpkt->devptr, rpkt->size);
+#ifdef RC_LTYPEP64
+    	 WARN(4, "cuTexRefSetAddress(0x%08llx, 0x%08llx, 0x%08llx, %d)\n", &spkt->offset, texref, rpkt->devptr, rpkt->size);
+#else
+    	 WARN(4, "cuTexRefSetAddress(0x%08lx, 0x%08lx, 0x%08lx, %d)\n", &spkt->offset, texref, rpkt->devptr, rpkt->size);
+#endif
+
         err = (cudaError_t)cuTexRefSetAddress((size_t *)&spkt->offset, texref, (CUdeviceptr)(rpkt->devptr), rpkt->size);
         check_cuda_error(err);
     }
@@ -1169,12 +1239,23 @@ initDscuda(void)
     }
     err = (CUresult)cudaSetValidDevices(Devid, Ndevice);
     if (err != CUDA_SUCCESS) {
-        WARN(0, "cudaSetValidDevices(0x%08RC_LTYPEP, %d) failed.\n", Devid, Ndevice);
+#ifdef RC_LTYPEP64
+    	 WARN(0, "cudaSetValidDevices(0x%08llx, %d) failed.\n", Devid, Ndevice);
+#else
+    	 WARN(0, "cudaSetValidDevices(0x%08lx, %d) failed.\n", Devid, Ndevice);
+#endif
+
         exit(1);
     }
     dscuDevice = Devid[0];
-    WARN(3, "cudaSetValidDevices(0x%08RC_LTYPEP, %d). dscuDevice:%d\n",
-         Devid, Ndevice, dscuDevice);
+#ifdef RC_LTYPEP64
+    WARN(3, "cudaSetValidDevices(0x%08llx, %d). dscuDevice:%d\n",
+            Devid, Ndevice, dscuDevice);
+#else
+    WARN(3, "cudaSetValidDevices(0x%08lx, %d). dscuDevice:%d\n",
+            Devid, Ndevice, dscuDevice);
+#endif
+
     WARN(4, "initDscuda done.\n");
     return (cudaError_t)err;
 }
@@ -1217,7 +1298,12 @@ destroyDscuContext(void)
     releaseModules(all);
 
     cuerr = cuCtxDestroy(dscuContext);
-    WARN(4, "cuCtxDestroy(0x%08RC_LTYPEP", dscuContext);
+#ifdef RC_LTYPEP64
+    WARN(4, "cuCtxDestroy(0x%08llx", dscuContext);
+#else
+    WARN(4, "cuCtxDestroy(0x%08lx", dscuContext);
+#endif
+
     if (cuerr != CUDA_SUCCESS) {
         WARN(0, "cuCtxDestroy() failed.\n");
         fatal_error(1);
@@ -1351,10 +1437,18 @@ getGlobalSymbol(int moduleid, char *symbolname, CUdeviceptr *dptr, size_t *size)
 	 mp->name, symbolname, *dptr);
     }
     else {
-        WARN(0, "cuModuleGetGlobal(0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP, 0x%08RC_LTYPEP) failed."
-             " modulename:%s  symbolname:%s  %s\n",
-             dptr, size, mp->handle, symbolname,
-             mp->name, symbolname, cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+    	 WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx) failed."
+    	             " modulename:%s  symbolname:%s  %s\n",
+    	             dptr, size, mp->handle, symbolname,
+    	             mp->name, symbolname, cudaGetErrorString((cudaError_t)cuerr));
+#else
+    	 WARN(0, "cuModuleGetGlobal(0x%08lx, 0x%08lx, 0x%08lx, 0x%08lx) failed."
+    	             " modulename:%s  symbolname:%s  %s\n",
+    	             dptr, size, mp->handle, symbolname,
+    	             mp->name, symbolname, cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
         fatal_error(1);
     }
 }
@@ -1541,7 +1635,12 @@ dscudaLaunchKernel(int moduleid, int kid, char *kname,
                  kname, cudaGetErrorString((cudaError_t)cuerr));
             fatal_error(1);
         }
-        WARN(3, "cuLaunchGridAsync() done.  kname:%s  stream:0x%08RC_LTYPEP\n", kname, stream);
+#ifdef RC_LTYPEP64
+        WARN(3, "cuLaunchGridAsync() done.  kname:%s  stream:0x%08llx\n", kname, stream);
+#else
+        WARN(3, "cuLaunchGridAsync() done.  kname:%s  stream:0x%08lx\n", kname, stream);
+#endif
+
     }
 
 #endif
@@ -1577,15 +1676,29 @@ RCLaunch(RCHdr *rpkt0, RCHdr *spkt0)
         }
     }
     if (!found) {
-        WARN(0, "function pointer: 0x%016RC_LTYPEP not found in Kfunc[] list. abort.\n", rpkt->func);
+#ifdef RC_LTYPEP64
+    	 WARN(0, "function pointer: 0x%016llx not found in Kfunc[] list. abort.\n", rpkt->func);
+#else
+    	 WARN(0, "function pointer: 0x%016lx not found in Kfunc[] list. abort.\n", rpkt->func);
+#endif
+
         exit(1);
     }
     kfunc = Kfunc[i].hostFuncHandle;
     kname = Kfunc[i].deviceFuncSymbol;
 
     WARN(3, "Kfunc[%d]\n", i);
-    WARN(3, "  hostFuncPtr      : 0x%016RC_LTYPEP\n", rpkt->func);
-    WARN(3, "  hostFuncHandle   : 0x%016RC_LTYPEP\n", kfunc);
+#ifdef RC_LTYPEP64
+    WARN(3, "  hostFuncPtr      : 0x%016llx\n", rpkt->func);
+#else
+    WARN(3, "  hostFuncPtr      : 0x%016lx\n", rpkt->func);
+#endif
+#ifdef RC_LTYPEP64
+    WARN(3, "  hostFuncHandle   : 0x%016llx\n", kfunc);
+#else
+    WARN(3, "  hostFuncHandle   : 0x%016lx\n", kfunc);
+#endif
+
     WARN(3, "  deviceFuncSymbol : %s\n", kname);
 
     void *valp;
@@ -1596,20 +1709,38 @@ RCLaunch(RCHdr *rpkt0, RCHdr *spkt0)
         valp = Kparam[i].val;
 
         cuerr = cuParamSetv(kfunc, offset, valp, size);
-        WARN(3, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d)\n",
-             kfunc, offset, valp, size);
+#ifdef RC_LTYPEP64
+        WARN(3, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d)\n",
+                     kfunc, offset, valp, size);
+#else
+        WARN(3, "cuParamSetv(0x%08lx, %d, 0x%08lx, %d)\n",
+                     kfunc, offset, valp, size);
+#endif
+
 
         if (cuerr != CUDA_SUCCESS) {
-            WARN(0, "cuParamSetv(0x%08RC_LTYPEP, %d, 0x%08RC_LTYPEP, %d) failed. %s\n",
-                 kfunc, offset, valp, size,
-                 cudaGetErrorString((cudaError_t)cuerr));
+#ifdef RC_LTYPEP64
+        	 WARN(0, "cuParamSetv(0x%08llx, %d, 0x%08llx, %d) failed. %s\n",
+        	                 kfunc, offset, valp, size,
+        	                 cudaGetErrorString((cudaError_t)cuerr));
+#else
+        	 WARN(0, "cuParamSetv(0x%08lx, %d, 0x%08lx, %d) failed. %s\n",
+        	                 kfunc, offset, valp, size,
+        	                 cudaGetErrorString((cudaError_t)cuerr));
+#endif
+
             fatal_error(1);
         }
     }
     paramsize = offset + size;
 
     cuerr = cuParamSetSize(kfunc, paramsize);
-    WARN(3, "cuParamSetSize(0x%08RC_LTYPEP, %d)\n", kfunc, paramsize);
+#ifdef RC_LTYPEP64
+    WARN(3, "cuParamSetSize(0x%08llx, %d)\n", kfunc, paramsize);
+#else
+    WARN(3, "cuParamSetSize(0x%08lx, %d)\n", kfunc, paramsize);
+#endif
+
     if (cuerr != CUDA_SUCCESS) {
         WARN(0, "cuParamSetSize() failed. size:%d %s\n",
              paramsize, cudaGetErrorString((cudaError_t)cuerr));
@@ -1618,7 +1749,12 @@ RCLaunch(RCHdr *rpkt0, RCHdr *spkt0)
     WARN(5, "cuParamSetSize() done.\n");
 
     cuerr = cuFuncSetBlockShape(kfunc, Kbdim.x, Kbdim.y, Kbdim.z);
-    WARN(3, "cuFuncSetBlockShape(0x%08RC_LTYPEP, %d, %d, %d)\n", kfunc, Kbdim.x, Kbdim.y, Kbdim.z);
+#ifdef RC_LTYPEP64
+    WARN(3, "cuFuncSetBlockShape(0x%08llx, %d, %d, %d)\n", kfunc, Kbdim.x, Kbdim.y, Kbdim.z);
+#else
+    WARN(3, "cuFuncSetBlockShape(0x%08lx, %d, %d, %d)\n", kfunc, Kbdim.x, Kbdim.y, Kbdim.z);
+#endif
+
     if (cuerr != CUDA_SUCCESS) {
         WARN(0, "cuFuncSetBlockShape() failed. %s\n", cudaGetErrorString((cudaError_t)cuerr));
         fatal_error(1);
@@ -1627,7 +1763,12 @@ RCLaunch(RCHdr *rpkt0, RCHdr *spkt0)
 
     if (Ksmemsize != 0) {
         cuerr = cuFuncSetSharedSize(kfunc, Ksmemsize);
-        WARN(3, "cuFuncSetSharedSize(0x%08RC_LTYPEP, %d)\n", kfunc, Ksmemsize);
+#ifdef RC_LTYPEP64
+        WARN(3, "cuFuncSetSharedSize(0x%08llx, %d)\n", kfunc, Ksmemsize);
+#else
+        WARN(3, "cuFuncSetSharedSize(0x%08lx, %d)\n", kfunc, Ksmemsize);
+#endif
+
         if (cuerr != CUDA_SUCCESS) {
             WARN(0, "cuFuncSetSharedSize() failed. %s\n", cudaGetErrorString((cudaError_t)cuerr));
             fatal_error(1);
@@ -1636,7 +1777,12 @@ RCLaunch(RCHdr *rpkt0, RCHdr *spkt0)
     }
 
     cuerr = cuLaunchGrid(kfunc, Kgdim.x, Kgdim.y);
-    WARN(3, "cuLaunchGrid(0x%08RC_LTYPEP, %d, %d)\n", kfunc, Kgdim.x, Kgdim.y);
+#ifdef RC_LTYPEP64
+    WARN(3, "cuLaunchGrid(0x%08llx, %d, %d)\n", kfunc, Kgdim.x, Kgdim.y);
+#else
+    WARN(3, "cuLaunchGrid(0x%08lx, %d, %d)\n", kfunc, Kgdim.x, Kgdim.y);
+#endif
+
     if (cuerr != CUDA_SUCCESS) {
         WARN(0, "cuLaunchGrid() failed. kname:%s %s\n",
              kname, cudaGetErrorString((cudaError_t)cuerr));
@@ -1697,7 +1843,12 @@ RCSetupArgument(RCHdr *rpkt0, RCHdr *spkt0)
     int offset = rpkt->offset;
 
     WARN(3, "cudaSetupArgument(");
-    WARN(3, "0x%RC_LTYPEP %d, %d) done.\n", argbuf, size, offset);
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%llx %d, %d) done.\n", argbuf, size, offset);
+#else
+    WARN(3, "0x%lx %d, %d) done.\n", argbuf, size, offset);
+#endif
+
     if (!dscuContext) createDscuContext();
 
     if (RC_KARGLEN < size) {
@@ -1735,9 +1886,16 @@ RCDscudaRegisterFatBinary(RCHdr *rpkt0, RCHdr *spkt0)
     if (strlen(symbol) == 0) {
         symbol = 0;
     }
+#ifdef RC_LTYPEP64
+    WARN(3, "RCDscudaRegisterFatBinary(%d, %d, 0x%llx, 0x%llx) done. size:%d symbol:%s\n",
+            m, v, imgbuf, symbol, imgsize, symbol);
 
-    WARN(3, "RCDscudaRegisterFatBinary(%d, %d, 0x%RC_LTYPEP, 0x%RC_LTYPEP) done. size:%d symbol:%s\n",
-         m, v, imgbuf, symbol, imgsize, symbol);
+#else
+    WARN(3, "RCDscudaRegisterFatBinary(%d, %d, 0x%lx, 0x%lx) done. size:%d symbol:%s\n",
+            m, v, imgbuf, symbol, imgsize, symbol);
+
+#endif
+
 
     if (!dscuContext) createDscuContext();
 
@@ -1751,14 +1909,24 @@ RCDscudaRegisterFatBinary(RCHdr *rpkt0, RCHdr *spkt0)
         memcpy(fdt->d, imgbuf, imgsize);
         fdt->f = symbol;
         handle = __cudaRegisterFatBinary(fdt);
+#ifdef RC_LTYPEP64
+        WARN(3, "size: 0x%llx byte, 0x%llx word\n", imgsize, imgsize / 8);
+#else
+        WARN(3, "size: 0x%lx byte, 0x%lx word\n", imgsize, imgsize / 8);
+#endif
 
-        WARN(3, "size: 0x%RC_LTYPEP byte, 0x%RC_LTYPEP word\n", imgsize, imgsize / 8);
 
         int i;
         unsigned long long int *img = fdt->d;
         for (i = 0; i < 3 * 4; i += 4) {
-            WARN(3, "%d: %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP\n",
-                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#ifdef RC_LTYPEP64
+        	 WARN(3, "%d: %016llx %016llx %016llx %016llx\n",
+        	                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#else
+        	 WARN(3, "%d: %016lx %016lx %016lx %016lx\n",
+        	                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#endif
+
         }
     }
     else { // use cuModuleLoadFatBinary() if invoked by the constructor of the user code.
@@ -1772,14 +1940,24 @@ RCDscudaRegisterFatBinary(RCHdr *rpkt0, RCHdr *spkt0)
         int *dum;
         err = cudaMalloc((void**)&dum, 128);
         check_cuda_error(err);
+#ifdef RC_LTYPEP64
+        WARN(3, "size: 0x%llx byte, 0x%llx word\n", imgsize, imgsize / 8);
+#else
+        WARN(3, "size: 0x%lx byte, 0x%lx word\n", imgsize, imgsize / 8);
+#endif
 
-        WARN(3, "size: 0x%RC_LTYPEP byte, 0x%RC_LTYPEP word\n", imgsize, imgsize / 8);
 
         int i;
         unsigned long long int *img = (unsigned long long int *)imgbuf;
         for (i = 0; i < 3 * 4; i += 4) {
-            WARN(3, "%d: %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP %016RC_LTYPEP\n",
-                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#ifdef RC_LTYPEP64
+        	WARN(3, "%d: %016llx %016llx %016llx %016llx\n",
+        	                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#else
+        	WARN(3, "%d: %016lx %016lx %016lx %016lx\n",
+        	                 i, img[i + 0], img[i + 1], img[i + 2], img[i + 3]);
+#endif
+
         }
 
         cuerr = cuModuleLoadFatBinary((CUmodule *)&handle, imgbuf);
@@ -1790,8 +1968,12 @@ RCDscudaRegisterFatBinary(RCHdr *rpkt0, RCHdr *spkt0)
     }
     cnt++;
 
+#ifdef RC_LTYPEP64
+    WARN(3, "handle: 0x%llx\n", handle);
+#else
+    WARN(3, "handle: 0x%lx\n", handle);
+#endif
 
-    WARN(3, "handle: 0x%RC_LTYPEP\n", handle);
     spkt->handle = (RCadr)handle;
     spkt->err = (cudaError_t)cudaSuccess;
 
@@ -1815,8 +1997,11 @@ RCDscudaUnregisterFatBinary(RCHdr *rpkt0, RCHdr *spkt0)
     // causing the client wait forever.
     //
     // __cudaUnregisterFatBinary((void **)rpkt->handle); // !!!
-    //
-    // WARN(3, "0x%RC_LTYPEP) done.\n", rpkt->handle);
+    //#ifdef RC_LTYPEP64
+    	//WARN(3, "0x%llx) done.\n", rpkt->handle);
+    //#else
+    	//WARN(3, "0x%lx) done.\n", rpkt->handle);
+    //#endif
 
     spkt->err = (cudaError_t)cudaSuccess;
 
@@ -1855,9 +2040,14 @@ RCDscudaRegisterFunction(RCHdr *rpkt0, RCHdr *spkt0)
     Kfunc[Nkfunc].hostFuncHandle = kfunchandle;
     memcpy(Kfunc[Nkfunc].deviceFuncSymbol, rpkt->dfunc, strlen(rpkt->dfunc) + 1);
     Nkfunc++;
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%llx, 0x%llx, %s, %s, %d) done.\n",
+            rpkt->handle, rpkt->hfunc, rpkt->dfunc, rpkt->dname, rpkt->tlimit);
+#else
+    WARN(3, "0x%lx, 0x%lx, %s, %s, %d) done.\n",
+            rpkt->handle, rpkt->hfunc, rpkt->dfunc, rpkt->dname, rpkt->tlimit);
+#endif
 
-    WARN(3, "0x%RC_LTYPEP, 0x%RC_LTYPEP, %s, %s, %d) done.\n",
-         rpkt->handle, rpkt->hfunc, rpkt->dfunc, rpkt->dname, rpkt->tlimit);
 
     spkt->err = (cudaError_t)cudaSuccess;
 
@@ -1898,8 +2088,14 @@ RCDscudaRegisterVar(RCHdr *rpkt0, RCHdr *spkt0)
     memcpy(Gptr[Ngptr].symbol, rpkt->dvar, strlen(rpkt->dvar) + 1);
     Ngptr++;
 
-    WARN(3, "0x%RC_LTYPEP, 0x%RC_LTYPEP, %s, %s) done.\n",
-         rpkt->handle, rpkt->hvar, rpkt->dvar, rpkt->dname);
+#ifdef RC_LTYPEP64
+    WARN(3, "0x%llx, 0x%llx, %s, %s) done.\n",
+            rpkt->handle, rpkt->hvar, rpkt->dvar, rpkt->dname);
+#else
+    WARN(3, "0x%lx, 0x%lx, %s, %s) done.\n",
+            rpkt->handle, rpkt->hvar, rpkt->dvar, rpkt->dname);
+#endif
+
 
     spkt->err = (cudaError_t)cudaSuccess;
 

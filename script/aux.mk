@@ -2,10 +2,17 @@
 #Based on findcudalib.mk from NVIDIA cuda toolkit 5.5
 #By Edgar J. 
 DSCUDA_VER 	:= 1.7.5.1
-LTYPEP64	:= -DLTYPEP64
+
 # OS Name (Linux or Darwin)
 OSUPPER = $(shell uname -s 2>/dev/null | tr "[:lower:]" "[:upper:]")
 OSLOWER = $(shell uname -s 2>/dev/null | tr "[:upper:]" "[:lower:]")
+
+
+#ifdef RC_LTYPEP64
+   
+#else
+   
+#endif
 
 
 # Flags to detect 32-bit or 64-bit OS platform

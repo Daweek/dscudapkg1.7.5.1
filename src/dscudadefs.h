@@ -33,7 +33,7 @@
 #ifdef LTYPEP64
 #define RC_LTYPEP64 	//For printing WARN messages 64/32 bits such as WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx)
 #else
-#undef RC_LTYPEP
+#undef RC_LTYPEP64
 #endif
 
 #endif //  _DSCUDADEFS_H

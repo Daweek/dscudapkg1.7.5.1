@@ -3,6 +3,16 @@
  */
 #include "dscudadefs.h"
 #include "dscuda.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <net/if.h>
 
 
 static cudaError_t cudaMemcpyP2P(void *dst, int ddev, const void *src, int sdev, size_t count);

@@ -8,13 +8,6 @@ OSUPPER = $(shell uname -s 2>/dev/null | tr "[:lower:]" "[:upper:]")
 OSLOWER = $(shell uname -s 2>/dev/null | tr "[:upper:]" "[:lower:]")
 
 
-#ifdef RC_LTYPEP64
-   
-#else
-   
-#endif
-
-
 # Flags to detect 32-bit or 64-bit OS platform
 OS_SIZE = $(shell uname -m | sed -e "s/i.86/32/" -e "s/x86_64/64/" -e "s/armv7l/32/")
 OS_ARCH = $(shell uname -m | sed -e "s/i386/i686/")

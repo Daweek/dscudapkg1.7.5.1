@@ -170,4 +170,4 @@ sockutil_andr.o:	sockutil.c
 #Others.........................
 
 clean:
-	/bin/rm $(TARGET) $(TARGET_TCPONLY) *.o *~ *.linkinfo
+	/bin/rm -rf $(TARGET) $(TARGET_TCPONLY) *.o *~ *.linkinfo *.dSYM

@@ -69,12 +69,15 @@ FLAGS						:= $(LTYPEP64)
 ###########...Main Body...#############
 TARGET = cras_gpu
 
-all: $(TARGET)_tcp
+all: $(TARGET)_tcp_opt
 
 $(TARGET)_tcp: cras36.c sockhelp.o mr3_tcp.o $(CONNECT_TCP)
 	$(NVCC) $(FLAGS) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp.o -ldscuda_tcp
 
-$(TARGET)_tcp_android: cras36.c sockhelp.o mr3_tcp_android.o $(DSCUDA_PATH)/lib/libdscuda_tcp_andr.a
+$(TARGET)_tcp_opt: cras36_opt.c sockhelp.o mr3_tcp_opt.o $(CONNECT_TCP)
+	$(NVCC) $(FLAGS) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_opt.o -ldscuda_tcp
+
+$(TARGET)_tcp_android: cras36_opt.c sockhelp.o mr3_tcp_android.o $(DSCUDA_PATH)/lib/libdscuda_tcp_andr.a
 	gcc $(FLAGS) -DVTGRAPE -DTCP_ONLY=1 -O0 -g -P -ffast-math -funroll-loops $(INC) $(LIBDIR) \
 	 $< -o $@ $(LIB) mr3_tcp_android.o -ldscuda_tcp_andr \
 	-lm
@@ -85,7 +88,10 @@ $(TARGET)_ibv: cras36.c sockhelp.o mr3_ibv.o $(CONNECT_IBV)
 mr3_tcp.o:  mr3.cu
 	$(DSCUDA_CPP) $(FLAGS) $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
 
-mr3_tcp_android.o:  mr3.cu
+mr3_tcp_opt.o:  mr3_opt.cu
+	$(DSCUDA_CPP) $(FLAGS) $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
+
+mr3_tcp_android.o:  mr3_opt.cu
 	$(DSCUDA_CPP) $(FLAGS) --cpp $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
  
 mr3_ibv.o:  mr3.cu

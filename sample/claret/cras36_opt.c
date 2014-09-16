@@ -1,0 +1,1 @@
+/media/sf_ClaretforAndroidOpt/cras36.c

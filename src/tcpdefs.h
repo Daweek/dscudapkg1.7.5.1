@@ -9,6 +9,6 @@ typedef struct {
     char *recvbuf;
 } TcpConnection;
 
-#define RC_SOCKET_BUF_SIZE (1024 * 1024 * 32)
+#define RC_SOCKET_BUF_SIZE (1024 * 1024 * 300)
 
 #endif // TCPDEFS_H

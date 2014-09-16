@@ -6,7 +6,7 @@ all: client_tcp_test
 client_tcp_test:
 	$(MAKE) -C src/ libdscuda_tcp.a
 	$(MAKE) DSCUDA_LIB_TYPE=tcp -C sample/bandwidth/ bandwidth_tcp
-	sample/vecadd/vecadd_tcp
+	sample/bandwidth/bandwitdh_tcp
 
 client_ibv_test:
 	$(MAKE) -C src/ libdscuda_ibv.a

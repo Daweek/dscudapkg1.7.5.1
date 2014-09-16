@@ -87,17 +87,17 @@ bcastperf(int argc, char **argv)
 static void
 sendperf(int argc, char **argv)
 {
-    int maxsize = 1024 * 1024 * 10.0;
+    int maxsize = 1024 * 1024 * 300;
     int i, j;
     size_t size;
     double sized;
     double now = 0.0, dt = 0.0;
-    double ratio = 2.5;
+    double ratio = 2;
     double nloop = 2e8;
     char *src[MAXDEV];
     char *dst[MAXDEV];
     int ndev;
-    cutilSafeCall(cudaGetDeviceCount(&ndev));
+    //cutilSafeCall(cudaGetDeviceCount(&ndev));
 
     ndev = 1; // !!!
 
@@ -110,15 +110,15 @@ sendperf(int argc, char **argv)
     printf("\n#\n# cudaMemcpy (HostToDevice)\n#\n");
 
 #if 1
-    nloop = 2e8;
-    for (sized = 4096; sized < maxsize; sized *= ratio) {
+    nloop = 2e10;
+    for (sized = 1024; sized < maxsize; sized *= ratio) {
 
         size = (size_t)sized;
 
 	get_cputime(&now, &dt);
 	for (j = 0; j < nloop/size; j++) {
 	    for (i = 0; i < ndev; i++) {
-  	        cudaSetDevice(i);
+  	      //  cudaSetDevice(i);
                 cudaMemcpy(dst[i], src[i], size, cudaMemcpyHostToDevice);
 	    }
 	}
@@ -155,31 +155,31 @@ sendperf(int argc, char **argv)
 static void
 receiveperf(int argc, char **argv)
 {
-    int maxsize = 1024 * 1024 * 10.0;
+    int maxsize = 1024 * 1024 * 300;
     int i, j;
     size_t size;
     double sized;
     double now = 0.0, dt = 0.0;
-    double ratio = 2.5;
+    double ratio = 2;
     double nloop = 2e8;
     char *src[MAXDEV];
     char *dst[MAXDEV];
     int ndev;
-    cutilSafeCall(cudaGetDeviceCount(&ndev));
+    //cutilSafeCall(cudaGetDeviceCount(&ndev));
 
     ndev = 1; // !!!
 
     printf("# %d device%s found.\n", ndev, ndev > 1 ? "s" : "");
     for (i = 0; i < ndev; i++) {
-        cudaSetDevice(i);
+        //cudaSetDevice(i);
         cutilSafeCall(cudaMalloc((void**) &src[i], sizeof(char) * maxsize));
 	dst[i] = (char *)malloc(sizeof(char) * maxsize);
     }
     printf("\n#\n# cudaMemcpy (DeviceToHost)\n#\n");
 
 
-    nloop = 2e9;
-    for (sized = 4096; sized < maxsize; sized *= ratio) {
+    nloop = 2e10;
+    for (sized = 1024; sized < maxsize; sized *= ratio) {
 
         size = (size_t)sized;
 
@@ -201,8 +201,8 @@ receiveperf(int argc, char **argv)
 int
 main(int argc, char **argv)
 {
-    int ndev;
-    cutilSafeCall(cudaGetDeviceCount(&ndev));
+    int ndev=1;
+    //cutilSafeCall(cudaGetDeviceCount(&ndev));
 
     if (1 < ndev) {
         bcastperf(argc, argv);

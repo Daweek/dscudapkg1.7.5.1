@@ -69,6 +69,9 @@ TARGET = cras_gpu
 
 all: $(TARGET)_tcp
 
+$(TARGET)_native: cras36.c sockhelp.o mr3_tcp_native.o
+	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp_native.o
+
 $(TARGET)_tcp: cras36.c sockhelp.o mr3_tcp.o $(CONNECT_TCP)
 	$(NVCC) $(CUDA_FLAGS) $(INC) $(LIBDIR) $(LIB) $< -o $@ mr3_tcp.o -ldscuda_tcp
 
@@ -80,6 +83,9 @@ $(TARGET)_ibv: cras36.c sockhelp.o mr3_ibv.o $(CONNECT_IBV)
 #---------------------Objects
 mr3_tcp.o:  mr3.cu
 	$(DSCUDA_CPP) $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 
+
+mr3_tcp_native.o:  mr3.cu
+	$(NVCC) $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c  $< 
 
 mr3_tcp_android.o:  mr3.cu
 	$(DSCUDA_CPP) --cpp $(PERF_FLAGS) -DTCP_ONLY=1 $(INC) -o $@ -c -i $< 

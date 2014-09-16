@@ -8,7 +8,7 @@
 #include <cutil_inline.h>
 
 #define MAXDEV 2
-#define NLOOP 8e8
+#define NLOOP 2e7
 #define PKG	  1024
 #define MAXSIZE 1024*1024*300
 static const double MEGA  = 1e6;

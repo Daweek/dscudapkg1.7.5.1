@@ -8,7 +8,7 @@
 #define RC_NVDEVMAX 64      // max # of virtual devices per client.
 #define RC_NPTHREADMAX 64   // max # of pthreads which use virtual devices.
 
-#define RC_BUFSIZE (1024*1024) // size (in byte) of send/receive buffers for socket.
+#define RC_BUFSIZE (1024*1024*500) // size (in byte) of send/receive buffers for socket.
 #define RC_NKMODULEMAX 128  // max # of kernel modules to be stored.
 #define RC_NKFUNCMAX   128  // max # of kernel functions to be stored.
 #define RC_NSYMBOLMAX   128  // max # of global symbols (defined in the device code) to be stored.
@@ -31,7 +31,7 @@
 #define RC_SERVER_IP_PORT  (RC_DAEMON_IP_PORT+1)
 
 #ifdef LTYPEP64
-#define RC_LTYPEP64 	//For printing WARN messages 64/32 bits such as WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx)
+#define RC_LTYPEP64  //For printing WARN messages 64/32 bits such as WARN(0, "cuModuleGetGlobal(0x%08llx, 0x%08llx, 0x%08llx, 0x%08llx)
 #else
 #undef RC_LTYPEP64
 #endif

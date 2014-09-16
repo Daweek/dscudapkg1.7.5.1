@@ -42,7 +42,7 @@ CUDA_INC        := -I. -I$(CUDA_PATH)/include -I$(CUDA_SDKPATH)/common/inc -I$(C
 #CUDA_INC       := -I. -I$(CUDA_PATH)/include -I$(DSCUDA_PATH)/include/common/inc
 #DSCUDA......................
 DSCUDA_INC      := -I.
-DSCUDA_HDR			:= dscuda.h dscudadefs.h dscudamacros.h 
+DSCUDA_HDR		:= dscuda.h dscudadefs.h dscudamacros.h 
 CLIENTBASE     	:= dscudaverb.h libdscuda.h libdscuda.cu dscudaverb.o
 #Others......................
 GL_INC          := -I$(CUDA_SDKPATH)/shared/inc
@@ -60,7 +60,7 @@ PERF_FLAG       :=
 
 #Others......................
 OPENMP          := -Xcompiler -fopenmp
-BINCOMPAT				:= -DBINCOMPATIBLE=1
+BINCOMPAT		:= -DBINCOMPATIBLE=1
 #,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #--------------------------------------
 #.........GLOBAL VARIABLES.............

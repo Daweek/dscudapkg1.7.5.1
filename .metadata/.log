@@ -1,0 +1,27 @@
+!SESSION 2014-09-16 15:42:23.294 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /var/root/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /var/root/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-09-16 15:42:59.155
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.cdt.core 1 0 2014-09-16 15:43:46.634
+!MESSAGE Indexed 'src' (23 sources, 305 headers) in 6.05 sec: 14,948 declarations; 39,557 references; 93 unresolved inclusions; 25 syntax errors; 7,455 unresolved names (12.03%)
+
+!ENTRY org.eclipse.core.resources 4 77 2014-09-16 15:45:07.015
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2014-09-16 15:45:07.015
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2014-09-16 15:45:07.015
+!MESSAGE /usr/local/DSCUDA/dscudapkg1.7.5.1 overlaps the workspace location: /usr/local/DSCUDA/dscudapkg1.7.5.1
+
+!ENTRY org.eclipse.core.resources 4 77 2014-09-16 15:48:13.558
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2014-09-16 15:48:13.558
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2014-09-16 15:48:13.558
+!MESSAGE /usr/local/DSCUDA/dscudapkg1.7.5.1 overlaps the workspace location: /usr/local/DSCUDA/dscudapkg1.7.5.1
